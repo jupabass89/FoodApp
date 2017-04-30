@@ -1,7 +1,9 @@
-package com.example.juan.foodapp;
+package com.example.juan.foodapp.controlador;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.juan.foodapp.R;
 
 public class Principal extends AppCompatActivity {
 
