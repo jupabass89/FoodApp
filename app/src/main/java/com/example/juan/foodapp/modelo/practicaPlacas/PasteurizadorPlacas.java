@@ -8,10 +8,10 @@ public class PasteurizadorPlacas {
     private final float ANCHO_PLACA = 0.1f;                     //metros
     private final float LARGO_PLACA= 0.48f;                     //mts
     private final float DISTANCIA_PLACAS= 0.003f;               //mts
-    private final float DIAMETRO_EQUIVALENTE= 0.006F;           //mts
-    private final float CALIBRE = 0.00075F;                     //mts
-    private final float ESPESOR_PLACAS= 0.003F;                 //mts
-    private final float AREA_CIRCULACION= 0.003F;               //m2
+    private final float DIAMETRO_EQUIVALENTE= 0.006f;           //mts
+    private final float CALIBRE = 0.00075f;                     //mts
+    private final float ESPESOR_PLACAS= 0.003f;                 //mts
+    private final float AREA_CIRCULACION= 0.003f;               //m2
     private final float COEFICIENTE_OBSTRUCCION= 0.009f;
     private final int NUMERO_PLACAS_PASTERIZACION_ENFRIAMIENTO = 6;
     private final int NUMERO_PLACAS_REGENERACION = 8;

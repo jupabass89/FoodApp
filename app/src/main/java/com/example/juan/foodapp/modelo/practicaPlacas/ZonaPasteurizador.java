@@ -2,20 +2,20 @@ package com.example.juan.foodapp.modelo.practicaPlacas;
 
 public class ZonaPasteurizador {
 
-    private float flujoDeCalor;
+    private float flujoDeCalor; // J/s
     private float porcentajeDeRetencion;
-    private float coefIndTCAlimento;
+    private float coefIndTCAlimento; // W/m^2.°c
     private float areaDeFlujo;
     private float densidadDeFlujoMasicoGlobal;
     private float numeroDeReynolds;
     private float numeroDePrant;
-    private float coefIndTCTeorico;
+    private float coefIndTCTeorico; // W/m^2.°c
     private float porcentajeDeError;
-    private float coefGlobalTC;
-    private float NUT;                              // número de unidades de transferencia de calor
+    private float coefGlobalTC; // U -- W/m^2.°c
+    private float NUT; // número de unidades de transferencia de calor
     private float efectividadIntercambiadorDeCalor;
     private float caidaDePresionFluido;
-    private float temperaturaMediaLogaritmica;
+    private float temperaturaMediaLogaritmica; // MLDT -- °c
     private float temperaturaParedPlaca;
     private float factorFriccionFanning;
 
