@@ -17,6 +17,7 @@ public class Alimento {
     private float densidad;                 //kg/m3
     private float viscosidad;               //kg/m*s
     private float ht;                       //ht (COEF TRANS ALIM)
+    private float composicion;              //**
 
     public String getNombreAlimento() {
         return nombreAlimento;
@@ -137,5 +138,13 @@ public class Alimento {
     // Modificar
     public float getCapacidadCalorifica(){
         return (0);
+    }
+
+    public float getComposicion() {
+        return composicion;
+    }
+
+    public void setComposicion(float composicion) {
+        this.composicion = composicion;
     }
 }
