@@ -1,23 +1,116 @@
 
 package com.example.juan.foodapp.modelo.practicaTanque;
 
-import com.example.juan.foodapp.modelo.Practica;
+public class OperacionTanqueAgitado {
 
+    /*
+    * ECUACIÓN 2 DE LA GUÍA DE TANQUE AGITADO:
+    * calcula ht: coeficiente individual de transferencia de calor al interior del tanque
+    *
+    * Variables:
+    * Dti:
+    * k:
+    * a:
+    * b:
+    * m:
+    * Da:
+    * p:
+    * N:
+    * M:
+    * Mw:
+    * cp:
+    */
+    public float calcularCoeficienteIndividualTransferenciaCalorInteriorTanque (float Dti, float k, float a, float b, float m, float Da, float p, float N, float M, float Mw, float cp ){
 
-public class OperacionTanqueAgitado extends Practica {
+        double parte1;
+        double parte2;
+        double parte3;
+        float ht;
 
-    public OperacionTanqueAgitado(){
+        parte1=  a*Math.pow(((Math.pow(Da,2)*N*p)/M),b);
+        parte2 =  Math.pow(((cp*M)/k), (1/3));
+        parte3 = Math.pow((M/Mw),m);
+
+        ht=(float)(((parte1*parte2*parte3)*k)/Dti);
+
+        return ht;
+    }
+
+    /*
+    * ECUACIÓN 3 DE LA GUÍA DE TANQUE AGITADO
+    * Calcula hch : coeficiente de transferencia de calor del fluido al interior del la chaqueta
+    *
+    * Variables:
+    *  Dch:
+    *  Dto:
+    *  Dti:
+    *  Tce:
+    *  Tfe:
+    *  Tfs:
+    *  Tcs:
+    *  cp:
+    *  M:
+    *  k:
+    *  p:
+    *  g:
+    *  B:
+    */
+    public float calcularCoeficienteIndividualTransferenciaCalorChaqueta(float Dch, float Dto, float Dti, float Tce, float Tfe, float Tfs, float Tcs, float cp, float M, float k, float p, float g, float B ){
+
+        float hch;
+        double parte1;
+        double parte2;
+        float Dequ = calcularDequ(Dch, Dto, Dti);
+        float MLDT = calcularMLDT(Tce, Tfs, Tcs, Tfe);
+
+        parte1= 0.15*(Math.pow(((cp*M)/k),(1/3)));
+        parte2= Math.pow((((Math.pow(p,2))* (Math.pow(Dequ,3))*g*B*MLDT)/(Math.pow(M,2))),0.33);
+
+        hch= (float)((parte1*parte2*k)/Dequ);
+        return hch;
 
     }
 
-    /**
+    /*
+    *ECUACIÓN 4 DE LA GUÍA DE TANQUE AGITADO:
+    * Calcula Dequ:
+    * Variables:
+    *
+    *
+    *
+    *
+    */
+    private float calcularDequ(float Dch, float Dto, float Dti){
+        float Dequ;
+        Dequ = (float)((Math.pow(Dch,2) - Math.pow(Dto,2))/Dto);        //**rectificar!!
+        return Dequ;
+    }
+
+    /*
+    *ECUACIÓN 5 DE LA GUÍA DE TANQUE AGITADO:
+    * Calcula MLTD
+    * Variables:
+    *
+    *
+    *
+    */
+    private float calcularMLDT(float Tce, float Tfs, float Tcs, float Tfe){
+        float MLTD;
+        float parte1;
+        float parte2;
+
+        parte1 = (Tce-Tfs)-(Tcs-Tfe);
+        parte2= (float)(Math.log((Tce-Tfs)/(Tcs-Tfe)));
+        MLTD = parte1/parte2;
+
+        return MLTD;
+    }
+
+    /*
      * Calula el Uc (Ut).
-     * @return
-     */
-    /* coeficienteIndividual es ht.
+     * coeficienteIndividual es ht.
      *conductividadParedTanque es conductividad del material al interior del tanque.
      * se necesita haber calculado previamente coeficienteTransfereciainteriorTanque y coeficienteIndividual
-     *
      */
     public float calcularCoeficienteGlobalTrasnferenciaDeCalor(float conductividadParedTanque, float coeficienteIndividual,
             float diametroInternoTanque, float diametroExternoTanque, float factorObstruccionPorIncustracion,
