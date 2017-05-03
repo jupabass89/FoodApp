@@ -6,22 +6,21 @@ public class OperacionTanqueAgitado {
     /*
     * ECUACIÓN 2 DE LA GUÍA DE TANQUE AGITADO:
     * calcula ht: coeficiente individual de transferencia de calor al interior del tanque
-    *
     * Variables:
-    * Dti:
-    * k:
-    * a:
-    * b:
-    * m:
-    * Da:
-    * p:
-    * N:
-    * M:
-    * Mw:
-    * cp:
+    * Dti: el diámetro interno del tanque
+    * k: es la conductividad térmica del fluido calefactor (W/m °C)
+    * a:    parámetro del agitador  // **especificar nombres
+    * b:    parámetro del agitador  // **especificar nombres
+    * m:    parámetro del agitador  // **especificar nombres
+    * Da: es el diámetro del agitador (m)
+    * p: ρ es la densidad del fluido (kg/m3
+    * N: N es la velocidad de giro del agitador (rps)
+    * M: μ es la viscosidad del fluido en el centro
+    * Mw: (μw) es la viscosidad del fluido en la pared del tanque
+    * cp: es el calor específico del fluido (J/kg°C)
     */
     public float calcularCoeficienteIndividualTransferenciaCalorInteriorTanque (float Dti, float k, float a, float b, float m, float Da, float p, float N, float M, float Mw, float cp ){
-
+        //se dividió en partes la ecuación por efectos de mantenibilidad
         double parte1;
         double parte2;
         double parte3;
@@ -41,22 +40,22 @@ public class OperacionTanqueAgitado {
     * Calcula hch : coeficiente de transferencia de calor del fluido al interior del la chaqueta
     *
     * Variables:
-    *  Dch:
-    *  Dto:
-    *  Dti:
-    *  Tce:
-    *  Tfe:
-    *  Tfs:
-    *  Tcs:
-    *  cp:
-    *  M:
-    *  k:
-    *  p:
-    *  g:
-    *  B:
+    *  Dch: es el diámetro interno de la chaqueta
+    *  Dto: es el diámetro externo del tanque
+    *  Dti:el diámetro interno del tanque
+    *  Tce: la temperatura de entrada del fluido caliente
+    *  Tfe: la temperatura de entrada del fluido frio
+    *  Tfs: la temperatura de salida del fluido frio
+    *  Tcs: la temperatura de salida del fluido caliente
+    *  cp: es el calor específico del fluido (J/kg°C)
+    *  M: (μ) es la viscosidad del fluido en el centro del tanque
+    *  k: es la conductividad térmica del fluido calefactor (W/m °C)
+    *  p: (ρ) es la densidad del fluido (kg/m3)
+    *  g: es la gravedad específica (m/s2
+    *  B: es el coeficiente de expansión térmica del fluido (1/°C)
     */
     public float calcularCoeficienteIndividualTransferenciaCalorChaqueta(float Dch, float Dto, float Dti, float Tce, float Tfe, float Tfs, float Tcs, float cp, float M, float k, float p, float g, float B ){
-
+        //se dividió en partes la ecuación por efectos de mantenibilidad
         float hch;
         double parte1;
         double parte2;
@@ -68,17 +67,15 @@ public class OperacionTanqueAgitado {
 
         hch= (float)((parte1*parte2*k)/Dequ);
         return hch;
-
     }
 
     /*
     *ECUACIÓN 4 DE LA GUÍA DE TANQUE AGITADO:
     * Calcula Dequ:
     * Variables:
-    *
-    *
-    *
-    *
+    *  Dch: es el diámetro interno de la chaqueta
+    *  Dto: es el diámetro externo del tanque
+    *  Dti:el diámetro interno del tanque
     */
     private float calcularDequ(float Dch, float Dto, float Dti){
         float Dequ;
@@ -88,13 +85,15 @@ public class OperacionTanqueAgitado {
 
     /*
     *ECUACIÓN 5 DE LA GUÍA DE TANQUE AGITADO:
-    * Calcula MLTD
+    * Calcula MLTD: es la temperatura media logarítmica (°C)
     * Variables:
-    *
-    *
-    *
+    *  Tce: la temperatura de entrada del fluido caliente
+    *  Tfe: la temperatura de entrada del fluido frio
+    *  Tfs: la temperatura de salida del fluido frio
+    *  Tcs: la temperatura de salida del fluido caliente
     */
     private float calcularMLDT(float Tce, float Tfs, float Tcs, float Tfe){
+        //se dividió en partes la ecuación por efectos de mantenibilidad
         float MLTD;
         float parte1;
         float parte2;
