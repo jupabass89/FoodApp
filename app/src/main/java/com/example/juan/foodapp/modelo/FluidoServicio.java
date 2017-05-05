@@ -16,6 +16,7 @@ public class FluidoServicio {
     private float viscosidad;
     private float coefExpTermica;
     private float hCH;
+    public static final float GRAVEDAD=9.8f;
 
     public String getNombreFluido() {
         return nombreFluido;

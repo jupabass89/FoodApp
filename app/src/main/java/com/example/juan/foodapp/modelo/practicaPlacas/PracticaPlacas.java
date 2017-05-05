@@ -64,4 +64,14 @@ public class PracticaPlacas extends Practica {
         // Calcular la caida de presion
         // Esta utlima se le evalua al alimento o al fluido de servicio?
     }
+
+    @Override
+    public void configurarPractica() {
+
+    }
+
+    @Override
+    public void graficar(){
+
+    }
 }
