@@ -15,6 +15,7 @@ public class FluidoServicio {
     private float densidad;
     private float viscosidad;
     private float coefExpTermica;
+    private float coeficienteDeIncrustacion;
     private float hCH;
     public static final float GRAVEDAD=9.8f;
 
@@ -132,5 +133,17 @@ public class FluidoServicio {
 
     public void sethCH(float hCH) {
         this.hCH = hCH;
+    }
+
+    public float getCoeficienteDeIncrustacion() {
+        return coeficienteDeIncrustacion;
+    }
+
+    public void setCoeficienteDeIncrustacion(float coeficienteDeIncrustacion) {
+        this.coeficienteDeIncrustacion = coeficienteDeIncrustacion;
+    }
+
+    public float temperaturaPromedio(){
+        return ((tempEntrada+tempSalida)/2);
     }
 }

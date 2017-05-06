@@ -6,72 +6,115 @@ import com.example.juan.foodapp.modelo.Practica;
 
 public class PracticaPlacas extends Practica {
 
-    private ZonaPasteurizador regeneracion, pasteurizacion, enfriamiento;
-    private Alimento alimento;
-    private FluidoServicio fluidoDeServicio;
+    private OperacionDeFluidoPlacas operadorFluidos;
+    private OperacionZonaPasterizacionPlacas operadorPasterizacion;
     private PasteurizadorPlacas pasteurizador;
-    private OperacionesPlacas operador;
+    private Alimento fluidoFrio;
+    private FluidoServicio fluidoCaliente;
+    private ZonaPasterizacion zonaPasterizacion;
+    private final float temperaturaDeSalidaDelAlimento = 75f;
 
     public PracticaPlacas(){
-        operador = new OperacionesPlacas();
+        operadorFluidos = new OperacionDeFluidoPlacas();
+        operadorPasterizacion = new OperacionZonaPasterizacionPlacas();
         pasteurizador = new PasteurizadorPlacas();
-        regeneracion = new ZonaPasteurizador();
-        pasteurizacion = new ZonaPasteurizador();
-        enfriamiento = new ZonaPasteurizador();
-        alimento = new Alimento();
-        fluidoDeServicio = new FluidoServicio();
-        // Se deben setear los datos necesarios del Alimento y del Fluido de servicio
-        // Estos datos son tomados del controlador de la vista correspondiente
+        fluidoFrio = new Alimento();
+        fluidoCaliente = new FluidoServicio();
+        zonaPasterizacion = new ZonaPasterizacion();
+        // Se deben setear los datos necesarios para la practica
+        // Se utiliza el metodo configurarPractica()
+        // Estos datos se obtienen de la vista a traves del controlador
     }
 
-    private void calcularDatosDeZona(ZonaPasteurizador zona){
-        // Se calcula el flujo de calor con los datos del alimento
-        zona.setFlujoDeCalor(operador.flujoDeCalor(alimento.getFlujoMasico(), alimento.getCapacidadCalorifica(),
-                alimento.getTempEntrada(), alimento.getTempSalida(), 0));
-        zona.setTemperaturaParedPlaca(operador.tempEstimadaParedPlaca(alimento.getTemperaturaPromedio(),
-                fluidoDeServicio.getTemperaturaPromedio()));
-        zona.setCoefIndTCAlimento(operador.coeficientePorConveccionReal(zona.getFlujoDeCalor(),
-                pasteurizador.getAreaCirculacion(), zona.getTemperaturaParedPlaca(), alimento.getTemperaturaPromedio()));
-        // Preguntar sobre el Area de Circulacion
+    /**
+     * Se realizan los calculos necesarios para la zona de pasterizacion de la practica.
+     */
+    private void calcularDatosZonaPasterizacion(){
+        fluidoFrio.setCapacidadCalorifica(operadorFluidos.calcularCapacidadCalorificaDeFluido(fluidoFrio.getTemperaturaPromedio()));
+        fluidoCaliente.setCapacidadCalorifica(operadorFluidos.calcularCapacidadCalorificaDeFluido(fluidoCaliente.getTempEntrada()));
+        // Se calcula la densidad de cada fluido
+        fluidoFrio.setDensidad(operadorFluidos.calcularDensidadDeFluido(fluidoFrio.getTemperaturaPromedio()));
+        fluidoCaliente.setDensidad(operadorFluidos.calcularDensidadDeFluido(fluidoCaliente.getTempEntrada()));
 
-        zona.setAreaDeFlujo(operador.areaDeFlujo(pasteurizador.getAnchoPlaca(), pasteurizador.getDistanciaPlacas(),
-                0));
-        // Preguntar sobre el numero de canalaes
+        // Se calcula el flujo masico de cada fluido
+        fluidoFrio.setFlujoMasico(operadorFluidos.calcularFlujoMasicoDeFluido(zonaPasterizacion.getCaudalDeEntradaAlimento(),
+                fluidoFrio.getDensidad()));
+        fluidoCaliente.setFlujoMasico(operadorFluidos.calcularFlujoMasicoDeFluido(zonaPasterizacion.getCaudalDeEntradaFluidoDeServicio(),
+                fluidoCaliente.getDensidad()));
 
-        zona.setDensidadDeFlujoMasicoGlobal(operador.densidadDeFlujoMasicaGlobal(fluidoDeServicio.getFlujoMasico(),
-                zona.getAreaDeFlujo()));
+        zonaPasterizacion.setFlujoDeCalor(operadorPasterizacion.calcularFlujoDeCalor(fluidoFrio.getFlujoMasico(),
+                fluidoFrio.getCapacidadCalorifica(), fluidoFrio.getTempEntrada(), fluidoFrio.getTempSalida()));
 
-        zona.setNumeroDeReynolds(operador.numeroDeReynolds(pasteurizador.getDiametroEquivalente(),
-                fluidoDeServicio.getViscosidad(), zona.getDensidadDeFlujoMasicoGlobal()));
-        zona.setNumeroDePrant(operador.numeroDePrant(0, fluidoDeServicio.getViscosidad(), fluidoDeServicio.getConductividadTermica()));
-        // Preguntar sobre la Capacidad Calorifica de AMBOS fluidos necesitada en este caso
+        // Se calcula y se asigna la temperatura de salida del fluido caliente de la zona de pasterizacion
+        fluidoCaliente.setTempSalida(operadorPasterizacion.calcularTempSalidaDelFluidoDeServicio(zonaPasterizacion.getFlujoDeCalor(),
+                fluidoCaliente.getFlujoMasico(), fluidoCaliente.getCapacidadCalorifica(), fluidoCaliente.getTempEntrada()));
+        fluidoCaliente.setCapacidadCalorifica(operadorFluidos.calcularCapacidadCalorificaDeFluido(fluidoCaliente.getTemperaturaPromedio()));
 
-        zona.setCoefIndTCTeorico(operador.coeficientePorConveccionTeorico(fluidoDeServicio.getConductividadTermica(),
-                pasteurizador.getDiametroEquivalente(), zona.getNumeroDeReynolds(), zona.getNumeroDePrant()));
-        zona.setPorcentajeDeError(operador.porcentajeDeError(zona.getCoefIndTCAlimento(), zona.getCoefIndTCTeorico()));
-        zona.setTemperaturaMediaLogaritmica(operador.temperaturaMediaLogaritmica(alimento.getTempEntrada(), alimento.getTempSalida(),
-                fluidoDeServicio.getTempEntrada(), fluidoDeServicio.getTempSalida()));
-        zona.setCoefGlobalTC(operador.coeficienteGlobalDeTC(zona.getFlujoDeCalor(), pasteurizador.getAreaCirculacion(),
-                zona.getTemperaturaMediaLogaritmica()));
-        // Preguntar sobre el Area de Circulacion
+        // Se calcula la temperatura media logaritmica
+        zonaPasterizacion.setTemperaturaMediaLogaritmica(operadorPasterizacion.calcularTempMediaLogaritmica(fluidoFrio.getTempEntrada(),
+                fluidoFrio.getTempSalida(), fluidoCaliente.getTempEntrada(), fluidoCaliente.getTempSalida()));
 
-        zona.setNUT(operador.numeroUnidadesDeTC(alimento.getTempEntrada(), alimento.getTempSalida(), zona.getTemperaturaMediaLogaritmica()));
+        // Se calcula la temperatura estimada de la pared de la placa
+        zonaPasterizacion.setTemperaturaParedPlaca(operadorPasterizacion.calcularTempEstimadaParedPlaca(fluidoFrio.getTemperaturaPromedio(),
+                fluidoCaliente.getTemperaturaPromedio()));
 
-        // Calcular la efectividad
+        // Se calcula el Area de TC utlizando el coeficiente de TC asumido
+        zonaPasterizacion.setAreaDeDiseñoRequerida(operadorPasterizacion.calcularElAreaDeDiseñoRequerida(zonaPasterizacion.getFlujoDeCalor(),
+                zonaPasterizacion.getTemperaturaMediaLogaritmica(), zonaPasterizacion.getCoeficienteDeDiseñoAsumido()));
 
-        zona.setFactorFriccionFanning(operador.factorFriccionDeFanning(zona.getNumeroDeReynolds()));
+        // Se calcula el numero de placas necesarias
+        zonaPasterizacion.setAreaDeTCDeCadaPlaca(operadorPasterizacion.calcularElAreaDeTCDeCadaPlaca(pasteurizador.getAnchoPlaca(),
+                pasteurizador.getLargoPlaca()));
+        zonaPasterizacion.setNumeroDePlacasNecesarias(operadorPasterizacion.calcularNumeroDePlacasNecesarias(zonaPasterizacion.getAreaDeDiseñoRequerida(),
+                zonaPasterizacion.getAreaDeTCDeCadaPlaca()));
+        //if((int)zonaPasterizacion.getNumeroDePlacasNecesarias() > 700) generarAdvertencia
 
-        // Calcular la caida de presion
-        // Esta utlima se le evalua al alimento o al fluido de servicio?
+        // Se calcula el numero de canales totales
+        zonaPasterizacion.setNumeroDeCanalesTotales(operadorPasterizacion.calcularElNumeroDeCanalesTotales(zonaPasterizacion.getNumeroDePlacasNecesarias()));
+
+        // Se calcula el area de flujo
+        zonaPasterizacion.setAreaDeFlujo(operadorPasterizacion.calcularAreaDeFlujo(pasteurizador.getAnchoPlaca(), pasteurizador.getDistanciaPlacas(),
+                zonaPasterizacion.getNumeroDeCanalesTotales()));
+
+        // Se calculan las densidades de flujo masica global de ambos fluidos
+        zonaPasterizacion.setDensidadFlujoMasicaGlobalFluidoCaliente(operadorPasterizacion.calcularDensidadDeFlujoMasicaGlobalDeFluido(
+                fluidoCaliente.getFlujoMasico(), zonaPasterizacion.getAreaDeFlujo()));
+        zonaPasterizacion.setDensidadFlujoMasicaGlobalFluidoFrio(operadorPasterizacion.calcularDensidadDeFlujoMasicaGlobalDeFluido(
+                fluidoFrio.getFlujoMasico(), zonaPasterizacion.getAreaDeFlujo()));
+
+        // Se calculan la viscosidad y la conductividad termica de ambos fluidos
+        fluidoFrio.setViscosidad(operadorFluidos.calcularViscosidadDeFluido(fluidoFrio.getTemperaturaPromedio()));
+        fluidoCaliente.setViscosidad(operadorFluidos.calcularViscosidadDeFluido(fluidoCaliente.getTemperaturaPromedio()));
+        fluidoFrio.setConductividadTermica(operadorFluidos.calcularConductividadTermicaDeFluido(fluidoFrio.getTemperaturaPromedio()));
+        fluidoCaliente.setConductividadTermica(operadorFluidos.calcularConductividadTermicaDeFluido(fluidoCaliente.getTemperaturaPromedio()));
+
+        // Se calculan el numero de Reynolds y de Prant para cada fluido
+        zonaPasterizacion.setNumeroDeReynoldsFluidoFrio(operadorPasterizacion.calcularNumeroDeReynoldsFluido(zonaPasterizacion.getDensidadFlujoMasicaGlobalFluidoFrio(),
+                pasteurizador.getDiametroEquivalente(), fluidoFrio.getViscosidad()));
+        zonaPasterizacion.setNumeroDeReynoldsFluidoCaliente(operadorPasterizacion.calcularNumeroDeReynoldsFluido(zonaPasterizacion.getDensidadFlujoMasicaGlobalFluidoCaliente(),
+                pasteurizador.getDiametroEquivalente(), fluidoCaliente.getViscosidad()));
+        zonaPasterizacion.setNumeroDePrantFluidoFrio(operadorPasterizacion.calcularNumeroDePrantFluido(fluidoFrio.getCapacidadCalorifica(),
+                fluidoFrio.getViscosidad(), fluidoFrio.getConductividadTermica()));
+        zonaPasterizacion.setNumeroDePrantFluidoCaliente(operadorPasterizacion.calcularNumeroDePrantFluido(fluidoCaliente.getCapacidadCalorifica(),
+                fluidoCaliente.getViscosidad(), fluidoCaliente.getConductividadTermica()));
+
+        // Calculo de la variable Nusselt y del coeficienteTC para cada fluido
     }
 
     @Override
     public void configurarPractica() {
-
+        fluidoFrio.setTempSalida(temperaturaDeSalidaDelAlimento);
+        /*
+        -	Temperatura del alimento a la entrada de la sección.
+        -	Temperatura de entrada del fluido de servicio a la entrada de la sección.
+        -	El Caudal (flujo másico) correspondiente a la entrada del alimento a la zona.
+        -	El Caudal (flujo másico) correspondiente a la entrada del fluido de servicio a la zona.
+        -	El Coeficiente Global de Transferencia de Calor de Diseño (UD) que se va a suponer en la práctica. (aceptar valores entre 10 y 8500)
+        -	Coeficiente de incrustación para el fluido frio.
+        -	Coeficiente de incrustación para el fluido caliente.
+         */
     }
 
     @Override
-    public void graficar(){
-
-    }
+    public void graficar(){}
 }

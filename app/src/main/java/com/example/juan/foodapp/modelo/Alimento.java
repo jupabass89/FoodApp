@@ -11,13 +11,14 @@ public class Alimento {
     private float tempEntrada;              //°C
     private float tempSalida;               //°C
     private float conductividadTermica;     //w/m°C
+    private float capacidadCalorifica;
     private float calorEspecifico;          //J/kg°C
-    // capacidadCalorifica
     private float flujoMasico;              // Kg/s
     private float densidad;                 //kg/m3
     private float viscosidad;               //kg/m*s
     private float ht;                       //ht (COEF TRANS ALIM)
     private float composicion;              //**
+    private float coeficienteDeIncrustacion;
 
     public String getNombreAlimento() {
         return nombreAlimento;
@@ -95,6 +96,12 @@ public class Alimento {
         this.conductividadTermica = conductividadTermica;
     }
 
+    public float getCapacidadCalorifica(){ return capacidadCalorifica; }
+
+    public void setCapacidadCalorifica(float Cp){
+        this.capacidadCalorifica = Cp;
+    }
+
     public float getCalorEspecifico() {
         return calorEspecifico;
     }
@@ -135,16 +142,23 @@ public class Alimento {
         this.ht = ht;
     }
 
-    // Modificar
-    public float getCapacidadCalorifica(){
-        return (0);
-    }
-
     public float getComposicion() {
         return composicion;
     }
 
     public void setComposicion(float composicion) {
         this.composicion = composicion;
+    }
+
+    public float getCoeficienteDeIncrustacion() {
+        return coeficienteDeIncrustacion;
+    }
+
+    public void setCoeficienteDeIncrustacion(float coeficienteDeIncrustacion) {
+        this.coeficienteDeIncrustacion = coeficienteDeIncrustacion;
+    }
+
+    public float temperaturaPromedio(){
+        return ((tempEntrada+tempSalida)/2);
     }
 }
