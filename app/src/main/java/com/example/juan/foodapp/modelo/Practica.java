@@ -1,6 +1,6 @@
 package com.example.juan.foodapp.modelo;
 
-public  abstract class Practica {
+public abstract class Practica {
     
     protected String nombre;
     protected String nombreLaboratorio;
@@ -18,5 +18,4 @@ public  abstract class Practica {
     * falta un metodo que permita modificar los datos ingresados, esto es para que en el momento de variar los datos se pueda hacer
     * desde ese metodo.
      */
-
 }

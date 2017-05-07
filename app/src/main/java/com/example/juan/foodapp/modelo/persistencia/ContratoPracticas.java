@@ -6,36 +6,19 @@ import java.util.UUID;
  * CLASE ENCARGADA DE GUARDAR LOS METADATOS CORRESPONDIENTEAS A LAS TABLAS DE LA DB
  */
 public class ContratoPracticas {
-    
-    interface ColumnasRegeneracionPlacas{
-        String REG_P_NOMBRE = "reg_p_nombre";
-        String REG_P_TEMP_ALIMENTO_ENTRADA = "reg_p_temp_alimento_entrada";
-        String REG_P_TEMP_ALIMENTO_SALIDA = "reg_p_temp_alimento_salida";
-        String REG_P_TEMP_FLUIDO_DE_SERVICIO_ENTRADA = "reg_p_temp_fluido_de_servicio_entrada";
-        String REG_P_TEMP_FLUIDO_DE_SERVICIOS_ENTRADA = "reg_p_temp_fluido_de_servicio_salida";
-    }
-    
-    interface ColumnasPasteurizacionPlacas{
-        String REG_P_NOMBRE = "reg_p_nombre";
-        String REG_P_TEMP_ALIMENTO_ENTRADA = "reg_p_temp_alimento_entrada";
-        String REG_P_TEMP_ALIMENTO_SALIDA = "reg_p_temp_alimento_salida";
-        String REG_P_TEMP_FLUIDO_DE_SERVICIO_ENTRADA = "reg_p_temp_fluido_de_servicio_entrada";
-        String REG_P_TEMP_FLUIDO_DE_SERVICIOS_ENTRADA = "reg_p_temp_fluido_de_servicio_salida";
-    }
-    
-    interface ColumnasEnfriamientoPlacas{
-        String REG_P_NOMBRE = "reg_p_nombre";
-        String REG_P_TEMP_ALIMENTO_ENTRADA = "reg_p_temp_alimento_entrada";
-        String REG_P_TEMP_ALIMENTO_SALIDA = "reg_p_temp_alimento_salida";
-        String REG_P_TEMP_FLUIDO_DE_SERVICIO_ENTRADA = "reg_p_temp_fluido_de_servicio_entrada";
-        String REG_P_TEMP_FLUIDO_DE_SERVICIOS_ENTRADA = "reg_p_temp_fluido_de_servicio_salida";
-    }
-    
-    public static class RegeneracionPlacas implements ColumnasRegeneracionPlacas{}
 
-    public static class PasteurizacionPlacas implements ColumnasPasteurizacionPlacas{}
+    interface ColumnasZonaPasterizacionPlacas{
+        String PLACAS_PAST_NOMBRE = "placas_past_nombre";
+        String PLACAS_PAST_TEMP_ENTRADA_ALIMENTO = "placas_past_temp_entrada_alimento";
+        String PLACAS_PAST_TEMP_ENTRADA_FLUIDO_SERVICIO = "placas_past_temp_entrada_fluido_servicio";
+        String PLACAS_PAST_CAUDAL_ENTRADA_ALIMENTO = "placas_past_caudal_entrada_alimento";
+        String PLACAS_PAST_CAUDAL_ENTRADA_FLUIDO_SERVICIO = "placas_past_caudal_entrada_fluido_servicio";
+        String PLACAS_PAST_COEF_GLOBAL_TC_DISEÑO_ASUMIDO = "placas_past_coef_global_tc_diseño_asumido";
+        String PLACAS_PAST_COEF_INCRUSTACION_ALIMENTO = "placas_past_coef_incrustacion_alimento";
+        String PLACAS_PAST_COEF_INCRUSTACION_FLUIDO_SERVICIO = "placas_past_coef_incrustacion_fluido_servicio";
+    }
 
-    public static class EnfriamientoPlacas implements ColumnasEnfriamientoPlacas{}
+    public static class ZonaPasterizacionPlacas implements ColumnasZonaPasterizacionPlacas{}
     
     private ContratoPracticas(){}
 }
