@@ -25,8 +25,8 @@ public class OperacionZonaPasterizacionPlacas {
         return ((tempMediaFluidoCaliente+tempMediaFluidoFrio)/2);
     }
 
-    public float calcularElAreaDeDiseñoRequerida(float flujoDeCalor, float tempMediaLogaritmica, float coefGlobalDeTCAsumido){
-        return (flujoDeCalor/(coefGlobalDeTCAsumido*tempMediaLogaritmica));
+    public float calcularElAreaDeDiseñoRequerida(float flujoDeCalor, float tempMediaLogaritmica, float coefGlobalDeTC){
+        return (flujoDeCalor/(coefGlobalDeTC*tempMediaLogaritmica));
     }
 
     public float calcularElAreaDeTCDeCadaPlaca(float anchoPlaca, float largoPlaca){
@@ -61,6 +61,41 @@ public class OperacionZonaPasterizacionPlacas {
     // la temperatura estimada de la pared de la placa.
     public float calcularNusseltParaFluido(float numeroDeReynoldsFluido, float numeroDePrantFluido, float viscosidadFluido,
                                            float viscosidadFluidoP){
-        return(0);
+        float c1 = 1; // Se debe obtener la constante correspondiente
+        float m = 1; // Se debe obtener la constante correspondiente
+        return (float)(c1*Math.pow(numeroDeReynoldsFluido,m)*Math.pow(numeroDePrantFluido,0.33)*Math.pow((viscosidadFluido/viscosidadFluidoP),0.17));
+    }
+
+    // FALTA IMPLEMENTAR
+    private float[] obttenerConstantesParaNusselt(float numeroDeReynoldsFluido){
+       return(null);
+    }
+
+    public float calcularCoeficienteTCPorConveccionDeFluido(float variableNusseltDelFluido, float conductividadTermicaFluido, float diametroEquivalente){
+        return ((variableNusseltDelFluido*conductividadTermicaFluido)/diametroEquivalente);
+    }
+
+    public float calcularElCoefGlobalDeTC(float espesorPlacas, float conductividadTermicaMaterialDePlacas, float coefTCFludioFrio,
+                                          float coefTCFluidoCaliente, float coefIncrustacionFluidoFrio, float coefIncrustacionFluidoCaliente){
+        float coeficiente = (1/coefTCFludioFrio)+(espesorPlacas/conductividadTermicaMaterialDePlacas)+(1/coefTCFluidoCaliente)+
+                coefIncrustacionFluidoFrio+coefIncrustacionFluidoCaliente;
+        return (1/coeficiente);
+    }
+
+    /**
+     * Se compara y se valida la relacion entre el coeficiete de diseño asumido para la practica, y el obtenido mediante los calculos.
+     * @param coefDiseñoCalculado Coeficiente calculado.
+     * @param coefDiseñoAsumido Coeficiente asumido.
+     * @return True si la razon entre el coeficiente asumido y el calculado es aceptable, es decir, esta entre 0.955 y 1.05 ,
+     * False de lo contrario.
+     */
+    public boolean validacionCoeficientesDeDiseño(float coefDiseñoCalculado, float coefDiseñoAsumido){
+        float razon = (coefDiseñoAsumido/coefDiseñoCalculado);
+        if(razon >= 0.955 && razon <= 1.05) return (true);
+        return (false);
+    }
+
+    public float calcularElNumeroDePlacasTotalesRequeridas(float areaDeDiseñoRequerida, float areaDeTCPlacas){
+        return (2+(areaDeDiseñoRequerida/areaDeTCPlacas));
     }
 }

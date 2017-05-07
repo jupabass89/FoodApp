@@ -1,5 +1,8 @@
 package com.example.juan.foodapp.modelo.practicaPlacas;
 
+/**
+ * Clase que representa, en cuanto a datos se refiere, la zona de pasterizacion en el proceso de pasteurizacion con placas.
+ */
 public class ZonaPasterizacion {
 
     private float flujoDeCalor; // J/s
