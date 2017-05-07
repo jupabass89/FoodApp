@@ -19,11 +19,9 @@ public class Agitador {
     private float tablaAgitador[][];
     private float altura;
     private float velocidadGiroRPS;
-    private int tipoAgitador;
 
-    public Agitador(int selectedItem, float altura, float velocidadGiroRPS){
+    public Agitador(float altura, float velocidadGiroRPS){
         llenarTipoAgitador();
-        this.tipoAgitador = selectedItem;
         this.altura = altura;
         this.velocidadGiroRPS = velocidadGiroRPS;
     }
@@ -62,10 +60,21 @@ public class Agitador {
         tablaAgitador[6][1] = 1/2;
         tablaAgitador[6][2] =0.18f;
         tablaAgitador[6][3] = 800000;
-
-
     }
 
+    public float getAltura() {
+        return altura;
+    }
 
+    public void setAltura(float altura) {
+        this.altura = altura;
+    }
 
+    public float getVelocidadGiroRPS() {
+        return velocidadGiroRPS;
+    }
+
+    public void setVelocidadGiroRPS(float velocidadGiroRPS) {
+        this.velocidadGiroRPS = velocidadGiroRPS;
+    }
 }

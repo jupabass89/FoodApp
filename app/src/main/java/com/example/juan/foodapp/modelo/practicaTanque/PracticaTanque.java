@@ -10,10 +10,12 @@ public class PracticaTanque extends Practica {
     private FluidoServicio calefactor,refrigerante;
     private Tanque tanque;
     private OperacionTanqueAgitado operaciones;
+    private Agitador agitador;
 
     private float diametroInternoChaqueta;      //parametro
     private float tiempoEstCalentamiento;
     private float tiempoEstEnfriamiento;
+    private float coeficienteGlobalDeTrasnferencia;
     private float ht;                          //(COEF TRANS ALIM) 
 
 
@@ -24,87 +26,28 @@ public class PracticaTanque extends Practica {
         refrigerante = new FluidoServicio();
         tanque = new Tanque();
         operaciones = new OperacionTanqueAgitado();
+        agitador = new Agitador(5,5);
     }
 
+    private void hacerCalculos(){
+        float []agitador = this.agitador.getAgitador(0);
+        ht = operaciones.calcularCoeficienteIndividualTransferenciaCalorInteriorTanque(
+                tanque.getDiametroInterno(),calefactor.getConductividadTermica(),agitador[0],agitador[1],agitador[3],
+                this.agitador.getAltura(), calefactor.getDensidad(), this.agitador.getVelocidadGiroRPS(),calefactor.getViscosidad(),
+                calefactor.getViscosidad(),calefactor.getCalorEspecifico());
 
-    public Alimento getCalentamiento() {
-     return calentamiento;
-    }
+        diametroInternoChaqueta = 0;//hacer calculo con funcion de operaciones
 
-    public void setCalentamiento(Alimento calentamiento) {
-     this.calentamiento = calentamiento;
-    }
+        coeficienteGlobalDeTrasnferencia = operaciones.calcularCoeficienteGlobalTrasnferenciaDeCalor(tanque.getConductividadMaterial(),ht,
+                tanque.getDiametroInterno()/2,tanque.getDiametroExterno()/2,tanque.getFactorPorIncrustaciones(),tanque.getConductividadMaterial());
 
-    public Alimento getEnfriamiento() {
-     return enfriamiento;
-    }
+        tiempoEstCalentamiento = operaciones.calcularTimepoEstimadoCalentamiento(calentamiento.getVolumen(),
+                calentamiento.getDensidad(),calentamiento.getCalorEspecifico(),
+                tanque.getDiametroInterno(),calefactor.getTempInicial(),
+                calentamiento.getTempEntrada(),calentamiento.getTempSalida(),coeficienteGlobalDeTrasnferencia);
 
-    public void setEnfriamiento(Alimento enfriamiento) {
-     this.enfriamiento = enfriamiento;
-    }
+        tiempoEstEnfriamiento=0;
 
-    public FluidoServicio getCalefactor() {
-     return calefactor;
-    }
-
-    public void setCalefactor(FluidoServicio calefactor) {
-     this.calefactor = calefactor;
-    }
-
-    public FluidoServicio getRefrigerante() {
-     return refrigerante;
-    }
-
-    public void setRefrigerante(FluidoServicio refrigerante) {
-     this.refrigerante = refrigerante;
-    }
-
-    public Tanque getTanque() {
-     return tanque;
-    }
-
-    public void setTanque(Tanque tanque) {
-     this.tanque = tanque;
-    }
-
-    public OperacionTanqueAgitado getOperaciones() {
-     return operaciones;
-    }
-
-    public void setOperaciones(OperacionTanqueAgitado operaciones) {
-     this.operaciones = operaciones;
-    }
-
-    public float getDiametroInternoChaqueta() {
-     return diametroInternoChaqueta;
-    }
-
-    public void setDiametroInternoChaqueta(float diametroInternoChaqueta) {
-     this.diametroInternoChaqueta = diametroInternoChaqueta;
-    }
-
-    public float getTiempoEstCalentamiento() {
-     return tiempoEstCalentamiento;
-    }
-
-    public void setTiempoEstCalentamiento(float tiempoEstCalentamiento) {
-     this.tiempoEstCalentamiento = tiempoEstCalentamiento;
-    }
-
-    public float getTiempoEstEnfriamiento() {
-     return tiempoEstEnfriamiento;
-    }
-
-    public void setTiempoEstEnfriamiento(float tiempoEstEnfriamiento) {
-     this.tiempoEstEnfriamiento = tiempoEstEnfriamiento;
-    }
-
-    public float getHt() {
-     return ht;
-    }
-
-    public void setHt(float ht) {
-     this.ht = ht;
     }
 
     @Override

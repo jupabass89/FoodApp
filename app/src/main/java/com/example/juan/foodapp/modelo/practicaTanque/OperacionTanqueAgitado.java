@@ -113,13 +113,13 @@ public class OperacionTanqueAgitado {
      */
     public float calcularCoeficienteGlobalTrasnferenciaDeCalor(float conductividadParedTanque, float coeficienteIndividual,
             float diametroInternoTanque, float diametroExternoTanque, float factorObstruccionPorIncustracion,
-                                                               float coeficienteTransfereciainteriorTanque){
+                                                               float coeficienteConductividadTanque){
         double exponente = Math.pow((diametroInternoTanque/diametroExternoTanque),2);
         float Ut= (1/coeficienteIndividual)
                     +((diametroInternoTanque/(diametroExternoTanque*conductividadParedTanque))*(diametroExternoTanque-diametroInternoTanque))
-                    +((float)exponente*(1/coeficienteTransfereciainteriorTanque))+factorObstruccionPorIncustracion;
+                    +((float)exponente*(1/coeficienteConductividadTanque))+factorObstruccionPorIncustracion;
 
-        return 1/Ut;
+        return (1/Ut);
     }
 
     /*
@@ -127,12 +127,27 @@ public class OperacionTanqueAgitado {
      * falta parametros de temperatura de entrada y salida del alimento a procesar(igual que la ecuacion de abajo)
      * se necesita haber calculado previamiente ut y areaTransferenciaDeCalor;
      */
-    public float calcularTimepoEstimadoCalentamiento(float masaAlimento,float calorEspeficicoAlimiento,
-                                                     float areaTransferenciaDeCalor, float temperaturaInicialAlimento,
+
+    /**
+     *
+     * @param volumenAlimento - en litros
+     * @param densidadAlimento - en kilogramos
+     * @param calorEspeficicoAlimiento
+     * @param diametroInternoTanque
+     * @param temperaturaInicialLiquidoCalefactor
+     * @param temperaturaEntradaAlimento
+     * @param temperaturaSalidaAlimento
+     * @param coeficienteGlobalTransferenciaDeCalor
+     * @return
+     */
+    public float calcularTimepoEstimadoCalentamiento(float volumenAlimento,float densidadAlimento,float calorEspeficicoAlimiento,
+                                                     float diametroInternoTanque, float temperaturaInicialLiquidoCalefactor,
                                                      float temperaturaEntradaAlimento,
-                                                     float temperaturaSalidaAlimento, float ut){
-        double log = (temperaturaInicialAlimento-temperaturaEntradaAlimento)/(temperaturaInicialAlimento-temperaturaSalidaAlimento);
-        return (masaAlimento*calorEspeficicoAlimiento)/(ut*areaTransferenciaDeCalor)*((float)Math.log(log));
+                                                     float temperaturaSalidaAlimento, float coeficienteGlobalTransferenciaDeCalor){
+        double log = (temperaturaInicialLiquidoCalefactor-temperaturaEntradaAlimento)/(temperaturaInicialLiquidoCalefactor-temperaturaSalidaAlimento);
+        double area = 2*Math.PI*(Math.pow((diametroInternoTanque/2),2));
+        float masaAlimento = (volumenAlimento/1000)*(densidadAlimento);//volumen en litros
+        return (masaAlimento*calorEspeficicoAlimiento)/(coeficienteGlobalTransferenciaDeCalor*((float)area))*((float)Math.log(log));
     }
 
     /*
@@ -142,14 +157,14 @@ public class OperacionTanqueAgitado {
     * falta hacer el calculo y retornarlo.
     * se necesita haber calculado previamiente ut y areaTransferenciaDeCalor;
     */
-    public float calcularTiempoEstimadoEnfriamiento(float masaAlimento, float calorEspecificoAlimento,
+    public float calcularTiempoEstimadoEnfriamiento(float volumenAlimento,float densidadAlimento, float calorEspecificoAlimento,
                                                     float calorEspeficicoRefrigerante, float flujoMasicoRefrigerante,
                                                     float areaTransferenciaDeCalor, float temperaturaInicialFluidoRefrigerante,
                                                     float temperaturaDeEntradaAlimento, float temperaturaSalidaAlimento, float uf){
         double log = (temperaturaDeEntradaAlimento-temperaturaInicialFluidoRefrigerante)/(temperaturaSalidaAlimento-temperaturaInicialFluidoRefrigerante);
         float k2 = (kSub2(uf,areaTransferenciaDeCalor,flujoMasicoRefrigerante,calorEspecificoAlimento));
 
-        return (masaAlimento*calorEspecificoAlimento)/(flujoMasicoRefrigerante*calorEspeficicoRefrigerante)*(k2/(k2-1))*
+        return (((volumenAlimento/1000)*densidadAlimento)*calorEspecificoAlimento)/(flujoMasicoRefrigerante*calorEspeficicoRefrigerante)*(k2/(k2-1))*
                 (float)(Math.log(log));
     }
 

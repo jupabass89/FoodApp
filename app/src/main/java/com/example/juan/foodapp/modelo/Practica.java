@@ -14,4 +14,9 @@ public  abstract class Practica {
      */
     public abstract void configurarPractica();
 
+    /*
+    * falta un metodo que permita modificar los datos ingresados, esto es para que en el momento de variar los datos se pueda hacer
+    * desde ese metodo.
+     */
+
 }
