@@ -1,0 +1,32 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/linear"
+    android:orientation="vertical"
+    android:background="@drawable/fondosimple"
+    tools:context="com.example.juan.foodapp.controlador.SelecPractProcLacteosActivity"
+    android:weightSum="1"
+    >
+
+
+    <ListView
+        android:id="@+id/lv"
+        android:layout_width="match_parent"
+        android:layout_height="512dp"
+        android:layout_marginBottom="30dp"
+        >
+
+    </ListView>
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginBottom="5dp"
+        android:text="Cerrar Sesión"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textColorLink="@color/white"
+        android:textSize="18sp" />
+
+</LinearLayout>
