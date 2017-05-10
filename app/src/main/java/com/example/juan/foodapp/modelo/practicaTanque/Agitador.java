@@ -19,6 +19,8 @@ public class Agitador {
     private float tablaAgitador[][];
     private float altura;
     private float velocidadGiroRPS;
+    private float diametro;
+    private int tipoAgitador;
 
     public Agitador(float altura, float velocidadGiroRPS){
         llenarTipoAgitador();
@@ -26,9 +28,10 @@ public class Agitador {
         this.velocidadGiroRPS = velocidadGiroRPS;
     }
 
-    public float[] getAgitador(int tipoAgitador){
+    public float[] getAgitador(){
         return tablaAgitador[tipoAgitador];
     }
+    public void setAgitador(int tipoAgitador){this.tipoAgitador = tipoAgitador;}
 
     private void llenarTipoAgitador(){
         tablaAgitador = new float[7][4];
@@ -76,5 +79,13 @@ public class Agitador {
 
     public void setVelocidadGiroRPS(float velocidadGiroRPS) {
         this.velocidadGiroRPS = velocidadGiroRPS;
+    }
+
+    public float getDiametro() {
+        return diametro;
+    }
+
+    public void setDiametro(float diametro) {
+        this.diametro = diametro;
     }
 }

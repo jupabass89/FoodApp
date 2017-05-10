@@ -3,21 +3,24 @@ package com.example.juan.foodapp.modelo.practicaTanque;
 
 public class OperacionTanqueAgitado {
 
+
+
+
     /*
     * ECUACIÓN 2 DE LA GUÍA DE TANQUE AGITADO:
     * calcula ht: coeficiente individual de transferencia de calor al interior del tanque
     * Variables:
     * Dti: el diámetro interno del tanque
-    * k: es la conductividad térmica del fluido calefactor (W/m °C)
+    * k: es la conductividad térmica del alimento (W/m °C)
     * a:    parámetro del agitador  // **especificar nombres
     * b:    parámetro del agitador  // **especificar nombres
     * m:    parámetro del agitador  // **especificar nombres
     * Da: es el diámetro del agitador (m)
-    * p: ρ es la densidad del fluido (kg/m3
+    * p: ρ es la densidad del alimento (kg/m3
     * N: N es la velocidad de giro del agitador (rps)
-    * M: μ es la viscosidad del fluido en el centro
-    * Mw: (μw) es la viscosidad del fluido en la pared del tanque
-    * cp: es el calor específico del fluido (J/kg°C)
+    * M: μ es la viscosidad del alimento en el centro
+    * Mw: (μw) es la viscosidad del alimento en la pared del tanque
+    * cp: es el calor específico del alimento (J/kg°C)
     */
     public float calcularCoeficienteIndividualTransferenciaCalorInteriorTanque (float Dti, float k, float a, float b, float m, float Da, float p, float N, float M, float Mw, float cp ){
         //se dividió en partes la ecuación por efectos de mantenibilidad
@@ -43,16 +46,16 @@ public class OperacionTanqueAgitado {
     *  Dch: es el diámetro interno de la chaqueta
     *  Dto: es el diámetro externo del tanque
     *  Dti:el diámetro interno del tanque
-    *  Tce: la temperatura de entrada del fluido caliente
-    *  Tfe: la temperatura de entrada del fluido frio
-    *  Tfs: la temperatura de salida del fluido frio
+    *  Tce: la temperatura de entrada del fluido caliente (temperatura chaqueta)
+    *  Tfe: la temperatura de entrada del fluido frio (temperatura inicial alimento)
+    *  Tfs: la temperatura de salida del fluido frio (temperatura experimental)
     *  Tcs: la temperatura de salida del fluido caliente
-    *  cp: es el calor específico del fluido (J/kg°C)
+    *  cp: es el calor específico del fluido en chaqueta(J/kg°C)
     *  M: (μ) es la viscosidad del fluido en el centro del tanque
     *  k: es la conductividad térmica del fluido calefactor (W/m °C)
-    *  p: (ρ) es la densidad del fluido (kg/m3)
-    *  g: es la gravedad específica (m/s2
-    *  B: es el coeficiente de expansión térmica del fluido (1/°C)
+    *  p: (ρ) es la densidad del fluido en chaqueta(kg/m3)
+    *  g: es la gravedad específica en chaqueta(m/s2
+    *  B: es el coeficiente de expansión térmica del fluido en chaqueta(1/°C)
     */
     public float calcularCoeficienteIndividualTransferenciaCalorChaqueta(float Dch, float Dto, float Dti, float Tce, float Tfe, float Tfs, float Tcs, float cp, float M, float k, float p, float g, float B ){
         //se dividió en partes la ecuación por efectos de mantenibilidad
@@ -111,13 +114,13 @@ public class OperacionTanqueAgitado {
      *conductividadParedTanque es conductividad del material al interior del tanque.
      * se necesita haber calculado previamente coeficienteTransfereciainteriorTanque y coeficienteIndividual
      */
-    public float calcularCoeficienteGlobalTrasnferenciaDeCalor(float conductividadParedTanque, float coeficienteIndividual,
+    public float calcularCoeficienteGlobalTrasnferenciaDeCalor(float conductividadTanque, float coeficienteIndividual,
             float diametroInternoTanque, float diametroExternoTanque, float factorObstruccionPorIncustracion,
-                                                               float coeficienteConductividadTanque){
+                                                               float hch){
         double exponente = Math.pow((diametroInternoTanque/diametroExternoTanque),2);
         float Ut= (1/coeficienteIndividual)
-                    +((diametroInternoTanque/(diametroExternoTanque*conductividadParedTanque))*(diametroExternoTanque-diametroInternoTanque))
-                    +((float)exponente*(1/coeficienteConductividadTanque))+factorObstruccionPorIncustracion;
+                    +((diametroInternoTanque/(diametroExternoTanque*conductividadTanque))*(diametroExternoTanque-diametroInternoTanque))
+                    +((float)exponente*(1/hch))+factorObstruccionPorIncustracion;
 
         return (1/Ut);
     }

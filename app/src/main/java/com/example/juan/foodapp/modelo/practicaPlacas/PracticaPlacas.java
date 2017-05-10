@@ -4,6 +4,8 @@ import com.example.juan.foodapp.modelo.Alimento;
 import com.example.juan.foodapp.modelo.FluidoServicio;
 import com.example.juan.foodapp.modelo.Practica;
 
+import java.util.ArrayList;
+
 public class PracticaPlacas extends Practica {
 
     private OperacionDeFluidoPlacas operadorFluidos;
@@ -14,7 +16,12 @@ public class PracticaPlacas extends Practica {
     private ZonaPasterizacion zonaPasterizacion;
     private final float TEMPERATURA_SALIDA_ALIMENTO = 75f;
 
-    public PracticaPlacas(){
+    public PracticaPlacas(String asignatura, String profesor){
+        this.setNombreLaboratorio("Laboratorio de Operaciones Unitaras");
+        this.setNombre("Transeferencia de calor en un pasterurizador de placas: zona de pasterizacion");
+        this.setAsignatura(asignatura);
+        this.setProfesor(profesor);
+
         operadorFluidos = new OperacionDeFluidoPlacas();
         operadorPasterizacion = new OperacionZonaPasterizacionPlacas();
         pasteurizador = new PasteurizadorPlacas();
@@ -65,7 +72,7 @@ public class PracticaPlacas extends Practica {
                 pasteurizador.getLargoPlaca()));
         do {
             realizarCalculosParaCoeficienteGlobalDeDiseño();
-        }while(operadorPasterizacion.validacionCoeficientesDeDiseño(zonaPasterizacion.getCoeficienteDeDiseñoCalculado(),
+        }while(!operadorPasterizacion.validacionCoeficientesDeDiseño(zonaPasterizacion.getCoeficienteDeDiseñoCalculado(),
                 zonaPasterizacion.getCoeficienteDeDiseñoAsumido()));
         // CONSIDERAR PUNTO DE PARADA LUEGO DE CIERTO NUMERO DE ITERACIONES!
 
@@ -140,7 +147,7 @@ public class PracticaPlacas extends Practica {
     }
 
     @Override
-    public void configurarPractica() {
+    public void configurarPractica(Object[] datos) {
         fluidoFrio.setTempSalida(TEMPERATURA_SALIDA_ALIMENTO);
         /*
         -	Temperatura del alimento a la entrada de la sección.
@@ -154,5 +161,8 @@ public class PracticaPlacas extends Practica {
     }
 
     @Override
-    public void graficar(){}
+    public ArrayList<Object> calcularDatosGrafica() {return null;}
+
+    @Override
+    public void generarPDF(){};
 }

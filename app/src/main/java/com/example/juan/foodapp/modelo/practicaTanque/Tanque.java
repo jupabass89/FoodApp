@@ -8,6 +8,8 @@ public class Tanque {
     private float diametroExterno;
     private float conductividadMaterial;
     private float factorPorIncrustaciones;
+    private float tempChaqueta;
+    private float diametroChaqueta;
     private float area;
 
     public Tanque(){
@@ -68,5 +70,21 @@ public class Tanque {
 
     public void setArea(float area) {
         this.area = area;
+    }
+
+    public float getTempChaqueta() {
+        return tempChaqueta;
+    }
+
+    public void setTempChaqueta(float tempChaqueta) {
+        this.tempChaqueta = tempChaqueta;
+    }
+
+    public float getDiametroChaqueta() {
+        return diametroChaqueta;
+    }
+
+    public void setDiametroChaqueta(float diametroChaqueta) {
+        this.diametroChaqueta = diametroChaqueta;
     }
 }
