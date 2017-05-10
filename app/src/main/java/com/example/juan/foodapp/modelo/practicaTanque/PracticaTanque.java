@@ -226,4 +226,7 @@ public class PracticaTanque extends Practica {
 
     }
 
+    @Override
+    public void generarPDF(){};
+
 }
