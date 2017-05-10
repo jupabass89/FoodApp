@@ -16,12 +16,12 @@ package com.example.juan.foodapp.controlador;
     import com.example.juan.foodapp.R;
 
 
-public class LaboratorioAdapter extends ArrayAdapter<Laboratorio>{
+public class ListaDeLaboratoriosAdapterActivity extends ArrayAdapter<Laboratorio>{
         Context context;
         int LayoutResortId;
         Laboratorio data[]= null;
 
-        public LaboratorioAdapter(Context context, int layoutResortId, Laboratorio[] data) {
+        public ListaDeLaboratoriosAdapterActivity(Context context, int layoutResortId, Laboratorio[] data) {
             super(context, layoutResortId,data);
 
             this.context= context;

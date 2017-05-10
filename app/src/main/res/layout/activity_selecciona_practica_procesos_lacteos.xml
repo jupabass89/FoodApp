@@ -5,18 +5,18 @@
     android:id="@+id/linear"
     android:orientation="vertical"
     android:background="@drawable/fondosimple"
-    tools:context="com.example.juan.foodapp.controlador.SeleccionarLabActivity"
-    android:weightSum="1">
-
-
+    tools:context="com.example.juan.foodapp.controlador.SeleccionaTipoPracticaProcesosLacteosActivity"
+    android:weightSum="1"
+    >
 
 
     <ListView
         android:id="@+id/lv"
         android:layout_width="match_parent"
-        android:layout_height="421dp"
+        android:layout_height="512dp"
         android:layout_marginBottom="30dp"
-        android:layout_weight="0.36">
+        android:layout_weight="0.36"
+        >
 
     </ListView>
     <TextView
@@ -28,6 +28,8 @@
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textColorLink="@color/white"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:onClick="onClick"
+        android:clickable="true"/>
 
 </LinearLayout>

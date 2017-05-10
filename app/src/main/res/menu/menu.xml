@@ -1,5 +1,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" tools:context=".controlador.TransferenciaActivity">
+    xmlns:tools="http://schemas.android.com/tools" tools:context=".controlador.TransferenciaPlacasActivity">
     <item android:id="@+id/action_add_file" android:title="@string/Generar"
+        android:orderInCategory="100"  />
+    <item android:id="@+id/action_add_file2" android:title="Ver guía"
+        android:orderInCategory="100"  />
+    <item android:id="@+id/action_add_file3" android:title="Cerrar sesión"
+        android:orderInCategory="100"  />
+    <item android:id="@+id/action_add_file4" android:title="Más opciones"
         android:orderInCategory="100"  />
 </menu>

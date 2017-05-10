@@ -16,7 +16,7 @@ import android.widget.Toast;
 
 import com.example.juan.foodapp.R;
 
-public class SelecPractProcLacteosActivity extends AppCompatActivity {
+public class SeleccionarLaboratorioActivity extends AppCompatActivity {
     ListView lv;
 
     @Override
@@ -24,40 +24,50 @@ public class SelecPractProcLacteosActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_selec_pract_procesos_lact);
+        setContentView(R.layout.activity_selecciona_laboratorio);
 
-        Practica practicas_data[] = new Practica[]{
-                new Practica(R.mipmap.tanque, "Tanque Agitador"),
-                new Practica(R.mipmap.placas, "Pasteurizador"),
-                new Practica(R.mipmap.icons_7, "Práctica 3"),
-                new Practica(R.mipmap.icons_scientific, "Práctica 4"),
-
+        Laboratorio laboratorios_data[] = new Laboratorio[]{
+                new Laboratorio(R.mipmap.icons_lab, "Procesos Lácteos"),
+                new Laboratorio(R.mipmap.icons_lab3, "Laboratorio 2"),
+                new Laboratorio(R.mipmap.icon_labs4, "Laboratorio 3"),
+                new Laboratorio(R.mipmap.icons_lab5, "Laboratorio 4"),
 
         };
 
-        PracticaAdapter adapter = new PracticaAdapter(this, R.layout.listview_item_row_pract, practicas_data);
+        ListaDeLaboratoriosAdapterActivity adapter = new ListaDeLaboratoriosAdapterActivity(this, R.layout.listview_item_row_selecciona_laboratorio, laboratorios_data);
 
         lv= (ListView) findViewById(R.id.lv);
 
-        View header = (View) getLayoutInflater().inflate(R.layout.list_header_row_prac, null);
+        View header = (View) getLayoutInflater().inflate(R.layout.list_header_row_selecciona_laboratorio, null);
+        header.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "Lista de laboratorios disponibles", Toast.LENGTH_SHORT).show();
+            }
+        });
         lv.addHeaderView(header);
         lv.setAdapter(adapter);
-
-
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                TextView v = (TextView) view.findViewById(R.id.tv);
+                TextView v = (TextView) view.findViewById(R.id.tvlab);
                 Toast.makeText(getApplicationContext(), v.getText(), Toast.LENGTH_SHORT).show();
-                if (v.getText().equals("Pasteurizador") ) {
-                    Intent intent = new Intent(v.getContext(), TransferenciaActivity.class);
+                if (v.getText().equals("Procesos Lácteos") ) {
+                    Intent intent = new Intent(v.getContext(), SeleccionaTipoPracticaProcesosLacteosActivity.class);
                     startActivityForResult(intent, 0);
                 }
 
-
             }
         });
+
+    }
+
+    public void onClick(View v){
+
+        Toast.makeText(getApplicationContext(), "Sesión cerrada", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(v.getContext(), LoginActivity.class);
+        startActivityForResult(intent, 0);
 
     }
 
@@ -84,6 +94,5 @@ public class SelecPractProcLacteosActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 }
-
 
 

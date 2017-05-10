@@ -5,9 +5,8 @@
     android:id="@+id/linear"
     android:orientation="vertical"
     android:background="@drawable/fondosimple"
-    tools:context="com.example.juan.foodapp.controlador.SelecPractProcLacteosActivity"
-    android:weightSum="1"
-    >
+    tools:context="com.example.juan.foodapp.controlador.SeleccionarLaboratorioActivity"
+    android:weightSum="1">
 
 
     <ListView
@@ -15,11 +14,11 @@
         android:layout_width="match_parent"
         android:layout_height="512dp"
         android:layout_marginBottom="30dp"
-        >
+        android:layout_weight="0.36">
 
     </ListView>
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/salir1"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:layout_marginBottom="5dp"
@@ -27,6 +26,8 @@
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textColorLink="@color/white"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:onClick="onClick"
+        android:clickable="true"/>
 
 </LinearLayout>

@@ -16,12 +16,12 @@ import android.widget.TextView;
 import com.example.juan.foodapp.R;
 
 
-public class PracticaAdapter extends ArrayAdapter<Practica>{
+public class ListaDePracticasAdapterActivity extends ArrayAdapter<Practica>{
     Context context;
     int LayoutResortId;
     Practica data[]= null;
 
-    public PracticaAdapter(Context context, int layoutResortId, Practica[] data) {
+    public ListaDePracticasAdapterActivity(Context context, int layoutResortId, Practica[] data) {
         super(context, layoutResortId,data);
 
         this.context= context;

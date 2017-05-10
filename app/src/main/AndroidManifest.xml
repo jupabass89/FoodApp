@@ -13,10 +13,12 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/NoActionBar">
-        <activity android:name=".controlador.SeleccionarLabActivity"
-            android:theme="@style/Selects"/>
-        <activity android:name=".controlador.SelecPractProcLacteosActivity"
-            android:theme="@style/Selects"/>
+        <activity
+            android:name=".controlador.SeleccionarLaboratorioActivity"
+            android:theme="@style/Selects" />
+        <activity
+            android:name=".controlador.SeleccionaTipoPracticaProcesosLacteosActivity"
+            android:theme="@style/Selects" />
         <activity android:name=".controlador.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,9 +26,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".controlador.TransferenciaActivity"
-            android:label="Transferencia de calor"
-            android:theme="@style/Selects"></activity>
+        <activity
+            android:name=".controlador.TransferenciaPlacasActivity"
+            android:label="Pasteurizador"
+            android:theme="@style/Selects" />
+        <activity android:name=".controlador.PruebasDeDatos" />
+        <activity android:name=".controlador.TransferenciaTanqueActivity"
+            android:label="Tanque Agitado"
+            android:theme="@style/Selects" />
     </application>
 
 </manifest>

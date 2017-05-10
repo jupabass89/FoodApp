@@ -35,7 +35,7 @@ public final class OperacionesBaseDeDatos {
     /**
      * Metodo que permite insertar un registro de la zona de pasterizacion correspondiente a la practica
      * de pasteurizacion con placas.
-     * @param data Datos que se van a guardar.
+     * @param data PruebasDeDatos que se van a guardar.
      */
     public void insertarDatosZonaPasterizacionPlacas(ArrayList<Object> data){
         SQLiteDatabase db = baseDatos.getWritableDatabase();

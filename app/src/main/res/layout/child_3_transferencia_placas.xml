@@ -3,23 +3,27 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:background="#303c49"
     android:padding="5dp" >
 
     <TextView
-        android:id="@+id/child_transfer"
+        android:id="@+id/child_transfer4"
         android:padding="10dp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Prueba"
+        android:text="Coeficiente Global de Transferencia de Calor de Diseño a suponer. (W/m^2 °C)
+"
         android:textColor="@color/white"
         android:textColorLink="@color/colorPrimary"
         android:textSize="13sp"
         />
     <!--android:layout_marginLeft="20dp"-->
     <EditText android:layout_width="wrap_content"
+        android:id="@+id/campo7"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
         android:inputType="number"
         android:width="150dp"/>
+
 
 </LinearLayout>

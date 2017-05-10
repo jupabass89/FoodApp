@@ -10,13 +10,11 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:background="@drawable/fondosimple"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.juan.foodapp.controlador.TransferenciaActivity"
+    tools:context="com.example.juan.foodapp.controlador.TransferenciaPlacasActivity"
     android:weightSum="1">
 
-
-
     <ExpandableListView
-        android:id="@+id/transferencia_list"
+        android:id="@+id/transferencia_placas_list"
         android:layout_width="fill_parent"
         android:layout_height="393dp"
         android:divider="#000000"
@@ -25,7 +23,7 @@
     </ExpandableListView>
 
     <Button
-        android:id="@+id/btnTransfer"
+        android:id="@+id/btnTransferenciaPlacas"
         android:layout_width="wrap_content"
         android:layout_height="45dp"
         style="@style/Widget.AppCompat.Button"
