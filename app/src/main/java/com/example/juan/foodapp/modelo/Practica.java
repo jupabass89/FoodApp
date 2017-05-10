@@ -3,12 +3,12 @@ package com.example.juan.foodapp.modelo;
 import java.util.ArrayList;
 
 public abstract class Practica {
-    
+
+
     private String nombre;
     private String nombreLaboratorio;
     private String asignatura;
     private String profesor;
-
     public String getNombre() {
         return nombre;
     }

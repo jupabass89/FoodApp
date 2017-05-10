@@ -1,4 +1,3 @@
-
 package com.example.juan.foodapp.modelo.practicaTanque;
 
 public class OperacionTanqueAgitado {
@@ -46,10 +45,6 @@ public class OperacionTanqueAgitado {
     *  Dch: es el diámetro interno de la chaqueta
     *  Dto: es el diámetro externo del tanque
     *  Dti:el diámetro interno del tanque
-    *  Tce: la temperatura de entrada del fluido caliente (temperatura chaqueta)
-    *  Tfe: la temperatura de entrada del fluido frio (temperatura inicial alimento)
-    *  Tfs: la temperatura de salida del fluido frio (temperatura experimental)
-    *  Tcs: la temperatura de salida del fluido caliente
     *  cp: es el calor específico del fluido en chaqueta(J/kg°C)
     *  M: (μ) es la viscosidad del fluido en el centro del tanque
     *  k: es la conductividad térmica del fluido calefactor (W/m °C)
@@ -57,13 +52,12 @@ public class OperacionTanqueAgitado {
     *  g: es la gravedad específica en chaqueta(m/s2
     *  B: es el coeficiente de expansión térmica del fluido en chaqueta(1/°C)
     */
-    public float calcularCoeficienteIndividualTransferenciaCalorChaqueta(float Dch, float Dto, float Dti, float Tce, float Tfe, float Tfs, float Tcs, float cp, float M, float k, float p, float g, float B ){
+    public float calcularCoeficienteIndividualTransferenciaCalorChaqueta(float Dch, float Dto, float Dti, float MLDT, float cp, float M, float k, float p, float g, float B ){
         //se dividió en partes la ecuación por efectos de mantenibilidad
         float hch;
         double parte1;
         double parte2;
         float Dequ = calcularDequ(Dch, Dto, Dti);
-        float MLDT = calcularMLDT(Tce, Tfs, Tcs, Tfe);
 
         parte1= 0.15*(Math.pow(((cp*M)/k),(1/3)));
         parte2= Math.pow((((Math.pow(p,2))* (Math.pow(Dequ,3))*g*B*MLDT)/(Math.pow(M,2))),0.33);
@@ -80,7 +74,7 @@ public class OperacionTanqueAgitado {
     *  Dto: es el diámetro externo del tanque
     *  Dti:el diámetro interno del tanque
     */
-    private float calcularDequ(float Dch, float Dto, float Dti){
+    public float calcularDequ(float Dch, float Dto, float Dti){
         float Dequ;
         Dequ = (float)((Math.pow(Dch,2) - Math.pow(Dto,2))/Dto);        //**rectificar!!
         return Dequ;
@@ -90,21 +84,42 @@ public class OperacionTanqueAgitado {
     *ECUACIÓN 5 DE LA GUÍA DE TANQUE AGITADO:
     * Calcula MLTD: es la temperatura media logarítmica (°C)
     * Variables:
-    *  Tce: la temperatura de entrada del fluido caliente
-    *  Tfe: la temperatura de entrada del fluido frio
-    *  Tfs: la temperatura de salida del fluido frio
+     *  Tce: la temperatura de entrada del fluido caliente (temperatura chaqueta)
+    *  Tfe: la temperatura de entrada del fluido frio (temperatura inicial alimento)
+    *  Tfs: la temperatura de salida del fluido frio (temperatura experimental)
     *  Tcs: la temperatura de salida del fluido caliente
     */
-    private float calcularMLDT(float Tce, float Tfs, float Tcs, float Tfe){
+    public float calcularMLDTEnfriamiento(float temperaturaInicialAlimentoEnfriamiento,float temperaturaExperimental, float temperaturaFluidoSalidaFrio, float temperturaFluidoEntradaFrio){
         //se dividió en partes la ecuación por efectos de mantenibilidad
         float MLTD;
         float parte1;
         float parte2;
 
-        parte1 = (Tce-Tfs)-(Tcs-Tfe);
-        parte2= (float)(Math.log((Tce-Tfs)/(Tcs-Tfe)));
+        parte1 = (temperaturaInicialAlimentoEnfriamiento-temperaturaFluidoSalidaFrio)-(temperaturaExperimental-temperturaFluidoEntradaFrio);
+        parte2= (float)(Math.log((temperaturaInicialAlimentoEnfriamiento-temperaturaFluidoSalidaFrio)/(temperaturaExperimental-temperturaFluidoEntradaFrio)));
         MLTD = parte1/parte2;
 
+        return MLTD;
+    }
+
+    /*
+    *ECUACIÓN 5 DE LA GUÍA DE TANQUE AGITADO:
+    * Calcula MLTD: es la temperatura media logarítmica (°C)
+    * Variables:
+     *  Tce: la temperatura de entrada del fluido caliente (temperatura chaqueta)
+    *  Tfe: la temperatura de entrada del fluido frio (temperatura inicial alimento)
+    *  Tfs: ¿ (temperatura experimental)
+    *  Tcs: la temperatura de salida del fluido caliente
+    */
+    public float calcularMLDTCalentamiento(float temperaturaInicialAlimento, float temperaturaExperimental, float temperaturaChaqueta){
+        //se dividió en partes la ecuación por efectos de mantenibilidad
+        float MLTD;
+        float parte1;
+        float parte2;
+
+        parte1 = (temperaturaInicialAlimento-temperaturaExperimental);
+        parte2= (float)(Math.log((temperaturaChaqueta-temperaturaExperimental)/(temperaturaChaqueta-temperaturaInicialAlimento)));
+        MLTD = parte1/parte2;
         return MLTD;
     }
 
@@ -115,12 +130,12 @@ public class OperacionTanqueAgitado {
      * se necesita haber calculado previamente coeficienteTransfereciainteriorTanque y coeficienteIndividual
      */
     public float calcularCoeficienteGlobalTrasnferenciaDeCalor(float conductividadTanque, float coeficienteIndividual,
-            float diametroInternoTanque, float diametroExternoTanque, float factorObstruccionPorIncustracion,
+                                                               float diametroInternoTanque, float diametroExternoTanque, float factorObstruccionPorIncustracion,
                                                                float hch){
         double exponente = Math.pow((diametroInternoTanque/diametroExternoTanque),2);
         float Ut= (1/coeficienteIndividual)
-                    +((diametroInternoTanque/(diametroExternoTanque*conductividadTanque))*(diametroExternoTanque-diametroInternoTanque))
-                    +((float)exponente*(1/hch))+factorObstruccionPorIncustracion;
+                +((diametroInternoTanque/(diametroExternoTanque*conductividadTanque))*(diametroExternoTanque-diametroInternoTanque))
+                +((float)exponente*(1/hch))+factorObstruccionPorIncustracion;
 
         return (1/Ut);
     }
@@ -137,17 +152,17 @@ public class OperacionTanqueAgitado {
      * @param densidadAlimento - en kilogramos
      * @param calorEspeficicoAlimiento
      * @param diametroInternoTanque
-     * @param temperaturaInicialLiquidoCalefactor
+     * @param
      * @param temperaturaEntradaAlimento
-     * @param temperaturaSalidaAlimento
+     * @param temperaturaExperimental
      * @param coeficienteGlobalTransferenciaDeCalor
      * @return
      */
     public float calcularTimepoEstimadoCalentamiento(float volumenAlimento,float densidadAlimento,float calorEspeficicoAlimiento,
-                                                     float diametroInternoTanque, float temperaturaInicialLiquidoCalefactor,
+                                                     float diametroInternoTanque, float temperaturaChaqueta,
                                                      float temperaturaEntradaAlimento,
-                                                     float temperaturaSalidaAlimento, float coeficienteGlobalTransferenciaDeCalor){
-        double log = (temperaturaInicialLiquidoCalefactor-temperaturaEntradaAlimento)/(temperaturaInicialLiquidoCalefactor-temperaturaSalidaAlimento);
+                                                     float temperaturaExperimental, float coeficienteGlobalTransferenciaDeCalor){
+        double log = (temperaturaChaqueta-temperaturaEntradaAlimento)/(temperaturaChaqueta-temperaturaExperimental);
         double area = 2*Math.PI*(Math.pow((diametroInternoTanque/2),2));
         float masaAlimento = (volumenAlimento/1000)*(densidadAlimento);//volumen en litros
         return (masaAlimento*calorEspeficicoAlimiento)/(coeficienteGlobalTransferenciaDeCalor*((float)area))*((float)Math.log(log));
@@ -162,13 +177,13 @@ public class OperacionTanqueAgitado {
     */
     public float calcularTiempoEstimadoEnfriamiento(float volumenAlimento,float densidadAlimento, float calorEspecificoAlimento,
                                                     float calorEspeficicoRefrigerante, float flujoMasicoRefrigerante,
-                                                    float areaTransferenciaDeCalor, float temperaturaInicialFluidoRefrigerante,
-                                                    float temperaturaDeEntradaAlimento, float temperaturaSalidaAlimento, float uf){
-        double log = (temperaturaDeEntradaAlimento-temperaturaInicialFluidoRefrigerante)/(temperaturaSalidaAlimento-temperaturaInicialFluidoRefrigerante);
-        float k2 = (kSub2(uf,areaTransferenciaDeCalor,flujoMasicoRefrigerante,calorEspecificoAlimento));
-
-        return (((volumenAlimento/1000)*densidadAlimento)*calorEspecificoAlimento)/(flujoMasicoRefrigerante*calorEspeficicoRefrigerante)*(k2/(k2-1))*
-                (float)(Math.log(log));
+                                                    float areaTanque, float temperaturaEntradaFluidoRefrigerante,
+                                                    float temperaturaInicialEtapaEnfriamiento, float temperaturaExperimental, float ut){
+        double log = (temperaturaInicialEtapaEnfriamiento-temperaturaEntradaFluidoRefrigerante)/(temperaturaExperimental-temperaturaEntradaFluidoRefrigerante);
+        float k2 = (kSub2(ut,areaTanque,flujoMasicoRefrigerante,calorEspecificoAlimento));
+        float masa = ((volumenAlimento/1000)*densidadAlimento);
+        return (((masa)*calorEspecificoAlimento)/(flujoMasicoRefrigerante*calorEspeficicoRefrigerante)*(k2/(k2-1))*
+                (float)(Math.log(log)));
     }
 
     private float kSub2(float uf,float areaTransferenciaDeCalor, float flujoMasicoRefrigerante, float calorEspecificoAlimento){

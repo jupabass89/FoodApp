@@ -36,43 +36,23 @@ public class PracticaTanque extends Practica {
         agitador = new Agitador(5,5);
     }
 
-    private void hacerCalculos(){
-        float []agitador = this.agitador.getAgitador();
-        ht = operaciones.calcularCoeficienteIndividualTransferenciaCalorInteriorTanque(
-                tanque.getDiametroInterno(),calefactor.getConductividadTermica(),agitador[0],agitador[1],agitador[3],
-                this.agitador.getAltura(), calefactor.getDensidad(), this.agitador.getVelocidadGiroRPS(),calefactor.getViscosidad(),
-                calefactor.getViscosidad(),calefactor.getCalorEspecifico());
-
-        diametroInternoChaqueta = 0;//hacer calculo con funcion de operaciones
-
-        coeficienteGlobalDeTrasnferencia = operaciones.calcularCoeficienteGlobalTrasnferenciaDeCalor(tanque.getConductividadMaterial(),ht,
-                tanque.getDiametroInterno()/2,tanque.getDiametroExterno()/2,tanque.getFactorPorIncrustaciones(),tanque.getConductividadMaterial());
-
-        tiempoEstCalentamiento = operaciones.calcularTimepoEstimadoCalentamiento(alimento.getVolumen(),
-                alimento.getDensidad(),alimento.getCalorEspecifico(),
-                tanque.getDiametroInterno(),calefactor.getTempInicial(),
-                alimento.getTempEntrada(),alimento.getTempSalida(),coeficienteGlobalDeTrasnferencia);
-
-        tiempoEstEnfriamiento=0;
-
-    }
-
-
-
     @Override
     public ArrayList<Object> calcularDatosGrafica() {
         int datosExperimentalesCalentamiento = calentamientoTemps.size();
         int datosExperimentalesEnfriamiento = enfriamientoTemps.size();
-        float densidad,ut;
+        float densidad,ut,mldt;
         float cp;
         float conductividad;
         float tempI;
         float ht;//coeficienteGlobaltrasnferenciadeCalor
         float hch; // diametroInternoChaqueta
+        float temperaturaCalentamiento, temperaturaEnfriamiento;
         ArrayList<Float> coeficientesTrasnferenciaCalentamiento = new ArrayList<>(datosExperimentalesCalentamiento);
         ArrayList<Float> coeficientesTrasnferenciaEnfriamiento = new ArrayList<>(datosExperimentalesEnfriamiento);
         ArrayList<Float> coeficienteGlogalTransferenciaCalorCalentamiento = new ArrayList<>(datosExperimentalesCalentamiento);
         ArrayList<Float> coeficienteGlogalTransferenciaCalorEnfriamiento = new ArrayList<>(datosExperimentalesEnfriamiento);
+        ArrayList<Float> tiempoEstCalentamiento = new ArrayList<>();
+        ArrayList<Float> tiempoEstEnfriamiento = new ArrayList<>();
         float []agitador = this.agitador.getAgitador();
         if(!esAgua){
             for (int i = 0; i < datosExperimentalesCalentamiento; i++) {
@@ -85,9 +65,11 @@ public class PracticaTanque extends Practica {
                         this.agitador.getDiametro(), densidad, this.agitador.getVelocidadGiroRPS(),alimento.getViscosidad(),
                         alimento.getViscosidad(),cp);
                 coeficientesTrasnferenciaCalentamiento.set(i,ht);
+
+                mldt = operaciones.calcularMLDTCalentamiento(alimento.getTempInicial(),tempI,tanque.getTempChaqueta());
+
                 hch = operaciones.calcularCoeficienteIndividualTransferenciaCalorChaqueta(tanque.getDiametroChaqueta(),tanque.getDiametroExterno(),
-                        tanque.getDiametroExterno(),tanque.getTempChaqueta(), , alimento.getTempInicial(),tempI,
-                        operacionAlimento.calcularCpAgua(tanque.getTempChaqueta()),alimento.getViscosidad(),
+                        tanque.getDiametroExterno(), mldt,operacionAlimento.calcularCpAgua(tanque.getTempChaqueta()),alimento.getViscosidad(),
                         operacionAlimento.calcularConductividadAgua(tanque.getTempChaqueta()),
                         operacionAlimento.calcularDensidadAgua(tanque.getTempChaqueta()),9.8f,
                         operacionAlimento.calcularExpancionTermicaAgua(tanque.getTempChaqueta()));
@@ -95,6 +77,12 @@ public class PracticaTanque extends Practica {
                 ut = operaciones.calcularCoeficienteGlobalTrasnferenciaDeCalor(tanque.getConductividadMaterial(),ht,tanque.getDiametroInterno(),
                         tanque.getDiametroExterno(),tanque.getFactorPorIncrustaciones(),hch);
                 coeficienteGlogalTransferenciaCalorCalentamiento.set(i,ut);
+
+                //masaAlimento = (densidad*((float)Math.pow(tanque.getAlturaProducto(),3)*(float)Math.PI*(2/3)));
+                temperaturaCalentamiento = operaciones.calcularTimepoEstimadoCalentamiento(alimento.getVolumen(),densidad,cp,tanque.getDiametroInterno(),tanque.getTempChaqueta(),
+                        alimento.getTempEntrada(),tempI,ut);
+
+                tiempoEstCalentamiento.add(temperaturaCalentamiento);
             }
             for (int i = 0; i < datosExperimentalesEnfriamiento; i++) {
                 tempI = enfriamientoTemps.get(i);
@@ -106,9 +94,11 @@ public class PracticaTanque extends Practica {
                         this.agitador.getDiametro(), densidad, this.agitador.getVelocidadGiroRPS(),alimento.getViscosidad(),
                         alimento.getViscosidad(),cp);
                 coeficientesTrasnferenciaEnfriamiento.set(i,ht);
+
+                mldt = operaciones.calcularMLDTEnfriamiento(enfriamientoTemps.get(0),tempI,servicioEnfriamiento.getTempSalida(),servicioEnfriamiento.getTempEntrada());
+
                 hch = operaciones.calcularCoeficienteIndividualTransferenciaCalorChaqueta(tanque.getDiametroChaqueta(),tanque.getDiametroExterno(),
-                        tanque.getDiametroExterno(),tanque.getTempChaqueta(), alimento.getTempInicial(), ,tempI,
-                        operacionAlimento.calcularCpAgua(tanque.getTempChaqueta()),alimento.getViscosidad(),
+                        tanque.getDiametroExterno(),mldt,operacionAlimento.calcularCpAgua(tanque.getTempChaqueta()),alimento.getViscosidad(),
                         operacionAlimento.calcularConductividadAgua(tanque.getTempChaqueta()),
                         operacionAlimento.calcularDensidadAgua(tanque.getTempChaqueta()),9.8f,
                         operacionAlimento.calcularExpancionTermicaAgua(tanque.getTempChaqueta()));
@@ -116,6 +106,11 @@ public class PracticaTanque extends Practica {
                 ut = operaciones.calcularCoeficienteGlobalTrasnferenciaDeCalor(tanque.getConductividadMaterial(),ht,tanque.getDiametroInterno(),
                         tanque.getDiametroExterno(),tanque.getFactorPorIncrustaciones(),hch);
                 coeficienteGlogalTransferenciaCalorEnfriamiento.set(i,ut);
+
+                temperaturaEnfriamiento = operaciones.calcularTiempoEstimadoEnfriamiento(alimento.getVolumen(),densidad,cp,
+                        operacionAlimento.calcularCpAgua(servicioEnfriamiento.getTemperaturaPromedio()),servicioEnfriamiento.getFlujoMasico(),
+                        tanque.getArea(),servicioEnfriamiento.getTempEntrada(),enfriamientoTemps.get(0),tempI,ut);
+                tiempoEstEnfriamiento.add(temperaturaEnfriamiento);
             }
 
         }else{
@@ -129,8 +124,9 @@ public class PracticaTanque extends Practica {
                         this.agitador.getDiametro(), densidad, this.agitador.getVelocidadGiroRPS(),alimento.getViscosidad(),
                         alimento.getViscosidad(),cp);
                 coeficientesTrasnferenciaCalentamiento.set(i,ht);
+                mldt = operaciones.calcularMLDTCalentamiento(alimento.getTempInicial(),tempI,tanque.getTempChaqueta());
                 hch = operaciones.calcularCoeficienteIndividualTransferenciaCalorChaqueta(tanque.getDiametroChaqueta(),tanque.getDiametroExterno(),
-                        tanque.getDiametroExterno(),tanque.getTempChaqueta(), alimento.getTempInicial(),tempI,0,operacionAlimento.calcularCpAgua(tanque.getTempChaqueta()),alimento.getViscosidad(),
+                        tanque.getDiametroExterno(),mldt,operacionAlimento.calcularCpAgua(tanque.getTempChaqueta()),alimento.getViscosidad(),
                         operacionAlimento.calcularConductividadAgua(tanque.getTempChaqueta()),
                         operacionAlimento.calcularDensidadAgua(tanque.getTempChaqueta()),9.8f,
                         operacionAlimento.calcularExpancionTermicaAgua(tanque.getTempChaqueta()));
@@ -138,6 +134,11 @@ public class PracticaTanque extends Practica {
                 ut = operaciones.calcularCoeficienteGlobalTrasnferenciaDeCalor(tanque.getConductividadMaterial(),ht,tanque.getDiametroInterno(),
                         tanque.getDiametroExterno(),tanque.getFactorPorIncrustaciones(),hch);
                 coeficienteGlogalTransferenciaCalorCalentamiento.set(i,ut);
+
+                temperaturaCalentamiento = operaciones.calcularTimepoEstimadoCalentamiento(alimento.getVolumen(),densidad,cp,tanque.getDiametroInterno(),tanque.getTempChaqueta(),
+                        alimento.getTempEntrada(),tempI,ut);
+
+                tiempoEstCalentamiento.add(temperaturaCalentamiento);
 
 
             }
@@ -151,9 +152,9 @@ public class PracticaTanque extends Practica {
                         this.agitador.getDiametro(), densidad, this.agitador.getVelocidadGiroRPS(),alimento.getViscosidad(),
                         alimento.getViscosidad(),cp);
                 coeficientesTrasnferenciaEnfriamiento.set(i,ht);
+                mldt = operaciones.calcularMLDTEnfriamiento(enfriamientoTemps.get(0),tempI,servicioEnfriamiento.getTempSalida(),servicioEnfriamiento.getTempEntrada());
                 hch = operaciones.calcularCoeficienteIndividualTransferenciaCalorChaqueta(tanque.getDiametroChaqueta(),tanque.getDiametroExterno(),
-                        tanque.getDiametroExterno(),tanque.getTempChaqueta(), enfriamientoTemps.get(0), servicioEnfriamiento.ge , ,
-                        operacionAlimento.calcularCpAgua(tanque.getTempChaqueta()),alimento.getViscosidad(),
+                        tanque.getDiametroExterno(),mldt,operacionAlimento.calcularCpAgua(tanque.getTempChaqueta()),alimento.getViscosidad(),
                         operacionAlimento.calcularConductividadAgua(tanque.getTempChaqueta()),
                         operacionAlimento.calcularDensidadAgua(tanque.getTempChaqueta()),9.8f,
                         operacionAlimento.calcularExpancionTermicaAgua(tanque.getTempChaqueta()));
@@ -161,13 +162,20 @@ public class PracticaTanque extends Practica {
                 ut = operaciones.calcularCoeficienteGlobalTrasnferenciaDeCalor(tanque.getConductividadMaterial(),ht,tanque.getDiametroInterno(),
                         tanque.getDiametroExterno(),tanque.getFactorPorIncrustaciones(),hch);
                 coeficienteGlogalTransferenciaCalorEnfriamiento.set(i,ut);
+                temperaturaEnfriamiento = operaciones.calcularTiempoEstimadoEnfriamiento(alimento.getVolumen(),densidad,cp,
+                        operacionAlimento.calcularCpAgua(servicioEnfriamiento.getTemperaturaPromedio()),servicioEnfriamiento.getFlujoMasico(),
+                        tanque.getArea(),servicioEnfriamiento.getTempEntrada(),enfriamientoTemps.get(0),tempI,ut);
+                tiempoEstEnfriamiento.add(temperaturaEnfriamiento);
             }
         }
         ArrayList<Object> datos = new ArrayList<>();
         datos.add(coeficientesTrasnferenciaCalentamiento);
-        datos.add(coeficienteGlogalTransferenciaCalorEnfriamiento);
-        datos.add(coeficienteGlogalTransferenciaCalorCalentamiento);
         datos.add(coeficientesTrasnferenciaEnfriamiento);
+        datos.add(coeficienteGlogalTransferenciaCalorCalentamiento);
+        datos.add(coeficienteGlogalTransferenciaCalorEnfriamiento);
+        datos.add(tiempoEstCalentamiento);
+        datos.add(tiempoEstEnfriamiento);
+
         return datos;
     }
 
@@ -190,10 +198,16 @@ public class PracticaTanque extends Practica {
         *datos[7]viscosidad(no es porcentaje)
         * datos[8] alimento
          *temperaturaEntradaAlimento,
-        *datos[9]:fluidos de servicio
+        *datos[9] alimento
+         *volumen alimento
+        *datos[10]:fluidos de servicio temperatura entrada
+        * datos[11] temperatura salida, fluido servicio
+        * datos[12] flujo masico fluido de servicio.
          */
 
-
+        servicioEnfriamiento.setTempEntrada((float)datos[10]);
+        servicioEnfriamiento.setTempSalida((float)datos[11]);
+        servicioEnfriamiento.setFlujoMasico((float)datos[12]);
 
         esAgua = (Boolean)datos[0];
         calentamientoTemps = (ArrayList<Float>) datos[1];
@@ -215,6 +229,8 @@ public class PracticaTanque extends Practica {
         tanque.setConductividadMaterial(parametrosTanque[6]);
         tanque.setFactorPorIncrustaciones(parametrosTanque[7]);
 
+        alimento.setVolumen((float)datos[9]);
+
         if(!esAgua){
             float[] porcentajes = (float[])datos[3];
             operacionAlimento = new OperacionAlimento(porcentajes[0],porcentajes[1],porcentajes[2],porcentajes[3],porcentajes[4]);
@@ -227,6 +243,8 @@ public class PracticaTanque extends Practica {
     }
 
     @Override
-    public void generarPDF(){};
+    public void generarPDF() {
+
+    }
 
 }
