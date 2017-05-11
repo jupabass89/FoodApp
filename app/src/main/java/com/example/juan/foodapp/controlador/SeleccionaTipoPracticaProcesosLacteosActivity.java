@@ -28,7 +28,7 @@ public class SeleccionaTipoPracticaProcesosLacteosActivity extends AppCompatActi
 
         Practica practicas_data[] = new Practica[]{
                 new Practica(R.mipmap.tanque, "Tanque Agitado"),
-                new Practica(R.mipmap.placas, "Pasteurizador"),
+                new Practica(R.mipmap.placas, "Pasteurizador de Placas"),
                 new Practica(R.mipmap.icons_7, "Práctica 3"),
                 new Practica(R.mipmap.icons_scientific, "Práctica 4"),
 
@@ -58,7 +58,7 @@ public class SeleccionaTipoPracticaProcesosLacteosActivity extends AppCompatActi
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 TextView v = (TextView) view.findViewById(R.id.tv);
                 Toast.makeText(getApplicationContext(), v.getText(), Toast.LENGTH_SHORT).show();
-                if (v.getText().equals("Pasteurizador") ) {
+                if (v.getText().equals("Pasteurizador de Placas") ) {
                     Intent intent = new Intent(v.getContext(),TransferenciaPlacasActivity.class);
                     startActivityForResult(intent, 0);
                 }

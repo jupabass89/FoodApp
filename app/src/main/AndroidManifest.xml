@@ -23,7 +23,7 @@
             android:name=".controlador.SeleccionaTipoPracticaProcesosLacteosActivity"
             android:theme="@style/Selects" />
         <activity android:name=".controlador.LoginActivity"
-            android:theme="@style/NoActionBar">
+            android:theme="@style/Selects">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -39,7 +39,6 @@
             android:label="Tanque Agitado"
             android:theme="@style/Selects" />
         <activity android:name=".controlador.VisualizacionGuia"
-            android:label="Guía de Laboratorio"
             android:theme="@style/Selects"/>
     </application>
 

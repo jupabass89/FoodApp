@@ -4,6 +4,4 @@
         android:orderInCategory="100"  />
     <item android:id="@+id/verGuia" android:title="Ver guía"
         android:orderInCategory="100"  />
-    <item android:id="@+id/cerrarSesion" android:title="Cerrar sesión"
-        android:orderInCategory="100"  />
 </menu>

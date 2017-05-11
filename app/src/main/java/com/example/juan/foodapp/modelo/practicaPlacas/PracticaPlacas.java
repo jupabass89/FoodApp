@@ -5,7 +5,6 @@ import android.content.Context;
 import com.example.juan.foodapp.modelo.Alimento;
 import com.example.juan.foodapp.modelo.FluidoServicio;
 import com.example.juan.foodapp.modelo.Practica;
-import com.example.juan.foodapp.modelo.serviciosPractica.Guia;
 
 import java.util.ArrayList;
 
@@ -20,7 +19,7 @@ public class PracticaPlacas extends Practica {
     private ZonaPasterizacion zonaPasterizacion;
     private final float TEMPERATURA_SALIDA_ALIMENTO = 75f;
 
-    public PracticaPlacas(String asignatura, String profesor, Context contexto){
+    public PracticaPlacas(Context contexto, String asignatura, String profesor){
         this.contexto = contexto;
 
         this.setNombreLaboratorio("Laboratorio de Operaciones Unitaras");
@@ -171,9 +170,4 @@ public class PracticaPlacas extends Practica {
 
     @Override
     public void generarInforme(){};
-
-    @Override
-    public void visualizarGuia(){
-        Guia.abrirGuia("pasterizacionPlacas.pdf", contexto);
-    }
 }

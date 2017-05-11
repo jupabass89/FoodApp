@@ -61,14 +61,30 @@ public class OperacionZonaPasterizacionPlacas {
     // la temperatura estimada de la pared de la placa.
     public float calcularNusseltParaFluido(float numeroDeReynoldsFluido, float numeroDePrantFluido, float viscosidadFluido,
                                            float viscosidadFluidoP){
-        float c1 = 1; // Se debe obtener la constante correspondiente
-        float m = 1; // Se debe obtener la constante correspondiente
+        float[] constantes = obttenerConstantesParaNusselt(numeroDeReynoldsFluido);
+        float c1 = constantes[0];
+        float m = constantes[1];
         return (float)(c1*Math.pow(numeroDeReynoldsFluido,m)*Math.pow(numeroDePrantFluido,0.33)*Math.pow((viscosidadFluido/viscosidadFluidoP),0.17));
     }
 
     // FALTA IMPLEMENTAR
     private float[] obttenerConstantesParaNusselt(float numeroDeReynoldsFluido){
-       return(null);
+        int nRe = (short)numeroDeReynoldsFluido; // Parte entera del numero de Reynolds
+        float[] datos = new float[2];
+        float c1, m;
+        if(nRe <= 20){
+            c1 = 0.562f;
+            m = 0.326f;
+        }else if(nRe > 20 && nRe <= 500){
+            c1 = 0.331f;
+            m = 0.503f;
+        }else{ // nRe > 500
+            c1 = 0.087f;
+            m = 0.718f;
+        }
+        datos[0] = c1;
+        datos[1] = m;
+        return (datos);
     }
 
     public float calcularCoeficienteTCPorConveccionDeFluido(float variableNusseltDelFluido, float conductividadTermicaFluido, float diametroEquivalente){
