@@ -9,6 +9,7 @@ public abstract class Practica {
     private String nombreLaboratorio;
     private String asignatura;
     private String profesor;
+
     public String getNombre() {
         return nombre;
     }
@@ -53,5 +54,7 @@ public abstract class Practica {
      * desde ese metodo.
      */
 
-    public abstract void generarPDF();
+    public abstract void generarInforme();
+
+    public abstract void visualizarGuia();
 }

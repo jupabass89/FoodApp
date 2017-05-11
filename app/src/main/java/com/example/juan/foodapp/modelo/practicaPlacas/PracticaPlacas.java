@@ -1,13 +1,17 @@
 package com.example.juan.foodapp.modelo.practicaPlacas;
 
+import android.content.Context;
+
 import com.example.juan.foodapp.modelo.Alimento;
 import com.example.juan.foodapp.modelo.FluidoServicio;
 import com.example.juan.foodapp.modelo.Practica;
+import com.example.juan.foodapp.modelo.serviciosPractica.Guia;
 
 import java.util.ArrayList;
 
 public class PracticaPlacas extends Practica {
 
+    private Context contexto;
     private OperacionDeFluidoPlacas operadorFluidos;
     private OperacionZonaPasterizacionPlacas operadorPasterizacion;
     private PasteurizadorPlacas pasteurizador;
@@ -16,7 +20,9 @@ public class PracticaPlacas extends Practica {
     private ZonaPasterizacion zonaPasterizacion;
     private final float TEMPERATURA_SALIDA_ALIMENTO = 75f;
 
-    public PracticaPlacas(String asignatura, String profesor){
+    public PracticaPlacas(String asignatura, String profesor, Context contexto){
+        this.contexto = contexto;
+
         this.setNombreLaboratorio("Laboratorio de Operaciones Unitaras");
         this.setNombre("Transeferencia de calor en un pasterurizador de placas: zona de pasterizacion");
         this.setAsignatura(asignatura);
@@ -164,5 +170,10 @@ public class PracticaPlacas extends Practica {
     public ArrayList<Object> calcularDatosGrafica() {return null;}
 
     @Override
-    public void generarPDF(){};
+    public void generarInforme(){};
+
+    @Override
+    public void visualizarGuia(){
+        Guia.abrirGuia("pasterizacionPlacas.pdf", contexto);
+    }
 }
