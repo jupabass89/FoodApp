@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.juan.foodapp.R;
 
@@ -110,6 +111,7 @@ public class TransferenciaTanqueActivity extends AppCompatActivity {
         List<String> child3 = new ArrayList<String>();
         List<String> child4 = new ArrayList<String>();
         List<String> child5 = new ArrayList<String>();
+        List<String> child6 = new ArrayList<String>();
 
 
         // Hash map for both header and child
@@ -134,6 +136,9 @@ public class TransferenciaTanqueActivity extends AppCompatActivity {
         header.add("Temperaturas de enfriamiento");
         child5.add("");
 
+        header.add("Fluido de servicio");
+        child6.add("");
+
 
         // Adding header and childs to hash map
 
@@ -142,6 +147,7 @@ public class TransferenciaTanqueActivity extends AppCompatActivity {
         hashMap.put(header.get(2), child3);
         hashMap.put(header.get(3), child4);
         hashMap.put(header.get(4), child5);
+        hashMap.put(header.get(5), child6);
 
         adapter = new ExpandableListAdapterTransferenciaTanque(TransferenciaTanqueActivity.this, header, hashMap);
 
@@ -167,22 +173,22 @@ public class TransferenciaTanqueActivity extends AppCompatActivity {
            }
         }); */
         // Listview Group collasped listener
-        /**   expandableListView.setOnGroupCollapseListener(new ExpandableListView.OnGroupCollapseListener() {
+          expandableListView.setOnGroupCollapseListener(new ExpandableListView.OnGroupCollapseListener() {
         @Override
         public void onGroupCollapse(int groupPosition) {
 
 
         Toast.makeText(getApplicationContext(),
-        "PruebasDeDatos Guardados",
+        "Datos Guardados",
         Toast.LENGTH_SHORT).show();
         }
 
 
-        });**/
+        });
 
         // Este método solo deja que se abra un grupo a la vez
 
-        expandableListView
+        /**expandableListView
                 .setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
 
                     // Default position

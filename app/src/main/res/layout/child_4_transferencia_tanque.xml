@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
@@ -7,316 +8,241 @@
     android:padding="1dp" >
 
 
-    <TextView
-        android:id="@+id/labeltemp1"
-        android:padding="13dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:text="Temperatura:"
-        android:layout_row="1"
-        android:textColor="@color/white"
-        android:layout_column="0"
-        android:textColorLink="@color/colorPrimary"
-        android:textAlignment="center"
-        android:layout_width="120dp" />
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/labeltemp2"
-        android:padding="13dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:text="Temperatura:"
-        android:textColor="@color/white"
-        android:layout_row="2"
-        android:layout_column="0"
-        android:textColorLink="@color/colorPrimary"
-        android:textAlignment="center"
-        android:layout_width="120dp"
-        />
-    <TextView
-        android:id="@+id/labeltemp3"
-        android:padding="13dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:text="Temperatura:"
-        android:textColor="@color/white"
-        android:layout_row="3"
-        android:layout_column="0"
-        android:textColorLink="@color/colorPrimary"
-        android:textAlignment="center"
-        android:layout_width="120dp"
-        />
-    <TextView
-        android:id="@+id/labeltemp4"
-        android:padding="13dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:text="Temperatura:"
-        android:textColor="@color/white"
-        android:layout_row="4"
-        android:layout_column="0"
-        android:textColorLink="@color/colorPrimary"
-        android:textAlignment="center"
-        android:layout_width="120dp"
-        />
-    <TextView
-        android:id="@+id/labeltemp5"
-        android:padding="13dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:text="Temperatura:"
-        android:textColor="@color/white"
-        android:layout_row="5"
-        android:layout_column="0"
-        android:textColorLink="@color/colorPrimary"
-        android:textAlignment="center"
-        android:layout_width="120dp"
-        />
+        <TextView
+            android:id="@+id/labeltemp1"
+            android:padding="13dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Temperatura (°C):"
+            android:layout_row="1"
+            android:textColor="@color/white"
+            android:layout_column="0"
+            android:textColorLink="@color/colorPrimary"
+            android:textAlignment="center"
+            android:layout_width="140dp" />
+        <EditText
+            android:layout_height="wrap_content"
+            android:inputType="number|numberDecimal"
+            android:ems="10"
+            android:id="@+id/tempe1"
+            android:layout_column="1"
+            style="@style/Widget.AppCompat.EditText"
+            android:hint="Entrada"
+            android:layout_marginLeft="1dp"
+            android:textSize="12sp"
+            android:layout_width="80dp"
+            android:textAlignment="center"
+            android:textColor="@color/white" />
+        <TextView
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="     Segundos"
+            android:ems="10"
+            android:id="@+id/sec1"
+            android:layout_marginLeft="0dp"
+            android:layout_column="2"
+            android:layout_width="wrap_content"
+            android:textColor="@color/white"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textSize="12sp"
+            android:layout_gravity="center"/>
 
-    <TextView
-        android:id="@+id/labelflujo"
-        android:padding="13dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:text="Flujo Másico:"
-        android:textColor="@color/white"
-        android:layout_row="6"
-        android:layout_column="0"
-        android:textColorLink="@color/colorPrimary"
-        android:textAlignment="center"
-        android:layout_width="120dp"
-        />
+    </TableRow>
 
-    <EditText
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        android:layout_height="wrap_content"
-        android:inputType="number|numberDecimal"
-        android:ems="10"
-        android:id="@+id/temp4"
-        android:layout_row="4"
-        android:layout_column="1"
-        style="@style/Widget.AppCompat.EditText"
-        android:hint="Entrada"
-        android:layout_marginLeft="3dp"
-        android:layout_width="55dp"
-        android:textSize="12sp" />
+        <TextView
+            android:id="@+id/labeltemp2"
+            android:padding="13dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Temperatura (°C):"
+            android:layout_row="1"
+            android:textColor="@color/white"
+            android:layout_column="0"
+            android:textColorLink="@color/colorPrimary"
+            android:textAlignment="center"
+            android:layout_width="120dp" />
+        <EditText
+            android:layout_height="wrap_content"
+            android:inputType="number|numberDecimal"
+            android:ems="10"
+            android:id="@+id/tempe2"
+            android:layout_column="1"
+            style="@style/Widget.AppCompat.EditText"
+            android:hint="Entrada"
+            android:layout_marginLeft="1dp"
+            android:textSize="12sp"
+            android:layout_width="80dp"
+            android:textAlignment="center"
+            android:textColor="@color/white" />
+        <TextView
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="     Segundos"
+            android:ems="10"
+            android:id="@+id/sec2"
+            android:layout_marginLeft="0dp"
+            android:layout_column="2"
+            android:layout_width="wrap_content"
+            android:textColor="@color/white"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textSize="12sp"
+            android:layout_gravity="center"/>
 
-    <EditText
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        android:layout_height="wrap_content"
-        android:inputType="number|numberDecimal"
-        android:ems="10"
-        android:id="@+id/temp3"
-        android:layout_row="3"
-        android:layout_column="1"
-        style="@style/Widget.AppCompat.EditText"
-        android:hint="Entrada"
-        android:layout_marginLeft="3dp"
-        android:layout_width="55dp"
-        android:textSize="12sp" />
+        <TextView
+            android:id="@+id/labeltemp3"
+            android:padding="13dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Temperatura (°C):"
+            android:layout_row="1"
+            android:textColor="@color/white"
+            android:layout_column="0"
+            android:textColorLink="@color/colorPrimary"
+            android:textAlignment="center"
+            android:layout_width="120dp" />
+        <EditText
+            android:layout_height="wrap_content"
+            android:inputType="number|numberDecimal"
+            android:ems="10"
+            android:id="@+id/tempe3"
+            android:layout_column="1"
+            style="@style/Widget.AppCompat.EditText"
+            android:hint="Entrada"
+            android:layout_marginLeft="1dp"
+            android:textSize="12sp"
+            android:layout_width="80dp"
+            android:textAlignment="center"
+            android:textColor="@color/white" />
+        <TextView
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="     Segundos"
+            android:ems="10"
+            android:id="@+id/sec3"
+            android:layout_marginLeft="0dp"
+            android:layout_column="2"
+            android:layout_width="wrap_content"
+            android:textColor="@color/white"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textSize="12sp"
+            android:layout_gravity="center"/>
 
-    <EditText
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        android:layout_height="wrap_content"
-        android:inputType="number|numberDecimal"
-        android:ems="10"
-        android:id="@+id/temp2"
-        android:layout_row="2"
-        android:layout_column="1"
-        style="@style/Widget.AppCompat.EditText"
-        android:hint="Entrada"
-        android:layout_marginLeft="3dp"
-        android:layout_width="55dp"
-        android:textSize="12sp"  />
+        <TextView
+            android:id="@+id/labeltemp4"
+            android:padding="13dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Temperatura (°C):"
+            android:layout_row="1"
+            android:textColor="@color/white"
+            android:layout_column="0"
+            android:textColorLink="@color/colorPrimary"
+            android:textAlignment="center"
+            android:layout_width="120dp" />
+        <EditText
+            android:layout_height="wrap_content"
+            android:inputType="number|numberDecimal"
+            android:ems="10"
+            android:id="@+id/tempe4"
+            android:layout_column="1"
+            style="@style/Widget.AppCompat.EditText"
+            android:hint="Entrada"
+            android:layout_marginLeft="1dp"
+            android:textSize="12sp"
+            android:layout_width="80dp"
+            android:textAlignment="center"
+            android:textColor="@color/white" />
+        <TextView
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="     Segundos"
+            android:ems="10"
+            android:id="@+id/sec4"
+            android:layout_marginLeft="0dp"
+            android:layout_column="2"
+            android:layout_width="wrap_content"
+            android:textColor="@color/white"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textSize="12sp"
+            android:layout_gravity="center"/>
 
-    <EditText
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        android:layout_height="wrap_content"
-        android:inputType="number|numberDecimal"
-        android:ems="10"
-        android:id="@+id/temp1"
-        android:layout_row="1"
-        android:layout_column="1"
-        style="@style/Widget.AppCompat.EditText"
-        android:hint="Entrada"
-        android:layout_marginLeft="3dp"
-        android:layout_width="55dp"
-        android:textSize="12sp" />
-    <EditText
+        <TextView
+            android:id="@+id/labeltemp5"
+            android:padding="13dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Temperatura (°C):"
+            android:layout_row="1"
+            android:textColor="@color/white"
+            android:layout_column="0"
+            android:textColorLink="@color/colorPrimary"
+            android:textAlignment="center"
+            android:layout_width="120dp" />
 
-        android:layout_height="wrap_content"
-        android:inputType="number|numberDecimal"
-        android:ems="10"
-        android:id="@+id/temps1"
-        android:layout_row="1"
-        android:layout_column="2"
-        style="@style/Widget.AppCompat.EditText"
-        android:hint="Salida"
-        android:layout_marginLeft="-60dp"
-        android:textSize="12sp"
-        android:layout_width="55dp" />
+        <EditText
+            android:layout_height="wrap_content"
+            android:inputType="number|numberDecimal"
+            android:ems="10"
+            android:id="@+id/tempe5"
+            android:layout_column="1"
+            style="@style/Widget.AppCompat.EditText"
+            android:hint="Entrada"
+            android:layout_marginLeft="1dp"
+            android:textSize="12sp"
+            android:layout_width="80dp"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            />
 
-    <EditText
+        <TextView
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="     Segundos"
+            android:ems="10"
+            android:id="@+id/sec5"
+            android:layout_marginLeft="0dp"
+            android:layout_column="2"
+            android:layout_width="wrap_content"
+            android:textColor="@color/white"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textSize="12sp"
+            android:layout_gravity="center"/>
 
-        android:layout_height="wrap_content"
-        android:inputType="number|numberDecimal"
-        android:ems="10"
-        android:id="@+id/temps3"
-        android:layout_row="3"
-        android:layout_column="2"
-        style="@style/Widget.AppCompat.EditText"
-        android:hint="Salida"
-        android:layout_marginLeft="-60dp"
-        android:textSize="12sp"
-        android:layout_width="55dp" />
-    <EditText
+    </TableRow>
+    <TableRow>
 
-        android:layout_height="wrap_content"
-        android:inputType="number|numberDecimal"
-        android:ems="10"
-        android:id="@+id/temps4"
-        android:layout_row="4"
-        android:layout_column="2"
-        style="@style/Widget.AppCompat.EditText"
-        android:hint="Salida"
-        android:layout_marginLeft="-60dp"
-        android:textSize="12sp"
-        android:layout_width="55dp" />
-    <EditText
-
-        android:layout_height="wrap_content"
-        android:inputType="number|numberDecimal"
-        android:ems="10"
-        android:id="@+id/temps5"
-        android:layout_row="5"
-        android:layout_column="2"
-        style="@style/Widget.AppCompat.EditText"
-        android:hint="Salida"
-        android:layout_marginLeft="-60dp"
-        android:textSize="12sp"
-        android:layout_width="55dp" />
-
-    <TextView
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Segundos"
-        android:ems="10"
-        android:id="@+id/editTexasdt"
-        android:layout_marginLeft="0dp"
-        android:layout_row="1"
-        android:layout_column="3"
-        android:layout_width="70dp"
-        android:textColor="@color/white"
-        android:textAppearance="@style/TextAppearance.AppCompat"
-        android:textSize="12sp" />
-    <TextView
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Segundos"
-        android:layout_marginLeft="0dp"
-        android:ems="10"
-        android:id="@+id/editTexasddft"
-        android:layout_row="2"
-        android:layout_column="3"
-        android:layout_width="70dp"
-        android:textColor="@color/white"
-        android:textAppearance="@style/TextAppearance.AppCompat"
-        android:textSize="12sp" />
-    <TextView
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Segundos"
-        android:ems="10"
-        android:id="@+id/editTexafdfsdt"
-        android:layout_marginLeft="0dp"
-        android:layout_row="3"
-        android:layout_column="3"
-        android:layout_width="70dp"
-        android:textColor="@color/white"
-        android:textAppearance="@style/TextAppearance.AppCompat"
-        android:textSize="12sp" />
-
-    <EditText
-
-        android:layout_height="wrap_content"
-        android:inputType="number|numberDecimal"
-        android:ems="10"
-        android:id="@+id/temp5"
-        android:layout_row="5"
-        android:layout_column="1"
-        style="@style/Widget.AppCompat.EditText"
-        android:hint="Entrada"
-        android:layout_marginLeft="3dp"
-        android:layout_width="55dp"
-        android:textSize="12sp" />
-    <EditText
-
-        android:layout_height="wrap_content"
-        android:inputType="number|numberDecimal"
-        android:ems="10"
-        android:id="@+id/flujo"
-        android:layout_row="6"
-        style="@style/Widget.AppCompat.EditText"
-        android:hint="Flujo másico"
-        android:layout_marginLeft="30dp"
-        android:layout_width="85dp"
-        android:textSize="12sp" />
-
-    <TextView
-        android:id="@+id/variaciones"
-        android:padding="13dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:text="Variaciones spinner"
-        android:textColor="@color/white"
-        android:layout_row="0"
-
-        android:textColorLink="@color/colorPrimary"
-        android:textAlignment="center"
-        android:layout_width="120dp"
-        />
-
-    <TextView
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Segundos"
-        android:ems="10"
-        android:id="@+id/editTsdfexasdt"
-        android:layout_marginLeft="-0dp"
-        android:layout_row="4"
-        android:layout_column="3"
-        android:layout_width="70dp"
-        android:textColor="@color/white"
-        android:textAppearance="@style/TextAppearance.AppCompat"
-        android:textSize="12sp" />
-
-    <TextView
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Segundos"
-        android:ems="10"
-        android:id="@+id/editTsdfexasdfgt"
-        android:layout_marginLeft="0dp"
-        android:layout_row="5"
-        android:layout_column="3"
-        android:layout_width="70dp"
-        android:textColor="@color/white"
-        android:textAppearance="@style/TextAppearance.AppCompat"
-        android:textSize="12sp" />
-
-    <EditText
-
-        android:layout_height="wrap_content"
-        android:inputType="number|numberDecimal"
-        android:ems="10"
-        android:id="@+id/temps2"
-        android:layout_row="2"
-        android:layout_column="2"
-        style="@style/Widget.AppCompat.EditText"
-        android:hint="Salida"
-        android:layout_marginLeft="-60dp"
-        android:textSize="12sp"
-        android:layout_width="55dp" />
+        <Button
+            android:layout_column="1"
+            android:layout_gravity="center"
 
 
-</GridLayout>
+            style="@android:style/Widget.DeviceDefault.Button"
+            android:text="Ingresar"
+            android:textSize="12sp" />
+    </TableRow>
+
+
+</TableLayout>

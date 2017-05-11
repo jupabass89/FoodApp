@@ -15,6 +15,7 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.juan.foodapp.R;
 
@@ -45,6 +46,9 @@ public class ExpandableListAdapterTransferenciaTanque extends BaseExpandableList
     private String campo5;
     private String campo6;
     private String campo7;
+    private String campo8;
+    private String campo9;
+    private String campo10;
 
     public String getCampo7() {
         return campo7;
@@ -116,6 +120,7 @@ public class ExpandableListAdapterTransferenciaTanque extends BaseExpandableList
 
             if(("Alimento").equals(header.get(groupPosition))) {
                 convertView = infalInflater.inflate(R.layout.child_1_transferencia_tanque, parent, false);
+                Toast.makeText(_context, "Si el alimento es Agua, por favor deja los otros campos en blanco", Toast.LENGTH_LONG).show();
 
                 //Creo lo necesario para crear el observador, cada que se oprime una telca, actualiza la variable linkeada con ese campo
 
@@ -314,6 +319,9 @@ public class ExpandableListAdapterTransferenciaTanque extends BaseExpandableList
         }
         if(("Temperaturas de enfriamiento").equals(header.get(groupPosition))) {
             convertView = infalInflater.inflate(R.layout.child_5_transferencia_tanque, parent, false);
+        }
+        if(("Fluido de servicio").equals(header.get(groupPosition))) {
+            convertView = infalInflater.inflate(R.layout.child_6_transferencia_tanque, parent, false);
         }
 
 

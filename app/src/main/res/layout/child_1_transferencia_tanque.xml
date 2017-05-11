@@ -6,71 +6,76 @@
     android:background="#303c49"
     android:padding="5dp" >
 
-    <CheckBox
-        android:id="@+id/chkIos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:text="¿Es Agua?" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Implementación_Extended_Opciones"
-        android:padding="5dp"
-        android:textColor="@color/white"/>
 
 
-   <!-- <TextView
-        android:id="@+id/child_transfer1"
-        android:padding="10dp"
+        <CheckBox
+            android:id="@+id/chkIos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="¿Es Agua?"
+            android:checked="true" />
+
+    <ExpandableListView
+        android:id="@+id/no_agua_list"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Temperatura del alimento a la entrada de la sección.(°C)"
-        android:textColor="@color/white"
-        android:textColorLink="@color/colorPrimary"
-        android:textSize="13sp"
-        />
+        android:layout_height="393dp"
+        android:divider="#000000"
+        android:dividerHeight="1dp"
+        >
+    </ExpandableListView>
 
-    <EditText android:layout_width="wrap_content"
-        android:id="@+id/campo1"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:inputType="number"
-        android:width="150dp"/>
 
-    <TextView
-        android:id="@+id/child_transfer2"
-        android:padding="10dp"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Caudal correspondiente a la entrada del alimento a la zona. (L/s)"
-        android:textColor="@color/white"
-        android:textColorLink="@color/colorPrimary"
-        android:textSize="13sp"
-        />
-    <EditText android:layout_width="wrap_content"
-        android:id="@+id/campo2"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:inputType="number"
-        android:width="150dp"/>
+    <!-- <TextView
+         android:id="@+id/child_transfer1"
+         android:padding="10dp"
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+         android:text="Temperatura del alimento a la entrada de la sección.(°C)"
+         android:textColor="@color/white"
+         android:textColorLink="@color/colorPrimary"
+         android:textSize="13sp"
+         />
 
-    <TextView
-        android:id="@+id/child_transfer3"
-        android:padding="10dp"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Coeficiente de incrustación para el fluido frío."
-        android:textColor="@color/white"
-        android:textColorLink="@color/colorPrimary"
-        android:textSize="13sp"
-        />
-    <EditText android:layout_width="wrap_content"
-        android:id="@+id/campo3"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:inputType="number"
-        android:width="150dp"/>-->
+     <EditText android:layout_width="wrap_content"
+         android:id="@+id/campo1"
+         android:layout_height="wrap_content"
+         android:textColor="@color/white"
+         android:inputType="number"
+         android:width="150dp"/>
+
+     <TextView
+         android:id="@+id/child_transfer2"
+         android:padding="10dp"
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+         android:text="Caudal correspondiente a la entrada del alimento a la zona. (L/s)"
+         android:textColor="@color/white"
+         android:textColorLink="@color/colorPrimary"
+         android:textSize="13sp"
+         />
+     <EditText android:layout_width="wrap_content"
+         android:id="@+id/campo2"
+         android:layout_height="wrap_content"
+         android:textColor="@color/white"
+         android:inputType="number"
+         android:width="150dp"/>
+
+     <TextView
+         android:id="@+id/child_transfer3"
+         android:padding="10dp"
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+         android:text="Coeficiente de incrustación para el fluido frío."
+         android:textColor="@color/white"
+         android:textColorLink="@color/colorPrimary"
+         android:textSize="13sp"
+         />
+     <EditText android:layout_width="wrap_content"
+         android:id="@+id/campo3"
+         android:layout_height="wrap_content"
+         android:textColor="@color/white"
+         android:inputType="number"
+         android:width="150dp"/>-->
 
 </LinearLayout>

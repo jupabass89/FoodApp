@@ -3,14 +3,11 @@ package com.example.juan.foodapp.controlador;
 
         import java.util.HashMap;
         import java.util.List;
-        import java.util.jar.Attributes;
 
         import android.content.Context;
         import android.graphics.Typeface;
-        import android.renderscript.Sampler;
         import android.text.Editable;
         import android.text.TextWatcher;
-        import android.util.Log;
         import android.view.LayoutInflater;
         import android.view.View;
         import android.view.ViewGroup;
@@ -31,40 +28,40 @@ public class ExpandableListAdapterTransferenciaPlacas extends BaseExpandableList
 
     //variables para obtener los datos ingresados
 
-    private String campo1;
-    private String campo2;
-    private String campo3;
-    private String campo4;
-    private String campo5;
-    private String campo6;
-    private String campo7;
+    private String tempAlimentoEntrada;
+    private String caudalEntradaAlimento;
+    private String coefIncrustacionFrio;
+    private String tempFluidoServicioEntrada;
+    private String caudalEntradaFluido;
+    private String coefIncrustacionCaliente;
+    private String coefGlobalTransfer;
 
-    public String getCampo7() {
-        return campo7;
+    public String getCoefGlobalTransfer() {
+        return coefGlobalTransfer;
     }
 
-    public String getCampo6() {
-        return campo6;
+    public String getCoefIncrustacionCaliente() {
+        return coefIncrustacionCaliente;
     }
 
-    public String getCampo5() {
-        return campo5;
+    public String getCaudalEntradaFluido() {
+        return caudalEntradaFluido;
     }
 
-    public String getCampo4() {
-        return campo4;
+    public String getTempFluidoServicioEntrada() {
+        return tempFluidoServicioEntrada;
     }
 
-    public String getCampo3() {
-        return campo3;
+    public String getCoefIncrustacionFrio() {
+        return coefIncrustacionFrio;
     }
 
-    public String getCampo2() {
-        return campo2;
+    public String getCaudalEntradaAlimento() {
+        return caudalEntradaAlimento;
     }
 
-    public String getCampo1() {
-        return campo1;
+    public String getTempAlimentoEntrada() {
+        return tempAlimentoEntrada;
     }
 
     public ExpandableListAdapterTransferenciaPlacas(Context context, List<String> listDataHeader,
@@ -123,8 +120,7 @@ public class ExpandableListAdapterTransferenciaPlacas extends BaseExpandableList
                     @Override
                     public void onTextChanged(CharSequence s, int start, int before, int count) {
 
-                        campo1 = s.toString();
-                        Log.i(campo1, "test");
+                        tempAlimentoEntrada = s.toString();
 
                     }
 
@@ -146,8 +142,8 @@ public class ExpandableListAdapterTransferenciaPlacas extends BaseExpandableList
 
                     @Override
                     public void onTextChanged(CharSequence s, int start, int before, int count) {
-                        campo2 = s.toString();
-                        Log.i(campo2, "test");
+                        caudalEntradaAlimento = s.toString();
+
 
 
                     }
@@ -170,8 +166,8 @@ public class ExpandableListAdapterTransferenciaPlacas extends BaseExpandableList
 
                     @Override
                     public void onTextChanged(CharSequence s, int start, int before, int count) {
-                        campo3 = s.toString();
-                        Log.i(campo3, "test");
+                        coefIncrustacionFrio = s.toString();
+
 
                     }
 
@@ -198,8 +194,8 @@ public class ExpandableListAdapterTransferenciaPlacas extends BaseExpandableList
 
                 @Override
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
-                    campo4 = s.toString();
-                    Log.i(campo4, "test");
+                    tempFluidoServicioEntrada = s.toString();
+
 
 
                 }
@@ -222,8 +218,8 @@ public class ExpandableListAdapterTransferenciaPlacas extends BaseExpandableList
 
                 @Override
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
-                    campo5 = s.toString();
-                    Log.i(campo5, "test");
+                    caudalEntradaFluido = s.toString();
+
 
 
                 }
@@ -247,8 +243,8 @@ public class ExpandableListAdapterTransferenciaPlacas extends BaseExpandableList
 
                 @Override
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
-                    campo6 = s.toString();
-                    Log.i(campo6, "test");
+                    coefIncrustacionCaliente = s.toString();
+
 
 
                 }
@@ -272,17 +268,18 @@ public class ExpandableListAdapterTransferenciaPlacas extends BaseExpandableList
                 @Override
                 public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
+
                 }
 
                 @Override
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
-                    campo7 = s.toString();
-                    Log.i(campo7, "test");
+                    coefGlobalTransfer = s.toString();
 
                 }
 
                 @Override
                 public void afterTextChanged(Editable s) {
+
 
                 }
 

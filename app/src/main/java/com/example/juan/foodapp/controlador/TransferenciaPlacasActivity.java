@@ -1,5 +1,6 @@
 package com.example.juan.foodapp.controlador;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ExpandableListView;
+import android.widget.Toast;
 
 import com.example.juan.foodapp.R;
 
@@ -22,7 +24,7 @@ public class TransferenciaPlacasActivity extends AppCompatActivity {
     private static ExpandableListView expandableListView;
     private static ExpandableListAdapterTransferenciaPlacas adapter;
 
-    ExpandableListAdapterTransferenciaPlacas capturaDatos= new ExpandableListAdapterTransferenciaPlacas();
+    ExpandableListAdapterTransferenciaPlacas capturaDatos = new ExpandableListAdapterTransferenciaPlacas();
 
 
     @Override
@@ -36,7 +38,7 @@ public class TransferenciaPlacasActivity extends AppCompatActivity {
         setContentView(R.layout.activity_transferencia_placas);
 
         //Muestra barra de acción
-        ActionBar ab= getSupportActionBar();
+        ActionBar ab = getSupportActionBar();
         //Muestra logo
         ab.setLogo(R.mipmap.ic_icon);
         ab.setDisplayUseLogoEnabled(true);
@@ -54,9 +56,9 @@ public class TransferenciaPlacasActivity extends AppCompatActivity {
         setListener();
 
 
-       // valor1.addTextChangedListener(passwordWatcher);
+        // valor1.addTextChangedListener(passwordWatcher);
 
-        final Button ingresarDatos = (Button)findViewById(R.id.btnTransferenciaPlacas);
+        final Button ingresarDatos = (Button) findViewById(R.id.btnTransferenciaPlacas);
         ingresarDatos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,9 +92,9 @@ public class TransferenciaPlacasActivity extends AppCompatActivity {
 
         // Adding child data MACHETAZO
 
-       child1.add("");
+        child1.add("");
 
-       header.add("Temperatura del fluido del servicio (Fuido caliente)");
+        header.add("Temperatura del fluido del servicio (Fuido caliente)");
         child2.add("");
 
 
@@ -129,22 +131,20 @@ public class TransferenciaPlacasActivity extends AppCompatActivity {
            }
         }); */
         // Listview Group collasped listener
-     /**   expandableListView.setOnGroupCollapseListener(new ExpandableListView.OnGroupCollapseListener() {
-            @Override
-            public void onGroupCollapse(int groupPosition) {
+          expandableListView.setOnGroupCollapseListener(new ExpandableListView.OnGroupCollapseListener() {
+        @Override public void onGroupCollapse(int groupPosition) {
+
+        Toast.makeText(getApplicationContext(),
+        "Datos Guardados",
+        Toast.LENGTH_SHORT).show();
+        }
 
 
-                Toast.makeText(getApplicationContext(),
-                         "PruebasDeDatos Guardados",
-                        Toast.LENGTH_SHORT).show();
-            }
-
-
-        });**/
+        });
 
         // Este metodo solo deja que se abra un grupo a la vez
 
-        expandableListView
+        /**expandableListView
                 .setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
 
                     // Default position
@@ -177,7 +177,6 @@ public class TransferenciaPlacasActivity extends AppCompatActivity {
     }
 
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -190,16 +189,27 @@ public class TransferenciaPlacasActivity extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        switch (item.getItemId()) {
+            case R.id.generaInforme:
+                //metodoSearch()
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_add_file) {
-            return true;
+                return true;
+            case R.id.verGuia:
+                //metodoEdit()
+
+                Intent intent = new Intent(this, VisualizacionGuia.class);
+                startActivityForResult(intent, 0);
+
+                return true;
+            case R.id.cerrarSesion:
+                //metodoDelete()
+
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
         }
 
-        return super.onOptionsItemSelected(item);
+
     }
-
-
-
 }

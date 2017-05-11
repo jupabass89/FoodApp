@@ -13,10 +13,10 @@ public class VisualizacionGuia extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guia_practica);
-        Bundle datos = getIntent().getExtras();
-        archivo = datos.getString("nombrePractica");
-
+        /**Bundle datos = getIntent().getExtras();
+        archivo = datos.getString("nombrePractica");**/
         PDFView pdfView = (PDFView)findViewById(R.id.pdfView);
-        pdfView.fromAsset(archivo).load();
+        //pdfView.fromAsset(archivo).load();
+        pdfView.fromAsset("pasterizacionPlacas.pdf").load();
     }
 }

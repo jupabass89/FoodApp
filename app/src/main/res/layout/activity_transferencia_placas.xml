@@ -18,8 +18,9 @@
         android:layout_width="fill_parent"
         android:layout_height="393dp"
         android:divider="#000000"
-        android:layout_marginBottom="150dp"
-        android:dividerHeight="1dp" >
+        android:dividerHeight="1dp"
+        android:layout_above="@+id/btnTransferenciaPlacas"
+        android:layout_alignParentTop="true">
     </ExpandableListView>
 
     <Button
@@ -30,7 +31,6 @@
         android:text="Ingresar"
         android:layout_weight="0.13"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="49dp" />
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
