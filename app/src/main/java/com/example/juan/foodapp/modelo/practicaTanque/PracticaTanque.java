@@ -244,7 +244,4 @@ public class PracticaTanque extends Practica {
 
     @Override
     public void generarInforme() {}
-
-    @Override
-    public void visualizarGuia(){}
 }

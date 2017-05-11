@@ -55,6 +55,4 @@ public abstract class Practica {
      */
 
     public abstract void generarInforme();
-
-    public abstract void visualizarGuia();
 }
