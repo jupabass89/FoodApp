@@ -38,8 +38,7 @@
         <activity android:name=".controlador.TransferenciaTanqueActivity"
             android:label="Tanque Agitado"
             android:theme="@style/Selects" />
-        <activity android:name=".controlador.VisualizacionGuia"
-            android:theme="@style/Selects"/>
+        <activity android:name=".modelo.serviciosPractica.Guia"/>
     </application>
 
 </manifest>

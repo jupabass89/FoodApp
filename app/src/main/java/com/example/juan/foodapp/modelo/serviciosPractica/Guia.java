@@ -1,4 +1,4 @@
-package com.example.juan.foodapp.controlador;
+package com.example.juan.foodapp.modelo.serviciosPractica;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.example.juan.foodapp.R;
 import com.github.barteksc.pdfviewer.PDFView;
 
-public class VisualizacionGuia extends AppCompatActivity {
+public class Guia extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

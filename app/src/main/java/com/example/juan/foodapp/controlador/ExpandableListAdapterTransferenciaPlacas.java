@@ -8,6 +8,7 @@ package com.example.juan.foodapp.controlador;
         import android.graphics.Typeface;
         import android.text.Editable;
         import android.text.TextWatcher;
+        import android.util.Log;
         import android.view.LayoutInflater;
         import android.view.View;
         import android.view.ViewGroup;
@@ -269,16 +270,20 @@ public class ExpandableListAdapterTransferenciaPlacas extends BaseExpandableList
                 public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
 
+
+
                 }
 
                 @Override
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
                     coefGlobalTransfer = s.toString();
+                    Log.i("prueba", coefGlobalTransfer);
 
                 }
 
                 @Override
                 public void afterTextChanged(Editable s) {
+
 
 
                 }

@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.juan.foodapp.R;
 import com.example.juan.foodapp.modelo.practicaPlacas.PracticaPlacas;
+import com.example.juan.foodapp.modelo.serviciosPractica.Guia;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -113,7 +114,7 @@ public class TransferenciaPlacasActivity extends AppCompatActivity {
             case (R.id.generaInforme):
                 break;
             case (R.id.verGuia):
-                Intent intencion = new Intent(this, VisualizacionGuia.class);
+                Intent intencion = new Intent(this, Guia.class);
                 intencion.putExtra("nombrePractica", "pasterizacionPlacas.pdf");
                 startActivity(intencion);
                 break;
