@@ -11,9 +11,10 @@ public class OperacionZonaPasterizacionPlacas {
         return (flujoMasicoFluidoFrio*CpFluidoFrio*(tempSalidaFluido-tempEntradaFluido));
     }
 
-    // Cp es la capacidad calorifica del fluido caliente
-    public float calcularTempSalidaDelFluidoDeServicio(float flujoDeCalor, float flujoMasicoFluidoCaliente, float CpFluidoCaliente, float tempEntradaFluido){
-        return ((flujoDeCalor+(flujoMasicoFluidoCaliente*CpFluidoCaliente*tempEntradaFluido))/(flujoMasicoFluidoCaliente*CpFluidoCaliente));
+    public float calcularTemperaturaDeSalidaDelFluidoDeServicio(float tempEntradaFC, float tempEntradaFF, float CpFF, float flujoMasicoFF, float tempSalidaFF,
+                    float CpFC, float flujoMasicoFC){
+        float diferenciaTemperaturasFluidoCaliente = (((CpFF*flujoMasicoFF)*(tempSalidaFF-tempEntradaFF))/(CpFC*flujoMasicoFC));
+        return (tempEntradaFC - diferenciaTemperaturasFluidoCaliente);
     }
 
     public float calcularTempMediaLogaritmica(float tempEntradaFluidoFrio, float tempSalidaFluidoFrio,

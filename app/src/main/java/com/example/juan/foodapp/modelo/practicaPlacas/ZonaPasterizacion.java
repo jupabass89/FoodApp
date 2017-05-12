@@ -27,7 +27,6 @@ public class ZonaPasterizacion {
     private float coeficienteDeDiseñoCalculado;
     private float numeroDePlacasTotalesRequeridas;
     private float caudalDeEntradaAlimento;
-    private float caudalDeEntradaFluidoDeServicio;
 
     public float getFlujoDeCalor() {
         return flujoDeCalor;
@@ -203,13 +202,5 @@ public class ZonaPasterizacion {
 
     public void setCaudalDeEntradaAlimento(float caudalDeEntradaAlimento) {
         this.caudalDeEntradaAlimento = caudalDeEntradaAlimento;
-    }
-
-    public float getCaudalDeEntradaFluidoDeServicio() {
-        return caudalDeEntradaFluidoDeServicio;
-    }
-
-    public void setCaudalDeEntradaFluidoDeServicio(float caudalDeEntradaFluidoDeServicio) {
-        this.caudalDeEntradaFluidoDeServicio = caudalDeEntradaFluidoDeServicio;
     }
 }

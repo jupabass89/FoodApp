@@ -18,6 +18,7 @@ public class PracticaPlacas extends Practica {
     private FluidoServicio fluidoCaliente;
     private ZonaPasterizacion zonaPasterizacion;
     private final float TEMPERATURA_SALIDA_ALIMENTO = 75f;
+    private final float FLUJO_MASICO_FLUIDO_DE_SERVICIO = 0.6f; // Fluido Caliente - AGUA
 
     public PracticaPlacas(Context contexto, String asignatura, String profesor){
         this.contexto = contexto;
@@ -50,19 +51,17 @@ public class PracticaPlacas extends Practica {
         fluidoFrio.setDensidad(operadorFluidos.calcularDensidadDeFluido(fluidoFrio.getTemperaturaPromedio()));
         fluidoCaliente.setDensidad(operadorFluidos.calcularDensidadDeFluido(fluidoCaliente.getTempEntrada()));
 
-        // Se calcula el flujo masico de cada fluido
+        // Se calcula el flujo masico del fluido frio
         fluidoFrio.setFlujoMasico(operadorFluidos.calcularFlujoMasicoDeFluido(zonaPasterizacion.getCaudalDeEntradaAlimento(),
                 fluidoFrio.getDensidad()));
-        fluidoCaliente.setFlujoMasico(operadorFluidos.calcularFlujoMasicoDeFluido(zonaPasterizacion.getCaudalDeEntradaFluidoDeServicio(),
-                fluidoCaliente.getDensidad()));
+
+        // Se calcula y se asigna la temperatura de salida del fluido caliente de la zona de pasterizacion
+        fluidoCaliente.setTempSalida(operadorPasterizacion.calcularTemperaturaDeSalidaDelFluidoDeServicio(fluidoCaliente.getTempEntrada(), fluidoFrio.getTempEntrada(), fluidoFrio.getCapacidadCalorifica(),
+                fluidoFrio.getFlujoMasico(), fluidoFrio.getTempSalida(), fluidoCaliente.getCapacidadCalorifica(), fluidoCaliente.getFlujoMasico()));
+        fluidoCaliente.setCapacidadCalorifica(operadorFluidos.calcularCapacidadCalorificaDeFluido(fluidoCaliente.getTemperaturaPromedio()));
 
         zonaPasterizacion.setFlujoDeCalor(operadorPasterizacion.calcularFlujoDeCalor(fluidoFrio.getFlujoMasico(),
                 fluidoFrio.getCapacidadCalorifica(), fluidoFrio.getTempEntrada(), fluidoFrio.getTempSalida()));
-
-        // Se calcula y se asigna la temperatura de salida del fluido caliente de la zona de pasterizacion
-        fluidoCaliente.setTempSalida(operadorPasterizacion.calcularTempSalidaDelFluidoDeServicio(zonaPasterizacion.getFlujoDeCalor(),
-                fluidoCaliente.getFlujoMasico(), fluidoCaliente.getCapacidadCalorifica(), fluidoCaliente.getTempEntrada()));
-        fluidoCaliente.setCapacidadCalorifica(operadorFluidos.calcularCapacidadCalorificaDeFluido(fluidoCaliente.getTemperaturaPromedio()));
 
         // Se calcula la temperatura media logaritmica
         zonaPasterizacion.setTemperaturaMediaLogaritmica(operadorPasterizacion.calcularTempMediaLogaritmica(fluidoFrio.getTempEntrada(),
@@ -154,11 +153,11 @@ public class PracticaPlacas extends Practica {
     @Override
     public void configurarPractica(Object[] datos) {
         fluidoFrio.setTempSalida(TEMPERATURA_SALIDA_ALIMENTO);
+        fluidoCaliente.setFlujoMasico(FLUJO_MASICO_FLUIDO_DE_SERVICIO);
         /*
         -	Temperatura del alimento a la entrada de la sección.
         -	Temperatura de entrada del fluido de servicio a la entrada de la sección.
         -	El Caudal (flujo másico) correspondiente a la entrada del alimento a la zona.
-        -	El Caudal (flujo másico) correspondiente a la entrada del fluido de servicio a la zona.
         -	El Coeficiente Global de Transferencia de Calor de Diseño (UD) que se va a suponer en la práctica. (aceptar valores entre 10 y 8500)
         -	Coeficiente de incrustación para el fluido frio.
         -	Coeficiente de incrustación para el fluido caliente.

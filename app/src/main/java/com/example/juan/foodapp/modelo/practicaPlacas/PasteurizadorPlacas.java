@@ -8,7 +8,7 @@ public class PasteurizadorPlacas {
 
     // Especificaciones técnicas del pasteurizador de placas de la planta de lácteos de la UdeA
     private final String MATERIAL= "Acero inoxidable AISI 316";  
-    private final float CONDUCTIVIDAD_TERMICA = 0.016f;         //w/m°k
+    private final float CONDUCTIVIDAD_TERMICA = 16f;         //w/m°k
                         // Revisar valor de conductividad termica
     private final float ANCHO_PLACA = 0.1f;                     //mts
     private final float LARGO_PLACA= 0.48f;                     //mts
