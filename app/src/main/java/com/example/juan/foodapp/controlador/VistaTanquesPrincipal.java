@@ -53,7 +53,7 @@ public class VistaTanquesPrincipal extends AppCompatActivity {
                 break;
             case (R.id.verGuia):
                 Intent intencion = new Intent(this, Guia.class);
-                intencion.putExtra("nombrePractica", "pasterizacionPlacas.pdf");
+                intencion.putExtra("nombrePractica", "tanqueAgitado.pdf");
                 startActivity(intencion);
                 break;
         }

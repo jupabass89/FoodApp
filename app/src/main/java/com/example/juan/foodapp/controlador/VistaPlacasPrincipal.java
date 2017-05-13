@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.juan.foodapp.R;
+import com.example.juan.foodapp.modelo.*;
 import com.example.juan.foodapp.modelo.practicaPlacas.PracticaPlacas;
 import com.example.juan.foodapp.modelo.serviciosPractica.Guia;
 
@@ -134,6 +135,7 @@ public class VistaPlacasPrincipal extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case (R.id.generaInforme):
+                practica = new PracticaPlacas(contexto, "Ejemplo", "Ejemplo2");
                 practica.generarInforme("pdf1");
                 // Configurar Toast
                 // "RUTA: Descargas/Practicas

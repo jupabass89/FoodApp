@@ -308,7 +308,7 @@
             android:layout_marginLeft="-186dp"
             android:textColor="@color/white"
             android:inputType="number|numberDecimal"
-            android:hint="Nombre:"
+            android:hint="Identificador"
             android:layout_row="11"
             android:layout_gravity="fill_vertical"
             android:layout_column="1"
@@ -355,7 +355,7 @@
             android:textColor="@color/white" />
 
         <Button
-            android:text="Guardar datos"
+            android:text="Salvar datos"
 
             android:layout_width="174dp"
             android:layout_height="wrap_content"
