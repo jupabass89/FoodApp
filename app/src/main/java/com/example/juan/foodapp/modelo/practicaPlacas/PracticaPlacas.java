@@ -44,6 +44,7 @@ public class PracticaPlacas extends Practica {
      * de diseño calculado sea aceptable.
      */
     public void calcularDatosZonaPasterizacion(){
+        int iteraciones = 0;
         fluidoFrio.setCapacidadCalorifica(operadorFluidos.calcularCapacidadCalorificaDeFluido(fluidoFrio.getTemperaturaPromedio()));
         fluidoCaliente.setCapacidadCalorifica(operadorFluidos.calcularCapacidadCalorificaDeFluido(fluidoCaliente.getTempEntrada()));
         // Se calcula la densidad de cada fluido
@@ -76,11 +77,16 @@ public class PracticaPlacas extends Practica {
 
         do {
             realizarCalculosParaCoeficienteGlobalDeDiseño();
+            iteraciones++;
             razonDeCoeficientesAceptable = operadorPasterizacion.validacionCoeficientesDeDiseño(zonaPasterizacion.getCoeficienteDeDiseñoCalculado(),
                     zonaPasterizacion.getCoeficienteDeDiseñoAsumido());
             if (!razonDeCoeficientesAceptable)
                 zonaPasterizacion.setCoeficienteDeDiseñoAsumido(zonaPasterizacion.getCoeficienteDeDiseñoCalculado());
-        }while(!razonDeCoeficientesAceptable);
+        }while(!razonDeCoeficientesAceptable && iteraciones <= 10);
+        if(iteraciones == 10){
+            zonaPasterizacion.setAreaDeTCDeCadaPlaca(0);
+            return;
+        }
 
         // Se recalcula el Area de TC requerida, utilizando el coeficiente de TC calculado
         zonaPasterizacion.setAreaDeDiseñoRequerida(operadorPasterizacion.calcularElAreaDeDiseñoRequerida(zonaPasterizacion.getFlujoDeCalor(),
@@ -139,7 +145,7 @@ public class PracticaPlacas extends Practica {
         // Esta viscosidad corresponde al calculo de la viscosidad de los fluidos utilizando como temperatura promedio la temperatura estimada de la pared de la placa
         zonaPasterizacion.setNumeroNusseltFluidoFrio(operadorPasterizacion.calcularNusseltParaFluido(zonaPasterizacion.getNumeroDeReynoldsFluidoFrio(),
                 zonaPasterizacion.getNumeroDePrantFluidoFrio(), fluidoFrio.getViscosidad(),viscosidadFluidosP));
-        zonaPasterizacion.setNumeroDePrantFluidoCaliente(operadorPasterizacion.calcularNusseltParaFluido(zonaPasterizacion.getNumeroDeReynoldsFluidoCaliente(),
+        zonaPasterizacion.setNumeroNusseltFluidoCaliente(operadorPasterizacion.calcularNusseltParaFluido(zonaPasterizacion.getNumeroDeReynoldsFluidoCaliente(),
                 zonaPasterizacion.getNumeroDePrantFluidoCaliente(), fluidoCaliente.getViscosidad(), viscosidadFluidosP));
         zonaPasterizacion.setCoeficienteTCPorConveccionFluidoFrio(operadorPasterizacion.calcularCoeficienteTCPorConveccionDeFluido(zonaPasterizacion.getNumeroNusseltFluidoFrio(),
                 fluidoFrio.getConductividadTermica(), pasteurizador.getDiametroEquivalente()));
@@ -171,6 +177,12 @@ public class PracticaPlacas extends Practica {
         fluidoCaliente.setTempEntrada(Float.parseFloat(datos[3].toString()));
         fluidoCaliente.setCoeficienteDeIncrustacion(Float.parseFloat(datos[4].toString()));
         zonaPasterizacion.setCoeficienteDeDiseñoAsumido(Float.parseFloat(datos[5].toString()));
+        /*fluidoFrio.setTempEntrada(40f);
+        zonaPasterizacion.setCaudalDeEntradaAlimento(0.0712f);
+        fluidoFrio.setCoeficienteDeIncrustacion(0.00019f);
+        fluidoCaliente.setTempEntrada(85f);
+        fluidoCaliente.setCoeficienteDeIncrustacion(0.00012f);
+        zonaPasterizacion.setCoeficienteDeDiseñoAsumido(595.61f);*/
     }
 
     @Override

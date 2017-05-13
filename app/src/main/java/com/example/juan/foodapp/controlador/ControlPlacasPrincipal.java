@@ -19,7 +19,7 @@ import com.example.juan.foodapp.modelo.*;
 import com.example.juan.foodapp.modelo.practicaPlacas.PracticaPlacas;
 import com.example.juan.foodapp.modelo.serviciosPractica.Guia;
 
-public class VistaPlacasPrincipal extends AppCompatActivity {
+public class ControlPlacasPrincipal extends AppCompatActivity {
 
     private PracticaPlacas practica;
     private Context contexto;
@@ -87,11 +87,12 @@ public class VistaPlacasPrincipal extends AppCompatActivity {
         boton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(realizarCalculos()){
-                    Intent intencion = new Intent(contexto, GraficaPlacasActivity.class);
-                    intencion.putExtra("data",datos);
-                    startActivity(intencion);
-                }
+                //if(realizarCalculos()){
+                realizarCalculos();
+                Intent intencion = new Intent(contexto, GraficaPlacasActivity.class);
+                intencion.putExtra("data",datos);
+                startActivity(intencion);
+                //}
             }
         });
     }
@@ -132,10 +133,10 @@ public class VistaPlacasPrincipal extends AppCompatActivity {
     }
 
     private boolean realizarCalculos(){
-        if(!camposCompletos()){
+        /*if(!camposCompletos()){
             mostarMensaje("Debe llenar todos los campos para la practica");
             return (false);
-        }
+        }*/
         //
         practica = new PracticaPlacas(contexto, asignatura, profesor);
         practica.configurarPractica(configurarDatosPractica());
@@ -155,6 +156,13 @@ public class VistaPlacasPrincipal extends AppCompatActivity {
         datos[3] = entrada4.getText().toString();
         datos[4] = entrada5.getText().toString();
         datos[5] = entrada6.getText().toString();
+
+        datos[0] = 40f;
+        datos[1] = 0.712f;
+        datos[2] = 0.00019f;
+        datos[3] = 85f;
+        datos[4] = 0.00012f;
+        datos[5] = 595.61f;
         return (datos);
     }
 }

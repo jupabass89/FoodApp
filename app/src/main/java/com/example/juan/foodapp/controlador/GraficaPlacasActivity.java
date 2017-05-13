@@ -34,7 +34,8 @@ public class GraficaPlacasActivity extends AppCompatActivity {
         data = (Object[]) datos.getSerializable("data");
         nuevo = (EditText)findViewById(R.id.nuevoCaudal);
         boton = (Button)findViewById(R.id.btnAgregar);
-
+        x = new ArrayList<>();
+        y = new ArrayList<>();
         p = new PracticaPlacas(this, null, null);
         p.configurarPractica(data);
         p.calcularDatosZonaPasterizacion();
@@ -48,7 +49,7 @@ public class GraficaPlacasActivity extends AppCompatActivity {
                     data[1] = dato;
                     p.configurarPractica(data);
                     p.calcularDatosZonaPasterizacion();
-                    x.add(Float.parseFloat(dato));
+                    x.add(Float.parseFloat(data[1].toString()));
                     y.add(p.getAreaTC());
 
                     graficar();
@@ -58,6 +59,7 @@ public class GraficaPlacasActivity extends AppCompatActivity {
                 }
             }
         });
+        graficar();
     }
 
     private void graficar(){

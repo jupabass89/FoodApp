@@ -47,13 +47,13 @@ public class ProfesorAsignaturaActivity extends AppCompatActivity {
         Intent intencion;
         switch (practicaSeleccionada){
             case ("Tanque Agitado"):
-                intencion = new Intent(this, VistaTanquesPrincipal.class);
+                intencion = new Intent(this, ControlTanquesPrincipal.class);
                 intencion.putExtra("Asignatura", asignatura);
                 intencion.putExtra("Profesor", profesor);
                 startActivity(intencion);
                 break;
             case ("Pasteurizador de Placas"):
-                intencion = new Intent(this, VistaPlacasPrincipal.class);
+                intencion = new Intent(this, ControlPlacasPrincipal.class);
                 intencion.putExtra("Asignatura", asignatura);
                 intencion.putExtra("Profesor", profesor);
                 startActivity(intencion);

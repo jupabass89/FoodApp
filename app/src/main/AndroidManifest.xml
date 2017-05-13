@@ -33,17 +33,19 @@
         <activity android:name=".controlador.PruebasDeDatos" />
         <activity android:name=".modelo.serviciosPractica.Guia" />
         <activity
-            android:name=".controlador.VistaPlacasPrincipal"
+            android:name=".controlador.ControlPlacasPrincipal"
             android:label="Pasteurizador"
             android:theme="@style/Selects" />
         <activity
-            android:name=".controlador.VistaTanquesPrincipal"
+            android:name=".controlador.ControlTanquesPrincipal"
             android:label="Tanque Agitado"
             android:theme="@style/Selects" />
         <activity android:name=".controlador.ProfesorAsignaturaActivity" />
-        <activity android:name=".controlador.GraficaPlacasActivity"
+        <activity
+            android:name=".controlador.GraficaPlacasActivity"
             android:label="Pasteurizador"
-            android:theme="@style/Selects"></activity>
+            android:theme="@style/Selects" />
+        <activity android:name=".controlador.TablaResultados"></activity>
     </application>
 
 </manifest>

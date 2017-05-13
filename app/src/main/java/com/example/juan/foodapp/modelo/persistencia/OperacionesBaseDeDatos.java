@@ -84,6 +84,39 @@ public final class OperacionesBaseDeDatos {
             return (data);
         }return(null);
     }
+
+    public ArrayList<String> obtenerRegistrosGuardadosZonaPasterizacionPlacas(){
+        String consulta = "SELECT * FROM tbl_zonaPasterizacion_placas";
+        Cursor registros = obtenerDataDB(consulta);
+        ArrayList<String> data = new ArrayList<>();
+        if(registros.getCount() != 0){
+            if(registros.moveToFirst()){
+                do{
+                    data.add(registros.getString(0));
+                }while (registros.moveToNext());
+            }
+        }return (data);
+    }
+
+    /*
+        public ArrayList<Grupo> obtenerGruposDB() {
+        String consulta = "SELECT * FROM tbl_grupo";
+        Cursor grupos = obtenerDataDB(consulta);
+        Grupo grupo;
+        ArrayList<Grupo> grupoAL = new ArrayList<>();
+        if(grupos.getCount() != 0)
+        {
+            if (grupos.moveToFirst()) {
+                do {
+                    grupo = new Grupo(grupos.getInt(0), grupos.getString(1),grupos.getInt(2),grupos.getInt(3));
+                    grupoAL.add(grupo);
+                } while (grupos.moveToNext());
+            }
+
+        }
+        return grupoAL;
+    }
+     */
     
     /**
      * Método para obtener datos de la base de datos es necesario pasar por parametro
