@@ -14,6 +14,7 @@ import com.lowagie.text.Font;
 import com.lowagie.text.FontFactory;
 import com.lowagie.text.HeaderFooter;
 import com.lowagie.text.Image;
+import com.lowagie.text.ListItem;
 import com.lowagie.text.Paragraph;
 import com.lowagie.text.Phrase;
 import com.lowagie.text.pdf.PdfWriter;
@@ -74,6 +75,7 @@ public class Informe {
             Paragraph titulo = new Paragraph("INFORME DE PRACTICA DE LABORATORIO", font);
             titulo.setAlignment(Paragraph.ALIGN_CENTER);
             documento.add(new Paragraph(titulo));
+            documento.add(new Paragraph("-"));
             documento.add(new LineSeparator());
 
             insertarImagen(BitmapFactory.decodeResource(contexto.getResources(), R.drawable.escudo));
@@ -86,10 +88,27 @@ public class Informe {
             documento.add(new Paragraph("CORREO: " + estudiante.getMail()));
             documento.add(new Paragraph("ASIGNATURA: " + practica.getAsignatura()));
             documento.add(new Paragraph("PROFESOR: " + practica.getProfesor()));
+            documento.add(new Paragraph("-"));
             documento.add(new LineSeparator());
             return (true);
         }catch (DocumentException e) {
             return(false);
+        }
+    }
+
+    public boolean insertarDatos(String subTitulo, String[][] datos){
+        Font font = FontFactory.getFont(FontFactory.HELVETICA, 20, Font.BOLD, Color.BLACK);
+        try {
+            documento.add(new Paragraph(subTitulo, font));
+            documento.add(new Paragraph(""));
+            for (int i=0; i<datos.length;i++){
+                documento.add(new Paragraph(datos[i][0]+" - "+datos[i][1]));
+            }
+            documento.add(new Paragraph("-"));
+            documento.add(new LineSeparator());
+            return (true);
+        } catch (DocumentException e) {
+            return (false);
         }
     }
 
@@ -137,9 +156,5 @@ public class Informe {
             }
         }
         return ruta;
-    }
-
-    public String getDestino(){
-        return ("RUTA: Descargas/"+CARPETA_DESTINO);
     }
 }

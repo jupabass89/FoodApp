@@ -238,8 +238,7 @@ public class PracticaTanque extends Practica {
     }
 
     @Override
-    public void generarInforme() {
+    public void generarInforme(String nombreArchivo) {
 
     }
-
 }

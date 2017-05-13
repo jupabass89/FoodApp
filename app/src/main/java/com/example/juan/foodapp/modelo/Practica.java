@@ -54,5 +54,5 @@ public abstract class Practica {
      * desde ese metodo.
      */
 
-    public abstract void generarInforme();
+    public abstract void generarInforme(String nombreArchivo);
 }

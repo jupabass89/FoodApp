@@ -1,5 +1,6 @@
 package com.example.juan.foodapp.controlador;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.juan.foodapp.R;
+import com.example.juan.foodapp.modelo.serviciosPractica.Guia;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -239,8 +241,11 @@ public class TransferenciaTanqueActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_add_file) {
             return true;
+        }else if(id == R.id.verGuia){
+            Intent intencion = new Intent(this, Guia.class);
+            intencion.putExtra("nombrePractica", "tanqueAgitado.pdf");
+            startActivity(intencion);
         }
-
         return super.onOptionsItemSelected(item);
     }
 

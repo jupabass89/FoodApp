@@ -112,6 +112,10 @@ public class TransferenciaPlacasActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case (R.id.generaInforme):
+                practica.generarInforme("pdf1");
+                // Configurar Toast
+                // "RUTA: Descargas/Practicas
+                Toast.makeText(this, "PDF GENERADO", Toast.LENGTH_LONG).show();
                 break;
             case (R.id.verGuia):
                 Intent intencion = new Intent(this, Guia.class);

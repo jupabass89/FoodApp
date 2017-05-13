@@ -3,8 +3,10 @@ package com.example.juan.foodapp.modelo.practicaPlacas;
 import android.content.Context;
 
 import com.example.juan.foodapp.modelo.Alimento;
+import com.example.juan.foodapp.modelo.Estudiante;
 import com.example.juan.foodapp.modelo.FluidoServicio;
 import com.example.juan.foodapp.modelo.Practica;
+import com.example.juan.foodapp.modelo.serviciosPractica.Informe;
 
 import java.util.ArrayList;
 
@@ -19,6 +21,7 @@ public class PracticaPlacas extends Practica {
     private ZonaPasterizacion zonaPasterizacion;
     private final float TEMPERATURA_SALIDA_ALIMENTO = 75f;
     private final float FLUJO_MASICO_FLUIDO_DE_SERVICIO = 0.6f; // Fluido Caliente - AGUA
+    boolean razonDeCoeficientesAceptable;
 
     public PracticaPlacas(Context contexto, String asignatura, String profesor){
         this.contexto = contexto;
@@ -74,11 +77,14 @@ public class PracticaPlacas extends Practica {
         // Se calcula el area de TC de cada placa
         zonaPasterizacion.setAreaDeTCDeCadaPlaca(operadorPasterizacion.calcularElAreaDeTCDeCadaPlaca(pasteurizador.getAnchoPlaca(),
                 pasteurizador.getLargoPlaca()));
+
         do {
             realizarCalculosParaCoeficienteGlobalDeDiseño();
-        }while(!operadorPasterizacion.validacionCoeficientesDeDiseño(zonaPasterizacion.getCoeficienteDeDiseñoCalculado(),
-                zonaPasterizacion.getCoeficienteDeDiseñoAsumido()));
-        // CONSIDERAR PUNTO DE PARADA LUEGO DE CIERTO NUMERO DE ITERACIONES!
+            razonDeCoeficientesAceptable = operadorPasterizacion.validacionCoeficientesDeDiseño(zonaPasterizacion.getCoeficienteDeDiseñoCalculado(),
+                    zonaPasterizacion.getCoeficienteDeDiseñoAsumido());
+            if (!razonDeCoeficientesAceptable)
+                zonaPasterizacion.setCoeficienteDeDiseñoAsumido(zonaPasterizacion.getCoeficienteDeDiseñoCalculado());
+        }while(!razonDeCoeficientesAceptable);
 
         // Se recalcula el Area de TC requerida, utilizando el coeficiente de TC calculado
         zonaPasterizacion.setAreaDeDiseñoRequerida(operadorPasterizacion.calcularElAreaDeDiseñoRequerida(zonaPasterizacion.getFlujoDeCalor(),
@@ -168,5 +174,14 @@ public class PracticaPlacas extends Practica {
     public ArrayList<Object> calcularDatosGrafica() {return null;}
 
     @Override
-    public void generarInforme(){};
+    public void generarInforme(String nombreArchivo){
+        Informe informePractica = new Informe(nombreArchivo, this, Estudiante.getEstudiante(), contexto);
+        informePractica.obtenerNuevoDocumento();
+        informePractica.configurarPresentacionDocumento();
+        //Ejemplo
+        String[][] datos = {{"DATO1","Valor1"},{"DATO2","Valor2"}};
+        //
+        informePractica.insertarDatos("DATOS",datos);
+        informePractica.cerrarDocumento();
+    };
 }
