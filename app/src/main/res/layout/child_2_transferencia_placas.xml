@@ -50,7 +50,7 @@
 
 
     <EditText android:layout_width="wrap_content"
-        android:id="@+id/campo4"
+        android:id="@+id/campoFibra"
         android:layout_height="match_parent"
         android:textColor="@color/white"
         android:inputType="number|numberDecimal"
@@ -64,16 +64,16 @@
         android:layout_toEndOf="@+id/child_transfer6" />
 
     <EditText android:layout_width="wrap_content"
-        android:id="@+id/campo5"
+        android:id="@+id/campoProteina"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
         android:inputType="number|numberDecimal"
         android:width="150dp"
         android:layout_row="1"
         android:layout_column="1"
-        android:layout_below="@+id/campo4"
-        android:layout_alignLeft="@+id/campo4"
-        android:layout_alignStart="@+id/campo4"
+        android:layout_below="@+id/campoFibra"
+        android:layout_alignLeft="@+id/campoFibra"
+        android:layout_alignStart="@+id/campoFibra"
         android:layout_above="@+id/child_transfer6" />
 
     <EditText android:layout_width="wrap_content"
@@ -85,6 +85,6 @@
         android:width="150dp"
         android:layout_alignLeft="@+id/child_transfer6"
         android:layout_alignStart="@+id/child_transfer5"
-        android:layout_below="@+id/campo5" />
+        android:layout_below="@+id/campoProteina" />
 
 </RelativeLayout>

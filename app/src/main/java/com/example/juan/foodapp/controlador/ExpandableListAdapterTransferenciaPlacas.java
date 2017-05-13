@@ -29,6 +29,7 @@ public class ExpandableListAdapterTransferenciaPlacas extends BaseExpandableList
 
     //variables para obtener los datos ingresados
 
+
     private String tempAlimentoEntrada;
     private String caudalEntradaAlimento;
     private String coefIncrustacionFrio;
@@ -184,7 +185,7 @@ public class ExpandableListAdapterTransferenciaPlacas extends BaseExpandableList
         if(("Temperatura del fluido del servicio (Fuido caliente)").equals(header.get(groupPosition))) {
             convertView = infalInflater.inflate(R.layout.child_2_transferencia_placas, parent, false);
             final EditText valor4;
-            valor4 = (EditText)convertView.findViewById(R.id.campo4);
+            valor4 = (EditText)convertView.findViewById(R.id.campoFibra);
 
             valor4.addTextChangedListener(new TextWatcher() {
 
@@ -208,7 +209,7 @@ public class ExpandableListAdapterTransferenciaPlacas extends BaseExpandableList
 
             } );
             final EditText valor5;
-            valor5 = (EditText)convertView.findViewById(R.id.campo5);
+            valor5 = (EditText)convertView.findViewById(R.id.campoProteina);
 
             valor5.addTextChangedListener(new TextWatcher() {
 

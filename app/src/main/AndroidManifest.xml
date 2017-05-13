@@ -6,9 +6,8 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -22,7 +21,8 @@
         <activity
             android:name=".controlador.SeleccionaTipoPracticaProcesosLacteosActivity"
             android:theme="@style/Selects" />
-        <activity android:name=".controlador.LoginActivity"
+        <activity
+            android:name=".controlador.LoginActivity"
             android:theme="@style/Selects">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,10 +35,20 @@
             android:label="Pasteurizador"
             android:theme="@style/Selects" />
         <activity android:name=".controlador.PruebasDeDatos" />
-        <activity android:name=".controlador.TransferenciaTanqueActivity"
+        <activity
+            android:name=".controlador.TransferenciaTanqueActivity"
             android:label="Tanque Agitado"
             android:theme="@style/Selects" />
-        <activity android:name=".modelo.serviciosPractica.Guia"/>
+        <activity android:name=".modelo.serviciosPractica.Guia" />
+        <activity
+            android:name=".controlador.VistaPlacasPrincipal"
+            android:label="Pasteurizador"
+            android:theme="@style/Selects" />
+        <activity
+            android:name=".controlador.VistaTanquesPrincipal"
+            android:label="Tanque Agitado"
+            android:theme="@style/Selects" />
+        <activity android:name=".controlador.ProfesorAsignaturaActivity"></activity>
     </application>
 
 </manifest>

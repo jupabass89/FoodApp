@@ -1,0 +1,794 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/claro"
+    android:id="@+id/placasPrincipal"
+    tools:context=".controlador.VistaTanquesPrincipal"
+    >
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:text="Recuperar datos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/button4"
+            style="@android:style/Widget.DeviceDefault.Button" />
+
+        <TextView
+            android:text="Alimento:"
+            android:layout_width="match_parent"
+            android:background="@color/oscuro"
+            android:layout_height="45dp"
+            android:id="@+id/textView5"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:paddingTop="9dp"
+            android:textStyle="normal|bold"
+            android:textSize="18sp" />
+        <TextView />
+
+        <TextView
+            android:text="Datos del fluido de servicio (Fluido Caliente):"
+            android:layout_width="match_parent"
+            android:background="@color/oscuro"
+            android:layout_height="45dp"
+            android:id="@+id/textVw5"
+            android:layout_row="9"
+            android:layout_column="0"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:paddingTop="9dp"
+            android:textStyle="normal|bold"
+            android:textSize="18sp" />
+        <TextView />
+        <TextView
+            android:text="Tanque:"
+            android:layout_width="match_parent"
+            android:background="@color/oscuro"
+            android:layout_height="45dp"
+            android:id="@+id/tetVw5"
+            android:layout_row="9"
+            android:layout_column="0"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:paddingTop="9dp"
+            android:textStyle="normal|bold"
+            android:textSize="18sp" />
+        <TextView
+            android:text="Agitador:"
+            android:layout_width="match_parent"
+            android:background="@color/oscuro"
+            android:layout_height="45dp"
+            android:id="@+id/tew5"
+            android:layout_row="16"
+            android:layout_column="0"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:paddingTop="9dp"
+            android:textStyle="normal|bold"
+            android:textSize="18sp" />
+
+        <TextView
+            android:text="Temperaturas de calentamiento:"
+            android:layout_width="match_parent"
+            android:background="@color/oscuro"
+            android:layout_height="45dp"
+            android:id="@+id/tew5x"
+            android:layout_row="20"
+            android:layout_column="0"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:paddingTop="9dp"
+            android:textStyle="normal|bold"
+            android:textSize="18sp" />
+        <TextView
+            android:text="Temperaturas de enfriamiento:"
+            android:layout_width="match_parent"
+            android:background="@color/oscuro"
+            android:layout_height="45dp"
+            android:id="@+id/tew5xfghfgh"
+            android:layout_row="32"
+            android:layout_column="0"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:paddingTop="9dp"
+            android:textStyle="normal|bold"
+            android:textSize="18sp" />
+        <TextView
+            android:text="Fluido de servicio:"
+            android:layout_width="match_parent"
+            android:background="@color/oscuro"
+            android:layout_height="45dp"
+            android:layout_row="44"
+            android:layout_column="0"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:paddingTop="9dp"
+            android:textStyle="normal|bold"
+            android:textSize="18sp" />
+        <TextView />
+
+        <TextView />
+
+        <CheckBox
+            android:id="@+id/chkIos"
+            android:layout_gravity="fill_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_row="2"
+            android:layout_column="0"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="¿Es Agua?"
+            android:checked="true" />
+
+        <TextView
+            android:text="%"
+            android:layout_width="162dp"
+            android:layout_marginLeft="-95dp"
+            android:paddingTop="11dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:id="@+id/tehfgxtVi6"
+            android:layout_row="8"
+            android:layout_column="2"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="%"
+            android:layout_width="162dp"
+            android:layout_marginLeft="-95dp"
+            android:paddingTop="11dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:id="@+id/texsdftVi6"
+            android:layout_row="4"
+            android:layout_column="2"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="%"
+            android:layout_width="162dp"
+            android:layout_marginLeft="-95dp"
+            android:paddingTop="11dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:id="@+id/textdfVi6"
+            android:layout_row="5"
+            android:layout_column="2"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="%"
+            android:layout_width="162dp"
+            android:layout_marginLeft="-95dp"
+            android:paddingTop="11dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:id="@+id/textVhdfi6"
+            android:layout_row="6"
+            android:layout_column="2"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="%"
+            android:layout_width="162dp"
+            android:layout_marginLeft="-95dp"
+            android:paddingTop="11dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:id="@+id/textVsdfi6"
+            android:layout_row="7"
+            android:layout_column="2"
+            android:textColor="@color/white" />
+
+
+        <EditText
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-185dp"
+            android:textColor="@color/white"
+            android:inputType="number|numberDecimal"
+            android:hint="Ej: Leche"
+            android:layout_row="3"
+            android:layout_gravity="fill_vertical"
+            android:layout_column="1"
+            android:ems="10"
+            android:id="@+id/campoNombre"
+            style="@android:style/Widget.DeviceDefault.EditText"
+            android:textSize="14sp" />
+
+        <TextView
+            android:text="Proteína:"
+            android:layout_width="179dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:id="@+id/textVhjiew61"
+            android:layout_row="7"
+            android:layout_column="0"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="Carbohidratos:"
+            android:layout_width="179dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:id="@+id/textViewghj61"
+            android:layout_row="4"
+            android:layout_column="0"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="Ceniza:"
+            android:layout_width="179dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:id="@+id/textghjView61"
+            android:layout_row="5"
+            android:layout_column="0"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="Fibra:"
+            android:layout_width="179dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:id="@+id/texghjtView61"
+            android:layout_row="6"
+            android:layout_column="0"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="Grasa:"
+            android:layout_width="179dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:id="@+id/textVighjew61"
+            android:layout_row="8"
+            android:layout_column="0"
+            android:textColor="@color/white" />
+
+
+        <EditText
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-185dp"
+            android:textColor="@color/white"
+            android:inputType="number|numberDecimal"
+            android:hint="Ej: 000"
+            android:layout_row="5"
+            android:layout_gravity="fill_vertical"
+            android:layout_column="1"
+            android:ems="10"
+            android:id="@+id/campoCeniza"
+            style="@android:style/Widget.DeviceDefault.EditText"
+            android:textSize="14sp" />
+        <EditText
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-185dp"
+            android:textColor="@color/white"
+            android:inputType="number|numberDecimal"
+            android:hint="Ej: 000"
+            android:layout_row="4"
+            android:layout_gravity="fill_vertical"
+            android:layout_column="1"
+            android:ems="10"
+            android:id="@+id/campoCarbohi"
+            style="@android:style/Widget.DeviceDefault.EditText"
+            android:textSize="14sp" />
+
+
+        <EditText
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-185dp"
+            android:textColor="@color/white"
+            android:inputType="number|numberDecimal"
+            android:hint="Ej: 000"
+            android:layout_row="6"
+            android:layout_gravity="fill_vertical"
+            android:layout_column="1"
+            android:ems="10"
+            android:id="@+id/campoFibra"
+            style="@android:style/Widget.DeviceDefault.EditText"
+            android:textSize="14sp" />
+
+
+        <EditText
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-185dp"
+            android:textColor="@color/white"
+            android:inputType="number|numberDecimal"
+            android:hint="Ej: 000"
+            android:layout_row="7"
+            android:layout_gravity="fill_vertical"
+            android:layout_column="1"
+            android:ems="10"
+            android:id="@+id/campoProteina"
+            style="@android:style/Widget.DeviceDefault.EditText"
+            android:textSize="14sp" />
+        <EditText
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-185dp"
+            android:textColor="@color/white"
+            android:inputType="number|numberDecimal"
+            android:hint="Ej: 0.29"
+            android:layout_row="10"
+            android:layout_gravity="fill_vertical"
+            android:layout_column="1"
+            android:ems="10"
+            android:id="@+id/campoAltProd"
+            style="@android:style/Widget.DeviceDefault.EditText"
+            android:textSize="14sp" />
+        <EditText
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-185dp"
+            android:textColor="@color/white"
+            android:inputType="number|numberDecimal"
+            android:hint="Ej: 0.0037"
+            android:layout_row="11"
+            android:layout_gravity="fill_vertical"
+            android:layout_column="1"
+            android:ems="10"
+            android:id="@+id/campoEspes"
+            style="@android:style/Widget.DeviceDefault.EditText"
+            android:textSize="14sp" />
+        <EditText
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-185dp"
+            android:textColor="@color/white"
+            android:inputType="number|numberDecimal"
+            android:hint="Ej: 0.29"
+            android:layout_row="12"
+            android:layout_gravity="fill_vertical"
+            android:layout_column="1"
+            android:ems="10"
+            android:id="@+id/campoDiamInt"
+            style="@android:style/Widget.DeviceDefault.EditText"
+            android:textSize="14sp" />
+        <EditText
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-185dp"
+            android:textColor="@color/white"
+            android:inputType="number|numberDecimal"
+            android:hint="Ej: 0.66"
+            android:layout_row="13"
+            android:layout_gravity="fill_vertical"
+            android:layout_column="1"
+            android:ems="10"
+            android:id="@+id/campoDiameExt"
+            style="@android:style/Widget.DeviceDefault.EditText"
+            android:textSize="14sp" />
+        <EditText
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-185dp"
+            android:textColor="@color/white"
+            android:inputType="number|numberDecimal"
+            android:hint="Ej: 16.3"
+            android:layout_row="14"
+            android:layout_gravity="fill_vertical"
+            android:layout_column="1"
+            android:ems="10"
+            android:id="@+id/campoConduc"
+            style="@android:style/Widget.DeviceDefault.EditText"
+            android:textSize="14sp" />
+        <EditText
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-185dp"
+            android:textColor="@color/white"
+            android:inputType="number|numberDecimal"
+            android:hint="Ej: 0.0009"
+            android:layout_row="15"
+            android:layout_gravity="fill_vertical"
+            android:layout_column="1"
+            android:ems="10"
+            android:id="@+id/campoFactIncru"
+            style="@android:style/Widget.DeviceDefault.EditText"
+            android:textSize="14sp" />
+        <EditText
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-185dp"
+            android:textColor="@color/white"
+            android:inputType="number|numberDecimal"
+            android:hint="Ej: 0.0009"
+            android:layout_row="18"
+            android:layout_gravity="fill_vertical"
+            android:layout_column="1"
+            android:ems="10"
+            android:id="@+id/campoAltAgit"
+            style="@android:style/Widget.DeviceDefault.EditText"
+            android:textSize="14sp" />
+        <EditText
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-185dp"
+            android:textColor="@color/white"
+            android:inputType="number|numberDecimal"
+            android:hint="Ej: 0.0009"
+            android:layout_row="19"
+            android:layout_gravity="fill_vertical"
+            android:layout_column="1"
+            android:ems="10"
+            android:id="@+id/campoDiametroAgit"
+            style="@android:style/Widget.DeviceDefault.EditText"
+            android:textSize="14sp" />
+        <EditText
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-185dp"
+            android:textColor="@color/white"
+            android:inputType="number|numberDecimal"
+            android:hint="Ej: 000"
+            android:layout_row="8"
+            android:layout_gravity="fill_vertical"
+            android:layout_column="1"
+            android:ems="10"
+            android:id="@+id/campoGrasa"
+            style="@android:style/Widget.DeviceDefault.EditText"
+            android:textSize="14sp" />
+
+        <TextView
+            android:text="Nombre:"
+            android:layout_width="179dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:id="@+id/textdfw61"
+            android:layout_row="3"
+            android:layout_column="0"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="Altura Producto:"
+            android:layout_width="179dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:id="@+id/textsgw61"
+            android:layout_row="10"
+            android:layout_column="0"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="Espesor:"
+            android:layout_width="179dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:id="@+id/textsfgw61"
+            android:layout_row="11"
+            android:layout_column="0"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="Diámetro Interno:"
+            android:layout_width="179dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:id="@+id/textsgfw61"
+            android:layout_row="12"
+            android:layout_column="0"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:text="Diámetro Externo:"
+            android:layout_width="179dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:id="@+id/textVdfgw61"
+            android:layout_row="13"
+            android:layout_column="0"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="Conductividad:"
+            android:layout_width="179dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:id="@+id/dfg"
+            android:layout_row="14"
+            android:layout_column="0"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:text="Factor por incrustaciones:"
+            android:layout_width="179dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:id="@+id/texsh61"
+            android:layout_row="15"
+            android:layout_column="0"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="Tipo de agitador:"
+            android:layout_width="179dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:id="@+id/texssdfsdfh61"
+            android:layout_row="17"
+            android:layout_column="0"
+            android:textColor="@color/white" />
+        <Spinner
+            android:layout_width="129dp"
+            android:layout_marginLeft="-185dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner_agitador"
+            android:layout_row="17"
+            android:layout_column="1" />
+        <TextView
+            android:text="Altura:"
+            android:layout_width="179dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:id="@+id/texsdfgfh61"
+            android:layout_row="18"
+            android:layout_column="0"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="Diámetro:"
+            android:layout_width="179dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:id="@+id/texsdfdfggfh61"
+            android:layout_row="19"
+            android:layout_column="0"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="Temperatura (°C):"
+            android:layout_width="179dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:layout_row="21"
+            android:layout_column="0"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="Temperatura (°C):"
+            android:layout_width="179dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:layout_row="22"
+            android:layout_column="0"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="Temperatura (°C):"
+            android:layout_width="179dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:layout_row="23"
+            android:layout_column="0"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="Temperatura (°C):"
+            android:layout_width="179dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:layout_row="24"
+            android:layout_column="0"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="Temperatura (°C):"
+            android:layout_width="179dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:layout_row="25"
+            android:layout_column="0"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="Temperatura (°C):"
+            android:layout_width="179dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:layout_row="26"
+            android:layout_column="0"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="Temperatura (°C):"
+            android:layout_width="179dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:layout_row="27"
+            android:layout_column="0"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="Temperatura (°C):"
+            android:layout_width="179dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:layout_row="28"
+            android:layout_column="0"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="Temperatura (°C):"
+            android:layout_width="179dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:layout_row="29"
+            android:layout_column="0"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="Temperatura (°C):"
+            android:layout_width="179dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:layout_row="30"
+            android:layout_column="0"
+            android:textColor="@color/white" />
+        <Button
+            android:text="Ingresar Temperaturas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_row="31"
+            android:layout_column="0"
+            android:id="@+id/buttn4"
+            style="@android:style/Widget.DeviceDefault.Button" />
+        <Button
+            android:text="Ingresar Temperaturas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_row="43"
+            android:layout_column="0"
+            android:id="@+id/butpn4"
+            style="@android:style/Widget.DeviceDefault.Button" />
+        <Button
+            android:text="Guardar datos"
+            android:layout_width="194dp"
+            android:layout_height="wrap_content"
+            android:layout_row="48"
+            android:layout_column="0"
+            android:id="@+id/buyuiyu4"
+            style="@android:style/Widget.DeviceDefault.Button" />
+        <Button
+            android:text="Realizar Cálculos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_row="49"
+            android:layout_column="0"
+            android:id="@+id/buyufgh"
+            style="@android:style/Widget.DeviceDefault.Button" />
+        <TextView
+            android:text="Temperatura (°C):"
+            android:layout_width="179dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:layout_row="42"
+            android:layout_column="0"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="Temperatura (°C):"
+            android:layout_width="179dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:layout_row="33"
+            android:layout_column="0"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="Temperatura (°C):"
+            android:layout_width="179dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:layout_row="34"
+            android:layout_column="0"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="Temperatura (°C):"
+            android:layout_width="179dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:layout_row="35"
+            android:layout_column="0"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="Temperatura (°C):"
+            android:layout_width="179dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:layout_row="36"
+            android:layout_column="0"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="Temperatura (°C):"
+            android:layout_width="179dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:layout_row="37"
+            android:layout_column="0"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="Temperatura (°C):"
+            android:layout_width="179dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:layout_row="38"
+            android:layout_column="0"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="Temperatura (°C):"
+            android:layout_width="179dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:layout_row="39"
+            android:layout_column="0"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="Temperatura (°C):"
+            android:layout_width="179dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:layout_row="40"
+            android:layout_column="0"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="Temperatura (°C):"
+            android:layout_width="179dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:layout_row="41"
+            android:layout_column="0"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="Temperatura de entrada:"
+            android:layout_width="179dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:layout_row="45"
+            android:layout_column="0"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="Temperatura de salida:"
+            android:layout_width="179dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:layout_row="46"
+            android:layout_column="0"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="Flujo másico:"
+            android:layout_width="179dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:layout_row="47"
+            android:layout_column="0"
+            android:textColor="@color/white" />
+
+
+
+    </GridLayout>
+</ScrollView>

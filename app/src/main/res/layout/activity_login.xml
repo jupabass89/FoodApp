@@ -14,7 +14,7 @@
         android:inputType="textPersonName"
         android:ems="10"
         android:layout_marginBottom="66dp"
-        android:id="@+id/userName"
+        android:id="@+id/asignatura"
         android:textColor="@color/white"
         android:layout_above="@+id/userMail"
         android:layout_centerHorizontal="true"
@@ -28,11 +28,11 @@
         android:inputType="textPersonName"
         android:ems="10"
         android:layout_marginTop="56dp"
-        android:id="@+id/userId"
+        android:id="@+id/profesor"
         android:textColor="@color/white"
-        android:layout_alignTop="@+id/userName"
-        android:layout_alignLeft="@+id/userName"
-        android:layout_alignStart="@+id/userName"
+        android:layout_alignTop="@+id/asignatura"
+        android:layout_alignLeft="@+id/asignatura"
+        android:layout_alignStart="@+id/asignatura"
         android:textAlignment="center"
         android:hint="ID"
         style="@android:style/Widget.DeviceDefault.EditText" />
@@ -49,8 +49,8 @@
         android:hint="Correo electrónico"
         style="@android:style/Widget.DeviceDefault.EditText"
         android:layout_above="@+id/btnLogin"
-        android:layout_alignLeft="@+id/userId"
-        android:layout_alignStart="@+id/userId" />
+        android:layout_alignLeft="@+id/profesor"
+        android:layout_alignStart="@+id/profesor" />
 
     <Button
         android:id="@+id/btnLogin"

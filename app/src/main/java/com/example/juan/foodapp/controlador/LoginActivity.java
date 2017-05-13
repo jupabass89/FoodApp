@@ -27,8 +27,8 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         contexto = this.getApplicationContext();
 
-        campoNombre = (EditText)findViewById(R.id.userName);
-        campoID = (EditText)findViewById(R.id.userId);
+        campoNombre = (EditText)findViewById(R.id.asignatura);
+        campoID = (EditText)findViewById(R.id.profesor);
         campoCorreo = (EditText)findViewById(R.id.userMail);
 
         final Button login = (Button)findViewById(R.id.btnLogin);

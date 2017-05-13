@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/claro"
+    android:id="@+id/placasPrincipal"
+    tools:context=".controlador.VistaPlacasPrincipal"
+    >
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:text="Recuperar datos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/button4"
+            style="@android:style/Widget.DeviceDefault.Button" />
+
+        <TextView
+            android:text="Datos del alimento (Fluido Frío):"
+            android:layout_width="match_parent"
+            android:background="@color/oscuro"
+            android:layout_height="45dp"
+            android:id="@+id/textView5"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:paddingTop="9dp"
+            android:textStyle="normal|bold"
+            android:textSize="18sp" />
+        <TextView />
+
+        <TextView
+            android:text="Datos del fluido de servicio (Fluido Caliente):"
+            android:layout_width="match_parent"
+            android:background="@color/oscuro"
+            android:layout_height="45dp"
+            android:id="@+id/textVw5"
+            android:layout_row="5"
+            android:layout_column="0"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:paddingTop="9dp"
+            android:textStyle="normal|bold"
+            android:textSize="18sp" />
+        <TextView />
+        <TextView
+            android:text="Dato general de la práctica:"
+            android:layout_width="match_parent"
+            android:background="@color/oscuro"
+            android:layout_height="45dp"
+            android:id="@+id/tetVw5"
+            android:layout_row="8"
+            android:layout_column="0"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:paddingTop="9dp"
+            android:textStyle="normal|bold"
+            android:textSize="18sp" />
+        <TextView />
+        <TextView
+            android:text="Opciones:"
+            android:layout_width="match_parent"
+            android:background="@color/oscuro"
+            android:layout_height="45dp"
+            android:id="@+id/tetw5"
+            android:layout_row="10"
+            android:layout_column="0"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:paddingTop="9dp"
+            android:textStyle="normal|bold"
+            android:textSize="18sp" />
+        <TextView />
+
+
+
+        <EditText
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-185dp"
+            android:textColor="@color/white"
+            android:inputType="number|numberDecimal"
+            android:hint="Ej: 000"
+            android:layout_row="2"
+            android:layout_gravity="fill_vertical"
+            android:layout_column="1"
+            android:ems="10"
+            android:id="@+id/campo1"
+            style="@android:style/Widget.DeviceDefault.EditText"
+            android:textSize="18sp" />
+
+
+        <TextView
+            android:text="Temperatura del alimento a la entrada de la sección:"
+            android:layout_width="169dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:id="@+id/textView6"
+            android:layout_row="2"
+            android:layout_column="0"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:text="(L/s)"
+            android:layout_width="162dp"
+            android:layout_marginLeft="-95dp"
+            android:paddingTop="25dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:id="@+id/textVi6"
+            android:layout_row="3"
+            android:layout_column="2"
+            android:textColor="@color/white" />
+
+
+        <EditText
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-185dp"
+            android:textColor="@color/white"
+            android:inputType="number|numberDecimal"
+            android:hint="Ej: 000"
+            android:layout_row="3"
+            android:layout_gravity="fill_vertical"
+            android:layout_column="1"
+            android:ems="10"
+            android:id="@+id/campo2"
+            style="@android:style/Widget.DeviceDefault.EditText"/>
+        <EditText
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-185dp"
+            android:textColor="@color/white"
+            android:inputType="number|numberDecimal"
+            android:hint="Ej: 000"
+            android:layout_row="9"
+            android:layout_gravity="fill_vertical"
+            android:layout_column="1"
+            android:ems="10"
+            android:id="@+id/campo6"
+            style="@android:style/Widget.DeviceDefault.EditText"/>
+
+        <TextView
+            android:text="Caudal correspondiente a la entrada del alimento a la zona:"
+            android:layout_width="179dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:id="@+id/textView61"
+            android:layout_row="3"
+            android:layout_column="0"
+            android:textColor="@color/white" />
+
+
+        <EditText
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-185dp"
+            android:textColor="@color/white"
+            android:inputType="number|numberDecimal"
+            android:hint="Ej: 000"
+            android:layout_row="4"
+            android:layout_gravity="fill_vertical"
+            android:layout_column="1"
+            android:ems="10"
+            android:id="@+id/campo3"
+            style="@android:style/Widget.DeviceDefault.EditText"/>
+
+        <TextView
+            android:text="Temperatura del alimento a la entrada de la sección:"
+            android:layout_width="162dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:id="@+id/textView63241"
+            android:layout_row="4"
+            android:layout_column="0"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="Temperatura del alimento a la entrada de la sección:"
+            android:layout_width="169dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:id="@+id/extView6"
+            android:layout_row="6"
+            android:layout_column="0"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:text="(L/s)"
+            android:layout_width="162dp"
+            android:layout_marginLeft="-95dp"
+            android:paddingTop="25dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:id="@+id/tetVi6"
+            android:layout_row="6"
+            android:layout_column="2"
+            android:textColor="@color/white" />
+
+
+        <EditText
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-185dp"
+            android:textColor="@color/white"
+            android:inputType="number|numberDecimal"
+            android:hint="Ej: 000"
+            android:layout_row="6"
+            android:layout_gravity="fill_vertical"
+            android:layout_column="1"
+            android:ems="10"
+            android:id="@+id/campoFibra"
+            style="@android:style/Widget.DeviceDefault.EditText"/>
+
+        <TextView
+            android:text="Coeficiente de incrustación para el fluido caliente:"
+            android:layout_width="179dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:id="@+id/teView61"
+            android:layout_row="7"
+            android:layout_column="0"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="Coeficiente global de transferencia de calor de diseño a suponer:"
+            android:layout_width="192dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:id="@+id/teViw61"
+            android:layout_row="9"
+            android:layout_column="0"
+            android:textColor="@color/white" />
+
+
+        <TextView
+            android:text="°C"
+            android:layout_width="162dp"
+            android:layout_marginLeft="-95dp"
+            android:paddingTop="25dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:id="@+id/tetV"
+            android:layout_row="4"
+            android:layout_column="2"
+            android:textColor="@color/white" />
+        <EditText
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-185dp"
+            android:textColor="@color/white"
+            android:inputType="number|numberDecimal"
+            android:hint="Ej: 000"
+            android:layout_row="7"
+            android:layout_gravity="fill_vertical"
+            android:layout_column="1"
+            android:ems="10"
+            android:id="@+id/campoProteina"
+            style="@android:style/Widget.DeviceDefault.EditText"/>
+
+        <TextView
+            android:text="Temperatura del alimento a la entrada de la sección:"
+            android:layout_width="162dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:id="@+id/textView6341"
+            android:layout_row="4"
+            android:layout_column="0"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:text="N.A."
+            android:layout_width="162dp"
+            android:layout_marginLeft="-95dp"
+            android:paddingTop="25dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:id="@+id/teti6"
+            android:layout_row="7"
+            android:layout_column="2"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="W/m^2 °C"
+            android:layout_width="162dp"
+            android:layout_marginLeft="-95dp"
+            android:paddingTop="25dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:id="@+id/tti6"
+            android:layout_row="9"
+            android:layout_column="2"
+            android:textColor="@color/white" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-186dp"
+            android:textColor="@color/white"
+            android:inputType="number|numberDecimal"
+            android:hint="Nombre:"
+            android:layout_row="11"
+            android:layout_gravity="fill_vertical"
+            android:layout_column="1"
+            android:ems="10"
+            android:id="@+id/campoNombre" />
+
+        <Button
+            android:text="Ver Tabla De Resultados"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnTabla"
+            android:layout_row="14"
+            android:layout_column="0"
+            style="@android:style/Widget.DeviceDefault.Button" />
+
+        <Button
+            android:text="Ver Gráfico XY"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnGrafica"
+            android:layout_row="13"
+            android:layout_column="0"
+            style="@android:style/Widget.DeviceDefault.Button" />
+
+        <Button
+            android:text="Realizar Cálculos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnCalcula"
+            android:layout_row="12"
+            android:layout_column="0"
+            style="@android:style/Widget.DeviceDefault.Button" />
+
+        <TextView
+            android:text="°C"
+            android:layout_width="175dp"
+            android:layout_marginLeft="-95dp"
+            android:paddingTop="25dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:id="@+id/textVi"
+            android:layout_row="2"
+            android:layout_column="2"
+            android:textColor="@color/white" />
+
+        <Button
+            android:text="Guardar datos"
+
+            android:layout_width="174dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnGuardarDatos"
+            android:layout_row="11"
+            android:layout_column="0"
+            style="@android:style/Widget.DeviceDefault.Button" />
+
+
+    </GridLayout>
+</ScrollView>
