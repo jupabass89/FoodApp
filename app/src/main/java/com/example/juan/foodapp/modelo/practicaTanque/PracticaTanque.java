@@ -1,5 +1,6 @@
 package com.example.juan.foodapp.modelo.practicaTanque;
 
+import android.content.Context;
 import android.util.Log;
 
 import com.example.juan.foodapp.modelo.Alimento;
@@ -10,6 +11,8 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class PracticaTanque extends Practica {
+
+    private Context contexto;
 
     private Alimento alimento;
     private FluidoServicio servicioEnfriamiento;
@@ -30,7 +33,8 @@ public class PracticaTanque extends Practica {
     private double ht;                          //(COEF TRANS ALIM) 
 
 
-    public PracticaTanque(){
+    public PracticaTanque(Context context, String asignatura, String profesor){
+        super(context, asignatura, profesor);
         alimento = new Alimento();
         servicioEnfriamiento =new FluidoServicio();
         tanque = new Tanque();

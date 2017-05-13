@@ -13,7 +13,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import com.example.juan.foodapp.R;
 
 public class SeleccionarLaboratorioActivity extends AppCompatActivity {

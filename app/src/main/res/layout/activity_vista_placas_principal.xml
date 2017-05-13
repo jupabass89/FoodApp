@@ -90,7 +90,7 @@
             android:layout_gravity="fill_vertical"
             android:layout_column="1"
             android:ems="10"
-            android:id="@+id/campo1"
+            android:id="@+id/entrada1"
             style="@android:style/Widget.DeviceDefault.EditText"
             android:textSize="18sp" />
 
@@ -131,21 +131,22 @@
             android:layout_gravity="fill_vertical"
             android:layout_column="1"
             android:ems="10"
-            android:id="@+id/campo2"
+            android:id="@+id/entrada2"
             style="@android:style/Widget.DeviceDefault.EditText"/>
+
         <EditText
+            android:id="@+id/entrada6"
+            style="@android:style/Widget.DeviceDefault.EditText"
             android:layout_width="83dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="-185dp"
-            android:textColor="@color/white"
-            android:inputType="number|numberDecimal"
-            android:hint="Ej: 000"
-            android:layout_row="9"
-            android:layout_gravity="fill_vertical"
             android:layout_column="1"
+            android:layout_gravity="fill_vertical"
+            android:layout_marginLeft="-185dp"
+            android:layout_row="9"
             android:ems="10"
-            android:id="@+id/campo6"
-            style="@android:style/Widget.DeviceDefault.EditText"/>
+            android:hint="Ej: 000"
+            android:inputType="number|numberDecimal"
+            android:textColor="@color/white" />
 
         <TextView
             android:text="Caudal correspondiente a la entrada del alimento a la zona:"
@@ -170,7 +171,7 @@
             android:layout_gravity="fill_vertical"
             android:layout_column="1"
             android:ems="10"
-            android:id="@+id/campo3"
+            android:id="@+id/entrada3"
             style="@android:style/Widget.DeviceDefault.EditText"/>
 
         <TextView
@@ -218,7 +219,7 @@
             android:layout_gravity="fill_vertical"
             android:layout_column="1"
             android:ems="10"
-            android:id="@+id/campoFibra"
+            android:id="@+id/entrada4"
             style="@android:style/Widget.DeviceDefault.EditText"/>
 
         <TextView
@@ -265,7 +266,7 @@
             android:layout_gravity="fill_vertical"
             android:layout_column="1"
             android:ems="10"
-            android:id="@+id/campoProteina"
+            android:id="@+id/entrada5"
             style="@android:style/Widget.DeviceDefault.EditText"/>
 
         <TextView
@@ -313,7 +314,7 @@
             android:layout_gravity="fill_vertical"
             android:layout_column="1"
             android:ems="10"
-            android:id="@+id/campoNombre" />
+            android:id="@+id/entradaNombre" />
 
         <Button
             android:text="Ver Tabla De Resultados"

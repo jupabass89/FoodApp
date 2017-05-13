@@ -24,6 +24,8 @@ public class VistaPlacasPrincipal extends AppCompatActivity {
     private PracticaPlacas practica;
     private Context contexto;
 
+    private String asignatura;
+    private String profesor;
 
     //Botones de la vista
 
@@ -31,53 +33,23 @@ public class VistaPlacasPrincipal extends AppCompatActivity {
 
     //Campos de texto de la vista
 
-    EditText campo1;
-    EditText campo2;
-    EditText campo3;
-    EditText campo4;
-    EditText campo5;
-    EditText campo6;
-    EditText campo7;
+    EditText entrada1;
+    EditText entrada2;
+    EditText entrada3;
+    EditText entrada4;
+    EditText entrada5;
+    EditText entrada6;
+    EditText entradaNombre;
 
-    //variables para obtener los datos ingresados
-
+    //Variables para obtener los datos ingresados
 
     private String tempAlimentoEntrada;
     private String caudalEntradaAlimento;
-    private String coefIncrustacionFrio;
+    private String coefIncrustacionFLuidoFrio;
     private String tempFluidoServicioEntrada;
     private String coefIncrustacionCaliente;
     private String coefGlobalTransfer;
     private String nombreDatosGuardados;
-
-
-    public String getNombreDatosGuardados() {
-        return nombreDatosGuardados;
-    }
-
-    public String getCoefGlobalTransfer() {
-        return coefGlobalTransfer;
-    }
-
-    public String getCoefIncrustacionCaliente() {
-        return coefIncrustacionCaliente;
-    }
-
-    public String getTempFluidoServicioEntrada() {
-        return tempFluidoServicioEntrada;
-    }
-
-    public String getCoefIncrustacionFrio() {
-        return coefIncrustacionFrio;
-    }
-
-    public String getCaudalEntradaAlimento() {
-        return caudalEntradaAlimento;
-    }
-
-    public String getTempAlimentoEntrada() {
-        return tempAlimentoEntrada;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +58,9 @@ public class VistaPlacasPrincipal extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_vista_placas_principal);
         contexto = this.getApplicationContext();
+        Bundle datos = getIntent().getExtras();
+        asignatura = datos.getString("Asignatura");
+        profesor = datos.getString("Profesor");
 
         //Muestra barra de acción
         ActionBar ab = getSupportActionBar();
@@ -96,33 +71,13 @@ public class VistaPlacasPrincipal extends AppCompatActivity {
         ab.setDisplayShowHomeEnabled(true);
 
         //Asociación de la captura de datos con los campos de la vista
-        campo1 = (EditText)findViewById(R.id.campo1);
-        campo2 = (EditText)findViewById(R.id.campo2);
-        campo3 = (EditText)findViewById(R.id.campo3);
-        campo4 = (EditText)findViewById(R.id.campoFibra);
-        campo5 = (EditText)findViewById(R.id.campoProteina);
-        campo6 = (EditText)findViewById(R.id.campo6);
-        campo7 = (EditText)findViewById(R.id.campoNombre);
-
-       //Asociación de los botnoes con los botones de la vista
-
-        capturaDatos = (Button)findViewById(R.id.btnCalcula);
-
-        capturaDatos.setOnClickListener(new View.OnClickListener() {
-
-
-            @Override
-            public void onClick(View view) {
-                tempAlimentoEntrada = campo1.getText().toString();
-                caudalEntradaAlimento = campo2.getText().toString();
-                coefIncrustacionFrio = campo3.getText().toString();
-                tempFluidoServicioEntrada = campo4.getText().toString();
-                coefIncrustacionCaliente = campo5.getText().toString();
-                coefGlobalTransfer = campo6.getText().toString();
-            }
-        });
-
-
+        entrada1 = (EditText)findViewById(R.id.entrada1);
+        entrada2 = (EditText)findViewById(R.id.entrada2);
+        entrada3 = (EditText)findViewById(R.id.entrada3);
+        entrada4 = (EditText)findViewById(R.id.entrada4);
+        entrada5 = (EditText)findViewById(R.id.entrada5);
+        entrada6 = (EditText)findViewById(R.id.entrada6);
+        entradaNombre = (EditText)findViewById(R.id.entradaNombre);
     }
 
 
@@ -148,5 +103,42 @@ public class VistaPlacasPrincipal extends AppCompatActivity {
                 break;
         }
         return (true);
+    }
+
+    private boolean camposCompletos(){
+        boolean entrada1V = !entrada1.getText().toString().equals("");
+        boolean entrada2V = !entrada2.getText().toString().equals("");
+        boolean entrada3V = !entrada3.getText().toString().equals("");
+        boolean entrada4V = !entrada4.getText().toString().equals("");
+        boolean entrada5V = !entrada5.getText().toString().equals("");
+        boolean entrada6V = !entrada6.getText().toString().equals("");
+        return (entrada1V && entrada2V && entrada3V && entrada4V && entrada5V && entrada6V);
+    }
+
+    private void realizarCalculos(){
+        if(!camposCompletos()){
+            mostarMensaje("Debe llenar todos los campos para la practica");
+            return;
+        }
+        //
+        practica = new PracticaPlacas(contexto, asignatura, profesor);
+        practica.configurarPractica(configurarDatosPractica());
+        practica.calcularDatosZonaPasterizacion();
+        //
+    }
+
+    private void mostarMensaje(String texto){
+        Toast.makeText(this, texto,Toast.LENGTH_LONG).show();
+    }
+
+    private Object[] configurarDatosPractica(){
+        Object[] datos = new Object[6];
+        datos[0] = entrada1.getText().toString();
+        datos[1] = entrada2.getText().toString();
+        datos[2] = entrada3.getText().toString();
+        datos[3] = entrada4.getText().toString();
+        datos[4] = entrada5.getText().toString();
+        datos[5] = entrada6.getText().toString();
+        return (datos);
     }
 }

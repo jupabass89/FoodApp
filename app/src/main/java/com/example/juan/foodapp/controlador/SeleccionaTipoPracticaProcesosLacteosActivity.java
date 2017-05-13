@@ -59,11 +59,13 @@ public class SeleccionaTipoPracticaProcesosLacteosActivity extends AppCompatActi
                 TextView v = (TextView) view.findViewById(R.id.tv);
                 Toast.makeText(getApplicationContext(), v.getText(), Toast.LENGTH_SHORT).show();
                 if (v.getText().equals("Pasteurizador de Placas") ) {
-                    Intent intent = new Intent(v.getContext(),VistaPlacasPrincipal.class);
+                    Intent intent = new Intent(v.getContext(),ProfesorAsignaturaActivity.class);
+                    intent.putExtra("practicaSeleccionada", "Pasteurizador de Placas");
                     startActivityForResult(intent, 0);
                 }
                 if (v.getText().equals("Tanque Agitado") ) {
-                    Intent intent = new Intent(v.getContext(),VistaTanquesPrincipal.class);
+                    Intent intent = new Intent(v.getContext(),ProfesorAsignaturaActivity.class);
+                    intent.putExtra("practicaSeleccionada", "Tanque Agitado");
                     startActivityForResult(intent, 0);
                 }
 

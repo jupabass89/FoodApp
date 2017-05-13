@@ -1,5 +1,8 @@
 package com.example.juan.foodapp.modelo;
 
+import android.content.Context;
+import android.widget.CheckBox;
+
 import java.util.ArrayList;
 
 public abstract class Practica {
@@ -9,6 +12,11 @@ public abstract class Practica {
     private String nombreLaboratorio;
     private String asignatura;
     private String profesor;
+
+    public Practica(Context contexto,String asignatura,String profesor){
+        this.profesor = profesor;
+        this.asignatura = asignatura;
+    }
 
     public String getNombre() {
         return nombre;

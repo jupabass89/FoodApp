@@ -24,12 +24,13 @@ public class PracticaPlacas extends Practica {
     boolean razonDeCoeficientesAceptable;
 
     public PracticaPlacas(Context contexto, String asignatura, String profesor){
+        super(contexto,asignatura,profesor);
         this.contexto = contexto;
 
         this.setNombreLaboratorio("Laboratorio de Operaciones Unitaras");
         this.setNombre("Transeferencia de calor en un pasterurizador de placas: zona de pasterizacion");
-        this.setAsignatura(asignatura);
-        this.setProfesor(profesor);
+        /*this.setAsignatura(asignatura);
+        this.setProfesor(profesor);*/
 
         operadorFluidos = new OperacionDeFluidoPlacas();
         operadorPasterizacion = new OperacionZonaPasterizacionPlacas();
@@ -37,9 +38,6 @@ public class PracticaPlacas extends Practica {
         fluidoFrio = new Alimento();
         fluidoCaliente = new FluidoServicio();
         zonaPasterizacion = new ZonaPasterizacion();
-        // Se deben setear los datos necesarios para la practica
-        // Se utiliza el metodo configurarPractica()
-        // Estos datos se obtienen de la vista a traves del controlador
     }
 
     /**
@@ -47,7 +45,7 @@ public class PracticaPlacas extends Practica {
      * Se realizan iteraciones de calculos hasta que la razon entre el coeficiente de diseño asumido y el coeficiente
      * de diseño calculado sea aceptable.
      */
-    private void calcularDatosZonaPasterizacion(){
+    public void calcularDatosZonaPasterizacion(){
         fluidoFrio.setCapacidadCalorifica(operadorFluidos.calcularCapacidadCalorificaDeFluido(fluidoFrio.getTemperaturaPromedio()));
         fluidoCaliente.setCapacidadCalorifica(operadorFluidos.calcularCapacidadCalorificaDeFluido(fluidoCaliente.getTempEntrada()));
         // Se calcula la densidad de cada fluido
@@ -160,18 +158,21 @@ public class PracticaPlacas extends Practica {
     public void configurarPractica(Object[] datos) {
         fluidoFrio.setTempSalida(TEMPERATURA_SALIDA_ALIMENTO);
         fluidoCaliente.setFlujoMasico(FLUJO_MASICO_FLUIDO_DE_SERVICIO);
-        /*
-        -	Temperatura del alimento a la entrada de la sección.
-        -	Temperatura de entrada del fluido de servicio a la entrada de la sección.
-        -	El Caudal (flujo másico) correspondiente a la entrada del alimento a la zona.
-        -	El Coeficiente Global de Transferencia de Calor de Diseño (UD) que se va a suponer en la práctica. (aceptar valores entre 10 y 8500)
-        -	Coeficiente de incrustación para el fluido frio.
-        -	Coeficiente de incrustación para el fluido caliente.
-         */
+        fluidoFrio.setTempEntrada(Float.parseFloat(datos[0].toString()));
+        fluidoCaliente.setTempEntrada(Float.parseFloat(datos[1].toString()));
+        zonaPasterizacion.setCaudalDeEntradaAlimento(Float.parseFloat(datos[2].toString()));
+        zonaPasterizacion.setCoeficienteDeDiseñoAsumido(Float.parseFloat(datos[3].toString()));
+        fluidoFrio.setCoeficienteDeIncrustacion(Float.parseFloat(datos[4].toString()));
+        fluidoCaliente.setCoeficienteDeIncrustacion(Float.parseFloat(datos[5].toString()));
     }
 
     @Override
-    public ArrayList<Object> calcularDatosGrafica() {return null;}
+    public ArrayList<Object> calcularDatosGrafica() {
+        ArrayList<Float> x = new ArrayList<>();
+
+        //ciclo para llenar x
+
+        return null;}
 
     @Override
     public void generarInforme(String nombreArchivo){
