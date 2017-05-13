@@ -6,7 +6,6 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
@@ -41,7 +40,10 @@
             android:name=".controlador.VistaTanquesPrincipal"
             android:label="Tanque Agitado"
             android:theme="@style/Selects" />
-        <activity android:name=".controlador.ProfesorAsignaturaActivity"></activity>
+        <activity android:name=".controlador.ProfesorAsignaturaActivity" />
+        <activity android:name=".controlador.GraficaPlacasActivity"
+            android:label="Pasteurizador"
+            android:theme="@style/Selects"></activity>
     </application>
 
 </manifest>

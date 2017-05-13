@@ -29,8 +29,6 @@ public class PracticaPlacas extends Practica {
 
         this.setNombreLaboratorio("Laboratorio de Operaciones Unitaras");
         this.setNombre("Transeferencia de calor en un pasterurizador de placas: zona de pasterizacion");
-        /*this.setAsignatura(asignatura);
-        this.setProfesor(profesor);*/
 
         operadorFluidos = new OperacionDeFluidoPlacas();
         operadorPasterizacion = new OperacionZonaPasterizacionPlacas();
@@ -154,16 +152,25 @@ public class PracticaPlacas extends Practica {
                 fluidoFrio.getCoeficienteDeIncrustacion(), fluidoCaliente.getCoeficienteDeIncrustacion()));
     }
 
+    public float getFlujoMasicoAlimento(){
+        return (fluidoFrio.getFlujoMasico());
+    }
+
+    public float getAreaTC(){
+        return (zonaPasterizacion.getAreaDeTCDeCadaPlaca());
+    }
+
     @Override
     public void configurarPractica(Object[] datos) {
         fluidoFrio.setTempSalida(TEMPERATURA_SALIDA_ALIMENTO);
         fluidoCaliente.setFlujoMasico(FLUJO_MASICO_FLUIDO_DE_SERVICIO);
+
         fluidoFrio.setTempEntrada(Float.parseFloat(datos[0].toString()));
-        fluidoCaliente.setTempEntrada(Float.parseFloat(datos[1].toString()));
-        zonaPasterizacion.setCaudalDeEntradaAlimento(Float.parseFloat(datos[2].toString()));
-        zonaPasterizacion.setCoeficienteDeDiseñoAsumido(Float.parseFloat(datos[3].toString()));
-        fluidoFrio.setCoeficienteDeIncrustacion(Float.parseFloat(datos[4].toString()));
-        fluidoCaliente.setCoeficienteDeIncrustacion(Float.parseFloat(datos[5].toString()));
+        zonaPasterizacion.setCaudalDeEntradaAlimento(Float.parseFloat(datos[1].toString()));
+        fluidoFrio.setCoeficienteDeIncrustacion(Float.parseFloat(datos[2].toString()));
+        fluidoCaliente.setTempEntrada(Float.parseFloat(datos[3].toString()));
+        fluidoCaliente.setCoeficienteDeIncrustacion(Float.parseFloat(datos[4].toString()));
+        zonaPasterizacion.setCoeficienteDeDiseñoAsumido(Float.parseFloat(datos[5].toString()));
     }
 
     @Override

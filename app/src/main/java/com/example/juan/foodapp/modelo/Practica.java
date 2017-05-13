@@ -1,7 +1,6 @@
 package com.example.juan.foodapp.modelo;
 
 import android.content.Context;
-import android.widget.CheckBox;
 
 import java.util.ArrayList;
 

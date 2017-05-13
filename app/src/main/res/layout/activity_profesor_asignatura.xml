@@ -21,10 +21,10 @@
         android:textAlignment="center"
         android:hint="Profesor"
         style="@android:style/Widget.DeviceDefault.EditText"
-        android:layout_marginTop="43dp"
         android:layout_below="@+id/asignatura"
         android:layout_alignLeft="@+id/asignatura"
-        android:layout_alignStart="@+id/asignatura" />
+        android:layout_alignStart="@+id/asignatura"
+        android:layout_marginTop="14dp" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -36,7 +36,6 @@
         android:textAlignment="center"
         android:hint="Asignatura"
         style="@android:style/Widget.DeviceDefault.EditText"
-        android:layout_marginTop="131dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
     <Button
@@ -46,23 +45,8 @@
         android:hint="@string/main.btnLogin.hint"
         style="@style/Widget.AppCompat.Button"
         android:text="Continuar"
-        android:layout_marginBottom="240dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Algún Texto"
-        android:ems="10"
-        android:id="@+id/editText"
-        android:textAlignment="center"
-        android:layout_marginTop="41dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/asignatura"
-        android:layout_alignStart="@+id/asignatura"
-        android:textColor="@android:color/white" />
-
+        android:layout_below="@+id/profesor"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp" />
 
 </RelativeLayout>

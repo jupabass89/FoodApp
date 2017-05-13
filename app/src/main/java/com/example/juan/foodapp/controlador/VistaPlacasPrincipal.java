@@ -51,6 +51,9 @@ public class VistaPlacasPrincipal extends AppCompatActivity {
     private String coefGlobalTransfer;
     private String nombreDatosGuardados;
 
+    private Object[] datos;
+    private Button boton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,9 +61,10 @@ public class VistaPlacasPrincipal extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_vista_placas_principal);
         contexto = this.getApplicationContext();
-        Bundle datos = getIntent().getExtras();
-        asignatura = datos.getString("Asignatura");
-        profesor = datos.getString("Profesor");
+        Bundle datosBundle = getIntent().getExtras();
+        asignatura = datosBundle.getString("Asignatura");
+        profesor = datosBundle.getString("Profesor");
+        datos = new Object[6];
 
         //Muestra barra de acción
         ActionBar ab = getSupportActionBar();
@@ -78,6 +82,18 @@ public class VistaPlacasPrincipal extends AppCompatActivity {
         entrada5 = (EditText)findViewById(R.id.entrada5);
         entrada6 = (EditText)findViewById(R.id.entrada6);
         entradaNombre = (EditText)findViewById(R.id.entradaNombre);
+
+        boton = (Button)findViewById(R.id.btnGrafica);
+        boton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(realizarCalculos()){
+                    Intent intencion = new Intent(contexto, GraficaPlacasActivity.class);
+                    intencion.putExtra("data",datos);
+                    startActivity(intencion);
+                }
+            }
+        });
     }
 
 
@@ -115,16 +131,17 @@ public class VistaPlacasPrincipal extends AppCompatActivity {
         return (entrada1V && entrada2V && entrada3V && entrada4V && entrada5V && entrada6V);
     }
 
-    private void realizarCalculos(){
+    private boolean realizarCalculos(){
         if(!camposCompletos()){
             mostarMensaje("Debe llenar todos los campos para la practica");
-            return;
+            return (false);
         }
         //
         practica = new PracticaPlacas(contexto, asignatura, profesor);
         practica.configurarPractica(configurarDatosPractica());
         practica.calcularDatosZonaPasterizacion();
         //
+        return (true);
     }
 
     private void mostarMensaje(String texto){
@@ -132,7 +149,6 @@ public class VistaPlacasPrincipal extends AppCompatActivity {
     }
 
     private Object[] configurarDatosPractica(){
-        Object[] datos = new Object[6];
         datos[0] = entrada1.getText().toString();
         datos[1] = entrada2.getText().toString();
         datos[2] = entrada3.getText().toString();

@@ -81,8 +81,9 @@
 
         <EditText
             android:layout_width="83dp"
+
             android:layout_height="wrap_content"
-            android:layout_marginLeft="-185dp"
+            android:layout_marginLeft="-155dp"
             android:textColor="@color/white"
             android:inputType="number|numberDecimal"
             android:hint="Ej: 000"
@@ -110,7 +111,7 @@
         <TextView
             android:text="(L/s)"
             android:layout_width="162dp"
-            android:layout_marginLeft="-95dp"
+            android:layout_marginLeft="-115dp"
             android:paddingTop="25dp"
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical"
@@ -123,7 +124,7 @@
         <EditText
             android:layout_width="83dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="-185dp"
+            android:layout_marginLeft="-155dp"
             android:textColor="@color/white"
             android:inputType="number|numberDecimal"
             android:hint="Ej: 000"
@@ -133,20 +134,19 @@
             android:ems="10"
             android:id="@+id/entrada2"
             style="@android:style/Widget.DeviceDefault.EditText"/>
-
         <EditText
-            android:id="@+id/entrada6"
-            style="@android:style/Widget.DeviceDefault.EditText"
             android:layout_width="83dp"
             android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:layout_gravity="fill_vertical"
-            android:layout_marginLeft="-185dp"
-            android:layout_row="9"
-            android:ems="10"
-            android:hint="Ej: 000"
+            android:layout_marginLeft="-155dp"
+            android:textColor="@color/white"
             android:inputType="number|numberDecimal"
-            android:textColor="@color/white" />
+            android:hint="Ej: 000"
+            android:layout_row="9"
+            android:layout_gravity="fill_vertical"
+            android:layout_column="1"
+            android:ems="10"
+            android:id="@+id/entrada6"
+            style="@android:style/Widget.DeviceDefault.EditText"/>
 
         <TextView
             android:text="Caudal correspondiente a la entrada del alimento a la zona:"
@@ -163,7 +163,7 @@
         <EditText
             android:layout_width="83dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="-185dp"
+            android:layout_marginLeft="-155dp"
             android:textColor="@color/white"
             android:inputType="number|numberDecimal"
             android:hint="Ej: 000"
@@ -198,7 +198,7 @@
         <TextView
             android:text="(L/s)"
             android:layout_width="162dp"
-            android:layout_marginLeft="-95dp"
+            android:layout_marginLeft="-115dp"
             android:paddingTop="25dp"
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical"
@@ -211,7 +211,7 @@
         <EditText
             android:layout_width="83dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="-185dp"
+            android:layout_marginLeft="-155dp"
             android:textColor="@color/white"
             android:inputType="number|numberDecimal"
             android:hint="Ej: 000"
@@ -247,7 +247,7 @@
         <TextView
             android:text="°C"
             android:layout_width="162dp"
-            android:layout_marginLeft="-95dp"
+            android:layout_marginLeft="-115dp"
             android:paddingTop="25dp"
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical"
@@ -258,7 +258,7 @@
         <EditText
             android:layout_width="83dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="-185dp"
+            android:layout_marginLeft="-155dp"
             android:textColor="@color/white"
             android:inputType="number|numberDecimal"
             android:hint="Ej: 000"
@@ -283,7 +283,7 @@
         <TextView
             android:text="N.A."
             android:layout_width="162dp"
-            android:layout_marginLeft="-95dp"
+            android:layout_marginLeft="-115dp"
             android:paddingTop="25dp"
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical"
@@ -294,7 +294,7 @@
         <TextView
             android:text="W/m^2 °C"
             android:layout_width="162dp"
-            android:layout_marginLeft="-95dp"
+            android:layout_marginLeft="-115dp"
             android:paddingTop="25dp"
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical"
@@ -306,7 +306,7 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="-186dp"
+            android:layout_marginLeft="-155dp"
             android:textColor="@color/white"
             android:inputType="number|numberDecimal"
             android:hint="Identificador"
@@ -321,7 +321,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/btnTabla"
-            android:layout_row="14"
+            android:layout_row="13"
             android:layout_column="0"
             style="@android:style/Widget.DeviceDefault.Button" />
 
@@ -330,23 +330,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/btnGrafica"
-            android:layout_row="13"
-            android:layout_column="0"
-            style="@android:style/Widget.DeviceDefault.Button" />
-
-        <Button
-            android:text="Realizar Cálculos"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnCalcula"
             android:layout_row="12"
             android:layout_column="0"
             style="@android:style/Widget.DeviceDefault.Button" />
 
+
+
         <TextView
             android:text="°C"
             android:layout_width="175dp"
-            android:layout_marginLeft="-95dp"
+            android:layout_marginLeft="-115dp"
             android:paddingTop="25dp"
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical"
