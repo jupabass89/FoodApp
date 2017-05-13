@@ -112,7 +112,6 @@ public class PracticaTanque extends Practica {
                 cp = operacionAlimento.calcularCpAgua(tempI);
                 conductividad = operacionAlimento.calcularConductividadAgua(tempI);
 
-                Log.e("ALGO",cp+"");
                 mldt = operaciones.calcularMLDTCalentamiento(alimento.getTempInicial(),tempI,tanque.getTempChaqueta());
                 nusCh = operaciones.nusChCalentamiento(mldt);
                 hch = operaciones.hch(operacionAlimento.calcularConductividadAgua(tempI),nusCh,
