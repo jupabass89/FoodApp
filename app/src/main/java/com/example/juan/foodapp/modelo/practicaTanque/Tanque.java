@@ -65,7 +65,7 @@ public class Tanque {
     }
 
     public float getArea() {
-        return (2*(float)Math.PI*(float)Math.pow((diametroInterno/2),2));
+        return (2*((float)Math.PI*(float)Math.pow((diametroInterno/2),2)));
     }
 
     public void setArea(float area) {

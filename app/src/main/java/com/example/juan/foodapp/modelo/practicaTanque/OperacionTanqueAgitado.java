@@ -4,7 +4,7 @@ public class OperacionTanqueAgitado {
 
 
     public double nusChCalentamiento(double mldt){
-        return (0.15*Math.pow(1.9087,0.3333)*Math.pow(((965.6666*9.8*0.0006*mldt)/(Math.pow(0.0003,2))),0.33));
+        return (0.15*Math.pow(1.9087,0.3333)*(Math.pow(((965.6666*9.8*0.0006*mldt)/(Math.pow(0.0003,2))),0.33)));
     }
 
     public double nusChEnfriamiento(double mldt, double viscosidadServicio, double densidadServicio,
@@ -16,8 +16,8 @@ public class OperacionTanqueAgitado {
     }
 
     //depende de nusCh
-    public double hch(double conductividadAguaTempChaq,double nusCh,double diametroInternoTanque, double diametroExternoTanque){
-        return nusCh*conductividadAguaTempChaq/(diametroExternoTanque-diametroInternoTanque);
+    public double hch(double conductividad,double nusCh,double diametroInternoTanque, double diametroExternoTanque){
+        return nusCh*conductividad/(diametroExternoTanque-diametroInternoTanque);
     }
 
     public double Prf(double viscocidadAlimento, double cpAlimento, double conductividadAlimento){
@@ -85,5 +85,26 @@ public class OperacionTanqueAgitado {
         parte2= (Math.log((temperaturaChaqueta-temperaturaExperimental)/(temperaturaChaqueta-temperaturaInicialAlimento)));
         MLTD = parte1/parte2;
         return MLTD;
+    }
+
+
+    public double calcularTiempoEstimadCalentamiento(double volumenAlimento, double densidadAlimento,double alimentoTempInicial, double tanqueTempChaqueta, double tempI, float areaTanque, double cp, double ut) {
+        double masa = (volumenAlimento/1000)*densidadAlimento;
+        double log = (tanqueTempChaqueta-alimentoTempInicial)/(tanqueTempChaqueta-tempI);
+        return ((masa*cp)/(ut*areaTanque)*Math.log(log));
+    }
+
+    public double calculark2(double servicioEnfriamientoCalorEspecifico, double servicioEnfriamientoFlujoMasico, double tanqueArea, double ut) {
+        double exp = ut*tanqueArea/(servicioEnfriamientoFlujoMasico*servicioEnfriamientoCalorEspecifico);
+        return Math.pow(Math.E,exp);
+    }
+
+    public double calcularTiempoEstimadEnfriamiento(double alimentoVolumen, double densidad, double tempI, double cp, double calorEspecificoServicio, float tempEntradaServicio, float tempInicial, float flujoMasico, double k2) {
+        double masa = (alimentoVolumen/1000)*densidad;
+        double parte1 = (masa*cp/(flujoMasico*calorEspecificoServicio));
+        double parte2 = k2/(k2-1);
+        double log = (tempInicial-tempEntradaServicio)/(tempI-tempEntradaServicio);
+
+        return parte1*parte2*(Math.log(log));
     }
 }
