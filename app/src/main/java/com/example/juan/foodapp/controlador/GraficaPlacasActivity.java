@@ -9,6 +9,7 @@ import android.widget.EditText;
 
 import com.example.juan.foodapp.R;
 import com.example.juan.foodapp.modelo.practicaPlacas.PracticaPlacas;
+import com.example.juan.foodapp.modelo.representacion.GraficaXY;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
@@ -20,7 +21,7 @@ public class GraficaPlacasActivity extends AppCompatActivity {
 
     private LineChart line;
     private ArrayList<Object> data;
-    private ArrayList<Float> tempEntradaAlimento, numeroPlacasTotales, areaDiseño;
+    private ArrayList<Float> tempEntradaAlimento, coeficienteTCAlimento, areaDiseño;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,29 +30,9 @@ public class GraficaPlacasActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         data = (ArrayList<Object>) bundle.getSerializable("datos");
         tempEntradaAlimento = (ArrayList<Float>) data.get(0);
-        numeroPlacasTotales = (ArrayList<Float>) data.get(1);
+        coeficienteTCAlimento = (ArrayList<Float>) data.get(1);
         areaDiseño = (ArrayList<Float>) data.get(2);
-        graficar();
-    }
-
-    private void graficar(){
         line = (LineChart)findViewById(R.id.chartPlacas);
-        ArrayList<Entry> datos1 = new ArrayList<>();
-        for (int i = 0; i < tempEntradaAlimento.size(); i++) {
-            datos1.add(new Entry(tempEntradaAlimento.get(i),numeroPlacasTotales.get(i)));
-        }
-        LineDataSet dataset1 = new LineDataSet(datos1, "Temperatura Entrada Alimento vs Numero de Placas Totales Requeridas");
-        dataset1.setColor(Color.BLACK);
-
-        ArrayList<Entry> datos2 = new ArrayList<>();
-        for (int i = 0; i < tempEntradaAlimento.size(); i++) {
-            datos2.add(new Entry(tempEntradaAlimento.get(i),areaDiseño.get(i)));
-        }
-
-        LineDataSet dataset2 = new LineDataSet(datos2, "Temperatura Entrada Alimento vs Area Diseño ");
-        dataset2.setColor(Color.BLUE);
-
-        LineData data = new LineData(dataset1, dataset2);
-        line.setData(data);
+        GraficaXY.graficaPlacas(line, tempEntradaAlimento, coeficienteTCAlimento, areaDiseño);
     }
 }

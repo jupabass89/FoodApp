@@ -43,7 +43,7 @@
         <activity android:name=".controlador.ProfesorAsignaturaActivity" />
         <activity android:name=".controlador.GraficaPlacasActivity"/>
 
-        <activity android:name=".controlador.TablaResultados"/>
+        <activity android:name=".modelo.representacion.GraficaTabla"/>
         <activity android:name=".controlador.PracticasGuardadasPlacas"
             android:theme="@style/Selects"/>
 

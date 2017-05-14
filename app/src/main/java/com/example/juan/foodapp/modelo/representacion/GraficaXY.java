@@ -2,6 +2,7 @@ package com.example.juan.foodapp.modelo.representacion;
 
 import android.graphics.Color;
 
+import com.example.juan.foodapp.R;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
@@ -73,5 +74,25 @@ public class GraficaXY {
         line.notifyDataSetChanged();
         line.invalidate();
     }
-    
+
+    public static void graficaPlacas(LineChart line, ArrayList<Float> tempEntradaAlimento, ArrayList<Float> coeficienteTCAlimento,
+                                     ArrayList<Float> areaDiseño){
+        ArrayList<Entry> datos1 = new ArrayList<>();
+        for (int i = 0; i < tempEntradaAlimento.size(); i++) {
+            datos1.add(new Entry(tempEntradaAlimento.get(i),coeficienteTCAlimento.get(i)));
+        }
+        LineDataSet dataset1 = new LineDataSet(datos1, "Temperatura Entrada Alimento vs Coef.TC del Alimento");
+        dataset1.setColor(Color.BLACK);
+
+        ArrayList<Entry> datos2 = new ArrayList<>();
+        for (int i = 0; i < tempEntradaAlimento.size(); i++) {
+            datos2.add(new Entry(tempEntradaAlimento.get(i),areaDiseño.get(i)));
+        }
+
+        LineDataSet dataset2 = new LineDataSet(datos2, "Temperatura Entrada Alimento vs Area Diseño ");
+        dataset2.setColor(Color.BLUE);
+
+        LineData data = new LineData(dataset1, dataset2);
+        line.setData(data);
+    }
 }

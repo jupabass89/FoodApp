@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.example.juan.foodapp.R;
 import com.example.juan.foodapp.modelo.persistencia.OperacionesBaseDeDatos;
 import com.example.juan.foodapp.modelo.practicaPlacas.PracticaPlacas;
+import com.example.juan.foodapp.modelo.representacion.GraficaTabla;
 import com.example.juan.foodapp.modelo.serviciosPractica.Guia;
 
 import java.util.ArrayList;
@@ -128,8 +129,8 @@ public class ControlPlacasPrincipal extends AppCompatActivity {
             public void onClick(View v) {
                 if(realizarCalculos()) {
                     String[][] datos = practica.getResultados();
-                    Intent intencion = new Intent(contexto, TablaResultados.class);
-                    intencion.putExtra("datos", TablaResultados.tableToArray(datos));
+                    Intent intencion = new Intent(contexto, GraficaTabla.class);
+                    intencion.putExtra("datos", GraficaTabla.tableToArray(datos));
                     startActivity(intencion);
                 }else
                     mostarMensaje("No se pueden mostrar los resultados");

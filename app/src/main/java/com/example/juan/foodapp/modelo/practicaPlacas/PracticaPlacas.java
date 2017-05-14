@@ -164,8 +164,8 @@ public class PracticaPlacas extends Practica {
         return (fluidoFrio.getTempEntrada());
     }
 
-    public float getNummeroPlacasTotales(){
-        return (zonaPasterizacion.getNumeroDePlacasTotalesRequeridas());
+    public float getCoefTCAlimento(){
+        return (zonaPasterizacion.getCoeficienteTCPorConveccionFluidoFrio());
     }
 
     public float getCoeficienteDeDiseñoCalculado(){
@@ -295,13 +295,13 @@ public class PracticaPlacas extends Practica {
     @Override
     public ArrayList<Object> calcularDatosGrafica(Object[] datosEntrada) {
         ArrayList<Float> tempEntradaAlimento = new ArrayList<>();
-        ArrayList<Float> numeroPlacasTotales = new ArrayList<>();
+        ArrayList<Float> coeficienteTCAlimento = new ArrayList<>();
         ArrayList<Float> areaDiseño = new ArrayList<>();
         float tempEntradaReferenica = fluidoFrio.getTempEntrada();
         PracticaPlacas p = new PracticaPlacas(contexto, null, null);
         p.configurarPractica(datosEntrada);
         tempEntradaAlimento.add(tempEntradaReferenica);
-        numeroPlacasTotales.add(getNummeroPlacasTotales());
+        coeficienteTCAlimento.add(getCoefTCAlimento());
         areaDiseño.add(getCoeficienteDeDiseñoCalculado());
         float tempEntradaVariante = tempEntradaReferenica;
         for(int i=1; tempEntradaVariante <= 40; i++){
@@ -311,12 +311,12 @@ public class PracticaPlacas extends Practica {
             p.fluidoFrio.setTempEntrada(tempEntradaVariante);
             p.calcularDatosZonaPasterizacion();
             tempEntradaAlimento.add(p.getTempEntradaAlimento());
-            numeroPlacasTotales.add(p.getNummeroPlacasTotales());
+            coeficienteTCAlimento.add(p.getCoefTCAlimento());
             areaDiseño.add(p.getCoeficienteDeDiseñoCalculado());
         }
         ArrayList<Object> lista = new ArrayList<>();
         lista.add(tempEntradaAlimento);
-        lista.add(numeroPlacasTotales);
+        lista.add(coeficienteTCAlimento);
         lista.add(areaDiseño);
         return (lista);
     }

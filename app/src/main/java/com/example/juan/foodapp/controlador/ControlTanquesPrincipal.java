@@ -396,8 +396,8 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
                 //practica.generarInforme("pdf1");
                 // Configurar Toast
                 // "RUTA: Descargas/Practicas
-                mensaje("Esta opción no se encuentra disponible en esta practica.");
-                Toast.makeText(this, "PDF GENERADO", Toast.LENGTH_LONG).show();
+                mensaje("Esta opción no se encuentra disponible");
+                //Toast.makeText(this, "PDF GENERADO", Toast.LENGTH_LONG).show();
                 break;
             case (R.id.verGuia):
                 Intent intencion = new Intent(this, Guia.class);
