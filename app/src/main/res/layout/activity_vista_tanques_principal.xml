@@ -130,7 +130,7 @@
 
 
         <CheckBox
-            android:id="@+id/chkIos"
+            android:id="@+id/esAgua"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="0"
@@ -1255,22 +1255,24 @@
             android:layout_row="39"
             android:layout_column="0"
             android:textColor="@color/white" />
+
         <Button
-            android:text="Ingresar Temperaturas"
+            android:id="@+id/btnTempsCal"
+            style="@android:style/Widget.DeviceDefault.Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_column="0"
             android:layout_row="40"
-            android:layout_column="0"
-            android:id="@+id/buttn4"
-            style="@android:style/Widget.DeviceDefault.Button" />
+            android:text="Ingresar Temperaturas" />
+
         <Button
-            android:text="Ingresar Temperaturas"
+            android:id="@+id/btnTempsEnfri"
+            style="@android:style/Widget.DeviceDefault.Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_row="52"
             android:layout_column="0"
-            android:id="@+id/butpn4"
-            style="@android:style/Widget.DeviceDefault.Button" />
+            android:layout_row="52"
+            android:text="Ingresar Temperaturas" />
         <Button
             android:text="Guardar datos"
             android:layout_width="194dp"
