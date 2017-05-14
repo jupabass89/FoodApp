@@ -2,6 +2,7 @@ package com.example.juan.foodapp.controlador;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -20,21 +22,30 @@ import com.example.juan.foodapp.R;
 import com.example.juan.foodapp.modelo.practicaPlacas.PracticaPlacas;
 import com.example.juan.foodapp.modelo.practicaTanque.PracticaTanque;
 import com.example.juan.foodapp.modelo.serviciosPractica.Guia;
+import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
+
+import java.util.ArrayList;
 
 public class ControlTanquesPrincipal extends AppCompatActivity {
 
     private PracticaTanque practica;
     private Context contexto;
+    private LineChart line;
+    private ArrayList<Float> tempCalentamiento;
+    private ArrayList<Float> tempEnfriamiento;
+    private Object datos[];
+    private ArrayList<Object> dato;
 
     //Botones de la vista
-
     Button btnCalculaTanque;
-
+    Button temperaturaCalentamiento;
+    Button temperaturaEnfriamiento;
     // Variables para Guardar los datos
 
     //Alimento
-
-
     private String nombreAlimento;
     private String porcentajeCarbohidratos;
     private String porcentajeCeniza;
@@ -57,7 +68,6 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
      EditText txtFlujoMas;
 
      //Tanque
-
      EditText txtAltProd;
      EditText txtEspesor;
      EditText txtDiamInter;
@@ -68,12 +78,10 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
 
 
      //Agitador
-
      EditText txtAltAgit;
      EditText txtDiamAgit;
 
      //Temperaturas de calentamiento
-
      EditText txtTempcal1;
      EditText txtTempcal2;
      EditText txtTempcal3;
@@ -87,8 +95,6 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
 
 
      //Temperaturas de calentamiento
-
-
      EditText txtTempEnfri1;
      EditText txtTempEnfri2;
      EditText txtTempEnfri3;
@@ -101,6 +107,7 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
      EditText txtTempEnfri10;
      **/
 
+    CheckBox agua;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,15 +117,19 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
         setContentView(R.layout.activity_vista_tanques_principal);
         contexto = this.getApplicationContext();
 
+        tempCalentamiento = new ArrayList<>();
+        tempEnfriamiento = new ArrayList<>();
+        datos = new Object[13];
+        dato = new ArrayList<>();
+
         //Muestra barra de acción
         ActionBar ab = getSupportActionBar();
-
         //Muestra logo
         ab.setLogo(R.mipmap.ic_icon);
         ab.setDisplayUseLogoEnabled(true);
         ab.setDisplayShowHomeEnabled(true);
 
-        Spinner spinner = (Spinner) findViewById(R.id.spinner_agitador);
+        final Spinner spinner = (Spinner) findViewById(R.id.spinner_agitador);
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.spinner_tipo_agitador, android.R.layout.simple_spinner_item);
@@ -135,7 +146,7 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
 
 
         final EditText txtNomAlim = (EditText)findViewById(R.id.campoNombreAlimento);
-        final EditText txpoCarb = (EditText)findViewById(R.id.campoCarbohi);
+        final EditText txtCarb = (EditText)findViewById(R.id.campoCarbohi);
         final EditText txtCeniza = (EditText)findViewById(R.id.campoCeniza);
         final EditText txtFibra = (EditText)findViewById(R.id.campoFibra);
         final EditText txtProtein = (EditText)findViewById(R.id.campoProteina);
@@ -197,24 +208,199 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
 
         //Botón para calcular
         btnCalculaTanque = (Button)findViewById(R.id.btnCalculaTanque);
-
         btnCalculaTanque.setOnClickListener(new View.OnClickListener() {
-
-
             @Override
             public void onClick(View view) {
-
-
                 //Acciones al darle click
+                datos[0] = agua.isChecked();
+                datos[1] = temperaturaCalentamiento;
+                datos[2] = tempEnfriamiento;
+                if(!agua.isChecked()){
+                    float porcentajes[] = new float[5];
+                    porcentajes[0] = Float.parseFloat(txtGrasa.getText().toString());
+                    porcentajes[1] = Float.parseFloat(txtProtein.getText().toString());
+                    porcentajes[2] = Float.parseFloat(txtFibra.getText().toString());
+                    porcentajes[3] = Float.parseFloat(txtCeniza.getText().toString());
+                    porcentajes[4] = Float.parseFloat(txtCarb.getText().toString());
+                    datos[3] = porcentajes;
+                }
+                //falta rps agitador
+                //datos[4] = spinner.getSelectedItemPosition();
+                datos[4] = 0;
+                float agitador[] = {Float.parseFloat(txtAltAgit.getText().toString()),
+                                    Float.parseFloat(txtDiamAgit.getText().toString()), 50f};
 
+                datos[5] = agitador;
+                float tanque[] = {5f,6f,4f,3f,5f,6f,2f};
+                datos[6] = tanque;
+                datos[7] = Float.parseFloat(txtViscosidad.getText().toString());
+                datos[8] = Float.parseFloat(txtTempInicialAlimen.getText().toString());
+                datos[9] = Float.parseFloat(txtVolumen.getText().toString());
+                datos[10] = Float.parseFloat(txtEntradaFlui.getText().toString());
+                datos[11] = Float.parseFloat(txtSalidaFlui.getText().toString());
+                datos[12] = Float.parseFloat(txtFlujoMas.getText().toString());
 
+                dato.add(datos);
+                Intent intent = new Intent(contexto,GraficaTanqueActivity.class);
+                intent.putExtra("prueba",dato);
 
+                startActivity(intent);
             }
         });
 
+        //Botón temperaturas calentamieno
+        temperaturaCalentamiento = (Button)findViewById(R.id.btnTempsCal);
+        temperaturaCalentamiento.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String [] temperaturas = new String[10];
+                temperaturas[0] = txtTempcal1.getText().toString();
+                temperaturas[1] = txtTempcal2.getText().toString();
+                temperaturas[2] = txtTempcal3.getText().toString();
+                temperaturas[3] = txtTempcal4.getText().toString();
+                temperaturas[4] = txtTempcal5.getText().toString();
+                temperaturas[5] = txtTempcal6.getText().toString();
+                temperaturas[6] = txtTempcal7.getText().toString();
+                temperaturas[7] = txtTempcal8.getText().toString();
+                temperaturas[8] = txtTempcal9.getText().toString();
+                temperaturas[9] = txtTempcal10.getText().toString();
+                for (int i = 0; i <temperaturas.length ; i++) {
+                    if(temperaturas[i].compareTo("")==0){
+                        mensaje("Faltan campos en temperaturas por llenas.");
+                        return;
+                    }
+                    else if(i>0){
+                        if (temperaturas[i].compareTo(temperaturas[i-1])<=0){
+                            mensaje("Temperatura en el campo: "+i+" es menor que temperatura en el campo"+(i+1));
+                            return;
+                        }
+                    }
+                }
+                for (int i = 0; i <temperaturas.length ; i++) {
+                    tempCalentamiento.add(Float.parseFloat(temperaturas[i]));
+                }
+                mensaje("Ingrese las siguientes temperaturas de calentamiento");
+                txtTempcal1.setText("");
+                txtTempcal2.setText("");
+                txtTempcal3.setText("");
+                txtTempcal4.setText("");
+                txtTempcal5.setText("");
+                txtTempcal6.setText("");
+                txtTempcal7.setText("");
+                txtTempcal8.setText("");
+                txtTempcal9.setText("");
+                txtTempcal10.setText("");
+                temperaturaCalentamiento.setEnabled(false);
+            }
+        });
 
+        //Botón temperaturas enfriamiento
+        temperaturaEnfriamiento = (Button)findViewById(R.id.btnTempsEnfri);
+        temperaturaEnfriamiento.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String [] temperaturas = new String[10];
+                temperaturas[0] = txtTempEnfri1.getText().toString();
+                temperaturas[1] = txtTempEnfri2.getText().toString();
+                temperaturas[2] = txtTempEnfri3.getText().toString();
+                temperaturas[3] = txtTempEnfri4.getText().toString();
+                temperaturas[4] = txtTempEnfri5.getText().toString();
+                temperaturas[5] = txtTempEnfri6.getText().toString();
+                temperaturas[6] = txtTempEnfri7.getText().toString();
+                temperaturas[7] = txtTempEnfri8.getText().toString();
+                temperaturas[8] = txtTempEnfri9.getText().toString();
+                temperaturas[9] = txtTempEnfri10.getText().toString();
+                for (int i = 0; i <temperaturas.length ; i++) {
+                    if(temperaturas[i].compareTo("")==0){
+                        mensaje("Faltan campos en temperaturas por llenas.");
 
+                        return;
+                    }
+                    else if(i>0){
+                        if (temperaturas[i].compareTo(temperaturas[i-1])>=0){
+                            mensaje("Temperatura en el campo: "+i+" es menor que temperatura en el campo"+(i+1));
+                            return;
+                        }
+                    }
+                }
+                for (int i = 0; i <temperaturas.length ; i++) {
+                    tempEnfriamiento.add(Float.parseFloat(temperaturas[i]));
+                    Toast.makeText(contexto,tempEnfriamiento.get(i)+"",Toast.LENGTH_LONG);
+                }
+
+                txtTempEnfri1.setText("");
+                txtTempEnfri2.setText("");
+                txtTempEnfri3.setText("");
+                txtTempEnfri4.setText("");
+                txtTempEnfri5.setText("");
+                txtTempEnfri6.setText("");
+                txtTempEnfri7.setText("");
+                txtTempEnfri8.setText("");
+                txtTempEnfri9.setText("");
+                txtTempEnfri10.setText("");
+                if(tempEnfriamiento.size()>40){
+                    temperaturaEnfriamiento.setEnabled(false);
+                }
+            }
+        });
+
+        //checkbox
+        agua = (CheckBox)findViewById(R.id.esAgua);
+        agua.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(agua.isChecked()){
+                    txtCarb.setEnabled(false);
+                    txtGrasa.setEnabled(false);
+                    txtCeniza.setEnabled(false);
+                    txtFibra.setEnabled(false);
+                    txtProtein.setEnabled(false);
+                }
+                else{
+                    txtCarb.setEnabled(true);
+                    txtGrasa.setEnabled(true);
+                    txtCeniza.setEnabled(true);
+                    txtFibra.setEnabled(true);
+                    txtProtein.setEnabled(true);
+                }
+            }
+        });
+
+        graficar();
     }
+
+    private void mensaje(String mensaje){
+        Toast.makeText(this,mensaje,Toast.LENGTH_LONG);
+    }
+
+    private void graficar(){
+        line = (LineChart)findViewById(R.id.graficaTanque);
+        /*
+
+        ArrayList<Float> f = (ArrayList<Float>) r.get(0);
+        ArrayList<Float> g = (ArrayList<Float>) r.get(1);
+
+        ArrayList<Entry> e = new ArrayList<>();
+        ArrayList<Entry> d = new ArrayList<>();
+
+        for (int i = 0; i < f.size(); i++) {
+            e.add(new Entry((float)i*60, f.get(i)-40f));
+            if(i<10){
+                d.add(new Entry((float)i*60, g.get(i)-50f));
+            }
+        }
+        LineDataSet dataset = new LineDataSet(e,"Calentamiento");
+        dataset.setColor(Color.RED);
+        LineDataSet datasetE = new LineDataSet(d,"Enfriamiento");
+        datasetE.setColor(Color.BLUE);
+        LineData data = new LineData(dataset,datasetE);
+        //line.setMaxVisibleValueCount(1);
+        line.setData(data);
+        line.setBackgroundColor(Color.rgb(245,240,194));
+
+        */
+    }
+
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;

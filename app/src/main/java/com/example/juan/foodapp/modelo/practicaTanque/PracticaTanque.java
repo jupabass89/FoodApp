@@ -184,14 +184,14 @@ public class PracticaTanque extends Practica {
          *  temperaturas de calentamiento: es un arraylist: 40 datos maximo
         * datos[2]:
          *  temperaturas de enfriamiento: es un arraylist: 40 datos maximo
-        * datos[3]: vector de float 6 posiciones con los siguientes porcentajes, y en el mismo orden
+        * datos[3]: vector de float 5 posiciones con los siguientes porcentajes, y en el mismo orden
          *   grasa, proteina, fibra, ceniza, carbohidratos,
         *datos[4]:
          *  selecciona un tipo de agitador(int)
         *datos[5]: float[3]:altura, diametro,rps. esto del agitador
         *datos[6]: informacion del tanque: float[] con los siguientes parametros:
          *  altura producto, espesor, diametro interno, diametro externo, diametro de la chaqueta,tempChaqueta, conductividad, factor por incustracion
-        *datos[7]viscosidad(no es porcentaje)
+        *datos[7]viscosidad alimento(no es porcentaje)
         * datos[8] alimento
          *temperaturaEntradaAlimento,
         *datos[9] alimento
@@ -229,7 +229,8 @@ public class PracticaTanque extends Practica {
         alimento.setTempInicial((float)datos[8]);
         if(!esAgua){
             float[] porcentajes = (float[])datos[3];
-            operacionAlimento = new OperacionAlimento(porcentajes[0],porcentajes[1],porcentajes[2],porcentajes[3],porcentajes[4]);
+            operacionAlimento = new OperacionAlimento(porcentajes[0]/100,porcentajes[1]/100,porcentajes[2]/100,
+                    porcentajes[3]/100,porcentajes[4]/100);
             if(datos[7]!=null){
                 alimento.setViscosidad((float)datos[7]);
             }

@@ -45,7 +45,8 @@
             android:name=".controlador.GraficaPlacasActivity"
             android:label="Pasteurizador"
             android:theme="@style/Selects" />
-        <activity android:name=".controlador.TablaResultados"></activity>
+        <activity android:name=".controlador.TablaResultados" />
+        <activity android:name=".controlador.GraficaTanqueActivity"></activity>
     </application>
 
 </manifest>
