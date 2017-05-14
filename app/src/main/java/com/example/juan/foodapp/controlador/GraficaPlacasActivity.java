@@ -20,7 +20,7 @@ public class GraficaPlacasActivity extends AppCompatActivity {
 
     private LineChart line;
     private ArrayList<Object> data;
-    private ArrayList<Float> flujoMasicoAlimento, numeroPlacasTotales, areaDiseño;
+    private ArrayList<Float> tempEntradaAlimento, numeroPlacasTotales, areaDiseño;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +28,7 @@ public class GraficaPlacasActivity extends AppCompatActivity {
         setContentView(R.layout.activity_grafica_placas);
         Bundle bundle = getIntent().getExtras();
         data = (ArrayList<Object>) bundle.getSerializable("datos");
-        flujoMasicoAlimento = (ArrayList<Float>) data.get(0);
+        tempEntradaAlimento = (ArrayList<Float>) data.get(0);
         numeroPlacasTotales = (ArrayList<Float>) data.get(1);
         areaDiseño = (ArrayList<Float>) data.get(2);
         graficar();
@@ -37,18 +37,18 @@ public class GraficaPlacasActivity extends AppCompatActivity {
     private void graficar(){
         line = (LineChart)findViewById(R.id.chartPlacas);
         ArrayList<Entry> datos1 = new ArrayList<>();
-        for (int i = 0; i < flujoMasicoAlimento.size(); i++) {
-            datos1.add(new Entry(flujoMasicoAlimento.get(i),numeroPlacasTotales.get(i)));
+        for (int i = 0; i < tempEntradaAlimento.size(); i++) {
+            datos1.add(new Entry(tempEntradaAlimento.get(i),numeroPlacasTotales.get(i)));
         }
-        LineDataSet dataset1 = new LineDataSet(datos1, "Flujo Masico Alimento vs Numero de Placas Totales Requeridas");
+        LineDataSet dataset1 = new LineDataSet(datos1, "Temperatura Entrada Alimento vs Numero de Placas Totales Requeridas");
         dataset1.setColor(Color.BLACK);
 
         ArrayList<Entry> datos2 = new ArrayList<>();
-        for (int i = 0; i < flujoMasicoAlimento.size(); i++) {
-            datos2.add(new Entry(flujoMasicoAlimento.get(i),areaDiseño.get(i)));
+        for (int i = 0; i < tempEntradaAlimento.size(); i++) {
+            datos2.add(new Entry(tempEntradaAlimento.get(i),areaDiseño.get(i)));
         }
 
-        LineDataSet dataset2 = new LineDataSet(datos2, "Flujo Masico Alimento vs Area Diseño ");
+        LineDataSet dataset2 = new LineDataSet(datos2, "Temperatura Entrada Alimento vs Area Diseño ");
         dataset2.setColor(Color.BLUE);
 
         LineData data = new LineData(dataset1, dataset2);

@@ -143,6 +143,7 @@ public class ControlPlacasPrincipal extends AppCompatActivity {
          if(practicaSeleccionada != null){
             setearDatosEnVista(operacionesDB.obtenerRegistroZonaPasterizacionPlacas(practicaSeleccionada));
              calculosRealizados = false;
+             practicaSeleccionada = null;
          }
     }
 

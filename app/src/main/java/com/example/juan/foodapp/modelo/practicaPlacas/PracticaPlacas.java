@@ -160,8 +160,8 @@ public class PracticaPlacas extends Practica {
                 fluidoFrio.getCoeficienteDeIncrustacion(), fluidoCaliente.getCoeficienteDeIncrustacion()));
     }
 
-    public float getFlujoMasicoAlimento(){
-        return (fluidoFrio.getFlujoMasico());
+    public float getTempEntradaAlimento(){
+        return (fluidoFrio.getTempEntrada());
     }
 
     public float getNummeroPlacasTotales(){
@@ -294,25 +294,28 @@ public class PracticaPlacas extends Practica {
 
     @Override
     public ArrayList<Object> calcularDatosGrafica(Object[] datosEntrada) {
-        ArrayList<Float> flujoMasicoAlimento = new ArrayList<>();
+        ArrayList<Float> tempEntradaAlimento = new ArrayList<>();
         ArrayList<Float> numeroPlacasTotales = new ArrayList<>();
         ArrayList<Float> areaDiseño = new ArrayList<>();
-        float flujoMasicoReferencia = fluidoFrio.getFlujoMasico();
+        float tempEntradaReferenica = fluidoFrio.getTempEntrada();
         PracticaPlacas p = new PracticaPlacas(contexto, null, null);
         p.configurarPractica(datosEntrada);
-        flujoMasicoAlimento.add(flujoMasicoReferencia);
+        tempEntradaAlimento.add(tempEntradaReferenica);
         numeroPlacasTotales.add(getNummeroPlacasTotales());
         areaDiseño.add(getCoeficienteDeDiseñoCalculado());
-        float flujoMasicoVariante = flujoMasicoReferencia;
-        for(int i=1; i<5; i++){
-            flujoMasicoVariante = flujoMasicoVariante + 0.50f;
+        float tempEntradaVariante = tempEntradaReferenica;
+        for(int i=1; tempEntradaVariante <= 40; i++){
+            tempEntradaVariante = tempEntradaVariante + 5f;
+            p = new PracticaPlacas(contexto, null, null);
+            p.configurarPractica(datosEntrada);
+            p.fluidoFrio.setTempEntrada(tempEntradaVariante);
             p.calcularDatosZonaPasterizacion();
-            flujoMasicoAlimento.add(p.getFlujoMasicoAlimento());
+            tempEntradaAlimento.add(p.getTempEntradaAlimento());
             numeroPlacasTotales.add(p.getNummeroPlacasTotales());
             areaDiseño.add(p.getCoeficienteDeDiseñoCalculado());
         }
         ArrayList<Object> lista = new ArrayList<>();
-        lista.add(flujoMasicoAlimento);
+        lista.add(tempEntradaAlimento);
         lista.add(numeroPlacasTotales);
         lista.add(areaDiseño);
         return (lista);

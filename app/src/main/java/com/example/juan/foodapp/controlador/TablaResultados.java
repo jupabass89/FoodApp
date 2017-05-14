@@ -1,5 +1,6 @@
 package com.example.juan.foodapp.controlador;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -37,6 +38,7 @@ public class TablaResultados extends AppCompatActivity {
                 texto.setGravity(Gravity.CENTER_VERTICAL);
                 texto.setPadding(15, 15, 15, 15);
                 texto.setText(datos[i][j]);
+                texto.setTextColor(Color.BLACK);
                 fila.addView(texto);
             }
             tabla.addView(fila);
