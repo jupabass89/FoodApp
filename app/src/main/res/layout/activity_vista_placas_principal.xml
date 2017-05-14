@@ -16,7 +16,7 @@
             android:text="Recuperar datos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/button4"
+            android:id="@+id/btnRecuperar"
             style="@android:style/Widget.DeviceDefault.Button" />
 
         <TextView
@@ -109,13 +109,12 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="-155dp"
             android:textColor="@color/white"
-            android:inputType="number|numberDecimal"
             android:hint="Ej. Leche"
             android:layout_row="2"
             android:layout_gravity="fill_vertical"
             android:layout_column="1"
             android:ems="10"
-            android:id="@+id/campoAlimentoConsiderar"
+            android:id="@+id/campoNombreAlimento"
             style="@android:style/Widget.DeviceDefault.EditText"
             android:textSize="18sp" />
 
@@ -353,25 +352,23 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="-155dp"
             android:textColor="@color/white"
-            android:inputType="number|numberDecimal"
             android:hint="Identificador"
             android:layout_row="13"
             android:layout_gravity="fill_vertical"
             android:layout_column="1"
             android:ems="10"
-            android:id="@+id/entradaNombre" />
+            android:id="@+id/entradaSalvar" />
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="-155dp"
             android:textColor="@color/white"
-            android:inputType="number|numberDecimal"
-            android:hint="Ej. Informe 3"
+            android:hint="Ej. Informe1"
             android:layout_row="14"
             android:layout_gravity="fill_vertical"
             android:layout_column="1"
             android:ems="10"
-            android:id="@+id/campoInforme" />
+            android:id="@+id/entradaInforme" />
 
         <Button
             android:text="Ver Tabla De Resultados"
@@ -407,10 +404,9 @@
 
         <Button
             android:text="Salvar datos"
-
             android:layout_width="174dp"
             android:layout_height="wrap_content"
-            android:id="@+id/btnGuardarDatos"
+            android:id="@+id/btnSalvarDatos"
             android:layout_row="13"
             android:layout_column="0"
             style="@android:style/Widget.DeviceDefault.Button" />

@@ -30,10 +30,11 @@ public class ManejaSQL extends SQLiteOpenHelper {
 
         // ZONA_PASTERIZACION
         s = String.format("CREATE TABLE %s ( %s VARCHAR(25) ," +
-                        "%s FLOAT, %s FLOAT, %s FLOAT, %s FLOAT, %s FLOAT, %s FLOAT, %s FLOAT )",
-                Tablas.TBL_ZONA_PASTERIZACION_PLACAS, ContratoPracticas.ZonaPasterizacionPlacas.PLACAS_PAST_NOMBRE, ContratoPracticas.ZonaPasterizacionPlacas.PLACAS_PAST_TEMP_ENTRADA_ALIMENTO,
+                        "%s VARCHAR(25),%s VARCHAR(25),%s VARCHAR(25),%s VARCHAR(25),%s VARCHAR(25),%s VARCHAR(25),%s VARCHAR(25) )",
+                Tablas.TBL_ZONA_PASTERIZACION_PLACAS, ContratoPracticas.ZonaPasterizacionPlacas.PLACAS_PAST_NOMBRE, ContratoPracticas.ZonaPasterizacionPlacas.PLACAS_PAST_ALIMENTO,
+                ContratoPracticas.ZonaPasterizacionPlacas.PLACAS_PAST_TEMP_ENTRADA_ALIMENTO,
                 ContratoPracticas.ZonaPasterizacionPlacas.PLACAS_PAST_TEMP_ENTRADA_FLUIDO_SERVICIO, ContratoPracticas.ZonaPasterizacionPlacas.PLACAS_PAST_CAUDAL_ENTRADA_ALIMENTO,
-                ContratoPracticas.ZonaPasterizacionPlacas.PLACAS_PAST_CAUDAL_ENTRADA_FLUIDO_SERVICIO, ContratoPracticas.ZonaPasterizacionPlacas.PLACAS_PAST_COEF_GLOBAL_TC_DISEÑO_ASUMIDO,
+                ContratoPracticas.ZonaPasterizacionPlacas.PLACAS_PAST_COEF_GLOBAL_TC_DISEÑO_ASUMIDO,
                 ContratoPracticas.ZonaPasterizacionPlacas.PLACAS_PAST_COEF_INCRUSTACION_ALIMENTO, ContratoPracticas.ZonaPasterizacionPlacas.PLACAS_PAST_COEF_INCRUSTACION_FLUIDO_SERVICIO);
         db.execSQL(s);
     }

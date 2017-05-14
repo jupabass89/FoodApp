@@ -8,6 +8,8 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.example.juan.foodapp.modelo.practicaPlacas.PracticaPlacas;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -41,19 +43,19 @@ public final class OperacionesBaseDeDatos {
         SQLiteDatabase db = baseDatos.getWritableDatabase();
         ContentValues valores = new ContentValues();
         String nombre = data.get(0).toString();
-        float tempEntradaAlimento = (float) data.get(1);
-        float tempEntradaFluidoServicio = (float) data.get(2);
-        float caudalEntradaAlimento = (float) data.get(3);
-        float caudalEntradaFluidoServicio = (float) data.get(4);
-        float coefGlobalTCDiseñoSupuesto = (float) data.get(5);
-        float coefIncrustacionAlimento = (float) data.get(6);
-        float coefIncrustacionFluidoServicio = (float) data.get(7);
+        String alimento = data.get(1).toString();
+        String tempEntradaAlimento = data.get(2).toString();
+        String tempEntradaFluidoServicio = data.get(3).toString();
+        String caudalEntradaAlimento = data.get(4).toString();
+        String coefGlobalTCDiseñoSupuesto = data.get(5).toString();
+        String coefIncrustacionAlimento = data.get(6).toString();
+        String coefIncrustacionFluidoServicio = data.get(7).toString();
 
         valores.put(ContratoPracticas.ZonaPasterizacionPlacas.PLACAS_PAST_NOMBRE, nombre);
+        valores.put(ContratoPracticas.ZonaPasterizacionPlacas.PLACAS_PAST_ALIMENTO, alimento);
         valores.put(ContratoPracticas.ZonaPasterizacionPlacas.PLACAS_PAST_TEMP_ENTRADA_ALIMENTO, tempEntradaAlimento);
         valores.put(ContratoPracticas.ZonaPasterizacionPlacas.PLACAS_PAST_TEMP_ENTRADA_FLUIDO_SERVICIO, tempEntradaFluidoServicio);
         valores.put(ContratoPracticas.ZonaPasterizacionPlacas.PLACAS_PAST_CAUDAL_ENTRADA_ALIMENTO, caudalEntradaAlimento);
-        valores.put(ContratoPracticas.ZonaPasterizacionPlacas.PLACAS_PAST_CAUDAL_ENTRADA_FLUIDO_SERVICIO, caudalEntradaFluidoServicio);
         valores.put(ContratoPracticas.ZonaPasterizacionPlacas.PLACAS_PAST_COEF_GLOBAL_TC_DISEÑO_ASUMIDO, coefGlobalTCDiseñoSupuesto);
         valores.put(ContratoPracticas.ZonaPasterizacionPlacas.PLACAS_PAST_COEF_INCRUSTACION_ALIMENTO, coefIncrustacionAlimento);
         valores.put(ContratoPracticas.ZonaPasterizacionPlacas.PLACAS_PAST_COEF_INCRUSTACION_FLUIDO_SERVICIO, coefIncrustacionFluidoServicio);
@@ -67,24 +69,30 @@ public final class OperacionesBaseDeDatos {
      * @return Los datos de entrada para la practica(zona de pasterizacion).
      */
     public ArrayList<Object> obtenerRegistroZonaPasterizacionPlacas(String nombre){
-        String consulta = String.format("SELECT * FROM tbl_zonaPasterizacion_placas WHERE ("+
-            ContratoPracticas.ColumnasZonaPasterizacionPlacas.PLACAS_PAST_NOMBRE+" = %s)", nombre);
+        String consulta = ("SELECT * FROM tbl_zonaPasterizacion_placas WHERE " + ContratoPracticas.ZonaPasterizacionPlacas.PLACAS_PAST_NOMBRE
+                + "='" + nombre + "'");
         Cursor cursor = obtenerDataDB(consulta);
+        NumberFormat format = new DecimalFormat("0E0");
         if(cursor.getCount() == 1){
             ArrayList<Object> data = new ArrayList();
             cursor.moveToFirst();
             data.add(cursor.getString(0));
-            data.add(cursor.getFloat(1));
-            data.add(cursor.getFloat(2));
-            data.add(cursor.getFloat(3));
-            data.add(cursor.getFloat(4));
-            data.add(cursor.getFloat(5));
-            data.add(cursor.getFloat(6));
-            data.add(cursor.getFloat(7));
+            data.add(cursor.getString(1));
+            data.add(cursor.getString(2));
+            data.add(cursor.getString(3));
+            data.add(cursor.getString(4));
+            data.add(cursor.getString(5));
+            data.add(cursor.getString(6));
+            data.add(cursor.getString(7));
             return (data);
         }return(null);
     }
 
+    /**
+     * Se obtienen todos los registros de practicas de placas (Zona de pasterizacion) que haya
+     * guardado el estudiante.
+     * @return ArrayList con los nombres de las practicas recuperadas.
+     */
     public ArrayList<String> obtenerRegistrosGuardadosZonaPasterizacionPlacas(){
         String consulta = "SELECT * FROM tbl_zonaPasterizacion_placas";
         Cursor registros = obtenerDataDB(consulta);
@@ -97,32 +105,12 @@ public final class OperacionesBaseDeDatos {
             }
         }return (data);
     }
-
-    /*
-        public ArrayList<Grupo> obtenerGruposDB() {
-        String consulta = "SELECT * FROM tbl_grupo";
-        Cursor grupos = obtenerDataDB(consulta);
-        Grupo grupo;
-        ArrayList<Grupo> grupoAL = new ArrayList<>();
-        if(grupos.getCount() != 0)
-        {
-            if (grupos.moveToFirst()) {
-                do {
-                    grupo = new Grupo(grupos.getInt(0), grupos.getString(1),grupos.getInt(2),grupos.getInt(3));
-                    grupoAL.add(grupo);
-                } while (grupos.moveToNext());
-            }
-
-        }
-        return grupoAL;
-    }
-     */
     
     /**
      * Método para obtener datos de la base de datos es necesario pasar por parametro
      * la secuencia que indica que datos se deberían retornar.
      */
-    public Cursor obtenerDataDB(String sentence) {
+    private Cursor obtenerDataDB(String sentence) {
         SQLiteDatabase db = baseDatos.getReadableDatabase();
         return db.rawQuery(sentence, null);
     }

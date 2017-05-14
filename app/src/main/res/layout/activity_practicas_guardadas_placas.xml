@@ -1,0 +1,20 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/linear"
+    android:orientation="vertical"
+    android:background="@drawable/fondosimple"
+    tools:context="com.example.juan.foodapp.controlador.PracticasGuardadasPlacas"
+    android:weightSum="1">
+
+    <ListView
+        android:id="@+id/lvRegistros"
+        android:layout_width="match_parent"
+        android:layout_height="512dp"
+        android:layout_marginBottom="30dp"
+        android:layout_weight="0.36">
+
+    </ListView>
+
+</LinearLayout>

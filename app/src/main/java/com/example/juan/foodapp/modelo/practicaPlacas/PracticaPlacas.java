@@ -166,6 +166,10 @@ public class PracticaPlacas extends Practica {
         return (zonaPasterizacion.getAreaDeTCDeCadaPlaca());
     }
 
+    public float getCoeficienteDeDiseñoCalculado(){
+        return (zonaPasterizacion.getCoeficienteDeDiseñoCalculado());
+    }
+
     @Override
     public void configurarPractica(Object[] datos) {
         fluidoFrio.setTempSalida(TEMPERATURA_SALIDA_ALIMENTO);
@@ -177,12 +181,6 @@ public class PracticaPlacas extends Practica {
         fluidoCaliente.setTempEntrada(Float.parseFloat(datos[3].toString()));
         fluidoCaliente.setCoeficienteDeIncrustacion(Float.parseFloat(datos[4].toString()));
         zonaPasterizacion.setCoeficienteDeDiseñoAsumido(Float.parseFloat(datos[5].toString()));
-        /*fluidoFrio.setTempEntrada(40f);
-        zonaPasterizacion.setCaudalDeEntradaAlimento(0.0712f);
-        fluidoFrio.setCoeficienteDeIncrustacion(0.00019f);
-        fluidoCaliente.setTempEntrada(85f);
-        fluidoCaliente.setCoeficienteDeIncrustacion(0.00012f);
-        zonaPasterizacion.setCoeficienteDeDiseñoAsumido(595.61f);*/
     }
 
     @Override
@@ -191,7 +189,8 @@ public class PracticaPlacas extends Practica {
 
         //ciclo para llenar x
 
-        return null;}
+        return null;
+    }
 
     @Override
     public void generarInforme(String nombreArchivo){

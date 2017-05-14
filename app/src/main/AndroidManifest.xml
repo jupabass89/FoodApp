@@ -34,7 +34,7 @@
         <activity android:name=".modelo.serviciosPractica.Guia" />
         <activity
             android:name=".controlador.ControlPlacasPrincipal"
-            android:label="Pasteurizador"
+            android:label="Pasterizacion"
             android:theme="@style/Selects" />
         <activity
             android:name=".controlador.ControlTanquesPrincipal"
@@ -43,9 +43,11 @@
         <activity android:name=".controlador.ProfesorAsignaturaActivity" />
         <activity
             android:name=".controlador.GraficaPlacasActivity"
-            android:label="Pasteurizador"
             android:theme="@style/Selects" />
-        <activity android:name=".controlador.TablaResultados"></activity>
+        <activity android:name=".controlador.TablaResultados"
+            android:theme="@style/Selects"/>
+        <activity android:name=".controlador.PracticasGuardadasPlacas"
+            android:theme="@style/Selects"/>
     </application>
 
 </manifest>

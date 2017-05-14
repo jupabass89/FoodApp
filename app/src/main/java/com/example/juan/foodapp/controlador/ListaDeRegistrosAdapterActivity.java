@@ -6,18 +6,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.juan.foodapp.R;
 
+public class ListaDeRegistrosAdapterActivity extends ArrayAdapter<String> {
 
-public class ListaDePracticasAdapterActivity extends ArrayAdapter<Practica>{
     Context context;
     int LayoutResortId;
-    Practica data[]= null;
+    String data[]= null;
 
-    public ListaDePracticasAdapterActivity(Context context, int layoutResortId, Practica[] data) {
+    public ListaDeRegistrosAdapterActivity(Context context, int layoutResortId, String[] data) {
         super(context, layoutResortId,data);
 
         this.context= context;
@@ -28,32 +27,27 @@ public class ListaDePracticasAdapterActivity extends ArrayAdapter<Practica>{
 
     public View getView(int position, View contentView, ViewGroup parent){
         View row= contentView;
-        PracticaHolder holder = null;
+        ListaDeRegistrosAdapterActivity.PracticaHolder holder = null;
 
         if(row==null){
             LayoutInflater inflater = ((Activity)context).getLayoutInflater();
             row= inflater.inflate(LayoutResortId, parent, false);
 
-            holder= new PracticaHolder();
-            holder.imagen= (ImageView) row.findViewById(R.id.imagen);
-            holder.texto = (TextView) row.findViewById((R.id.tv));
+            holder= new ListaDeRegistrosAdapterActivity.PracticaHolder();
+            holder.texto = (TextView) row.findViewById((R.id.tvRegistros));
             row.setTag(holder);
         }
         else{
-            holder= (PracticaHolder) row.getTag();
+            holder= (ListaDeRegistrosAdapterActivity.PracticaHolder) row.getTag();
         }
 
-        Practica practicas = data[position];
-        holder.texto.setText(practicas.title);
-        holder.imagen.setImageResource(practicas.icon);
-
+        String registro = data[position];
+        holder.texto.setText(registro);
 
         return row;
     }
 
     static class PracticaHolder{
-        ImageView imagen;
         TextView texto;
     }
 }
-
