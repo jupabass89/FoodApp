@@ -41,7 +41,8 @@ public class ControlPlacasPrincipal extends AppCompatActivity {
     EditText entradaSalvar;
     EditText entradaInforme;
 
-    private Object[] datos;
+    private Object[] datosActuales;
+    private Object[] ultimosDatos;
     private ArrayList<String> practicasGuardadas;
     private static String practicaSeleccionada;
     private Button boton;
@@ -54,12 +55,14 @@ public class ControlPlacasPrincipal extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_vista_placas_principal);
         contexto = this.getApplicationContext();
-        operacionesDB = OperacionesBaseDeDatos.obtenerInstancia(getApplicationContext());
         calculosRealizados = false;
+        operacionesDB = OperacionesBaseDeDatos.obtenerInstancia(getApplicationContext());
         Bundle datosBundle = getIntent().getExtras();
         asignatura = datosBundle.getString("Asignatura");
         profesor = datosBundle.getString("Profesor");
-        datos = new Object[6];
+        practica = new PracticaPlacas(contexto, asignatura, profesor);
+        datosActuales = new Object[6];
+        ultimosDatos = new Object[6];
 
         //Muestra barra de acción
         ActionBar ab = getSupportActionBar();
@@ -79,19 +82,6 @@ public class ControlPlacasPrincipal extends AppCompatActivity {
         coefDiseñoSupuesto = (EditText)findViewById(R.id.entrada6);
         entradaSalvar = (EditText)findViewById(R.id.entradaSalvar);
         entradaInforme = (EditText)findViewById(R.id.entradaInforme);
-
-        boton = (Button)findViewById(R.id.btnGrafica);
-        boton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //if(realizarCalculos()){
-                realizarCalculos();
-                Intent intencion = new Intent(contexto, GraficaPlacasActivity.class);
-                intencion.putExtra("data",datos);
-                startActivity(intencion);
-                //}
-            }
-        });
 
         boton = (Button)findViewById(R.id.btnRecuperar);
         boton.setOnClickListener(new View.OnClickListener() {
@@ -118,6 +108,33 @@ public class ControlPlacasPrincipal extends AppCompatActivity {
                 }
             }
         });
+
+        boton = (Button)findViewById(R.id.btnGrafica);
+        boton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //if(realizarCalculos()){
+                realizarCalculos();
+                Intent intencion = new Intent(contexto, GraficaPlacasActivity.class);
+                //intencion.putExtra("data",datos);
+                startActivity(intencion);
+                //}
+            }
+        });
+
+        boton = (Button)findViewById(R.id.btnTabla);
+        boton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(realizarCalculos()) {
+                    String[][] datos = practica.getResultados();
+                    Intent intencion = new Intent(contexto, TablaResultados.class);
+                    intencion.putExtra("datos", TablaResultados.tableToArray(datos));
+                    startActivity(intencion);
+                }else
+                    mostarMensaje("No se pueden mostrar los resultados");
+            }
+        });
     }
 
     @Override
@@ -125,8 +142,8 @@ public class ControlPlacasPrincipal extends AppCompatActivity {
         super.onResume();
          if(practicaSeleccionada != null){
             setearDatosEnVista(operacionesDB.obtenerRegistroZonaPasterizacionPlacas(practicaSeleccionada));
-            calculosRealizados = false;
-        }
+             calculosRealizados = false;
+         }
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -173,28 +190,29 @@ public class ControlPlacasPrincipal extends AppCompatActivity {
             mostarMensaje("Debe llenar todos los campos para la practica");
             return (false);
         }
-        if(!calculosRealizados){
-            practica = new PracticaPlacas(contexto, asignatura, profesor);
-            practica.configurarPractica(configurarDatosPractica());
+        configurarDatosPractica();
+        if(validarCambiosEnDatosDeEntrada()){
+            practica.configurarPractica(datosActuales);
             practica.calcularDatosZonaPasterizacion();
             practica.guardarResultados();
+            ultimosDatos = datosActuales.clone();
             calculosRealizados = true;
+            return (true);
         }
-        return (true);
+        return (calculosRealizados);
     }
 
     private void mostarMensaje(String texto){
         Toast.makeText(this, texto,Toast.LENGTH_LONG).show();
     }
 
-    private Object[] configurarDatosPractica(){
-        datos[0] = tempEntradaAlimento.getText().toString();
-        datos[1] = caudalEntradaAlimento.getText().toString();
-        datos[2] = coefIncrustacionAlimento.getText().toString();
-        datos[3] = tempEntradaFluidoServicio.getText().toString();
-        datos[4] = coefIncrustacionFluidoServicio.getText().toString();
-        datos[5] = coefDiseñoSupuesto.getText().toString();
-        return (datos);
+    private void configurarDatosPractica(){
+        datosActuales[0] = tempEntradaAlimento.getText().toString();
+        datosActuales[1] = caudalEntradaAlimento.getText().toString();
+        datosActuales[2] = coefIncrustacionAlimento.getText().toString();
+        datosActuales[3] = tempEntradaFluidoServicio.getText().toString();
+        datosActuales[4] = coefIncrustacionFluidoServicio.getText().toString();
+        datosActuales[5] = coefDiseñoSupuesto.getText().toString();
     }
 
     /**
@@ -238,6 +256,19 @@ public class ControlPlacasPrincipal extends AppCompatActivity {
         for(String nombrePractica : practicasGuardadas){
             if(nombrePractica.compareToIgnoreCase(entrada) == 0) return (false);
         }return (true);
+    }
+
+    /**
+     * Se valida si se han variado datos de la practica en la vista.
+     * @return True si vario algun dato, False de lo contrario.
+     */
+    private boolean validarCambiosEnDatosDeEntrada(){
+        for(int i=0; i<datosActuales.length; i++){
+            if(ultimosDatos[i] == null) return (true);
+            if(Float.compare(Float.parseFloat(datosActuales[i].toString()),
+                    Float.parseFloat(ultimosDatos[i].toString())) != 0)
+                return (true);
+        }return (false);
     }
 
     public static void setPracticaSeleccionada(String seleccion){

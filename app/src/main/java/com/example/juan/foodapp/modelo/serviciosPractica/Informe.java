@@ -75,7 +75,7 @@ public class Informe {
             Paragraph titulo = new Paragraph("INFORME DE PRACTICA DE LABORATORIO", font);
             titulo.setAlignment(Paragraph.ALIGN_CENTER);
             documento.add(new Paragraph(titulo));
-            documento.add(new Paragraph("-"));
+            documento.add(new Paragraph("_"));
             documento.add(new LineSeparator());
 
             insertarImagen(BitmapFactory.decodeResource(contexto.getResources(), R.drawable.escudo));
@@ -88,7 +88,7 @@ public class Informe {
             documento.add(new Paragraph("CORREO: " + estudiante.getMail()));
             documento.add(new Paragraph("ASIGNATURA: " + practica.getAsignatura()));
             documento.add(new Paragraph("PROFESOR: " + practica.getProfesor()));
-            documento.add(new Paragraph("-"));
+            documento.add(new Paragraph("_"));
             documento.add(new LineSeparator());
             return (true);
         }catch (DocumentException e) {
@@ -102,9 +102,9 @@ public class Informe {
             documento.add(new Paragraph(subTitulo, font));
             documento.add(new Paragraph(""));
             for (int i=0; i<datos.length;i++){
-                documento.add(new Paragraph(datos[i][0]+" - "+datos[i][1]));
+                documento.add(new Paragraph(datos[i][0]+" : "+datos[i][1]));
             }
-            documento.add(new Paragraph("-"));
+            documento.add(new Paragraph("_"));
             documento.add(new LineSeparator());
             return (true);
         } catch (DocumentException e) {

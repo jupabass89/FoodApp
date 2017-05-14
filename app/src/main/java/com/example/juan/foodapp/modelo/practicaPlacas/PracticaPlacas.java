@@ -186,7 +186,7 @@ public class PracticaPlacas extends Practica {
         return datosDeEntrada;
     }
 
-    private String[][] obtenerResultados(){
+    public String[][] obtenerResultados(){
         String[][] datos = new String[21][2];
         datos[0][0] = "Temp. media fluido frio (°C)";
         datos[1][0] = "Temp. media fluido caliente (°C)";
@@ -260,7 +260,7 @@ public class PracticaPlacas extends Practica {
         return (datos);
     }
 
-    private String[][] obtenerDatosDeEntrada(){
+    public String[][] obtenerDatosDeEntrada(){
         String[][] datos = new String[6][2];
         datos[0][0] = "Temperatura de entrada del alimento (°C)";
         datos[1][0] = "Caudal de entrada del alimento (L/s)";
@@ -269,7 +269,7 @@ public class PracticaPlacas extends Practica {
         datos[4][0] = "Coeficiente de incrustacion del fluido de servicio (°C)";
         datos[5][0] = "Coeficiente de diseño asumido (W/ m^2.°C)";
         datos[0][1] = String.valueOf(fluidoFrio.getTempEntrada());
-        datos[1][1] = String.valueOf(fluidoFrio.getFlujoMasico());
+        datos[1][1] = String.valueOf(zonaPasterizacion.getCaudalDeEntradaAlimento());
         datos[2][1] = String.valueOf(fluidoFrio.getCoeficienteDeIncrustacion());
         datos[3][1] = String.valueOf(fluidoCaliente.getTempEntrada());
         datos[4][1] = String.valueOf(fluidoCaliente.getCoeficienteDeIncrustacion());
@@ -281,7 +281,6 @@ public class PracticaPlacas extends Practica {
     public void configurarPractica(Object[] datos) {
         fluidoFrio.setTempSalida(TEMPERATURA_SALIDA_ALIMENTO);
         fluidoCaliente.setFlujoMasico(FLUJO_MASICO_FLUIDO_DE_SERVICIO);
-
         fluidoFrio.setTempEntrada(Float.parseFloat(datos[0].toString()));
         zonaPasterizacion.setCaudalDeEntradaAlimento(Float.parseFloat(datos[1].toString()));
         fluidoFrio.setCoeficienteDeIncrustacion(Float.parseFloat(datos[2].toString()));
