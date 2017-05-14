@@ -33,15 +33,12 @@ public class GraficaTanqueActivity extends AppCompatActivity {
 
         int i = 0;
         Bundle d = getIntent().getExtras();
-
-        ArrayList<Object> z = (ArrayList<Object>)d.getSerializable("prueba");
+        ArrayList<Object> z = (ArrayList<Object>)d.getSerializable("datos");
         o = (Object[]) z.get(0);
         p = new PracticaTanque(this, null, null);
-
         p.configurarPractica(o);
-
         r = p.calcularDatosGrafica();
-
+        line = (LineChart)findViewById(R.id.graficaTanque);
         graficar();
         /*e = (EditText)findViewById(R.id.editText4);
         Button b = (Button)findViewById(R.id.button5);

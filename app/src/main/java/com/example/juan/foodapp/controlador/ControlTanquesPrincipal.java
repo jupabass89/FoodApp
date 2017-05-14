@@ -212,39 +212,49 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //Acciones al darle click
-                datos[0] = agua.isChecked();
-                datos[1] = temperaturaCalentamiento;
-                datos[2] = tempEnfriamiento;
-                if(!agua.isChecked()){
-                    float porcentajes[] = new float[5];
-                    porcentajes[0] = Float.parseFloat(txtGrasa.getText().toString());
-                    porcentajes[1] = Float.parseFloat(txtProtein.getText().toString());
-                    porcentajes[2] = Float.parseFloat(txtFibra.getText().toString());
-                    porcentajes[3] = Float.parseFloat(txtCeniza.getText().toString());
-                    porcentajes[4] = Float.parseFloat(txtCarb.getText().toString());
-                    datos[3] = porcentajes;
+                boolean control = false;
+                try{
+                    datos[0] = agua.isChecked();
+                    datos[1] = tempCalentamiento;
+                    datos[2] = tempEnfriamiento;
+                    if(!agua.isChecked()){
+                        float porcentajes[] = new float[5];
+                        porcentajes[0] = Float.parseFloat(txtGrasa.getText().toString());
+                        porcentajes[1] = Float.parseFloat(txtProtein.getText().toString());
+                        porcentajes[2] = Float.parseFloat(txtFibra.getText().toString());
+                        porcentajes[3] = Float.parseFloat(txtCeniza.getText().toString());
+                        porcentajes[4] = Float.parseFloat(txtCarb.getText().toString());
+                        datos[7] = Float.parseFloat(txtViscosidad.getText().toString());
+                        datos[3] = porcentajes;
+                    }
+                    //falta rps agitador
+                    //datos[4] = spinner.getSelectedItemPosition();
+                    datos[4] = 0;
+                    float agitador[] = {Float.parseFloat(txtAltAgit.getText().toString()),
+                            Float.parseFloat(txtDiamAgit.getText().toString()), 50f};
+
+                    datos[5] = agitador;
+                    float tanque[] = {5f,6f,4f,3f,5f,6f,2f,5f};
+                    datos[6] = tanque;
+
+                    datos[8] = Float.parseFloat(txtTempInicialAlimen.getText().toString());
+                    datos[9] = Float.parseFloat(txtVolumen.getText().toString());
+                    datos[10] = Float.parseFloat(txtEntradaFlui.getText().toString());
+                    datos[11] = Float.parseFloat(txtSalidaFlui.getText().toString());
+                    datos[12] = Float.parseFloat(txtFlujoMas.getText().toString());
+
+                }catch (Exception e){
+                    mensaje("Faltan campos por llenar.");
+                    control = true;
                 }
-                //falta rps agitador
-                //datos[4] = spinner.getSelectedItemPosition();
-                datos[4] = 0;
-                float agitador[] = {Float.parseFloat(txtAltAgit.getText().toString()),
-                                    Float.parseFloat(txtDiamAgit.getText().toString()), 50f};
+                if(!control){
+                    dato.add(datos);
+                    Intent intencion = new Intent(contexto,GraficaTanqueActivity.class);
+                    intencion.putExtra("datos", dato);
+                    startActivity(intencion);
+                }
 
-                datos[5] = agitador;
-                float tanque[] = {5f,6f,4f,3f,5f,6f,2f};
-                datos[6] = tanque;
-                datos[7] = Float.parseFloat(txtViscosidad.getText().toString());
-                datos[8] = Float.parseFloat(txtTempInicialAlimen.getText().toString());
-                datos[9] = Float.parseFloat(txtVolumen.getText().toString());
-                datos[10] = Float.parseFloat(txtEntradaFlui.getText().toString());
-                datos[11] = Float.parseFloat(txtSalidaFlui.getText().toString());
-                datos[12] = Float.parseFloat(txtFlujoMas.getText().toString());
 
-                dato.add(datos);
-                Intent intent = new Intent(contexto,GraficaTanqueActivity.class);
-                intent.putExtra("prueba",dato);
-
-                startActivity(intent);
             }
         });
 
@@ -266,12 +276,12 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
                 temperaturas[9] = txtTempcal10.getText().toString();
                 for (int i = 0; i <temperaturas.length ; i++) {
                     if(temperaturas[i].compareTo("")==0){
-                        mensaje("Faltan campos en temperaturas por llenas.");
+                        mensaje("Faltan campos en temperaturas por llenar.");
                         return;
                     }
                     else if(i>0){
-                        if (temperaturas[i].compareTo(temperaturas[i-1])<=0){
-                            mensaje("Temperatura en el campo: "+i+" es menor que temperatura en el campo"+(i+1));
+                        if (temperaturas[i].compareTo(temperaturas[i-1])<0){
+                            mensaje("Temperatura en el campo: "+i+", es menor que temperatura en el campo "+(i+1)+".");
                             return;
                         }
                     }
@@ -290,7 +300,10 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
                 txtTempcal8.setText("");
                 txtTempcal9.setText("");
                 txtTempcal10.setText("");
-                temperaturaCalentamiento.setEnabled(false);
+                if(tempEnfriamiento.size()>40){
+                    temperaturaCalentamiento.setEnabled(false);
+                }
+
             }
         });
 
@@ -312,13 +325,13 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
                 temperaturas[9] = txtTempEnfri10.getText().toString();
                 for (int i = 0; i <temperaturas.length ; i++) {
                     if(temperaturas[i].compareTo("")==0){
-                        mensaje("Faltan campos en temperaturas por llenas.");
+                        mensaje("Faltan campos en temperaturas por llenar.");
 
                         return;
                     }
                     else if(i>0){
-                        if (temperaturas[i].compareTo(temperaturas[i-1])>=0){
-                            mensaje("Temperatura en el campo: "+i+" es menor que temperatura en el campo"+(i+1));
+                        if (temperaturas[i].compareTo(temperaturas[i-1])>0){
+                            mensaje("Temperatura en el campo: "+i+", es menor que temperatura en el campo "+(i+1)+".");
                             return;
                         }
                     }
@@ -355,6 +368,7 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
                     txtCeniza.setEnabled(false);
                     txtFibra.setEnabled(false);
                     txtProtein.setEnabled(false);
+                    txtViscosidad.setEnabled(false);
                 }
                 else{
                     txtCarb.setEnabled(true);
@@ -362,6 +376,7 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
                     txtCeniza.setEnabled(true);
                     txtFibra.setEnabled(true);
                     txtProtein.setEnabled(true);
+                    txtViscosidad.setEnabled(false);
                 }
             }
         });
@@ -370,7 +385,7 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
     }
 
     private void mensaje(String mensaje){
-        Toast.makeText(this,mensaje,Toast.LENGTH_LONG);
+        Toast.makeText(this,mensaje,Toast.LENGTH_LONG).show();
     }
 
     private void graficar(){
