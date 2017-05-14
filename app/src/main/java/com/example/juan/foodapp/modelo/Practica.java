@@ -54,6 +54,8 @@ public abstract class Practica {
      *   el método configurar practica obtendra los parametros para setear los alimento, se obtiene segun los campos de la practica.
      *
      */
+    public abstract ArrayList<Object> calcularDatosGrafica(Object[] datosEntrada);
+
     public abstract void configurarPractica(Object[] datos);
 
     /*

@@ -18,60 +18,40 @@ import java.util.ArrayList;
 
 public class GraficaPlacasActivity extends AppCompatActivity {
 
-    private Object[] data;
-    private Button boton;
     private LineChart line;
-    private ArrayList<Float> x,y;
-    private EditText nuevo;
-    PracticaPlacas p;
-
+    private ArrayList<Object> data;
+    private ArrayList<Float> flujoMasicoAlimento, numeroPlacasTotales, areaDiseño;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grafica_placas);
-        Bundle datos = getIntent().getExtras();
-        data = (Object[]) datos.getSerializable("data");
-        nuevo = (EditText)findViewById(R.id.nuevoCaudal);
-        boton = (Button)findViewById(R.id.btnAgregar);
-        x = new ArrayList<>();
-        y = new ArrayList<>();
-        p = new PracticaPlacas(this, null, null);
-        p.configurarPractica(data);
-        p.calcularDatosZonaPasterizacion();
-        x.add(Float.parseFloat(data[1].toString()));
-        y.add(p.getAreaTC());
-        boton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String dato = nuevo.getText().toString();
-                if(dato.compareTo("")!=0){
-                    data[1] = dato;
-                    p.configurarPractica(data);
-                    p.calcularDatosZonaPasterizacion();
-                    x.add(Float.parseFloat(data[1].toString()));
-                    y.add(p.getAreaTC());
-
-                    graficar();
-                    line.notifyDataSetChanged();
-                    line.invalidate();
-
-                }
-            }
-        });
+        Bundle bundle = getIntent().getExtras();
+        data = (ArrayList<Object>) bundle.getSerializable("datos");
+        flujoMasicoAlimento = (ArrayList<Float>) data.get(0);
+        numeroPlacasTotales = (ArrayList<Float>) data.get(1);
+        areaDiseño = (ArrayList<Float>) data.get(2);
         graficar();
     }
 
     private void graficar(){
         line = (LineChart)findViewById(R.id.chartPlacas);
-        ArrayList<Entry> datos = new ArrayList<>();
-        for (int i = 0; i < x.size(); i++) {
-            datos.add(new Entry(x.get(i),y.get(i)));
+        ArrayList<Entry> datos1 = new ArrayList<>();
+        for (int i = 0; i < flujoMasicoAlimento.size(); i++) {
+            datos1.add(new Entry(flujoMasicoAlimento.get(i),numeroPlacasTotales.get(i)));
         }
-        LineDataSet dataset = new LineDataSet(datos,null);
-        dataset.setColor(Color.RED);
+        LineDataSet dataset1 = new LineDataSet(datos1, "Flujo Masico Alimento vs Numero de Placas Totales Requeridas");
+        dataset1.setColor(Color.BLACK);
 
-        LineData da = new LineData(dataset);
-        line.setData(da);
+        ArrayList<Entry> datos2 = new ArrayList<>();
+        for (int i = 0; i < flujoMasicoAlimento.size(); i++) {
+            datos2.add(new Entry(flujoMasicoAlimento.get(i),areaDiseño.get(i)));
+        }
+
+        LineDataSet dataset2 = new LineDataSet(datos2, "Flujo Masico Alimento vs Area Diseño ");
+        dataset2.setColor(Color.BLUE);
+
+        LineData data = new LineData(dataset1, dataset2);
+        line.setData(data);
     }
 }

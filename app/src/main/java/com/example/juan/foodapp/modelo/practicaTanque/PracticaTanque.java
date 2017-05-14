@@ -178,6 +178,11 @@ public class PracticaTanque extends Practica {
     }
 
     @Override
+    public ArrayList<Object> calcularDatosGrafica(Object[] datosEntrada) {
+        return null;
+    }
+
+    @Override
     public void configurarPractica(Object[] datos) {
         /*
         *el usuario ingresa:

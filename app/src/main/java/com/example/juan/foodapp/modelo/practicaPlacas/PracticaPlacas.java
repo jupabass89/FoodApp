@@ -164,8 +164,8 @@ public class PracticaPlacas extends Practica {
         return (fluidoFrio.getFlujoMasico());
     }
 
-    public float getAreaTC(){
-        return (zonaPasterizacion.getAreaDeTCDeCadaPlaca());
+    public float getNummeroPlacasTotales(){
+        return (zonaPasterizacion.getNumeroDePlacasTotalesRequeridas());
     }
 
     public float getCoeficienteDeDiseñoCalculado(){
@@ -290,9 +290,32 @@ public class PracticaPlacas extends Practica {
     }
 
     @Override
-    public ArrayList<Object> calcularDatosGrafica() {
-        ArrayList<Float> x = new ArrayList<>();
-        return null;
+    public ArrayList<Object> calcularDatosGrafica(){return null;}
+
+    @Override
+    public ArrayList<Object> calcularDatosGrafica(Object[] datosEntrada) {
+        ArrayList<Float> flujoMasicoAlimento = new ArrayList<>();
+        ArrayList<Float> numeroPlacasTotales = new ArrayList<>();
+        ArrayList<Float> areaDiseño = new ArrayList<>();
+        float flujoMasicoReferencia = fluidoFrio.getFlujoMasico();
+        PracticaPlacas p = new PracticaPlacas(contexto, null, null);
+        p.configurarPractica(datosEntrada);
+        flujoMasicoAlimento.add(flujoMasicoReferencia);
+        numeroPlacasTotales.add(getNummeroPlacasTotales());
+        areaDiseño.add(getCoeficienteDeDiseñoCalculado());
+        float flujoMasicoVariante = flujoMasicoReferencia;
+        for(int i=1; i<5; i++){
+            flujoMasicoVariante = flujoMasicoVariante + 0.50f;
+            p.calcularDatosZonaPasterizacion();
+            flujoMasicoAlimento.add(p.getFlujoMasicoAlimento());
+            numeroPlacasTotales.add(p.getNummeroPlacasTotales());
+            areaDiseño.add(p.getCoeficienteDeDiseñoCalculado());
+        }
+        ArrayList<Object> lista = new ArrayList<>();
+        lista.add(flujoMasicoAlimento);
+        lista.add(numeroPlacasTotales);
+        lista.add(areaDiseño);
+        return (lista);
     }
 
     @Override

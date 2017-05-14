@@ -113,12 +113,12 @@ public class ControlPlacasPrincipal extends AppCompatActivity {
         boton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //if(realizarCalculos()){
-                realizarCalculos();
-                Intent intencion = new Intent(contexto, GraficaPlacasActivity.class);
-                //intencion.putExtra("data",datos);
-                startActivity(intencion);
-                //}
+                if(realizarCalculos()){
+                    Intent intencion = new Intent(contexto, GraficaPlacasActivity.class);
+                    ArrayList<Object> listas = practica.calcularDatosGrafica(datosActuales);
+                    intencion.putExtra("datos", listas);
+                    startActivity(intencion);
+                }
             }
         });
 
