@@ -4,7 +4,7 @@ public class OperacionTanqueAgitado {
 
 
     public double nusChCalentamiento(double mldt){
-        return (0.15*Math.pow(1.9087,0.3333)*(Math.pow(((965.6666*9.8*0.0006*mldt)/(Math.pow(0.0003,2))),0.33)));
+        return (0.15*Math.pow(1.9087,0.33)*(Math.pow(((965.6666*9.8*0.0006*mldt)/(Math.pow(0.0003,2))),0.33)));
     }
 
     public double nusChEnfriamiento(double mldt, double viscosidadServicio, double densidadServicio,
@@ -25,7 +25,10 @@ public class OperacionTanqueAgitado {
     }
 
     public double Re(double densidadAlimento, double viscocidadAlimento, double diametroAgitador, double velocidaAgitador){
-        return (velocidaAgitador*densidadAlimento*diametroAgitador)/viscocidadAlimento;
+        double parte1=velocidaAgitador*densidadAlimento;
+        double parte2=(diametroAgitador*diametroAgitador);
+
+        return (parte1*parte2)/viscocidadAlimento;
     }
 
     //depende de Re y Prf

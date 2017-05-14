@@ -71,16 +71,8 @@ public class OperacionAlimento {
     }
 
     public double calcularViscosidadAgua(double temperatura){
-        if(temperatura>51 && temperatura<=61){
-            return 0.0005;
-        }
-        else if(temperatura >61 && temperatura < 77){
-            return 0.0004;
-        }
-        else if(temperatura >78){
-            return 0.0003;
-        }
-        return (0.0013-((0.00002*temperatura)+(0.0000001*Math.pow(temperatura,2))));
+        return 0.00055;
+
     }
 
     public double calcularExpancionTermicaAgua(double temperaturaChaqueta){

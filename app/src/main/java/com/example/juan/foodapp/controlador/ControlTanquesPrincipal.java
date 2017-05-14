@@ -138,13 +138,10 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
 
         spinner.setAdapter(adapter);
 
-
         //Asosiación vista - clase
 
 
         //Alimento
-
-
         final EditText txtNomAlim = (EditText)findViewById(R.id.campoNombreAlimento);
         final EditText txtCarb = (EditText)findViewById(R.id.campoCarbohi);
         final EditText txtCeniza = (EditText)findViewById(R.id.campoCeniza);
@@ -155,16 +152,12 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
         final EditText txtVolumen = (EditText)findViewById(R.id.campoVolumen);
         final EditText txtTempInicialAlimen =(EditText)findViewById(R.id.campoTempIniciAlimento);
 
-
         //Fluido de servicio
-
         final EditText txtEntradaFlui =(EditText)findViewById(R.id.tempEntrFlu);
         final EditText txtSalidaFlui =(EditText)findViewById(R.id.tempSaliFlu);
         final EditText txtFlujoMas =(EditText)findViewById(R.id.flujoMasico);
 
-
         //Tanque
-
         final EditText  txtAltProd =(EditText)findViewById(R.id.campoAltProd);
         final EditText txtEspesor =(EditText)findViewById(R.id.campoEspesor);
         final EditText txtDiamInter =(EditText)findViewById(R.id.campoDiamInt);
@@ -174,12 +167,10 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
         final EditText txtTempChaqueta=(EditText)findViewById(R.id.campoTempChaqueta);
 
         //Agitador
-
         final EditText  txtAltAgit = (EditText)findViewById(R.id.campoAltAgit);
         final EditText txtDiamAgit = (EditText)findViewById(R.id.campoDiametroAgit);
 
         //Temperaturas de calentamiento
-
         final EditText txtTempcal1 = (EditText)findViewById(R.id.tempCal1);
         final EditText txtTempcal2 = (EditText)findViewById(R.id.tempCal2);
         final EditText txtTempcal3 = (EditText)findViewById(R.id.tempCal3);
@@ -191,10 +182,7 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
         final EditText txtTempcal9 = (EditText)findViewById(R.id.tempCal9);
         final EditText txtTempcal10 = (EditText)findViewById(R.id.tempCal10);
 
-
         //Temperaturas de calentamiento
-
-
         final EditText txtTempEnfri1 = (EditText)findViewById(R.id.tempEnfri1);
         final EditText txtTempEnfri2 = (EditText)findViewById(R.id.tempEnfri2);
         final EditText txtTempEnfri3 = (EditText)findViewById(R.id.tempEnfri3);
@@ -214,6 +202,15 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
                 //Acciones al darle click
                 boolean control = false;
                 try{
+                    if(tempEnfriamiento.size()==0){
+                        mensaje("Ingrese algunas temperaturas de calentamiento.");
+                        return;
+                    }
+                    if(tempEnfriamiento.size()==0){
+                        mensaje("Ingrese algunas temperaturas de enfriamiento.");
+                        return;
+                    }
+
                     datos[0] = agua.isChecked();
                     datos[1] = tempCalentamiento;
                     datos[2] = tempEnfriamiento;
@@ -227,14 +224,15 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
                         datos[7] = Float.parseFloat(txtViscosidad.getText().toString());
                         datos[3] = porcentajes;
                     }
-                    //falta rps agitador
-                    //datos[4] = spinner.getSelectedItemPosition();
-                    datos[4] = 0;
+                    datos[4] = spinner.getSelectedItemPosition();
                     float agitador[] = {Float.parseFloat(txtAltAgit.getText().toString()),
-                            Float.parseFloat(txtDiamAgit.getText().toString()), 50f};
+                            Float.parseFloat(txtDiamAgit.getText().toString()), 0.49f};
 
                     datos[5] = agitador;
-                    float tanque[] = {5f,6f,4f,3f,5f,6f,2f,5f};
+                    float tanque[] = {Float.parseFloat(txtAltProd.getText().toString()),Float.parseFloat(txtEspesor.getText().toString()),
+                            Float.parseFloat(txtDiamInter.getText().toString()),Float.parseFloat(txtDiameExt.getText().toString()),
+                            0,Float.parseFloat(txtTempChaqueta.getText().toString()),Float.parseFloat(txtConduc.getText().toString()),
+                            Float.parseFloat(txtIncrustac.getText().toString())};
                     datos[6] = tanque;
 
                     datos[8] = Float.parseFloat(txtTempInicialAlimen.getText().toString());
@@ -253,8 +251,6 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
                     intencion.putExtra("datos", dato);
                     startActivity(intencion);
                 }
-
-
             }
         });
 
@@ -263,6 +259,7 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
         temperaturaCalentamiento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String [] temperaturas = new String[10];
                 temperaturas[0] = txtTempcal1.getText().toString();
                 temperaturas[1] = txtTempcal2.getText().toString();
@@ -300,7 +297,7 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
                 txtTempcal8.setText("");
                 txtTempcal9.setText("");
                 txtTempcal10.setText("");
-                if(tempEnfriamiento.size()>40){
+                if(tempCalentamiento.size()>40){
                     temperaturaCalentamiento.setEnabled(false);
                 }
 
@@ -312,6 +309,7 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
         temperaturaEnfriamiento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String [] temperaturas = new String[10];
                 temperaturas[0] = txtTempEnfri1.getText().toString();
                 temperaturas[1] = txtTempEnfri2.getText().toString();
@@ -357,7 +355,7 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
             }
         });
 
-        //checkbox
+
         agua = (CheckBox)findViewById(R.id.esAgua);
         agua.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -391,7 +389,6 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
     private void graficar(){
         line = (LineChart)findViewById(R.id.graficaTanque);
         /*
-
         ArrayList<Float> f = (ArrayList<Float>) r.get(0);
         ArrayList<Float> g = (ArrayList<Float>) r.get(1);
 
@@ -412,7 +409,6 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
         //line.setMaxVisibleValueCount(1);
         line.setData(data);
         line.setBackgroundColor(Color.rgb(245,240,194));
-
         */
     }
 

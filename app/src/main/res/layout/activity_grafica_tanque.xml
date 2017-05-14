@@ -7,9 +7,8 @@
 
 
     <HorizontalScrollView
-        android:layout_width="476dp"
-        android:layout_height="278dp"
-        android:layout_weight="0.10">
+        android:layout_width="match_parent"
+        android:layout_height="278dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -18,7 +17,7 @@
 
             <com.github.mikephil.charting.charts.LineChart
                 android:id="@+id/graficaTanque"
-                android:layout_width="416dp"
+                android:layout_width="492dp"
                 android:layout_height="match_parent">
 
             </com.github.mikephil.charting.charts.LineChart>

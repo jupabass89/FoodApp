@@ -12,13 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <Button
-            android:text="Recuperar datos"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/button4"
-            style="@android:style/Widget.DeviceDefault.Button" />
-
         <TextView
             android:text="Alimento:"
             android:layout_width="match_parent"
@@ -528,6 +521,7 @@
             android:ems="10"
             android:hint="Ej: 0.29"
             android:inputType="number|numberDecimal"
+            android:text="23.2"
             android:textColor="@color/white"
             android:textSize="14sp" />
 
@@ -544,7 +538,8 @@
             android:hint="Ej: 0.0037"
             android:inputType="number|numberDecimal"
             android:textColor="@color/white"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:text="28"/>
 
         <EditText
             android:id="@+id/flujoMasico"
@@ -559,7 +554,8 @@
             android:hint="Ej: 0.0037"
             android:inputType="number|numberDecimal"
             android:textColor="@color/white"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:text="1.44"/>
 
         <EditText
             android:id="@+id/campoAltProd"
@@ -574,7 +570,8 @@
             android:hint="Ej: 0.0037"
             android:inputType="number|numberDecimal"
             android:textColor="@color/white"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:text="0.29"/>
 
         <EditText
             android:id="@+id/campoEspesor"
@@ -589,7 +586,8 @@
             android:hint="Ej: 0.0037"
             android:inputType="number|numberDecimal"
             android:textColor="@color/white"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:text="0.0037"/>
         <EditText
             android:layout_width="83dp"
             android:layout_height="wrap_content"
@@ -603,7 +601,8 @@
             android:ems="10"
             android:id="@+id/campoDiamInt"
             style="@android:style/Widget.DeviceDefault.EditText"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:text="0.58"/>
         <EditText
             android:layout_width="83dp"
             android:layout_height="wrap_content"
@@ -617,7 +616,8 @@
             android:ems="10"
             android:id="@+id/campoDiameExt"
             style="@android:style/Widget.DeviceDefault.EditText"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:text="0.66"/>
         <EditText
             android:layout_width="83dp"
             android:layout_height="wrap_content"
@@ -631,7 +631,8 @@
             android:ems="10"
             android:id="@+id/campoConduc"
             style="@android:style/Widget.DeviceDefault.EditText"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:text="16.3"/>
         <EditText
             android:layout_width="83dp"
             android:layout_height="wrap_content"
@@ -645,7 +646,8 @@
             android:ems="10"
             android:id="@+id/campoFactIncru"
             style="@android:style/Widget.DeviceDefault.EditText"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:text="0.0009"/>
         <EditText
             android:layout_width="83dp"
             android:layout_height="wrap_content"
@@ -659,7 +661,8 @@
             android:ems="10"
             android:id="@+id/campoTempChaqueta"
             style="@android:style/Widget.DeviceDefault.EditText"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:text="92"/>
         <EditText
             android:layout_width="83dp"
             android:layout_height="wrap_content"
@@ -673,7 +676,8 @@
             android:ems="10"
             android:id="@+id/campoAltAgit"
             style="@android:style/Widget.DeviceDefault.EditText"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:text="0.24"/>
         <EditText
             android:layout_width="83dp"
             android:layout_height="wrap_content"
@@ -687,7 +691,8 @@
             android:ems="10"
             android:id="@+id/campoDiametroAgit"
             style="@android:style/Widget.DeviceDefault.EditText"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:text="0.5"/>
 
         <EditText
             android:id="@+id/tempCal10"
@@ -843,20 +848,6 @@
             android:id="@+id/tempEnfri10"
             style="@android:style/Widget.DeviceDefault.EditText"
             android:textSize="14sp" />
-        <EditText
-            android:layout_width="83dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="-165dp"
-            android:textColor="@color/white"
-            android:inputType="number|numberDecimal"
-            android:hint="Identificador"
-            android:layout_row="54"
-            android:layout_gravity="fill_vertical"
-            android:layout_column="1"
-            android:ems="10"
-            android:id="@+id/campoIdentificador"
-            style="@android:style/Widget.DeviceDefault.EditText"
-            android:textSize="14sp" />
 
         <EditText
             android:id="@+id/tempCal1"
@@ -1000,7 +991,8 @@
             android:ems="10"
             android:id="@+id/campoVisco"
             style="@android:style/Widget.DeviceDefault.EditText"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            />
         <EditText
             android:layout_width="83dp"
             android:layout_height="wrap_content"
@@ -1014,7 +1006,8 @@
             android:ems="10"
             android:id="@+id/campoTempIniciAlimento"
             style="@android:style/Widget.DeviceDefault.EditText"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:text="23"/>
 
         <EditText
             android:layout_width="83dp"
@@ -1044,7 +1037,8 @@
             android:ems="10"
             android:id="@+id/campoVolumen"
             style="@android:style/Widget.DeviceDefault.EditText"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:text="50"/>
 
 
         <TextView
@@ -1273,14 +1267,6 @@
             android:layout_column="0"
             android:layout_row="52"
             android:text="Ingresar Temperaturas" />
-        <Button
-            android:text="Guardar datos"
-            android:layout_width="194dp"
-            android:layout_height="wrap_content"
-            android:layout_row="54"
-            android:layout_column="0"
-            android:id="@+id/buyuiyu4"
-            style="@android:style/Widget.DeviceDefault.Button" />
 
         <Button
             android:id="@+id/btnCalculaTanque"
@@ -1289,7 +1275,7 @@
             android:layout_height="wrap_content"
             android:layout_column="0"
             android:layout_row="55"
-            android:text="Realizar Cálculos" />
+            android:text="Graficar" />
         <TextView
             android:text="Temperatura (°C):"
             android:layout_width="179dp"
