@@ -29,13 +29,16 @@ public class GraficaTanqueActivity extends AppCompatActivity {
     LineChart line;
     ArrayList<Float> tempExperiCalenta;
     ArrayList<Float> tempExperiEnfria;
+    EditText texto;
+    Button btonAceptar;
+    private boolean graficaTiempos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grafica_tanque);
+        graficaTiempos = false;
 
-        int i = 0;
         Bundle d = getIntent().getExtras();
         ArrayList<Object> z = (ArrayList<Object>)d.getSerializable("datos");
         o = (Object[]) z.get(0);
@@ -45,6 +48,19 @@ public class GraficaTanqueActivity extends AppCompatActivity {
         hacerCalculos();
         line = (LineChart)findViewById(R.id.graficaTanque);
         GraficaXY.obtenerGraficaCoeficientes(r,line);
+        btonAceptar = (Button)findViewById(R.id.btonAceptar);
+        texto = (EditText)findViewById(R.id.temperatura);
+        btonAceptar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String text = texto.getText().toString();
+                if(text.compareTo("")!=0){
+                    o[8] = Float.parseFloat(text);
+                    hacerCalculos();
+                    graficar();
+                }
+            }
+        });
     }
 
     private void hacerCalculos(){
@@ -52,15 +68,25 @@ public class GraficaTanqueActivity extends AppCompatActivity {
         r = p.calcularDatosGrafica();
     }
 
+    private void graficar(){
+        if(graficaTiempos){
+            GraficaXY.graficarTiempos(r,tempExperiCalenta,tempExperiEnfria,line);
+        }
+        else{
+            GraficaXY.obtenerGraficaCoeficientes(r,line);
+        }
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if(id ==R.id.coeficientes){
             GraficaXY.obtenerGraficaCoeficientes(r,line);
+            graficaTiempos = false;
         }
         else if(id == R.id.tiempo){
             GraficaXY.graficarTiempos(r,tempExperiCalenta,tempExperiEnfria,line);
-
+            graficaTiempos = true;
         }
         return super.onOptionsItemSelected(item);
     }

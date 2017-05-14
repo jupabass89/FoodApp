@@ -378,38 +378,10 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
                 }
             }
         });
-
-        graficar();
     }
 
     private void mensaje(String mensaje){
         Toast.makeText(this,mensaje,Toast.LENGTH_LONG).show();
-    }
-
-    private void graficar(){
-        line = (LineChart)findViewById(R.id.graficaTanque);
-        /*
-        ArrayList<Float> f = (ArrayList<Float>) r.get(0);
-        ArrayList<Float> g = (ArrayList<Float>) r.get(1);
-
-        ArrayList<Entry> e = new ArrayList<>();
-        ArrayList<Entry> d = new ArrayList<>();
-
-        for (int i = 0; i < f.size(); i++) {
-            e.add(new Entry((float)i*60, f.get(i)-40f));
-            if(i<10){
-                d.add(new Entry((float)i*60, g.get(i)-50f));
-            }
-        }
-        LineDataSet dataset = new LineDataSet(e,"Calentamiento");
-        dataset.setColor(Color.RED);
-        LineDataSet datasetE = new LineDataSet(d,"Enfriamiento");
-        datasetE.setColor(Color.BLUE);
-        LineData data = new LineData(dataset,datasetE);
-        //line.setMaxVisibleValueCount(1);
-        line.setData(data);
-        line.setBackgroundColor(Color.rgb(245,240,194));
-        */
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -421,9 +393,10 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case (R.id.generaInforme):
-                practica.generarInforme("pdf1");
+                //practica.generarInforme("pdf1");
                 // Configurar Toast
                 // "RUTA: Descargas/Practicas
+                mensaje("Esta opción no se encuentra disponible en esta practica.");
                 Toast.makeText(this, "PDF GENERADO", Toast.LENGTH_LONG).show();
                 break;
             case (R.id.verGuia):
