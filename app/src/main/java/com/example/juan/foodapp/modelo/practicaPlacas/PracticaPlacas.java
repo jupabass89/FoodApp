@@ -22,6 +22,8 @@ public class PracticaPlacas extends Practica {
     private final float TEMPERATURA_SALIDA_ALIMENTO = 75f;
     private final float FLUJO_MASICO_FLUIDO_DE_SERVICIO = 0.6f; // Fluido Caliente - AGUA
     boolean razonDeCoeficientesAceptable;
+    private String[][] resultados;
+    private String[][] datosDeEntrada;
 
     public PracticaPlacas(Context contexto, String asignatura, String profesor){
         super(contexto,asignatura,profesor);
@@ -170,6 +172,111 @@ public class PracticaPlacas extends Practica {
         return (zonaPasterizacion.getCoeficienteDeDiseñoCalculado());
     }
 
+    // Se guardan tambien los datos de entrada
+    public void guardarResultados(){
+        this.resultados = obtenerResultados();
+        this.datosDeEntrada = obtenerDatosDeEntrada();
+    }
+
+    public String[][] getResultados() {
+        return resultados;
+    }
+
+    public String[][] getDatosDeEntrada() {
+        return datosDeEntrada;
+    }
+
+    private String[][] obtenerResultados(){
+        String[][] datos = new String[21][2];
+        datos[0][0] = "Temp. media fluido frio (°C)";
+        datos[1][0] = "Temp. media fluido caliente (°C)";
+        datos[2][0] = "Temp. salida del fluido frio (°C)";
+        datos[3][0] = "Temp. salida del fluido caliente (°C)";
+        datos[4][0] = "Flujo de calor Q (J/s)";
+        datos[5][0] = "Temperatura media logaritmica (°C)";
+        datos[6][0] = "Temp. aproximada pared de placa (°C)";
+        datos[7][0] = "Numero de Placas Necesarias";
+        datos[8][0] = "Area TC de cada placa (m^2)";
+        datos[9][0] = "Area de flujo total (m^2)";
+        datos[10][0] = "Densidad flujo masica global fluido frio (kg/s.m^2)";
+        datos[11][0] = "Densidad flujo masica global fluido caliente (kg/s.m^2)";
+        datos[12][0] = "Numero de Reynolds fluido frio";
+        datos[13][0] = "Numero de Prant fluido frio.";
+        datos[14][0] = "Numero de Reynolds fluido caliente";
+        datos[15][0] = "Numero de Prant fluido caliente";
+        datos[16][0] = "Coef. TC por convección fluido frio (W/ m^2.°C)";
+        datos[17][0] = "Coef. TC por convección fluido caliente (W/ m^2.°C)";
+        datos[18][0] = "Coef. global de TC calculado (W/ m^2.°C)";
+        datos[19][0] = "Area total de TC requerida (m^2)";
+        datos[20][0] = "Numero de placas totales requeridas para la TC";
+        datos[0][1] = String.valueOf(fluidoFrio.getTemperaturaPromedio());
+        datos[1][1] = String.valueOf(fluidoCaliente.getTemperaturaPromedio());
+        datos[2][1] = String.valueOf(fluidoFrio.getTempSalida());
+        datos[3][1] = String.valueOf(fluidoCaliente.getTempSalida());
+        datos[4][1] = String.valueOf(zonaPasterizacion.getFlujoDeCalor());
+        datos[5][1] = String.valueOf(zonaPasterizacion.getTemperaturaMediaLogaritmica());
+        datos[6][1] = String.valueOf(zonaPasterizacion.getTemperaturaParedPlaca());
+        datos[7][1] = String.valueOf(zonaPasterizacion.getNumeroDePlacasNecesarias());
+        datos[8][1] = String.valueOf(zonaPasterizacion.getAreaDeTCDeCadaPlaca());
+        datos[9][1] = String.valueOf(zonaPasterizacion.getAreaDeFlujo());
+        datos[10][1] = String.valueOf(zonaPasterizacion.getDensidadFlujoMasicaGlobalFluidoFrio());
+        datos[11][1] = String.valueOf(zonaPasterizacion.getDensidadFlujoMasicaGlobalFluidoCaliente());
+        datos[12][1] = String.valueOf(zonaPasterizacion.getNumeroDeReynoldsFluidoFrio());
+        datos[13][1] = String.valueOf(zonaPasterizacion.getNumeroDePrantFluidoFrio());
+        datos[14][1] = String.valueOf(zonaPasterizacion.getNumeroDeReynoldsFluidoCaliente());
+        datos[15][1] = String.valueOf(zonaPasterizacion.getNumeroDePrantFluidoCaliente());
+        datos[16][1] = String.valueOf(zonaPasterizacion.getCoeficienteTCPorConveccionFluidoFrio());
+        datos[17][1] = String.valueOf(zonaPasterizacion.getCoeficienteTCPorConveccionFluidoCaliente());
+        datos[18][1] = String.valueOf(zonaPasterizacion.getCoeficienteDeDiseñoCalculado());
+        datos[19][1] = String.valueOf(zonaPasterizacion.getAreaDeDiseñoRequerida());
+        datos[20][1] = String.valueOf(zonaPasterizacion.getNumeroDePlacasTotalesRequeridas());
+        return (datos);
+    }
+
+    private String[][] obtenerDatosDelPasteurizador(){
+        String[][] datos = new String[11][2];
+        datos[0][0] = "Material";
+        datos[1][0] = "Conductividad termica (W/m°k)";
+        datos[2][0] = "Ancho placa (m)";
+        datos[3][0] = "Largo placa (m)";
+        datos[4][0] = "Distancia placas (m)";
+        datos[5][0] = "Diametro equivalente (m)";
+        datos[6][0] = "Calibre (m)";
+        datos[7][0] = "Espesor placas (m)";
+        datos[8][0] = "Area de circulacion (m^2)";
+        datos[9][0] = "Coef. de obstruccion)";
+        datos[10][0] = "Numero de placas";
+        datos[0][1] = pasteurizador.getMaterial();
+        datos[1][1] = String.valueOf(pasteurizador.getConductividadTermica());
+        datos[2][1] = String.valueOf(pasteurizador.getAnchoPlaca());
+        datos[3][1] = String.valueOf(pasteurizador.getLargoPlaca());
+        datos[4][1] = String.valueOf(pasteurizador.getDistanciaPlacas());
+        datos[5][1] = String.valueOf(pasteurizador.getDiametroEquivalente());
+        datos[6][1] = String.valueOf(pasteurizador.getCalibre());
+        datos[7][1] = String.valueOf(pasteurizador.getEspesorPlacas());
+        datos[8][1] = String.valueOf(pasteurizador.getAreaCirculacion());
+        datos[9][1] = String.valueOf(pasteurizador.getCoeficienteObstruccion());
+        datos[10][1] = String.valueOf(pasteurizador.getNumeroDePlacas());
+        return (datos);
+    }
+
+    private String[][] obtenerDatosDeEntrada(){
+        String[][] datos = new String[6][2];
+        datos[0][0] = "Temperatura de entrada del alimento (°C)";
+        datos[1][0] = "Caudal de entrada del alimento (L/s)";
+        datos[2][0] = "Coeficiente de incrustacion del alimento";
+        datos[3][0] = "Temperatura de entrada del fluido de servicio (°C)";
+        datos[4][0] = "Coeficiente de incrustacion del fluido de servicio (°C)";
+        datos[5][0] = "Coeficiente de diseño asumido (W/ m^2.°C)";
+        datos[0][1] = String.valueOf(fluidoFrio.getTempEntrada());
+        datos[1][1] = String.valueOf(fluidoFrio.getFlujoMasico());
+        datos[2][1] = String.valueOf(fluidoFrio.getCoeficienteDeIncrustacion());
+        datos[3][1] = String.valueOf(fluidoCaliente.getTempEntrada());
+        datos[4][1] = String.valueOf(fluidoCaliente.getCoeficienteDeIncrustacion());
+        datos[5][1] = String.valueOf(zonaPasterizacion.getCoeficienteDeDiseñoAsumido());
+        return (datos);
+    }
+
     @Override
     public void configurarPractica(Object[] datos) {
         fluidoFrio.setTempSalida(TEMPERATURA_SALIDA_ALIMENTO);
@@ -186,9 +293,6 @@ public class PracticaPlacas extends Practica {
     @Override
     public ArrayList<Object> calcularDatosGrafica() {
         ArrayList<Float> x = new ArrayList<>();
-
-        //ciclo para llenar x
-
         return null;
     }
 
@@ -197,10 +301,10 @@ public class PracticaPlacas extends Practica {
         Informe informePractica = new Informe(nombreArchivo, this, Estudiante.getEstudiante(), contexto);
         informePractica.obtenerNuevoDocumento();
         informePractica.configurarPresentacionDocumento();
-        //Ejemplo
-        String[][] datos = {{"DATO1","Valor1"},{"DATO2","Valor2"}};
-        //
-        informePractica.insertarDatos("DATOS",datos);
+        informePractica.insertarDatos("ESPECIFICACIONES TECNICAS DEL PASTEURIZADOR DE PLACAS", obtenerDatosDelPasteurizador());
+        informePractica.insertarDatos("DATOS DE ENTRADA", datosDeEntrada);
+        informePractica.insertarDatos("RESULTADOS", resultados);
+        // InsertarGrafica
         informePractica.cerrarDocumento();
     };
 }

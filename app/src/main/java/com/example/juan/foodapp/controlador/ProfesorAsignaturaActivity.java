@@ -15,12 +15,12 @@ public class ProfesorAsignaturaActivity extends AppCompatActivity {
 
     private Context contexto;
 
-    private String practicaSeleccionada;
     private String asignatura;
     private String profesor;
+    private String practicaSeleccionada;
 
     private Button botonContinuar;
-    private EditText entrada1, entrada2;
+    private EditText entradaAsignatura, entradaProfesor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +30,8 @@ public class ProfesorAsignaturaActivity extends AppCompatActivity {
         Bundle datos = getIntent().getExtras();
         practicaSeleccionada = datos.getString("practicaSeleccionada");
         botonContinuar = (Button)findViewById(R.id.btnContinuar);
-        entrada1 = (EditText)findViewById(R.id.asignatura);
-        entrada2 = (EditText)findViewById(R.id.profesor);
+        entradaAsignatura = (EditText)findViewById(R.id.asignatura);
+        entradaProfesor = (EditText)findViewById(R.id.profesor);
 
 
         botonContinuar.setOnClickListener(new View.OnClickListener() {
@@ -44,6 +44,8 @@ public class ProfesorAsignaturaActivity extends AppCompatActivity {
     }
 
     private void continuar(){
+        asignatura = entradaAsignatura.getText().toString();
+        profesor = entradaProfesor.getText().toString();
         Intent intencion;
         switch (practicaSeleccionada){
             case ("Tanque Agitado"):
@@ -62,8 +64,8 @@ public class ProfesorAsignaturaActivity extends AppCompatActivity {
     }
 
     private boolean camposCompletos(){
-        boolean campo1 = !entrada1.getText().toString().equals("");
-        boolean campo2 = !entrada2.getText().toString().equals("");
+        boolean campo1 = !entradaAsignatura.getText().toString().equals("");
+        boolean campo2 = !entradaProfesor.getText().toString().equals("");
         return (campo1 && campo2);
     }
 }

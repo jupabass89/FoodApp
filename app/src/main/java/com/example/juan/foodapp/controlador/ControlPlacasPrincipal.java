@@ -138,11 +138,16 @@ public class ControlPlacasPrincipal extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case (R.id.generaInforme):
-                practica = new PracticaPlacas(contexto, "Ejemplo", "Ejemplo2");
-                practica.generarInforme("pdf1");
-                // Configurar Toast
-                // "RUTA: Descargas/Practicas
-                Toast.makeText(this, "PDF GENERADO", Toast.LENGTH_LONG).show();
+                if(realizarCalculos()){
+                    String nombreArchivo = entradaInforme.getText().toString();
+                    if(!nombreArchivo.equals("")){
+                        practica.generarInforme(nombreArchivo);
+                        mostarMensaje("Informe generado");
+                        mostarMensaje("RUTA: Descargas/Practicas");
+                    }else{
+                        mostarMensaje("Debe agregar un nombre para el archivo en el campo correspondiente");
+                    }
+                }
                 break;
             case (R.id.verGuia):
                 Intent intencion = new Intent(this, Guia.class);
@@ -172,6 +177,7 @@ public class ControlPlacasPrincipal extends AppCompatActivity {
             practica = new PracticaPlacas(contexto, asignatura, profesor);
             practica.configurarPractica(configurarDatosPractica());
             practica.calcularDatosZonaPasterizacion();
+            practica.guardarResultados();
             calculosRealizados = true;
         }
         return (true);
