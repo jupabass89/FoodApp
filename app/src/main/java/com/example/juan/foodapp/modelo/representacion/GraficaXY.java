@@ -1,5 +1,6 @@
 package com.example.juan.foodapp.modelo.representacion;
 
+import android.graphics.Bitmap;
 import android.graphics.Color;
 
 import com.example.juan.foodapp.R;

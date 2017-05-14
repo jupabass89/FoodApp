@@ -6,6 +6,7 @@ import android.util.Log;
 import com.example.juan.foodapp.modelo.Alimento;
 import com.example.juan.foodapp.modelo.FluidoServicio;
 import com.example.juan.foodapp.modelo.Practica;
+import com.github.mikephil.charting.charts.LineChart;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -178,11 +179,6 @@ public class PracticaTanque extends Practica {
     }
 
     @Override
-    public ArrayList<Object> calcularDatosGrafica(Object[] datosEntrada) {
-        return null;
-    }
-
-    @Override
     public void configurarPractica(Object[] datos) {
         /*
         *el usuario ingresa:
@@ -251,7 +247,5 @@ public class PracticaTanque extends Practica {
 
     @Override
     public void generarInforme(String nombreArchivo) {
-
     }
-
 }

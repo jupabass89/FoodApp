@@ -2,6 +2,8 @@ package com.example.juan.foodapp.modelo;
 
 import android.content.Context;
 
+import com.github.mikephil.charting.charts.LineChart;
+
 import java.util.ArrayList;
 
 public abstract class Practica {
@@ -54,7 +56,6 @@ public abstract class Practica {
      *   el método configurar practica obtendra los parametros para setear los alimento, se obtiene segun los campos de la practica.
      *
      */
-    public abstract ArrayList<Object> calcularDatosGrafica(Object[] datosEntrada);
 
     public abstract void configurarPractica(Object[] datos);
 

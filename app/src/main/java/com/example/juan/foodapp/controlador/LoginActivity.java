@@ -36,8 +36,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 boolean datosDiligenciados = validarCampos();
-                //if(datosDiligenciados){
-                if(true){
+                if(datosDiligenciados){
                     guardarDatosEstudiante();
                     Intent intent = new Intent(v.getContext(), SeleccionarLaboratorioActivity.class);
                     startActivityForResult(intent, 0);

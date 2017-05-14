@@ -78,7 +78,8 @@ public class Informe {
             documento.add(new Paragraph("_"));
             documento.add(new LineSeparator());
 
-            insertarImagen(BitmapFactory.decodeResource(contexto.getResources(), R.drawable.escudo));
+            insertarImagen("FACULTAD DE CIENCIAS FARMACEUTICAS Y ALIMENTARIAS"
+                    ,BitmapFactory.decodeResource(contexto.getResources(), R.drawable.escudo));
 
             // PRESENTACION
             documento.add(new Paragraph("PRACTICA: " + practica.getNombre()));
@@ -119,10 +120,13 @@ public class Informe {
     /**
      * Se inserta una imagen en el documento.
      * @param bitmap mapa de bits correspondiente a la imagen que se va a insertar.
+     * @param subTitulo Titulo que va a acompañar la imagen.
      * @return True si el proceso de insercion fue exitoso, False de lo contrario.
      */
-    private boolean insertarImagen(Bitmap bitmap){
+    public boolean insertarImagen(String subTitulo, Bitmap bitmap){
         try{
+            Font font = FontFactory.getFont(FontFactory.HELVETICA, 20, Font.BOLD, Color.BLACK);
+            documento.add(new Paragraph(subTitulo, font));
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
             Image imagen = Image.getInstance(stream.toByteArray());

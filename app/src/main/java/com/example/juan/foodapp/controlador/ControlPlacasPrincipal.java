@@ -19,6 +19,7 @@ import com.example.juan.foodapp.modelo.persistencia.OperacionesBaseDeDatos;
 import com.example.juan.foodapp.modelo.practicaPlacas.PracticaPlacas;
 import com.example.juan.foodapp.modelo.representacion.GraficaTabla;
 import com.example.juan.foodapp.modelo.serviciosPractica.Guia;
+import com.github.mikephil.charting.charts.LineChart;
 
 import java.util.ArrayList;
 
@@ -116,7 +117,7 @@ public class ControlPlacasPrincipal extends AppCompatActivity {
             public void onClick(View v) {
                 if(realizarCalculos()){
                     Intent intencion = new Intent(contexto, GraficaPlacasActivity.class);
-                    ArrayList<Object> listas = practica.calcularDatosGrafica(datosActuales);
+                    ArrayList<Object> listas = practica.calcularDatosGrafica();
                     intencion.putExtra("datos", listas);
                     startActivity(intencion);
                 }

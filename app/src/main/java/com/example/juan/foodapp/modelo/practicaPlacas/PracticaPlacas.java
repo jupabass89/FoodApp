@@ -1,12 +1,16 @@
 package com.example.juan.foodapp.modelo.practicaPlacas;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 
+import com.example.juan.foodapp.R;
 import com.example.juan.foodapp.modelo.Alimento;
 import com.example.juan.foodapp.modelo.Estudiante;
 import com.example.juan.foodapp.modelo.FluidoServicio;
 import com.example.juan.foodapp.modelo.Practica;
+import com.example.juan.foodapp.modelo.representacion.GraficaXY;
 import com.example.juan.foodapp.modelo.serviciosPractica.Informe;
+import com.github.mikephil.charting.charts.LineChart;
 
 import java.util.ArrayList;
 
@@ -277,6 +281,17 @@ public class PracticaPlacas extends Practica {
         return (datos);
     }
 
+    private Object[] datosDeEntrada(){
+        Object[] data = new Object[6];
+        data[0] = fluidoFrio.getTempEntrada();
+        data[1] = zonaPasterizacion.getCaudalDeEntradaAlimento();
+        data[2] = fluidoFrio.getCoeficienteDeIncrustacion();
+        data[3] = fluidoCaliente.getTempEntrada();
+        data[4] = fluidoCaliente.getCoeficienteDeIncrustacion();
+        data[5] = zonaPasterizacion.getCoeficienteDeDiseñoAsumido();
+        return (data);
+    }
+
     @Override
     public void configurarPractica(Object[] datos) {
         fluidoFrio.setTempSalida(TEMPERATURA_SALIDA_ALIMENTO);
@@ -290,10 +305,8 @@ public class PracticaPlacas extends Practica {
     }
 
     @Override
-    public ArrayList<Object> calcularDatosGrafica(){return null;}
-
-    @Override
-    public ArrayList<Object> calcularDatosGrafica(Object[] datosEntrada) {
+    public ArrayList<Object> calcularDatosGrafica() {
+        Object[] datosEntrada = this.datosDeEntrada();
         ArrayList<Float> tempEntradaAlimento = new ArrayList<>();
         ArrayList<Float> coeficienteTCAlimento = new ArrayList<>();
         ArrayList<Float> areaDiseño = new ArrayList<>();
