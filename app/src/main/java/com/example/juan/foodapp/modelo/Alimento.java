@@ -3,8 +3,11 @@ package com.example.juan.foodapp.modelo;
 public class Alimento {
   
     private String nombreAlimento;          //
+    private float masa;                     //Kg
     private float volumen;                  //m3 / L
     private float tempInicial;              //°C
+    private float tempEnfriamiento;         //°C
+    private float tempCalentamiento;        //°C
     private float tempEntrada;              //°C
     private float tempSalida;               //°C
     private float conductividadTermica;     //w/m°C
@@ -13,6 +16,8 @@ public class Alimento {
     private float flujoMasico;              // Kg/s
     private float densidad;                 //kg/m3
     private float viscosidad;               //kg/m*s
+    private float ht;                       //ht (COEF TRANS ALIM)
+    private float composicion;              //**
     private float coeficienteDeIncrustacion;
 
     public String getNombreAlimento() {
@@ -21,6 +26,14 @@ public class Alimento {
 
     public void setNombreAlimento(String nombreAlimento) {
         this.nombreAlimento = nombreAlimento;
+    }
+
+    public float getMasa() {
+        return masa;
+    }
+
+    public void setMasa(float masa) {
+        this.masa = masa;
     }
 
     public float getVolumen() {
@@ -37,6 +50,22 @@ public class Alimento {
 
     public void setTempInicial(float tempInicial) {
         this.tempInicial = tempInicial;
+    }
+
+    public float getTempEnfriamiento() {
+        return tempEnfriamiento;
+    }
+
+    public void setTempEnfriamiento(float tempEnfriamiento) {
+        this.tempEnfriamiento = tempEnfriamiento;
+    }
+
+    public float getTempCalentamiento() {
+        return tempCalentamiento;
+    }
+
+    public void setTempCalentamiento(float tempCalentamiento) {
+        this.tempCalentamiento = tempCalentamiento;
     }
 
     public float getTempEntrada() {
@@ -103,6 +132,22 @@ public class Alimento {
 
     public void setViscosidad(float viscosidad) {
         this.viscosidad = viscosidad;
+    }
+
+    public float getHt() {
+        return ht;
+    }
+
+    public void setHt(float ht) {
+        this.ht = ht;
+    }
+
+    public float getComposicion() {
+        return composicion;
+    }
+
+    public void setComposicion(float composicion) {
+        this.composicion = composicion;
     }
 
     public float getCoeficienteDeIncrustacion() {

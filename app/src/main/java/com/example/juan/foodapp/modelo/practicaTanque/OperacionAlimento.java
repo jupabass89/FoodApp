@@ -23,6 +23,8 @@ public class OperacionAlimento {
 
     public OperacionAlimento(){}
 
+
+
     public double calcularCpAlimento(double temperatura){
         double exponente1 = Math.pow(10,-3)*temperatura;
         double exponente2 = Math.pow(10,-6)*temperatura*temperatura;
@@ -33,7 +35,6 @@ public class OperacionAlimento {
         double ceniza = (1.0926+(1.8896*exponente1)-3.6817*exponente2);
         return (proteina*porcentajeProteina+grasa*porcentajeGrasa+carbohidrato*porcentajeCarbohidratos+fibra*porcentajeFibra+ceniza*porcentajeCeniza);
     }
-
     public double calcularConductividadAlimento(double temperatura){
         double exponente1 = Math.pow(10,-3)*temperatura;
         double exponente2 = Math.pow(10,-6)*temperatura*temperatura;

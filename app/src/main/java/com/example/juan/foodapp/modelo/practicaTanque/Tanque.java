@@ -68,6 +68,10 @@ public class Tanque {
         return (2*((float)Math.PI*(float)Math.pow((diametroInterno/2),2)));
     }
 
+    public void setArea(float area) {
+        this.area = area;
+    }
+
     public float getTempChaqueta() {
         return tempChaqueta;
     }
