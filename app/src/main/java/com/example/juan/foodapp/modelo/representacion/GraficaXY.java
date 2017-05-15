@@ -83,7 +83,7 @@ public class GraficaXY {
             datos1.add(new Entry(tempEntradaAlimento.get(i),coeficienteTCAlimento.get(i)));
         }
         LineDataSet dataset1 = new LineDataSet(datos1, "Temperatura Entrada Alimento vs Coef.TC del Alimento");
-        dataset1.setColor(Color.BLACK);
+        dataset1.setColor(Color.RED);
 
         ArrayList<Entry> datos2 = new ArrayList<>();
         for (int i = 0; i < tempEntradaAlimento.size(); i++) {
@@ -91,7 +91,7 @@ public class GraficaXY {
         }
 
         LineDataSet dataset2 = new LineDataSet(datos2, "Temperatura Entrada Alimento vs Area Diseño ");
-        dataset2.setColor(Color.BLUE);
+        dataset2.setColor(Color.GREEN);
 
         LineData data = new LineData(dataset1, dataset2);
         line.setData(data);
