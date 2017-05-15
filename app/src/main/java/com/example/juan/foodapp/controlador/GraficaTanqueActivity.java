@@ -1,5 +1,6 @@
 package com.example.juan.foodapp.controlador;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -32,12 +33,14 @@ public class GraficaTanqueActivity extends AppCompatActivity {
     EditText texto;
     Button btonAceptar;
     private boolean graficaTiempos;
+    Context contexto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grafica_tanque);
         graficaTiempos = false;
+        contexto = getApplicationContext();
 
         Bundle d = getIntent().getExtras();
         ArrayList<Object> z = (ArrayList<Object>)d.getSerializable("datos");
@@ -54,7 +57,12 @@ public class GraficaTanqueActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String text = texto.getText().toString();
+
                 if(text.compareTo("")!=0){
+                    if(text.compareTo((tempExperiCalenta.get(0)-0.1)+"")>0){
+                        Toast.makeText(contexto, "La temperatura ingresada debe ser menor a: "+tempExperiCalenta.get(0)+"",Toast.LENGTH_LONG).show();
+                        return;
+                    }
                     o[8] = Float.parseFloat(text);
                     hacerCalculos();
                     graficar();
