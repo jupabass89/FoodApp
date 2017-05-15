@@ -43,69 +43,8 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
     Button btnCalculaTanque;
     Button temperaturaCalentamiento;
     Button temperaturaEnfriamiento;
+
     // Variables para Guardar los datos
-
-    //Alimento
-    private String nombreAlimento;
-    private String porcentajeCarbohidratos;
-    private String porcentajeCeniza;
-    private String porcentajeFibra;
-    private String porcentajeProteina;
-    private String porcentajeGrasa;
-    private String porcentajeViscosidad;
-    private String Volumen;
-    private String TempInicialAlimen;
-
-    //Fluido de servicio
-
-    /**
-     * PENDIENTE:
-     * CAMBIAR A private String y cambiarle el nombre Y HACER LOS GETTERS
-     *
-     *
-     * EditText txtEntradaFlui;
-     EditText txtSalidaFlui;
-     EditText txtFlujoMas;
-
-     //Tanque
-     EditText txtAltProd;
-     EditText txtEspesor;
-     EditText txtDiamInter;
-     EditText txtDiameExt;
-     EditText txtConduc;
-     EditText txtIncrustac;
-     EditText chaqueta;
-
-
-     //Agitador
-     EditText txtAltAgit;
-     EditText txtDiamAgit;
-
-     //Temperaturas de calentamiento
-     EditText txtTempcal1;
-     EditText txtTempcal2;
-     EditText txtTempcal3;
-     EditText txtTempcal4;
-     EditText txtTempcal5;
-     EditText txtTempcal6;
-     EditText txtTempcal7;
-     EditText txtTempcal8;
-     EditText txtTempcal9;
-     EditText txtTempcal10;
-
-
-     //Temperaturas de calentamiento
-     EditText txtTempEnfri1;
-     EditText txtTempEnfri2;
-     EditText txtTempEnfri3;
-     EditText txtTempEnfri4;
-     EditText txtTempEnfri5;
-     EditText txtTempEnfri6;
-     EditText txtTempEnfri7;
-     EditText txtTempEnfri8;
-     EditText txtTempEnfri9;
-     EditText txtTempEnfri10;
-     **/
 
     CheckBox agua;
 
@@ -367,6 +306,7 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
                     txtFibra.setEnabled(false);
                     txtProtein.setEnabled(false);
                     txtViscosidad.setEnabled(false);
+                    txtNomAlim.setText("Agua");
                 }
                 else{
                     txtCarb.setEnabled(true);
@@ -375,6 +315,7 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
                     txtFibra.setEnabled(true);
                     txtProtein.setEnabled(true);
                     txtViscosidad.setEnabled(false);
+                    txtNomAlim.setText("");
                 }
             }
         });
@@ -393,11 +334,7 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case (R.id.generaInforme):
-                //practica.generarInforme("pdf1");
-                // Configurar Toast
-                // "RUTA: Descargas/Practicas
                 mensaje("Esta opción no se encuentra disponible");
-                //Toast.makeText(this, "PDF GENERADO", Toast.LENGTH_LONG).show();
                 break;
             case (R.id.verGuia):
                 Intent intencion = new Intent(this, Guia.class);

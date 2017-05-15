@@ -2,11 +2,7 @@ package com.example.juan.foodapp.modelo;
 
 public class FluidoServicio {
 
-    private String nombreFluido;
-    private String tipodeFluido;
     private float flujoMasico;
-    private float tempInicial;
-    private float tempFinal;
     private float tempEntrada;
     private float tempSalida;
     private float capacidadCalorifica;
@@ -16,24 +12,6 @@ public class FluidoServicio {
     private float viscosidad;
     private float coefExpTermica;
     private float coeficienteDeIncrustacion;
-    private float hCH;
-    public static final float GRAVEDAD=9.8f;
-
-    public String getNombreFluido() {
-        return nombreFluido;
-    }
-
-    public void setNombreFluido(String nombreFluido) {
-        this.nombreFluido = nombreFluido;
-    }
-
-    public String getTipodeFluido() {
-        return tipodeFluido;
-    }
-
-    public void setTipodeFluido(String tipodeFluido) {
-        this.tipodeFluido = tipodeFluido;
-    }
 
     public float getFlujoMasico() {
         return flujoMasico;
@@ -41,22 +19,6 @@ public class FluidoServicio {
 
     public void setFlujoMasico(float flujoMasico) {
         this.flujoMasico = flujoMasico;
-    }
-
-    public float getTempInicial() {
-        return tempInicial;
-    }
-
-    public void setTempInicial(float tempInicial) {
-        this.tempInicial = tempInicial;
-    }
-
-    public float getTempFinal() {
-        return tempFinal;
-    }
-
-    public void setTempFinal(float tempFinal) {
-        this.tempFinal = tempFinal;
     }
 
     public float getTempEntrada() {
@@ -125,14 +87,6 @@ public class FluidoServicio {
 
     public void setCoefExpTermica(float coefExpTermica) {
         this.coefExpTermica = coefExpTermica;
-    }
-
-    public float gethCH() {
-        return hCH;
-    }
-
-    public void sethCH(float hCH) {
-        this.hCH = hCH;
     }
 
     public float getCoeficienteDeIncrustacion() {

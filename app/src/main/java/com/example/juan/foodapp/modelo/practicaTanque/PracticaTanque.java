@@ -26,14 +26,6 @@ public class PracticaTanque extends Practica {
     private ArrayList<Float> enfriamientoTemps;
     private boolean esAgua;
 
-
-    private double diametroInternoChaqueta;      //parametro
-    private double tiempoEstCalentamiento;
-    private double tiempoEstEnfriamiento;
-    private double coeficienteGlobalDeTrasnferencia;
-    private double ht;                          //(COEF TRANS ALIM) 
-
-
     public PracticaTanque(Context context, String asignatura, String profesor){
         super(context, asignatura, profesor);
         alimento = new Alimento();
@@ -180,30 +172,6 @@ public class PracticaTanque extends Practica {
 
     @Override
     public void configurarPractica(Object[] datos) {
-        /*
-        *el usuario ingresa:
-        * datos[0] contiene si el alimento es agua o no (boolean)
-        * datos[1]:
-         *  temperaturas de calentamiento: es un arraylist: 40 datos maximo
-        * datos[2]:
-         *  temperaturas de enfriamiento: es un arraylist: 40 datos maximo
-        * datos[3]: vector de float 5 posiciones con los siguientes porcentajes, y en el mismo orden
-         *   grasa, proteina, fibra, ceniza, carbohidratos,
-        *datos[4]:
-         *  selecciona un tipo de agitador(int)
-        *datos[5]: float[3]:altura, diametro,rps. esto del agitador
-        *datos[6]: informacion del tanque: float[] con los siguientes parametros:
-         *  altura producto, espesor, diametro interno, diametro externo, diametro de la chaqueta,tempChaqueta, conductividad, factor por incustracion
-        *datos[7]viscosidad alimento(no es porcentaje)
-        * datos[8] alimento
-         *temperaturaEntradaAlimento,
-        *datos[9] alimento
-         *volumen alimento
-        *datos[10]:fluidos de servicio temperatura entrada
-        * datos[11] temperatura salida, fluido servicio
-        * datos[12] flujo masico fluido de servicio.
-         */
-
         servicioEnfriamiento.setTempEntrada((float)datos[10]);
         servicioEnfriamiento.setTempSalida((float)datos[11]);
         servicioEnfriamiento.setFlujoMasico((float)datos[12]);

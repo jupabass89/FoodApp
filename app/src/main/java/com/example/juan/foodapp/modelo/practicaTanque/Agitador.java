@@ -35,31 +35,45 @@ public class Agitador {
 
     private void llenarTipoAgitador(){
         tablaAgitador = new double[7][4];
-        tablaAgitador[0][0] = 0.36f;       //paleta
+
+        //paleta
+        tablaAgitador[0][0] = 0.36f;
         tablaAgitador[0][1] = 0.6667f;
         tablaAgitador[0][2] = 0.21f ;
         tablaAgitador[0][3] = 300-100000f;
-        tablaAgitador[1][0] =0.54f;       //hélice
+
+        //hélice
+        tablaAgitador[1][0] =0.54f;
         tablaAgitador[1][1] =0.666f;
         tablaAgitador[1][2] =0.14f;
         tablaAgitador[1][3] = 30-2000f;
-        tablaAgitador[2][0] =1.00f;           //ancla 1
+
+        //ancla 1
+        tablaAgitador[2][0] =1.00f;
         tablaAgitador[2][1] =0.5f;
         tablaAgitador[2][2] = 0.18f;
         tablaAgitador[2][3] = 10-300;
-        tablaAgitador[3][0] =0.36f;           //ancla 2
+
+        //ancla 2
+        tablaAgitador[3][0] =0.36f;
         tablaAgitador[3][1] =0.6667f;
         tablaAgitador[3][2] =0.18f ;
         tablaAgitador[3][3] = 300-40000f;
-        tablaAgitador[4][0] =0.54f;           //Disco turbina paletas planas
+
+        //Disco turbina paletas planas
+        tablaAgitador[4][0] =0.54f;
         tablaAgitador[4][1] =0.6667f;
         tablaAgitador[4][2] = 0.14f;
         tablaAgitador[4][3] = 30-300000f;
-        tablaAgitador[5][0] =0.74f;           //Disco turbina paletas planas con deflectores
+
+        //Disco turbina paletas planas con deflectores
+        tablaAgitador[5][0] =0.74f;
         tablaAgitador[5][1] = 0.6667f;
         tablaAgitador[5][2] = 0.14f;
         tablaAgitador[5][3] =500-300000;
-        tablaAgitador[6][0] =0.633f ;          //Banda heliciodal
+
+        //Banda heliciodal
+        tablaAgitador[6][0] =0.633f ;
         tablaAgitador[6][1] = 0.5f;
         tablaAgitador[6][2] =0.18f;
         tablaAgitador[6][3] = 800000f;
