@@ -115,6 +115,7 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
         //Agitador
         final EditText  txtAltAgit = (EditText)findViewById(R.id.campoAltAgit);
         final EditText txtDiamAgit = (EditText)findViewById(R.id.campoDiametroAgit);
+        final EditText txtRps = (EditText)findViewById(R.id.campoRps);
 
         //Temperaturas de calentamiento
         final EditText txtTempcal1 = (EditText)findViewById(R.id.tempCal1);
@@ -199,7 +200,7 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
                     }
                     datos[4] = spinner.getSelectedItemPosition();
                     float agitador[] = {Float.parseFloat(txtAltAgit.getText().toString()),
-                            Float.parseFloat(txtDiamAgit.getText().toString()), 0.49f};
+                            Float.parseFloat(txtDiamAgit.getText().toString()), Float.parseFloat(txtRps.getText().toString())};
 
                     datos[5] = agitador;
                     float tanque[] = {Float.parseFloat(txtAltProd.getText().toString()),Float.parseFloat(txtEspesor.getText().toString()),
@@ -373,7 +374,7 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
                     txtCeniza.setEnabled(true);
                     txtFibra.setEnabled(true);
                     txtProtein.setEnabled(true);
-                    txtViscosidad.setEnabled(false);
+                    txtViscosidad.setEnabled(true);
                     txtNomAlim.setText("");
                 }
             }
