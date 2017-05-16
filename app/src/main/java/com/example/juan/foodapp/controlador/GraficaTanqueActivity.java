@@ -59,7 +59,8 @@ public class GraficaTanqueActivity extends AppCompatActivity {
                 String text = texto.getText().toString();
 
                 if(text.compareTo("")!=0){
-                    if(text.compareTo((tempExperiCalenta.get(0)-0.1)+"")>0){
+                    float dato = Float.parseFloat(text);
+                    if(dato >= tempExperiCalenta.get(0)){
                         Toast.makeText(contexto, "La temperatura ingresada debe ser menor a: "+tempExperiCalenta.get(0)+"",Toast.LENGTH_LONG).show();
                         return;
                     }

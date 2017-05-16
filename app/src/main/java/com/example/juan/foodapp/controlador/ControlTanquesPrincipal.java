@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.juan.foodapp.R;
@@ -26,6 +27,8 @@ import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -38,6 +41,7 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
     private ArrayList<Float> tempEnfriamiento;
     private Object datos[];
     private ArrayList<Object> dato;
+    private int tiempoTempCalenta;
 
     //Botones de la vista
     Button btnCalculaTanque;
@@ -55,6 +59,9 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_vista_tanques_principal);
         contexto = this.getApplicationContext();
+
+        tiempoTempCalenta = 10;
+
 
         tempCalentamiento = new ArrayList<>();
         tempEnfriamiento = new ArrayList<>();
@@ -133,6 +140,33 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
         final EditText txtTempEnfri9 = (EditText)findViewById(R.id.tempEnfri9);
         final EditText txtTempEnfri10 = (EditText)findViewById(R.id.tempEnfri10);
 
+        //Tiempos temperaturas Calentamiento
+        final TextView txtTempCalenta1 = (TextView)findViewById(R.id.tempCalentam1);
+        final TextView txtTempCalenta2 = (TextView)findViewById(R.id.tempCalentam2);
+        final TextView txtTempCalenta3 = (TextView)findViewById(R.id.tempCalentam3);
+        final TextView txtTempCalenta4 = (TextView)findViewById(R.id.tempCalentam4);
+        final TextView txtTempCalenta5 = (TextView)findViewById(R.id.tempCalentam5);
+        final TextView txtTempCalenta6 = (TextView)findViewById(R.id.tempCalentam6);
+        final TextView txtTempCalenta7 = (TextView)findViewById(R.id.tempCalentam7);
+        final TextView txtTempCalenta8 = (TextView)findViewById(R.id.tempCalentam8);
+        final TextView txtTempCalenta9 = (TextView)findViewById(R.id.tempCalentam9);
+        final TextView txtTempCalenta10 = (TextView)findViewById(R.id.tempCalentam10);
+
+
+        //Tiempos temperaturas enfriamiento
+        final TextView txtTempEnfria1 = (TextView) findViewById(R.id.tempEnfria1);
+        final TextView txtTempEnfria2 = (TextView)findViewById(R.id.tempEnfria2);
+        final TextView txtTempEnfria3 = (TextView)findViewById(R.id.tempEnfria3);
+        final TextView txtTempEnfria4 = (TextView)findViewById(R.id.tempEnfria4);
+        final TextView txtTempEnfria5 = (TextView)findViewById(R.id.tempEnfria5);
+        final TextView txtTempEnfria6 = (TextView)findViewById(R.id.tempEnfria6);
+        final TextView txtTempEnfria7 = (TextView)findViewById(R.id.tempEnfria7);
+        final TextView txtTempEnfria8 = (TextView)findViewById(R.id.tempEnfria8);
+        final TextView txtTempEnfria9 = (TextView)findViewById(R.id.tempEnfria9);
+        final TextView txtTempEnfria10 = (TextView)findViewById(R.id.tempEnfria10);
+
+
+
         //Botón para calcular
         btnCalculaTanque = (Button)findViewById(R.id.btnCalculaTanque);
         btnCalculaTanque.setOnClickListener(new View.OnClickListener() {
@@ -193,6 +227,7 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
             }
         });
 
+
         //Botón temperaturas calentamieno
         temperaturaCalentamiento = (Button)findViewById(R.id.btnTempsCal);
         temperaturaCalentamiento.setOnClickListener(new View.OnClickListener() {
@@ -217,7 +252,7 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
                     }
                     else if(i>0){
                         if (temperaturas[i].compareTo(temperaturas[i-1])<0){
-                            mensaje("Temperatura en el campo: "+i+", es menor que temperatura en el campo "+(i+1)+".");
+                            mensaje("Temperatura en el campo: "+i+", debe ser menor que temperatura en el campo "+(i+1)+".");
                             return;
                         }
                     }
@@ -236,9 +271,21 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
                 txtTempcal8.setText("");
                 txtTempcal9.setText("");
                 txtTempcal10.setText("");
+                txtTempCalenta1.setText((tiempoTempCalenta*60)+"s");
+                txtTempCalenta2.setText(""+(tiempoTempCalenta+1)*60+"s");
+                txtTempCalenta3.setText(""+(tiempoTempCalenta+2)*60+"s");
+                txtTempCalenta4.setText(""+(tiempoTempCalenta+3)*60+"s");
+                txtTempCalenta5.setText(""+(tiempoTempCalenta+4)*60+"s");
+                txtTempCalenta6.setText(""+(tiempoTempCalenta+5)*60+"s");
+                txtTempCalenta7.setText(""+(tiempoTempCalenta+6)*60+"s");
+                txtTempCalenta8.setText(""+(tiempoTempCalenta+7)*60+"s");
+                txtTempCalenta9.setText(""+(tiempoTempCalenta+8)*60+"s");
+                txtTempCalenta10.setText(""+(tiempoTempCalenta+9)*60+"s");
+
                 if(tempCalentamiento.size()>40){
                     temperaturaCalentamiento.setEnabled(false);
                 }
+                tiempoTempCalenta += 10;
 
             }
         });
@@ -268,7 +315,7 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
                     }
                     else if(i>0){
                         if (temperaturas[i].compareTo(temperaturas[i-1])>0){
-                            mensaje("Temperatura en el campo: "+i+", es menor que temperatura en el campo "+(i+1)+".");
+                            mensaje("Temperatura en el campo: "+i+", debe ser mayor que temperatura en el campo "+(i+1)+".");
                             return;
                         }
                     }
@@ -276,8 +323,9 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
                 for (int i = 0; i <temperaturas.length ; i++) {
                     tempEnfriamiento.add(Float.parseFloat(temperaturas[i]));
                     Toast.makeText(contexto,tempEnfriamiento.get(i)+"",Toast.LENGTH_LONG);
-                }
 
+                }
+                mensaje("Ingrese las siguientes temperaturas de calentamiento");
                 txtTempEnfri1.setText("");
                 txtTempEnfri2.setText("");
                 txtTempEnfri3.setText("");
@@ -288,9 +336,20 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
                 txtTempEnfri8.setText("");
                 txtTempEnfri9.setText("");
                 txtTempEnfri10.setText("");
+                txtTempEnfria1.setText(""+(tiempoTempCalenta*60)+"s");
+                txtTempEnfria2.setText(""+(tiempoTempCalenta+1)*60+"s");
+                txtTempEnfria3.setText(""+(tiempoTempCalenta+2)*60+"s");
+                txtTempEnfria4.setText(""+(tiempoTempCalenta+3)*60+"s");
+                txtTempEnfria5.setText(""+(tiempoTempCalenta+4)*60+"s");
+                txtTempEnfria6.setText(""+(tiempoTempCalenta+5)*60+"s");
+                txtTempEnfria7.setText(""+(tiempoTempCalenta+6)*60+"s");
+                txtTempEnfria8.setText(""+(tiempoTempCalenta+7)*60+"s");
+                txtTempEnfria9.setText(""+(tiempoTempCalenta+8)*60+"s");
+                txtTempEnfria10.setText(""+(tiempoTempCalenta+9)*60+"s");
                 if(tempEnfriamiento.size()>40){
                     temperaturaEnfriamiento.setEnabled(false);
                 }
+                tiempoTempCalenta+=10;
             }
         });
 

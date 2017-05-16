@@ -324,9 +324,10 @@
             android:layout_column="2"
             android:textColor="@color/white" />
         <TextView
-            android:text="60s"
+            android:text="0s"
+            android:id="@+id/tempCalentam1"
             android:layout_width="162dp"
-            android:layout_marginLeft="-95dp"
+            android:layout_marginLeft="-115dp"
             android:paddingTop="11dp"
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical"
@@ -334,9 +335,10 @@
             android:layout_column="2"
             android:textColor="@color/white" />
         <TextView
-            android:text="120s"
+            android:text="60s"
+            android:id="@+id/tempCalentam2"
             android:layout_width="162dp"
-            android:layout_marginLeft="-95dp"
+            android:layout_marginLeft="-115dp"
             android:paddingTop="11dp"
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical"
@@ -344,9 +346,10 @@
             android:layout_column="2"
             android:textColor="@color/white" />
         <TextView
-            android:text="180s"
+            android:text="120s"
+            android:id="@+id/tempCalentam3"
             android:layout_width="162dp"
-            android:layout_marginLeft="-95dp"
+            android:layout_marginLeft="-115dp"
             android:paddingTop="11dp"
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical"
@@ -354,9 +357,10 @@
             android:layout_column="2"
             android:textColor="@color/white" />
         <TextView
-            android:text="240s"
+            android:text="180s"
+            android:id="@+id/tempCalentam4"
             android:layout_width="162dp"
-            android:layout_marginLeft="-95dp"
+            android:layout_marginLeft="-115dp"
             android:paddingTop="11dp"
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical"
@@ -364,9 +368,10 @@
             android:layout_column="2"
             android:textColor="@color/white" />
         <TextView
-            android:text="300s"
+            android:text="240s"
+            android:id="@+id/tempCalentam5"
             android:layout_width="162dp"
-            android:layout_marginLeft="-95dp"
+            android:layout_marginLeft="-115dp"
             android:paddingTop="11dp"
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical"
@@ -374,9 +379,10 @@
             android:layout_column="2"
             android:textColor="@color/white" />
         <TextView
-            android:text="360s"
+            android:text="300s"
+            android:id="@+id/tempCalentam6"
             android:layout_width="162dp"
-            android:layout_marginLeft="-95dp"
+            android:layout_marginLeft="-115dp"
             android:paddingTop="11dp"
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical"
@@ -384,9 +390,10 @@
             android:layout_column="2"
             android:textColor="@color/white" />
         <TextView
-            android:text="420s"
+            android:text="360s"
+            android:id="@+id/tempCalentam7"
             android:layout_width="162dp"
-            android:layout_marginLeft="-95dp"
+            android:layout_marginLeft="-115dp"
             android:paddingTop="11dp"
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical"
@@ -394,9 +401,10 @@
             android:layout_column="2"
             android:textColor="@color/white" />
         <TextView
-            android:text="480s"
+            android:text="420s"
+            android:id="@+id/tempCalentam8"
             android:layout_width="162dp"
-            android:layout_marginLeft="-95dp"
+            android:layout_marginLeft="-115dp"
             android:paddingTop="11dp"
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical"
@@ -404,9 +412,10 @@
             android:layout_column="2"
             android:textColor="@color/white" />
         <TextView
-            android:text="540s"
+            android:text="480s"
+            android:id="@+id/tempCalentam9"
             android:layout_width="162dp"
-            android:layout_marginLeft="-95dp"
+            android:layout_marginLeft="-115dp"
             android:paddingTop="11dp"
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical"
@@ -414,9 +423,10 @@
             android:layout_column="2"
             android:textColor="@color/white" />
         <TextView
-            android:text="600s"
+            android:text="540s"
+            android:id="@+id/tempCalentam10"
             android:layout_width="162dp"
-            android:layout_marginLeft="-95dp"
+            android:layout_marginLeft="-115dp"
             android:paddingTop="11dp"
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical"
@@ -425,19 +435,21 @@
             android:textColor="@color/white" />
 
         <TextView
-            android:text="60s"
+            android:id="@+id/tempEnfria1"
             android:layout_width="162dp"
-            android:layout_marginLeft="-95dp"
-            android:paddingTop="11dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="fill_vertical"
-            android:layout_row="43"
             android:layout_column="2"
+            android:layout_gravity="fill_vertical"
+            android:layout_marginLeft="-115dp"
+            android:layout_row="43"
+            android:paddingTop="11dp"
+            android:text="0s"
             android:textColor="@color/white" />
         <TextView
-            android:text="120s"
+            android:text="60s"
+            android:id="@+id/tempEnfria2"
             android:layout_width="162dp"
-            android:layout_marginLeft="-95dp"
+            android:layout_marginLeft="-115dp"
             android:paddingTop="11dp"
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical"
@@ -445,9 +457,10 @@
             android:layout_column="2"
             android:textColor="@color/white" />
         <TextView
-            android:text="180s"
+            android:text="120s"
+            android:id="@+id/tempEnfria3"
             android:layout_width="162dp"
-            android:layout_marginLeft="-95dp"
+            android:layout_marginLeft="-115dp"
             android:paddingTop="11dp"
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical"
@@ -455,9 +468,10 @@
             android:layout_column="2"
             android:textColor="@color/white" />
         <TextView
-            android:text="240s"
+            android:text="180s"
+            android:id="@+id/tempEnfria4"
             android:layout_width="162dp"
-            android:layout_marginLeft="-95dp"
+            android:layout_marginLeft="-115dp"
             android:paddingTop="11dp"
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical"
@@ -465,9 +479,10 @@
             android:layout_column="2"
             android:textColor="@color/white" />
         <TextView
-            android:text="300s"
+            android:text="240s"
+            android:id="@+id/tempEnfria5"
             android:layout_width="162dp"
-            android:layout_marginLeft="-95dp"
+            android:layout_marginLeft="-115dp"
             android:paddingTop="11dp"
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical"
@@ -475,9 +490,10 @@
             android:layout_column="2"
             android:textColor="@color/white" />
         <TextView
-            android:text="360s"
+            android:text="300s"
+            android:id="@+id/tempEnfria6"
             android:layout_width="162dp"
-            android:layout_marginLeft="-95dp"
+            android:layout_marginLeft="-115dp"
             android:paddingTop="11dp"
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical"
@@ -485,9 +501,10 @@
             android:layout_column="2"
             android:textColor="@color/white" />
         <TextView
-            android:text="420s"
+            android:text="360s"
+            android:id="@+id/tempEnfria7"
             android:layout_width="162dp"
-            android:layout_marginLeft="-95dp"
+            android:layout_marginLeft="-115dp"
             android:paddingTop="11dp"
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical"
@@ -495,9 +512,10 @@
             android:layout_column="2"
             android:textColor="@color/white" />
         <TextView
-            android:text="480s"
+            android:text="420s"
+            android:id="@+id/tempEnfria8"
             android:layout_width="162dp"
-            android:layout_marginLeft="-95dp"
+            android:layout_marginLeft="-115dp"
             android:paddingTop="11dp"
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical"
@@ -505,9 +523,10 @@
             android:layout_column="2"
             android:textColor="@color/white" />
         <TextView
-            android:text="540s"
+            android:text="480s"
+            android:id="@+id/tempEnfria9"
             android:layout_width="162dp"
-            android:layout_marginLeft="-95dp"
+            android:layout_marginLeft="-115dp"
             android:paddingTop="11dp"
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical"
@@ -515,9 +534,10 @@
             android:layout_column="2"
             android:textColor="@color/white" />
         <TextView
-            android:text="600s"
+            android:text="540s"
+            android:id="@+id/tempEnfria10"
             android:layout_width="162dp"
-            android:layout_marginLeft="-95dp"
+            android:layout_marginLeft="-115dp"
             android:paddingTop="11dp"
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical"
@@ -528,7 +548,7 @@
         <TextView
             android:text="%"
             android:layout_width="162dp"
-            android:layout_marginLeft="-95dp"
+            android:layout_marginLeft="-115dp"
             android:paddingTop="11dp"
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical"
@@ -539,7 +559,7 @@
         <TextView
             android:text="%"
             android:layout_width="162dp"
-            android:layout_marginLeft="-95dp"
+            android:layout_marginLeft="-115dp"
             android:paddingTop="11dp"
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical"
@@ -550,7 +570,7 @@
         <TextView
             android:text="%"
             android:layout_width="162dp"
-            android:layout_marginLeft="-95dp"
+            android:layout_marginLeft="-115dp"
             android:paddingTop="11dp"
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical"
@@ -561,7 +581,7 @@
         <TextView
             android:text="%"
             android:layout_width="162dp"
-            android:layout_marginLeft="-95dp"
+            android:layout_marginLeft="-115dp"
             android:paddingTop="11dp"
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical"
@@ -1678,17 +1698,7 @@
             android:textSize="14sp"
            />
 
-        <TextView
-            android:text="600s"
-            android:layout_width="162dp"
-            android:layout_marginLeft="-95dp"
-            android:paddingTop="11dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="fill_vertical"
-            android:layout_row="40"
-            android:layout_column="2"
-            android:textColor="@color/white"
-            android:id="@+id/textView" />
+
 
 
     </GridLayout>
