@@ -12,6 +12,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_gravity="fill_vertical"
+            android:layout_marginLeft="0dp"
+            android:layout_height="30dp"
+            android:id="@+id/spinner_tanque"
+            android:layout_row="0"
+            android:layout_column="0" />
+
         <TextView
             android:text="Alimento:"
             android:layout_width="match_parent"
@@ -74,7 +83,7 @@
             android:background="@color/oscuro"
             android:layout_height="45dp"
             android:id="@+id/tew5x"
-            android:layout_row="29"
+            android:layout_row="30"
             android:layout_column="0"
             android:textColor="@color/white"
             android:textAlignment="center"
@@ -87,7 +96,7 @@
             android:background="@color/oscuro"
             android:layout_height="45dp"
             android:id="@+id/tew5xfghfgh"
-            android:layout_row="41"
+            android:layout_row="42"
             android:layout_column="0"
             android:textColor="@color/white"
             android:textAlignment="center"
@@ -99,7 +108,7 @@
             android:layout_width="match_parent"
             android:background="@color/oscuro"
             android:layout_height="45dp"
-            android:layout_row="53"
+            android:layout_row="54"
             android:layout_column="0"
             android:textColor="@color/white"
             android:textAlignment="center"
@@ -304,6 +313,217 @@
             android:layout_row="28"
             android:layout_column="2"
             android:textColor="@color/white" />
+        <TextView
+            android:text="rps"
+            android:layout_width="162dp"
+            android:layout_marginLeft="-95dp"
+            android:paddingTop="11dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:layout_row="29"
+            android:layout_column="2"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="60s"
+            android:layout_width="162dp"
+            android:layout_marginLeft="-95dp"
+            android:paddingTop="11dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:layout_row="31"
+            android:layout_column="2"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="120s"
+            android:layout_width="162dp"
+            android:layout_marginLeft="-95dp"
+            android:paddingTop="11dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:layout_row="32"
+            android:layout_column="2"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="180s"
+            android:layout_width="162dp"
+            android:layout_marginLeft="-95dp"
+            android:paddingTop="11dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:layout_row="33"
+            android:layout_column="2"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="240s"
+            android:layout_width="162dp"
+            android:layout_marginLeft="-95dp"
+            android:paddingTop="11dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:layout_row="34"
+            android:layout_column="2"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="300s"
+            android:layout_width="162dp"
+            android:layout_marginLeft="-95dp"
+            android:paddingTop="11dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:layout_row="35"
+            android:layout_column="2"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="360s"
+            android:layout_width="162dp"
+            android:layout_marginLeft="-95dp"
+            android:paddingTop="11dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:layout_row="36"
+            android:layout_column="2"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="420s"
+            android:layout_width="162dp"
+            android:layout_marginLeft="-95dp"
+            android:paddingTop="11dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:layout_row="37"
+            android:layout_column="2"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="480s"
+            android:layout_width="162dp"
+            android:layout_marginLeft="-95dp"
+            android:paddingTop="11dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:layout_row="38"
+            android:layout_column="2"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="540s"
+            android:layout_width="162dp"
+            android:layout_marginLeft="-95dp"
+            android:paddingTop="11dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:layout_row="39"
+            android:layout_column="2"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="600s"
+            android:layout_width="162dp"
+            android:layout_marginLeft="-95dp"
+            android:paddingTop="11dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:layout_row="40"
+            android:layout_column="2"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:text="60s"
+            android:layout_width="162dp"
+            android:layout_marginLeft="-95dp"
+            android:paddingTop="11dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:layout_row="43"
+            android:layout_column="2"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="120s"
+            android:layout_width="162dp"
+            android:layout_marginLeft="-95dp"
+            android:paddingTop="11dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:layout_row="44"
+            android:layout_column="2"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="180s"
+            android:layout_width="162dp"
+            android:layout_marginLeft="-95dp"
+            android:paddingTop="11dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:layout_row="45"
+            android:layout_column="2"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="240s"
+            android:layout_width="162dp"
+            android:layout_marginLeft="-95dp"
+            android:paddingTop="11dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:layout_row="46"
+            android:layout_column="2"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="300s"
+            android:layout_width="162dp"
+            android:layout_marginLeft="-95dp"
+            android:paddingTop="11dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:layout_row="47"
+            android:layout_column="2"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="360s"
+            android:layout_width="162dp"
+            android:layout_marginLeft="-95dp"
+            android:paddingTop="11dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:layout_row="48"
+            android:layout_column="2"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="420s"
+            android:layout_width="162dp"
+            android:layout_marginLeft="-95dp"
+            android:paddingTop="11dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:layout_row="49"
+            android:layout_column="2"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="480s"
+            android:layout_width="162dp"
+            android:layout_marginLeft="-95dp"
+            android:paddingTop="11dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:layout_row="50"
+            android:layout_column="2"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="540s"
+            android:layout_width="162dp"
+            android:layout_marginLeft="-95dp"
+            android:paddingTop="11dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:layout_row="51"
+            android:layout_column="2"
+            android:textColor="@color/white" />
+        <TextView
+            android:text="600s"
+            android:layout_width="162dp"
+            android:layout_marginLeft="-95dp"
+            android:paddingTop="11dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:layout_row="52"
+            android:layout_column="2"
+            android:textColor="@color/white" />
 
         <TextView
             android:text="%"
@@ -358,7 +578,7 @@
             android:layout_height="wrap_content"
             android:layout_column="1"
             android:layout_gravity="fill_vertical"
-            android:layout_marginLeft="-185dp"
+            android:layout_marginLeft="-165dp"
             android:layout_row="3"
             android:ems="10"
             android:hint="Ej: Leche"
@@ -450,10 +670,10 @@
         <EditText
             android:layout_width="83dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="-185dp"
+            android:layout_marginLeft="-165dp"
             android:textColor="@color/white"
             android:inputType="number|numberDecimal"
-            android:hint="Ej: 000"
+            android:hint="Ej: 5.3"
             android:layout_row="5"
             android:layout_gravity="fill_vertical"
             android:layout_column="1"
@@ -464,10 +684,10 @@
         <EditText
             android:layout_width="83dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="-185dp"
+            android:layout_marginLeft="-165dp"
             android:textColor="@color/white"
             android:inputType="number|numberDecimal"
-            android:hint="Ej: 000"
+            android:hint="Ej: 3.5"
             android:layout_row="4"
             android:layout_gravity="fill_vertical"
             android:layout_column="1"
@@ -480,10 +700,10 @@
         <EditText
             android:layout_width="83dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="-185dp"
+            android:layout_marginLeft="-165dp"
             android:textColor="@color/white"
             android:inputType="number|numberDecimal"
-            android:hint="Ej: 000"
+            android:hint="Ej: 6.7"
             android:layout_row="6"
             android:layout_gravity="fill_vertical"
             android:layout_column="1"
@@ -496,10 +716,10 @@
         <EditText
             android:layout_width="83dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="-185dp"
+            android:layout_marginLeft="-165dp"
             android:textColor="@color/white"
             android:inputType="number|numberDecimal"
-            android:hint="Ej: 000"
+            android:hint="Ej: 1.2"
             android:layout_row="7"
             android:layout_gravity="fill_vertical"
             android:layout_column="1"
@@ -515,7 +735,7 @@
             android:layout_height="wrap_content"
             android:layout_column="1"
             android:layout_gravity="fill_vertical"
-            android:layout_marginLeft="-185dp"
+            android:layout_marginLeft="-165dp"
             android:layout_row="13"
             android:ems="10"
             android:hint="Ej: 0.29"
@@ -525,29 +745,13 @@
             android:textSize="14sp" />
 
         <EditText
-            android:id="@+id/tempSaliFlu"
-            style="@android:style/Widget.DeviceDefault.EditText"
-            android:layout_width="83dp"
-            android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:layout_gravity="fill_vertical"
-            android:layout_marginLeft="-185dp"
-            android:layout_row="14"
-            android:ems="10"
-            android:hint="Ej: 0.0037"
-            android:inputType="number|numberDecimal"
-            android:textColor="@color/white"
-            android:textSize="14sp"
-            android:text="28"/>
-
-        <EditText
             android:id="@+id/flujoMasico"
             style="@android:style/Widget.DeviceDefault.EditText"
             android:layout_width="83dp"
             android:layout_height="wrap_content"
             android:layout_column="1"
             android:layout_gravity="fill_vertical"
-            android:layout_marginLeft="-185dp"
+            android:layout_marginLeft="-165dp"
             android:layout_row="15"
             android:ems="10"
             android:hint="Ej: 0.0037"
@@ -563,7 +767,7 @@
             android:layout_height="wrap_content"
             android:layout_column="1"
             android:layout_gravity="fill_vertical"
-            android:layout_marginLeft="-185dp"
+            android:layout_marginLeft="-165dp"
             android:layout_row="17"
             android:ems="10"
             android:hint="Ej: 0.0037"
@@ -579,7 +783,7 @@
             android:layout_height="wrap_content"
             android:layout_column="1"
             android:layout_gravity="fill_vertical"
-            android:layout_marginLeft="-185dp"
+            android:layout_marginLeft="-165dp"
             android:layout_row="18"
             android:ems="10"
             android:hint="Ej: 0.0037"
@@ -590,7 +794,7 @@
         <EditText
             android:layout_width="83dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="-185dp"
+            android:layout_marginLeft="-165dp"
             android:textColor="@color/white"
             android:inputType="number|numberDecimal"
             android:hint="Ej: 0.29"
@@ -605,7 +809,7 @@
         <EditText
             android:layout_width="83dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="-185dp"
+            android:layout_marginLeft="-165dp"
             android:textColor="@color/white"
             android:inputType="number|numberDecimal"
             android:hint="Ej: 0.66"
@@ -620,7 +824,7 @@
         <EditText
             android:layout_width="83dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="-185dp"
+            android:layout_marginLeft="-165dp"
             android:textColor="@color/white"
             android:inputType="number|numberDecimal"
             android:hint="Ej: 16.3"
@@ -635,7 +839,7 @@
         <EditText
             android:layout_width="83dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="-185dp"
+            android:layout_marginLeft="-165dp"
             android:textColor="@color/white"
             android:inputType="number|numberDecimal"
             android:hint="Ej: 0.0009"
@@ -650,7 +854,7 @@
         <EditText
             android:layout_width="83dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="-185dp"
+            android:layout_marginLeft="-165dp"
             android:textColor="@color/white"
             android:inputType="number|numberDecimal"
             android:hint="Ej: 0.0009"
@@ -665,7 +869,7 @@
         <EditText
             android:layout_width="83dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="-185dp"
+            android:layout_marginLeft="-165dp"
             android:textColor="@color/white"
             android:inputType="number|numberDecimal"
             android:hint="Ej: 0.0009"
@@ -680,10 +884,9 @@
         <EditText
             android:layout_width="83dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="-185dp"
+            android:layout_marginLeft="-165dp"
             android:textColor="@color/white"
             android:inputType="number|numberDecimal"
-            android:hint="Ej: 0.0009"
             android:layout_row="28"
             android:layout_gravity="fill_vertical"
             android:layout_column="1"
@@ -692,6 +895,21 @@
             style="@android:style/Widget.DeviceDefault.EditText"
             android:textSize="14sp"
             android:text="0.5"/>
+        <EditText
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-165dp"
+            android:textColor="@color/white"
+            android:inputType="number|numberDecimal"
+            android:layout_row="29"
+            android:layout_gravity="fill_vertical"
+            android:layout_column="1"
+            android:hint="Ej. 120"
+            android:ems="10"
+            android:id="@+id/campoRps"
+            style="@android:style/Widget.DeviceDefault.EditText"
+            android:textSize="14sp"
+            />
 
         <EditText
             android:id="@+id/tempCal10"
@@ -700,31 +918,18 @@
             android:layout_height="wrap_content"
             android:layout_column="1"
             android:layout_gravity="fill_vertical"
-            android:layout_marginLeft="-185dp"
-            android:layout_row="39"
+            android:layout_marginLeft="-165dp"
+            android:layout_row="40"
             android:ems="10"
             android:hint="Entrada"
             android:inputType="number|numberDecimal"
             android:textColor="@color/white"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+             />
         <EditText
             android:layout_width="83dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="-185dp"
-            android:textColor="@color/white"
-            android:inputType="number|numberDecimal"
-            android:hint="Salida"
-            android:layout_row="42"
-            android:layout_gravity="fill_vertical"
-            android:layout_column="1"
-            android:ems="10"
-            android:id="@+id/tempEnfri1"
-            style="@android:style/Widget.DeviceDefault.EditText"
-            android:textSize="14sp" />
-        <EditText
-            android:layout_width="83dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="-185dp"
+            android:layout_marginLeft="-165dp"
             android:textColor="@color/white"
             android:inputType="number|numberDecimal"
             android:hint="Salida"
@@ -732,13 +937,14 @@
             android:layout_gravity="fill_vertical"
             android:layout_column="1"
             android:ems="10"
-            android:id="@+id/tempEnfri2"
+            android:id="@+id/tempEnfri1"
             style="@android:style/Widget.DeviceDefault.EditText"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+             />
         <EditText
             android:layout_width="83dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="-185dp"
+            android:layout_marginLeft="-165dp"
             android:textColor="@color/white"
             android:inputType="number|numberDecimal"
             android:hint="Salida"
@@ -746,13 +952,14 @@
             android:layout_gravity="fill_vertical"
             android:layout_column="1"
             android:ems="10"
-            android:id="@+id/tempEnfri3"
+            android:id="@+id/tempEnfri2"
             style="@android:style/Widget.DeviceDefault.EditText"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            />
         <EditText
             android:layout_width="83dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="-185dp"
+            android:layout_marginLeft="-165dp"
             android:textColor="@color/white"
             android:inputType="number|numberDecimal"
             android:hint="Salida"
@@ -760,13 +967,14 @@
             android:layout_gravity="fill_vertical"
             android:layout_column="1"
             android:ems="10"
-            android:id="@+id/tempEnfri4"
+            android:id="@+id/tempEnfri3"
             style="@android:style/Widget.DeviceDefault.EditText"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+             />
         <EditText
             android:layout_width="83dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="-185dp"
+            android:layout_marginLeft="-165dp"
             android:textColor="@color/white"
             android:inputType="number|numberDecimal"
             android:hint="Salida"
@@ -774,13 +982,14 @@
             android:layout_gravity="fill_vertical"
             android:layout_column="1"
             android:ems="10"
-            android:id="@+id/tempEnfri5"
+            android:id="@+id/tempEnfri4"
             style="@android:style/Widget.DeviceDefault.EditText"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+             />
         <EditText
             android:layout_width="83dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="-185dp"
+            android:layout_marginLeft="-165dp"
             android:textColor="@color/white"
             android:inputType="number|numberDecimal"
             android:hint="Salida"
@@ -788,13 +997,14 @@
             android:layout_gravity="fill_vertical"
             android:layout_column="1"
             android:ems="10"
-            android:id="@+id/tempEnfri6"
+            android:id="@+id/tempEnfri5"
             style="@android:style/Widget.DeviceDefault.EditText"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+             />
         <EditText
             android:layout_width="83dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="-185dp"
+            android:layout_marginLeft="-165dp"
             android:textColor="@color/white"
             android:inputType="number|numberDecimal"
             android:hint="Salida"
@@ -802,13 +1012,14 @@
             android:layout_gravity="fill_vertical"
             android:layout_column="1"
             android:ems="10"
-            android:id="@+id/tempEnfri7"
+            android:id="@+id/tempEnfri6"
             style="@android:style/Widget.DeviceDefault.EditText"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+             />
         <EditText
             android:layout_width="83dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="-185dp"
+            android:layout_marginLeft="-165dp"
             android:textColor="@color/white"
             android:inputType="number|numberDecimal"
             android:hint="Salida"
@@ -816,13 +1027,14 @@
             android:layout_gravity="fill_vertical"
             android:layout_column="1"
             android:ems="10"
-            android:id="@+id/tempEnfri8"
+            android:id="@+id/tempEnfri7"
             style="@android:style/Widget.DeviceDefault.EditText"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+             />
         <EditText
             android:layout_width="83dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="-185dp"
+            android:layout_marginLeft="-165dp"
             android:textColor="@color/white"
             android:inputType="number|numberDecimal"
             android:hint="Salida"
@@ -830,13 +1042,14 @@
             android:layout_gravity="fill_vertical"
             android:layout_column="1"
             android:ems="10"
-            android:id="@+id/tempEnfri9"
+            android:id="@+id/tempEnfri8"
             style="@android:style/Widget.DeviceDefault.EditText"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+             />
         <EditText
             android:layout_width="83dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="-185dp"
+            android:layout_marginLeft="-165dp"
             android:textColor="@color/white"
             android:inputType="number|numberDecimal"
             android:hint="Salida"
@@ -844,9 +1057,25 @@
             android:layout_gravity="fill_vertical"
             android:layout_column="1"
             android:ems="10"
+            android:id="@+id/tempEnfri9"
+            style="@android:style/Widget.DeviceDefault.EditText"
+            android:textSize="14sp"
+             />
+        <EditText
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-165dp"
+            android:textColor="@color/white"
+            android:inputType="number|numberDecimal"
+            android:hint="Salida"
+            android:layout_row="52"
+            android:layout_gravity="fill_vertical"
+            android:layout_column="1"
+            android:ems="10"
             android:id="@+id/tempEnfri10"
             style="@android:style/Widget.DeviceDefault.EditText"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            />
 
         <EditText
             android:id="@+id/tempCal1"
@@ -855,13 +1084,14 @@
             android:layout_height="wrap_content"
             android:layout_column="1"
             android:layout_gravity="fill_vertical"
-            android:layout_marginLeft="-185dp"
-            android:layout_row="30"
+            android:layout_marginLeft="-165dp"
+            android:layout_row="31"
             android:ems="10"
             android:hint="Entrada"
             android:inputType="number|numberDecimal"
             android:textColor="@color/white"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            />
 
         <EditText
             android:id="@+id/tempCal2"
@@ -870,13 +1100,14 @@
             android:layout_height="wrap_content"
             android:layout_column="1"
             android:layout_gravity="fill_vertical"
-            android:layout_marginLeft="-185dp"
-            android:layout_row="31"
+            android:layout_marginLeft="-165dp"
+            android:layout_row="32"
             android:ems="10"
             android:hint="Entrada"
             android:inputType="number|numberDecimal"
             android:textColor="@color/white"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+             />
 
         <EditText
             android:id="@+id/tempCal3"
@@ -885,31 +1116,19 @@
             android:layout_height="wrap_content"
             android:layout_column="1"
             android:layout_gravity="fill_vertical"
-            android:layout_marginLeft="-185dp"
-            android:layout_row="32"
+            android:layout_marginLeft="-165dp"
+            android:layout_row="33"
             android:ems="10"
             android:hint="Entrada"
             android:inputType="number|numberDecimal"
             android:textColor="@color/white"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            />
         <EditText
             android:id="@+id/tempCal4"
             android:layout_width="83dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="-185dp"
-            android:textColor="@color/white"
-            android:inputType="number|numberDecimal"
-            android:hint="Entrada"
-            android:layout_row="33"
-            android:layout_gravity="fill_vertical"
-            android:layout_column="1"
-            android:ems="10"
-            style="@android:style/Widget.DeviceDefault.EditText"
-            android:textSize="14sp" />
-        <EditText
-            android:layout_width="83dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="-185dp"
+            android:layout_marginLeft="-165dp"
             android:textColor="@color/white"
             android:inputType="number|numberDecimal"
             android:hint="Entrada"
@@ -917,27 +1136,14 @@
             android:layout_gravity="fill_vertical"
             android:layout_column="1"
             android:ems="10"
-            android:id="@+id/tempCal5"
             style="@android:style/Widget.DeviceDefault.EditText"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+             />
+
         <EditText
             android:layout_width="83dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="-185dp"
-            android:textColor="@color/white"
-            android:inputType="number|numberDecimal"
-            android:hint="Entrada"
-            android:layout_row="35"
-            android:layout_gravity="fill_vertical"
-            android:layout_column="1"
-            android:ems="10"
-            android:id="@+id/tempCal6"
-            style="@android:style/Widget.DeviceDefault.EditText"
-            android:textSize="14sp" />
-        <EditText
-            android:layout_width="83dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="-185dp"
+            android:layout_marginLeft="-165dp"
             android:textColor="@color/white"
             android:inputType="number|numberDecimal"
             android:hint="Entrada"
@@ -945,13 +1151,14 @@
             android:layout_gravity="fill_vertical"
             android:layout_column="1"
             android:ems="10"
-            android:id="@+id/tempCal7"
+            android:id="@+id/tempCal6"
             style="@android:style/Widget.DeviceDefault.EditText"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            />
         <EditText
             android:layout_width="83dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="-185dp"
+            android:layout_marginLeft="-165dp"
             android:textColor="@color/white"
             android:inputType="number|numberDecimal"
             android:hint="Entrada"
@@ -959,13 +1166,14 @@
             android:layout_gravity="fill_vertical"
             android:layout_column="1"
             android:ems="10"
-            android:id="@+id/tempCal8"
+            android:id="@+id/tempCal7"
             style="@android:style/Widget.DeviceDefault.EditText"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+             />
         <EditText
             android:layout_width="83dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="-185dp"
+            android:layout_marginLeft="-165dp"
             android:textColor="@color/white"
             android:inputType="number|numberDecimal"
             android:hint="Entrada"
@@ -973,17 +1181,33 @@
             android:layout_gravity="fill_vertical"
             android:layout_column="1"
             android:ems="10"
+            android:id="@+id/tempCal8"
+            style="@android:style/Widget.DeviceDefault.EditText"
+            android:textSize="14sp"
+             />
+        <EditText
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-165dp"
+            android:textColor="@color/white"
+            android:inputType="number|numberDecimal"
+            android:hint="Entrada"
+            android:layout_row="39"
+            android:layout_gravity="fill_vertical"
+            android:layout_column="1"
+            android:ems="10"
             android:id="@+id/tempCal9"
             style="@android:style/Widget.DeviceDefault.EditText"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+             />
 
         <EditText
             android:layout_width="83dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="-185dp"
+            android:layout_marginLeft="-165dp"
             android:textColor="@color/white"
             android:inputType="number|numberDecimal"
-            android:hint="Ej: 000"
+            android:hint="Ej: 4.6"
             android:layout_row="9"
             android:layout_gravity="fill_vertical"
             android:layout_column="1"
@@ -995,7 +1219,7 @@
         <EditText
             android:layout_width="83dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="-185dp"
+            android:layout_marginLeft="-165dp"
             android:textColor="@color/white"
             android:inputType="number|numberDecimal"
             android:hint="Ej: 000"
@@ -1011,10 +1235,10 @@
         <EditText
             android:layout_width="83dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="-185dp"
+            android:layout_marginLeft="-165dp"
             android:textColor="@color/white"
             android:inputType="number|numberDecimal"
-            android:hint="Ej: 000"
+            android:hint="Ej: 15.3"
             android:layout_row="8"
             android:layout_gravity="fill_vertical"
             android:layout_column="1"
@@ -1026,7 +1250,7 @@
         <EditText
             android:layout_width="83dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="-185dp"
+            android:layout_marginLeft="-165dp"
             android:textColor="@color/white"
             android:inputType="number|numberDecimal"
             android:hint="Ej: 000"
@@ -1159,12 +1383,12 @@
             android:layout_column="0"
             android:textColor="@color/white" />
         <TextView
-            android:text="Temperatura (°C):"
+            android:text="Revoluciones por minuto:"
             android:layout_width="179dp"
             android:padding="10dp"
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical"
-            android:layout_row="30"
+            android:layout_row="29"
             android:layout_column="0"
             android:textColor="@color/white" />
         <TextView
@@ -1248,6 +1472,15 @@
             android:layout_row="39"
             android:layout_column="0"
             android:textColor="@color/white" />
+        <TextView
+            android:text="Temperatura (°C):"
+            android:layout_width="179dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:layout_row="40"
+            android:layout_column="0"
+            android:textColor="@color/white" />
 
         <Button
             android:id="@+id/btnTempsCal"
@@ -1255,7 +1488,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_column="0"
-            android:layout_row="40"
+            android:layout_row="41"
             android:text="Ingresar Temperaturas" />
 
         <Button
@@ -1264,8 +1497,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_column="0"
-            android:layout_row="52"
+            android:layout_row="53"
             android:text="Ingresar Temperaturas" />
+
+        <Button
+            android:text="Salvar datos"
+            android:layout_width="174dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnSalvarDatos"
+            android:layout_row="56"
+            android:layout_column="0"
+            style="@android:style/Widget.DeviceDefault.Button" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-145dp"
+            android:textColor="@color/white"
+            android:hint="Ej. Practica1"
+            android:layout_row="56"
+            android:layout_gravity="fill_vertical"
+            android:layout_column="1"
+            android:ems="10"
+            android:id="@+id/entradaSalvarTanque" />
 
         <Button
             android:id="@+id/btnCalculaTanque"
@@ -1273,7 +1526,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_column="0"
-            android:layout_row="55"
+            android:layout_row="57"
             android:text="Graficar" />
         <TextView
             android:text="Temperatura (°C):"
@@ -1281,16 +1534,7 @@
             android:padding="10dp"
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical"
-            android:layout_row="51"
-            android:layout_column="0"
-            android:textColor="@color/white" />
-        <TextView
-            android:text="Temperatura (°C):"
-            android:layout_width="179dp"
-            android:padding="10dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="fill_vertical"
-            android:layout_row="42"
+            android:layout_row="52"
             android:layout_column="0"
             android:textColor="@color/white" />
         <TextView
@@ -1366,6 +1610,15 @@
             android:layout_column="0"
             android:textColor="@color/white" />
         <TextView
+            android:text="Temperatura (°C):"
+            android:layout_width="179dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:layout_row="51"
+            android:layout_column="0"
+            android:textColor="@color/white" />
+        <TextView
             android:text="Temperatura de entrada:"
             android:layout_width="179dp"
             android:padding="10dp"
@@ -1393,6 +1646,49 @@
             android:layout_column="0"
             android:textColor="@color/white" />
 
+        <EditText
+            android:id="@+id/tempSaliFlu"
+            style="@android:style/Widget.DeviceDefault.EditText"
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_gravity="fill_vertical"
+            android:layout_marginLeft="-165dp"
+            android:layout_row="14"
+            android:ems="10"
+            android:hint="Ej: 0.0037"
+            android:inputType="number|numberDecimal"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:text="28"/>
+
+        <EditText
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-165dp"
+            android:textColor="@color/white"
+            android:inputType="number|numberDecimal"
+            android:hint="Entrada"
+            android:layout_row="35"
+            android:layout_gravity="fill_vertical"
+            android:layout_column="1"
+            android:ems="10"
+            android:id="@+id/tempCal5"
+            style="@android:style/Widget.DeviceDefault.EditText"
+            android:textSize="14sp"
+           />
+
+        <TextView
+            android:text="600s"
+            android:layout_width="162dp"
+            android:layout_marginLeft="-95dp"
+            android:paddingTop="11dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:layout_row="40"
+            android:layout_column="2"
+            android:textColor="@color/white"
+            android:id="@+id/textView" />
 
 
     </GridLayout>

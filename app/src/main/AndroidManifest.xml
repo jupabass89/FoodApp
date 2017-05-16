@@ -14,7 +14,7 @@
         android:icon="@mipmap/ic_icon"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+        android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity
             android:name=".controlador.SeleccionarLaboratorioActivity"
             android:theme="@style/Selects" />
@@ -23,7 +23,6 @@
             android:theme="@style/Selects" />
         <activity
             android:name=".controlador.LoginActivity"
-            android:theme="@style/Selects"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,7 +30,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".controlador.PruebasDeDatos" />
         <activity android:name=".modelo.serviciosPractica.Guia" />
         <activity
             android:name=".controlador.ControlPlacasPrincipal"
@@ -41,7 +39,9 @@
             android:name=".controlador.ControlTanquesPrincipal"
             android:label="Tanque Agitado"
             android:theme="@style/Selects" />
-        <activity android:name=".controlador.ProfesorAsignaturaActivity" />
+        <activity android:name=".controlador.ProfesorAsignaturaActivity"
+            android:label="LabFood"
+            android:theme="@style/Selects"/>
         <activity android:name=".controlador.GraficaPlacasActivity"/>
 
         <activity android:name=".modelo.representacion.GraficaTabla"/>

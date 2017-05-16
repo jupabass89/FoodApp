@@ -350,7 +350,7 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="-155dp"
+            android:layout_marginLeft="-145dp"
             android:textColor="@color/white"
             android:hint="Ej. Practica1"
             android:layout_row="13"
@@ -358,17 +358,6 @@
             android:layout_column="1"
             android:ems="10"
             android:id="@+id/entradaSalvar" />
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="-155dp"
-            android:textColor="@color/white"
-            android:hint="Ej. Informe1"
-            android:layout_row="14"
-            android:layout_gravity="fill_vertical"
-            android:layout_column="1"
-            android:ems="10"
-            android:id="@+id/entradaInforme" />
 
         <Button
             android:text="Ver Tabla De Resultados"
@@ -408,6 +397,18 @@
             android:layout_row="13"
             android:layout_column="0"
             style="@android:style/Widget.DeviceDefault.Button" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-145dp"
+            android:textColor="@color/white"
+            android:hint="Ej. Informe1"
+            android:layout_row="14"
+            android:layout_gravity="fill_vertical"
+            android:layout_column="1"
+            android:ems="10"
+            android:id="@+id/entradaInforme" />
 
 
     </GridLayout>
