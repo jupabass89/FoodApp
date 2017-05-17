@@ -38,7 +38,7 @@ public class GraficaTabla extends AppCompatActivity{
                 texto.setGravity(Gravity.CENTER_VERTICAL);
                 texto.setPadding(15, 15, 15, 15);
                 texto.setText(datos[i][j]);
-                texto.setTextColor(Color.BLACK);
+                texto.setTextColor(Color.WHITE);
                 fila.addView(texto);
             }
             tabla.addView(fila);

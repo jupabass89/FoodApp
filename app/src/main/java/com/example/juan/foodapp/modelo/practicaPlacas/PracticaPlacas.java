@@ -90,7 +90,7 @@ public class PracticaPlacas extends Practica {
                 zonaPasterizacion.setCoeficienteDeDiseñoAsumido(zonaPasterizacion.getCoeficienteDeDiseñoCalculado());
         }while(!razonDeCoeficientesAceptable && iteraciones <= 10);
         if(iteraciones == 10){
-            zonaPasterizacion.setAreaDeTCDeCadaPlaca(0);
+            zonaPasterizacion.setCoeficienteTCPorConveccionFluidoFrio(0f);
             return;
         }
 
@@ -184,10 +184,6 @@ public class PracticaPlacas extends Practica {
 
     public String[][] getResultados() {
         return resultados;
-    }
-
-    public String[][] getDatosDeEntrada() {
-        return datosDeEntrada;
     }
 
     public String[][] obtenerResultados(){
@@ -342,7 +338,6 @@ public class PracticaPlacas extends Practica {
         informePractica.insertarDatos("ESPECIFICACIONES TECNICAS DEL PASTEURIZADOR DE PLACAS", obtenerDatosDelPasteurizador());
         informePractica.insertarDatos("DATOS DE ENTRADA", datosDeEntrada);
         informePractica.insertarDatos("RESULTADOS", resultados);
-        // InsertarGrafica
         informePractica.cerrarDocumento();
     };
 }

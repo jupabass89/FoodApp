@@ -95,5 +95,6 @@ public class GraficaXY {
 
         LineData data = new LineData(dataset1, dataset2);
         line.setData(data);
+        line.setBackgroundColor(Color.WHITE);
     }
 }
