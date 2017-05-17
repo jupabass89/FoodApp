@@ -37,7 +37,9 @@
             android:layout_weight="1"
             android:ems="10"
             android:hint="Temperatura Inicial Alimento"
-            android:inputType="number|numberDecimal" />
+            android:inputType="number|numberDecimal"
+            android:textColor="@color/white"
+            android:textColorHint="@android:color/darker_gray" />
 
         <Button
             android:id="@+id/btonAceptar"
