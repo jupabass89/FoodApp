@@ -48,7 +48,10 @@
         <activity android:name=".controlador.PracticasGuardadasPlacas"
             android:theme="@style/Selects"/>
 
-        <activity android:name=".controlador.GraficaTanqueActivity"></activity>
+        <activity android:name=".controlador.GraficaTanqueActivity"
+            android:label="LabFood"
+            android:theme="@style/Selects"
+            ></activity>
 
     </application>
 

@@ -41,7 +41,7 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
     private ArrayList<Float> tempEnfriamiento;
     private Object datos[];
     private ArrayList<Object> dato;
-    private int tiempoTempCalenta;
+    private int tiempoTempCalenta,tiempoTempEnfria;
 
     //Botones de la vista
     Button btnCalculaTanque;
@@ -60,7 +60,7 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
         setContentView(R.layout.activity_vista_tanques_principal);
         contexto = this.getApplicationContext();
 
-        tiempoTempCalenta = 10;
+        tiempoTempCalenta = tiempoTempEnfria = 10;
 
 
         tempCalentamiento = new ArrayList<>();
@@ -337,20 +337,20 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
                 txtTempEnfri8.setText("");
                 txtTempEnfri9.setText("");
                 txtTempEnfri10.setText("");
-                txtTempEnfria1.setText(""+(tiempoTempCalenta*60)+"s");
-                txtTempEnfria2.setText(""+(tiempoTempCalenta+1)*60+"s");
-                txtTempEnfria3.setText(""+(tiempoTempCalenta+2)*60+"s");
-                txtTempEnfria4.setText(""+(tiempoTempCalenta+3)*60+"s");
-                txtTempEnfria5.setText(""+(tiempoTempCalenta+4)*60+"s");
-                txtTempEnfria6.setText(""+(tiempoTempCalenta+5)*60+"s");
-                txtTempEnfria7.setText(""+(tiempoTempCalenta+6)*60+"s");
-                txtTempEnfria8.setText(""+(tiempoTempCalenta+7)*60+"s");
-                txtTempEnfria9.setText(""+(tiempoTempCalenta+8)*60+"s");
-                txtTempEnfria10.setText(""+(tiempoTempCalenta+9)*60+"s");
+                txtTempEnfria1.setText(""+(tiempoTempEnfria*60)+"s");
+                txtTempEnfria2.setText(""+(tiempoTempEnfria+1)*60+"s");
+                txtTempEnfria3.setText(""+(tiempoTempEnfria+2)*60+"s");
+                txtTempEnfria4.setText(""+(tiempoTempEnfria+3)*60+"s");
+                txtTempEnfria5.setText(""+(tiempoTempEnfria+4)*60+"s");
+                txtTempEnfria6.setText(""+(tiempoTempEnfria+5)*60+"s");
+                txtTempEnfria7.setText(""+(tiempoTempEnfria+6)*60+"s");
+                txtTempEnfria8.setText(""+(tiempoTempEnfria+7)*60+"s");
+                txtTempEnfria9.setText(""+(tiempoTempEnfria+8)*60+"s");
+                txtTempEnfria10.setText(""+(tiempoTempEnfria+9)*60+"s");
                 if(tempEnfriamiento.size()>40){
                     temperaturaEnfriamiento.setEnabled(false);
                 }
-                tiempoTempCalenta+=10;
+                tiempoTempEnfria+=10;
             }
         });
 
