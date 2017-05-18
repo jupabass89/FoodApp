@@ -42,9 +42,7 @@
         <activity android:name=".controlador.ProfesorAsignaturaActivity"
             android:label="LabFood"
             android:theme="@style/Selects"/>
-        <activity android:name=".controlador.GraficaPlacasActivity"
-            android:label="LabFood"
-            android:theme="@style/Selects"/>
+        <activity android:name=".controlador.GraficaPlacasActivity"/>
 
         <activity android:name=".modelo.representacion.GraficaTabla"/>
         <activity android:name=".controlador.PracticasGuardadasPlacas"
