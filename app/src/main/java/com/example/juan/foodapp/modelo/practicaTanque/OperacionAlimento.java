@@ -71,7 +71,10 @@ public class OperacionAlimento {
     }
 
     public double calcularViscosidadAgua(double temperatura){
-        return 0.00055;
+        //obtener las ecuaciones para todos los rangos de temperatura
+        
+        
+        return 0.00055;//valor por referencia (excel)
 
     }
 
