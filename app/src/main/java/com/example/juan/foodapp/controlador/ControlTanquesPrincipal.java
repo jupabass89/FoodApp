@@ -36,48 +36,48 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
     private ArrayList<Object> datosB;      //paquete con los datos a pasar para la siguiente actividad
 
     //Contadores para los tiempos textView de los inputs de las temperaturas
-    private int contadorTiemposCalentamiento=0;
-    private int contadorTiemposEnfriamiento=0;
+    private int contadorTiemposCalentamiento;
+    private int contadorTiemposEnfriamiento;
 
     //Alimento
-    private final EditText txtNomAlim = (EditText) findViewById(R.id.campoNombreAlimento);
-    private final EditText txtCarb = (EditText) findViewById(R.id.campoCarbohi);
-    private final EditText txtCeniza = (EditText) findViewById(R.id.campoCeniza);
-    private final EditText txtFibra = (EditText) findViewById(R.id.campoFibra);
-    private final EditText txtProtein = (EditText) findViewById(R.id.campoProteina);
-    private final EditText txtGrasa = (EditText) findViewById(R.id.campoGrasa);
-    private final EditText txtViscosidad = (EditText) findViewById(R.id.campoVisco);
-    private final EditText txtVolumen = (EditText) findViewById(R.id.campoVolumen);
-    private final EditText txtTempInicialAlimen = (EditText) findViewById(R.id.campoTempIniciAlimento);
+    private  EditText txtNomAlim;
+    private  EditText txtCarb;
+    private  EditText txtCeniza;
+    private  EditText txtFibra;
+    private  EditText txtProtein;
+    private  EditText txtGrasa;
+    private  EditText txtViscosidad;
+    private  EditText txtVolumen;
+    private  EditText txtTempInicialAlimen;
 
     //Fluido de servicio
-    private final EditText txtEntradaFlui = (EditText) findViewById(R.id.tempEntrFlu);
-    private final EditText txtSalidaFlui = (EditText) findViewById(R.id.tempSaliFlu);
-    private final EditText txtFlujoMas = (EditText) findViewById(R.id.flujoMasico);
+    private  EditText txtEntradaFlui;
+    private  EditText txtSalidaFlui;
+    private  EditText txtFlujoMas;
 
     //Tanque
-    private final EditText txtAltProd = (EditText) findViewById(R.id.campoAltProd);
-    private final EditText txtEspesor = (EditText) findViewById(R.id.campoEspesor);
-    private final EditText txtDiamInter = (EditText) findViewById(R.id.campoDiamInt);
-    private final EditText txtDiameExt = (EditText) findViewById(R.id.campoDiameExt);
-    private final EditText txtConduc = (EditText) findViewById(R.id.campoConduc);
-    private final EditText txtIncrustac = (EditText) findViewById(R.id.campoFactIncru);
-    private final EditText txtTempChaqueta = (EditText) findViewById(R.id.campoTempChaqueta);
+    private  EditText txtAltProd;
+    private  EditText txtEspesor;
+    private  EditText txtDiamInter;
+    private  EditText txtDiameExt;
+    private  EditText txtConduc;
+    private  EditText txtIncrustac;
+    private  EditText txtTempChaqueta;
 
     //Agitador
-    private final EditText txtAltAgit = (EditText) findViewById(R.id.campoAltAgit);
-    private final EditText txtDiamAgit = (EditText) findViewById(R.id.campoDiametroAgit);
-    private final EditText txtRps = (EditText) findViewById(R.id.campoRps);
+    private  EditText txtAltAgit;
+    private  EditText txtDiamAgit;
+    private  EditText txtRps;
 
     //Temperaturas de calientamiento input
-    private final EditText tempCalentamiento = (EditText) findViewById(R.id.tempCal);
+    private EditText tempCalentamiento;
 
     //Temp de enfriamiento input
-    private final EditText tempEnfriamiento = (EditText) findViewById(R.id.tempEnfri);
+    private  EditText tempEnfriamiento;
 
     //Tiempos de calentamiento y de enfriamiento labels
-    private final TextView tiempoCalentamiento = (TextView) findViewById(R.id.tiempoCalentamiento);
-    private final TextView tiempoEnfriamiento = (TextView) findViewById(R.id.tiempoEnfriamiento);
+    private  TextView tiempoCalentamiento;
+    private  TextView tiempoEnfriamiento;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,6 +85,50 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_vista_tanques_principal);
+
+         //Contadores para los tiempos textView de los inputs de las temperaturas
+          contadorTiemposCalentamiento=0;
+          contadorTiemposEnfriamiento=0;
+
+        //Alimento
+          txtNomAlim = (EditText) findViewById(R.id.campoNombreAlimento);
+           txtCarb = (EditText) findViewById(R.id.campoCarbohi);
+           txtCeniza = (EditText) findViewById(R.id.campoCeniza);
+           txtFibra = (EditText) findViewById(R.id.campoFibra);
+           txtProtein = (EditText) findViewById(R.id.campoProteina);
+           txtGrasa = (EditText) findViewById(R.id.campoGrasa);
+           txtViscosidad = (EditText) findViewById(R.id.campoVisco);
+           txtVolumen = (EditText) findViewById(R.id.campoVolumen);
+           txtTempInicialAlimen = (EditText) findViewById(R.id.campoTempIniciAlimento);
+
+        //Fluido de servicio
+           txtEntradaFlui = (EditText) findViewById(R.id.tempEntrFlu);
+           txtSalidaFlui = (EditText) findViewById(R.id.tempSaliFlu);
+           txtFlujoMas = (EditText) findViewById(R.id.flujoMasico);
+
+        //Tanque
+         txtAltProd = (EditText) findViewById(R.id.campoAltProd);
+         txtEspesor = (EditText) findViewById(R.id.campoEspesor);
+         txtDiamInter = (EditText) findViewById(R.id.campoDiamInt);
+         txtDiameExt = (EditText) findViewById(R.id.campoDiameExt);
+         txtConduc = (EditText) findViewById(R.id.campoConduc);
+         txtIncrustac = (EditText) findViewById(R.id.campoFactIncru);
+         txtTempChaqueta = (EditText) findViewById(R.id.campoTempChaqueta);
+
+        //Agitador
+           txtAltAgit = (EditText) findViewById(R.id.campoAltAgit);
+           txtDiamAgit = (EditText) findViewById(R.id.campoDiametroAgit);
+           txtRps = (EditText) findViewById(R.id.campoRps);
+
+        //Temperaturas de calientamiento input
+           tempCalentamiento = (EditText) findViewById(R.id.tempCal);
+
+        //Temp de enfriamiento input
+           tempEnfriamiento = (EditText) findViewById(R.id.tempEnfri);
+
+        //Tiempos de calentamiento y de enfriamiento labels
+           tiempoCalentamiento = (TextView) findViewById(R.id.tiempoCalentamiento);
+           tiempoEnfriamiento = (TextView) findViewById(R.id.tiempoEnfriamiento);
 
         //Configurando logo accion bar
         ActionBar ab = getSupportActionBar();
@@ -187,6 +231,8 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
     public void ingresarTemperaturasCalentamiento(View view){
         String t = tempCalentamiento.getText().toString();
         Float f = Float.parseFloat(t);
+
+        if (f>78f){
         if(f> temperaturasDeCalentamiento.get(temperaturasDeCalentamiento.size())) {
             temperaturasDeCalentamiento.add(f);
             contadorTiemposCalentamiento++;
@@ -194,11 +240,17 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
         }else{
             mensaje("Debe ingresar una temperatura mayor a la anterior");
         }
+        }else{
+            mensaje("Ha superado la temperatura límite");
+
+        }
     }
 
     public void ingresarTemperaturasEnfriamiento(View view){
         String t = tempEnfriamiento.getText().toString();
         Float f = Float.parseFloat(t);
+
+        //if(f<0)
         if(f< temperaturasDeCalentamiento.get(temperaturasDeCalentamiento.size())) {
             temperaturasEnfriamiento.add(f);
             contadorTiemposEnfriamiento++;
