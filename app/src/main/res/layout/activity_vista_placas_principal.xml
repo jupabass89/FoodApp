@@ -99,23 +99,22 @@
             android:layout_marginLeft="-155dp"
             android:layout_row="3"
             android:ems="10"
-            android:hint="Ej: 000"
             android:inputType="number|numberDecimal"
             android:textColor="@color/white"
             android:textSize="18sp" />
-        <EditText
-            android:layout_width="83dp"
 
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="-155dp"
-            android:textColor="@color/white"
-            android:hint="Ej. Leche"
-            android:layout_row="2"
-            android:layout_gravity="fill_vertical"
-            android:layout_column="1"
-            android:ems="10"
+        <EditText
             android:id="@+id/campoNombreAlimento"
+
             style="@android:style/Widget.DeviceDefault.EditText"
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_gravity="fill_vertical"
+            android:layout_marginLeft="-155dp"
+            android:layout_row="2"
+            android:ems="10"
+            android:textColor="@color/white"
             android:textSize="18sp" />
 
 
@@ -131,14 +130,15 @@
             android:layout_column="0"
             android:textAppearance="@style/TextAppearance.AppCompat"
             android:textColor="@color/white" />
+
         <TextView
-            android:text="Alimento a considerar:"
             android:layout_width="169dp"
-            android:padding="10dp"
             android:layout_height="wrap_content"
+            android:layout_column="0"
             android:layout_gravity="fill_vertical"
             android:layout_row="2"
-            android:layout_column="0"
+            android:padding="10dp"
+            android:text="Fluido alimentario a pasteurizar:"
             android:textAppearance="@style/TextAppearance.AppCompat"
             android:textColor="@color/white" />
 
@@ -165,32 +165,31 @@
             android:layout_marginLeft="-155dp"
             android:layout_row="4"
             android:ems="10"
-            android:hint="Ej: 000"
             android:inputType="number|numberDecimal"
             android:textColor="@color/white" />
+
         <EditText
+            android:id="@+id/entrada6"
+            style="@android:style/Widget.DeviceDefault.EditText"
             android:layout_width="83dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="-145dp"
-            android:textColor="@color/white"
-            android:inputType="number|numberDecimal"
-            android:hint="Ej: 000"
-            android:layout_row="11"
-            android:layout_gravity="fill_vertical"
             android:layout_column="1"
+            android:layout_gravity="fill_vertical"
+            android:layout_marginLeft="-145dp"
+            android:layout_row="11"
             android:ems="10"
-            android:id="@+id/entrada6"
-            style="@android:style/Widget.DeviceDefault.EditText"/>
+            android:inputType="number|numberDecimal"
+            android:textColor="@color/white" />
 
         <TextView
-            android:text="Caudal correspondiente a la entrada del alimento a la zona:"
-            android:layout_width="179dp"
-            android:padding="10dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="fill_vertical"
             android:id="@+id/textView61"
-            android:layout_row="4"
+            android:layout_width="179dp"
+            android:layout_height="wrap_content"
             android:layout_column="0"
+            android:layout_gravity="fill_vertical"
+            android:layout_row="4"
+            android:padding="10dp"
+            android:text="Caudal correspondiente a la entrada del alimento en la zona:"
             android:textColor="@color/white" />
 
 
@@ -204,7 +203,6 @@
             android:layout_marginLeft="-155dp"
             android:layout_row="5"
             android:ems="10"
-            android:hint="Ej: 000"
             android:inputType="number|numberDecimal"
             android:textColor="@color/white" />
 
@@ -230,15 +228,15 @@
 
 
         <TextView
-            android:text="(L/s)"
-            android:layout_width="162dp"
-            android:layout_marginLeft="-95dp"
-            android:paddingTop="25dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="fill_vertical"
             android:id="@+id/tetVi6"
-            android:layout_row="8"
+            android:layout_width="162dp"
+            android:layout_height="wrap_content"
             android:layout_column="2"
+            android:layout_gravity="fill_vertical"
+            android:layout_marginLeft="-95dp"
+            android:layout_row="8"
+            android:paddingTop="25dp"
+            android:text="(°C)"
             android:textColor="@color/white" />
 
 
@@ -252,7 +250,6 @@
             android:layout_marginLeft="-155dp"
             android:layout_row="8"
             android:ems="10"
-            android:hint="Ej: 000"
             android:inputType="number|numberDecimal"
             android:textColor="@color/white" />
 
@@ -287,18 +284,6 @@
             android:textColor="@color/white" />
 
 
-        <TextView
-            android:text="N.A"
-            android:layout_width="162dp"
-            android:layout_marginLeft="-95dp"
-            android:paddingTop="25dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="fill_vertical"
-            android:id="@+id/tetV"
-            android:layout_row="5"
-            android:layout_column="2"
-            android:textColor="@color/white" />
-
         <EditText
             android:id="@+id/entrada5"
             style="@android:style/Widget.DeviceDefault.EditText"
@@ -309,13 +294,12 @@
             android:layout_marginLeft="-155dp"
             android:layout_row="9"
             android:ems="10"
-            android:hint="Ej: 000"
             android:inputType="number|numberDecimal"
             android:textColor="@color/white" />
 
         <TextView
             android:text="Coeficiente de incrustación para el fluido frío:"
-            android:layout_width="162dp"
+            android:layout_width="194dp"
             android:padding="10dp"
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical"
@@ -325,19 +309,8 @@
             android:textColor="@color/white" />
 
         <TextView
-            android:text="N.A."
-            android:layout_width="162dp"
-            android:layout_marginLeft="-95dp"
-            android:paddingTop="25dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="fill_vertical"
-            android:id="@+id/teti6"
-            android:layout_row="9"
-            android:layout_column="2"
-            android:textColor="@color/white" />
-        <TextView
             android:text="W/m^2 °C"
-            android:layout_width="162dp"
+            android:layout_width="match_parent"
             android:layout_marginLeft="-90dp"
             android:paddingTop="25dp"
             android:layout_height="wrap_content"
@@ -348,34 +321,33 @@
             android:textColor="@color/white" />
 
         <EditText
+            android:id="@+id/entradaSalvar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="-145dp"
-            android:textColor="@color/white"
-            android:hint="Ej. Practica1"
-            android:layout_row="13"
-            android:layout_gravity="fill_vertical"
             android:layout_column="1"
+            android:layout_gravity="fill_vertical"
+            android:layout_marginLeft="-145dp"
+            android:layout_row="13"
             android:ems="10"
-            android:id="@+id/entradaSalvar" />
+            android:textColor="@color/white" />
 
         <Button
-            android:text="Ver Tabla De Resultados"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/btnTabla"
-            android:layout_row="15"
-            android:layout_column="0"
-            style="@android:style/Widget.DeviceDefault.Button" />
-
-        <Button
-            android:text="Ver Gráfico XY"
+            style="@android:style/Widget.DeviceDefault.Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/btnGrafica"
-            android:layout_row="115"
             android:layout_column="0"
-            style="@android:style/Widget.DeviceDefault.Button" />
+            android:layout_row="15"
+            android:text="VER TABLA" />
+
+        <Button
+            android:id="@+id/btnGrafica"
+            style="@android:style/Widget.DeviceDefault.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_row="115"
+            android:text="GRAFICAR" />
 
         <TextView
             android:text="°C"
@@ -399,16 +371,15 @@
             style="@android:style/Widget.DeviceDefault.Button" />
 
         <EditText
+            android:id="@+id/entradaInforme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="-145dp"
-            android:textColor="@color/white"
-            android:hint="Ej. Informe1"
-            android:layout_row="14"
-            android:layout_gravity="fill_vertical"
             android:layout_column="1"
+            android:layout_gravity="fill_vertical"
+            android:layout_marginLeft="-145dp"
+            android:layout_row="14"
             android:ems="10"
-            android:id="@+id/entradaInforme" />
+            android:textColor="@color/white" />
 
 
     </GridLayout>

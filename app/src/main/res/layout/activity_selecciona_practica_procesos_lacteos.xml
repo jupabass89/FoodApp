@@ -8,8 +8,6 @@
     tools:context="com.example.juan.foodapp.controlador.SeleccionaTipoPracticaProcesosLacteosActivity"
     android:weightSum="1"
     >
-
-
     <ListView
         android:id="@+id/lv"
         android:layout_width="match_parent"
@@ -19,17 +17,5 @@
         >
 
     </ListView>
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginBottom="5dp"
-        android:text="Cerrar Sesión"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textColorLink="@color/white"
-        android:textSize="18sp"
-        android:onClick="onClick"
-        android:clickable="true"/>
 
 </LinearLayout>

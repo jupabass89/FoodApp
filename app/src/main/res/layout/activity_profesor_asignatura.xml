@@ -12,32 +12,33 @@
     tools:context="com.example.juan.foodapp.controlador.ProfesorAsignaturaActivity">
 
     <EditText
+        android:id="@+id/profesor"
+        style="@android:style/Widget.DeviceDefault.EditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/profesor"
-        android:textColor="@color/white"
-        android:textAlignment="center"
-        android:hint="Profesor"
-        style="@android:style/Widget.DeviceDefault.EditText"
-        android:layout_below="@+id/asignatura"
         android:layout_alignLeft="@+id/asignatura"
         android:layout_alignStart="@+id/asignatura"
-        android:layout_marginTop="14dp" />
+        android:layout_below="@+id/asignatura"
+        android:layout_marginTop="14dp"
+        android:ems="8"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        android:textColor="@color/white" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:ems="10"
+        android:ems="8"
         android:id="@+id/asignatura"
         android:textColor="@color/white"
         android:textAlignment="center"
-        android:hint="Asignatura"
         style="@android:style/Widget.DeviceDefault.EditText"
+        android:layout_marginRight="74dp"
+        android:layout_marginEnd="74dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
     <Button
         android:id="@+id/btnContinuar"
         android:layout_width="wrap_content"
@@ -45,8 +46,31 @@
         android:hint="@string/main.btnLogin.hint"
         style="@style/Widget.AppCompat.Button"
         android:text="Continuar"
+        android:layout_marginTop="31dp"
+        android:layout_marginLeft="34dp"
+        android:layout_marginStart="34dp"
         android:layout_below="@+id/profesor"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="12dp" />
+        android:layout_alignLeft="@+id/profesor"
+        android:layout_alignStart="@+id/profesor" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Asignatura:" android:textColor="@color/white"
+        android:layout_alignBaseline="@+id/asignatura"
+        android:layout_alignBottom="@+id/asignatura"
+        android:layout_toLeftOf="@+id/asignatura"
+        android:layout_toStartOf="@+id/asignatura" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Profesor:" android:textColor="@color/white"
+        android:layout_alignBaseline="@+id/profesor"
+        android:layout_alignBottom="@+id/profesor"
+        android:layout_alignRight="@+id/textView8"
+        android:layout_alignEnd="@+id/textView8" />
 
 </RelativeLayout>
