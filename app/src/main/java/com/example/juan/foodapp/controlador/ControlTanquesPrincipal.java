@@ -24,7 +24,7 @@ import com.example.juan.foodapp.modelo.serviciosPractica.Guia;
 import java.util.ArrayList;
 
 public class ControlTanquesPrincipal extends AppCompatActivity {
-    private  Context contexto;
+    private Context contexto;
     private ArrayList<Float> temperaturasDeCalentamiento;
     private ArrayList<Float> temperaturasEnfriamiento;
     private Object datos[];
@@ -40,44 +40,44 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
     private int contadorTiemposEnfriamiento;
 
     //Alimento
-    private  EditText txtNomAlim;
-    private  EditText txtCarb;
-    private  EditText txtCeniza;
-    private  EditText txtFibra;
-    private  EditText txtProtein;
-    private  EditText txtGrasa;
-    private  EditText txtViscosidad;
-    private  EditText txtVolumen;
-    private  EditText txtTempInicialAlimen;
+    private EditText txtNomAlim;
+    private EditText txtCarb;
+    private EditText txtCeniza;
+    private EditText txtFibra;
+    private EditText txtProtein;
+    private EditText txtGrasa;
+    private EditText txtViscosidad;
+    private EditText txtVolumen;
+    private EditText txtTempInicialAlimen;
 
     //Fluido de servicio
-    private  EditText txtEntradaFlui;
-    private  EditText txtSalidaFlui;
-    private  EditText txtFlujoMas;
+    private EditText txtEntradaFlui;
+    private EditText txtSalidaFlui;
+    private EditText txtFlujoMas;
 
     //Tanque
-    private  EditText txtAltProd;
-    private  EditText txtEspesor;
-    private  EditText txtDiamInter;
-    private  EditText txtDiameExt;
-    private  EditText txtConduc;
-    private  EditText txtIncrustac;
-    private  EditText txtTempChaqueta;
+    private EditText txtAltProd;
+    private EditText txtEspesor;
+    private EditText txtDiamInter;
+    private EditText txtDiameExt;
+    private EditText txtConduc;
+    private EditText txtIncrustac;
+    private EditText txtTempChaqueta;
 
     //Agitador
-    private  EditText txtAltAgit;
-    private  EditText txtDiamAgit;
-    private  EditText txtRps;
+    private EditText txtAltAgit;
+    private EditText txtDiamAgit;
+    private EditText txtRps;
 
     //Temperaturas de calientamiento input
     private EditText tempCalentamiento;
 
     //Temp de enfriamiento input
-    private  EditText tempEnfriamiento;
+    private EditText tempEnfriamiento;
 
     //Tiempos de calentamiento y de enfriamiento labels
-    private  TextView tiempoCalentamiento;
-    private  TextView tiempoEnfriamiento;
+    private TextView tiempoCalentamiento;
+    private TextView tiempoEnfriamiento;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,49 +86,49 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_vista_tanques_principal);
 
-         //Contadores para los tiempos textView de los inputs de las temperaturas
-          contadorTiemposCalentamiento=0;
-          contadorTiemposEnfriamiento=0;
+        //Contadores para los tiempos textView de los inputs de las temperaturas
+        contadorTiemposCalentamiento = 0;
+        contadorTiemposEnfriamiento = 0;
 
         //Alimento
-          txtNomAlim = (EditText) findViewById(R.id.campoNombreAlimento);
-           txtCarb = (EditText) findViewById(R.id.campoCarbohi);
-           txtCeniza = (EditText) findViewById(R.id.campoCeniza);
-           txtFibra = (EditText) findViewById(R.id.campoFibra);
-           txtProtein = (EditText) findViewById(R.id.campoProteina);
-           txtGrasa = (EditText) findViewById(R.id.campoGrasa);
-           txtViscosidad = (EditText) findViewById(R.id.campoVisco);
-           txtVolumen = (EditText) findViewById(R.id.campoVolumen);
-           txtTempInicialAlimen = (EditText) findViewById(R.id.campoTempIniciAlimento);
+        txtNomAlim = (EditText) findViewById(R.id.campoNombreAlimento);
+        txtCarb = (EditText) findViewById(R.id.campoCarbohi);
+        txtCeniza = (EditText) findViewById(R.id.campoCeniza);
+        txtFibra = (EditText) findViewById(R.id.campoFibra);
+        txtProtein = (EditText) findViewById(R.id.campoProteina);
+        txtGrasa = (EditText) findViewById(R.id.campoGrasa);
+        txtViscosidad = (EditText) findViewById(R.id.campoVisco);
+        txtVolumen = (EditText) findViewById(R.id.campoVolumen);
+        txtTempInicialAlimen = (EditText) findViewById(R.id.campoTempIniciAlimento);
 
         //Fluido de servicio
-           txtEntradaFlui = (EditText) findViewById(R.id.tempEntrFlu);
-           txtSalidaFlui = (EditText) findViewById(R.id.tempSaliFlu);
-           txtFlujoMas = (EditText) findViewById(R.id.flujoMasico);
+        txtEntradaFlui = (EditText) findViewById(R.id.tempEntrFlu);
+        txtSalidaFlui = (EditText) findViewById(R.id.tempSaliFlu);
+        txtFlujoMas = (EditText) findViewById(R.id.flujoMasico);
 
         //Tanque
-         txtAltProd = (EditText) findViewById(R.id.campoAltProd);
-         txtEspesor = (EditText) findViewById(R.id.campoEspesor);
-         txtDiamInter = (EditText) findViewById(R.id.campoDiamInt);
-         txtDiameExt = (EditText) findViewById(R.id.campoDiameExt);
-         txtConduc = (EditText) findViewById(R.id.campoConduc);
-         txtIncrustac = (EditText) findViewById(R.id.campoFactIncru);
-         txtTempChaqueta = (EditText) findViewById(R.id.campoTempChaqueta);
+        txtAltProd = (EditText) findViewById(R.id.campoAltProd);
+        txtEspesor = (EditText) findViewById(R.id.campoEspesor);
+        txtDiamInter = (EditText) findViewById(R.id.campoDiamInt);
+        txtDiameExt = (EditText) findViewById(R.id.campoDiameExt);
+        txtConduc = (EditText) findViewById(R.id.campoConduc);
+        txtIncrustac = (EditText) findViewById(R.id.campoFactIncru);
+        txtTempChaqueta = (EditText) findViewById(R.id.campoTempChaqueta);
 
         //Agitador
-           txtAltAgit = (EditText) findViewById(R.id.campoAltAgit);
-           txtDiamAgit = (EditText) findViewById(R.id.campoDiametroAgit);
-           txtRps = (EditText) findViewById(R.id.campoRps);
+        txtAltAgit = (EditText) findViewById(R.id.campoAltAgit);
+        txtDiamAgit = (EditText) findViewById(R.id.campoDiametroAgit);
+        txtRps = (EditText) findViewById(R.id.campoRps);
 
         //Temperaturas de calientamiento input
-           tempCalentamiento = (EditText) findViewById(R.id.tempCal);
+        tempCalentamiento = (EditText) findViewById(R.id.tempCal);
 
         //Temp de enfriamiento input
-           tempEnfriamiento = (EditText) findViewById(R.id.tempEnfri);
+        tempEnfriamiento = (EditText) findViewById(R.id.tempEnfri);
 
         //Tiempos de calentamiento y de enfriamiento labels
-           tiempoCalentamiento = (TextView) findViewById(R.id.tiempoCalentamiento);
-           tiempoEnfriamiento = (TextView) findViewById(R.id.tiempoEnfriamiento);
+        tiempoCalentamiento = (TextView) findViewById(R.id.tiempoCalentamiento);
+        tiempoEnfriamiento = (TextView) findViewById(R.id.tiempoEnfriamiento);
 
         //Configurando logo accion bar
         ActionBar ab = getSupportActionBar();
@@ -143,21 +143,21 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
         datosB = new ArrayList<>();
 
         //configurando metodo de entrada del teclado
+
         InputMethodManager teclado = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
         teclado.hideSoftInputFromWindow(tempCalentamiento.getWindowToken(), 0);  //ocultando teclado al dar ok
         teclado.hideSoftInputFromWindow(tempEnfriamiento.getWindowToken(), 0);   //ocultando teclado al dar ok
 
-        // Entradas de temperaturas al teclado
-        EventoTeclado eventoT = new EventoTeclado();
-        tempCalentamiento.setOnEditorActionListener(eventoT);
-        tempEnfriamiento.setOnEditorActionListener(eventoT);
+
+
 
         // configurando tipo de alimento
-        agua = (CheckBox)findViewById(R.id.esAgua);
+        agua = (CheckBox) findViewById(R.id.esAgua);
         agua.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (agua.isChecked()) {
+                    txtNomAlim.setEnabled(false);
                     txtCarb.setEnabled(false);
                     txtGrasa.setEnabled(false);
                     txtCeniza.setEnabled(false);
@@ -189,12 +189,11 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
         adapterIntervals.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerIntervalos.setAdapter(adapterIntervals);
         spinnerIntervalos.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String s = (String) spinnerIntervalos.getSelectedItem();
                 int i = Integer.parseInt(s);
-                intervaloTiempo =i;
+                intervaloTiempo = i;
             }
 
             @Override
@@ -203,23 +202,23 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
             }
         });
 
-     }
+        // Entradas de temperaturas al teclado
+                EventoTeclado eventoT = new EventoTeclado();
+                tempCalentamiento.setOnEditorActionListener(eventoT);
+                tempEnfriamiento.setOnEditorActionListener(eventoT);
+    }
 
-    //clase que se encarga de ejecutar el método de entrada de temperaturas mediante el imput metod manager (sin botón)
+    //Clase que se encarga de ejecutar el método de entrada de temperaturas mediante el imput metod manager (sin botón)
     public class EventoTeclado implements TextView.OnEditorActionListener {
         @Override
         public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-
-            if(actionId == EditorInfo.IME_ACTION_DONE){
-
-                int action = v.getId();
-
-                if(action== tempCalentamiento.getId()){
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                //int action = v.getId();
+                if (actionId == tempCalentamiento.getId()) {
                     ingresarTemperaturasCalentamiento(null);
-
-                    }else{
-                        if(action== tempEnfriamiento.getId()){
-                            ingresarTemperaturasEnfriamiento(null);
+                } else {
+                    if (actionId == tempEnfriamiento.getId()) {
+                        ingresarTemperaturasEnfriamiento(null);
                     }
                 }
             }
@@ -227,99 +226,98 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
         }
     }
 
-
-    public void ingresarTemperaturasCalentamiento(View view){
+    public void ingresarTemperaturasCalentamiento(View view) {
         String t = tempCalentamiento.getText().toString();
         Float f = Float.parseFloat(t);
-
-        if (f>78f){
-        if(f> temperaturasDeCalentamiento.get(temperaturasDeCalentamiento.size())) {
-            temperaturasDeCalentamiento.add(f);
-            contadorTiemposCalentamiento++;
-            tiempoCalentamiento.setText((contadorTiemposCalentamiento * intervaloTiempo)+" s");
-        }else{
-            mensaje("Debe ingresar una temperatura mayor a la anterior");
-        }
-        }else{
+        if (f > 78f) {
+            if (f > temperaturasDeCalentamiento.get(temperaturasDeCalentamiento.size())) {
+                temperaturasDeCalentamiento.add(f);
+                contadorTiemposCalentamiento++;
+                tiempoCalentamiento.setText((contadorTiemposCalentamiento * intervaloTiempo) + " s");
+                tempCalentamiento.setText("");
+            } else {
+                mensaje("Debe ingresar una temperatura mayor a la anterior");
+            }
+        } else{
             mensaje("Ha superado la temperatura límite");
-
         }
     }
 
-    public void ingresarTemperaturasEnfriamiento(View view){
+    public void ingresarTemperaturasEnfriamiento(View view) {
         String t = tempEnfriamiento.getText().toString();
         Float f = Float.parseFloat(t);
 
         //if(f<0)
-        if(f< temperaturasDeCalentamiento.get(temperaturasDeCalentamiento.size())) {
+        if (f < temperaturasDeCalentamiento.get(temperaturasDeCalentamiento.size())) {
             temperaturasEnfriamiento.add(f);
             contadorTiemposEnfriamiento++;
-            tiempoEnfriamiento.setText(contadorTiemposEnfriamiento * intervaloTiempo+" s");
-        }else{
+            tiempoEnfriamiento.setText(contadorTiemposEnfriamiento * intervaloTiempo + " s");
+            tempEnfriamiento.setText("");
+        } else {
             mensaje("Debe ingresar una temperatura menor a la anterior");
         }
     }
 
-    public void graficar (View view){
-               boolean control = false;
-                try{
-                    if(temperaturasEnfriamiento.size()==0){
-                        mensaje("Ingrese algunas temperaturas de calentamiento.");
-                        return;
-                    }
-                    if(temperaturasEnfriamiento.size()==0){
-                        mensaje("Ingrese algunas temperaturas de enfriamiento.");
-                        return;
-                    }
-                    if(!spinnerIntervalos.isSelected()){
-                        mensaje("Elija un intervalo de tiempo.");
-                        return;
-                    }
+    public void graficar(View view) {
+        boolean control = false;
+        try {
+            if (temperaturasEnfriamiento.size() == 0) {
+                mensaje("Ingrese algunas temperaturas de calentamiento.");
+                return;
+            }
+            if (temperaturasEnfriamiento.size() == 0) {
+                mensaje("Ingrese algunas temperaturas de enfriamiento.");
+                return;
+            }
+            if (!spinnerIntervalos.isSelected()) {
+                mensaje("Elija un intervalo de tiempo.");
+                return;
+            }
 
-                    datos[0] = agua.isChecked();
-                    datos[1] = temperaturasDeCalentamiento;
-                    datos[2] = temperaturasEnfriamiento;
-                    if(!agua.isChecked()){
-                        float porcentajes[] = new float[5];
-                        porcentajes[0] = Float.parseFloat(txtGrasa.getText().toString());
-                        porcentajes[1] = Float.parseFloat(txtProtein.getText().toString());
-                        porcentajes[2] = Float.parseFloat(txtFibra.getText().toString());
-                        porcentajes[3] = Float.parseFloat(txtCeniza.getText().toString());
-                        porcentajes[4] = Float.parseFloat(txtCarb.getText().toString());
-                        datos[7] = Float.parseFloat(txtViscosidad.getText().toString());
-                        datos[3] = porcentajes;
-                    }
-                    datos[4] = spinnerAgitador.getSelectedItemPosition();
-                    float agitador[] = {Float.parseFloat(txtAltAgit.getText().toString()),
-                            Float.parseFloat(txtDiamAgit.getText().toString()), Float.parseFloat(txtRps.getText().toString())};
+            datos[0] = agua.isChecked();
+            datos[1] = temperaturasDeCalentamiento;
+            datos[2] = temperaturasEnfriamiento;
+            if (!agua.isChecked()) {
+                float porcentajes[] = new float[5];
+                porcentajes[0] = Float.parseFloat(txtGrasa.getText().toString());
+                porcentajes[1] = Float.parseFloat(txtProtein.getText().toString());
+                porcentajes[2] = Float.parseFloat(txtFibra.getText().toString());
+                porcentajes[3] = Float.parseFloat(txtCeniza.getText().toString());
+                porcentajes[4] = Float.parseFloat(txtCarb.getText().toString());
+                datos[7] = Float.parseFloat(txtViscosidad.getText().toString());
+                datos[3] = porcentajes;
+            }
+            datos[4] = spinnerAgitador.getSelectedItemPosition();
+            float agitador[] = {Float.parseFloat(txtAltAgit.getText().toString()),
+                    Float.parseFloat(txtDiamAgit.getText().toString()), Float.parseFloat(txtRps.getText().toString())};
 
-                    datos[5] = agitador;
-                    float tanque[] = {Float.parseFloat(txtAltProd.getText().toString()),Float.parseFloat(txtEspesor.getText().toString()),
-                            Float.parseFloat(txtDiamInter.getText().toString()),Float.parseFloat(txtDiameExt.getText().toString()),
-                            0,Float.parseFloat(txtTempChaqueta.getText().toString()),Float.parseFloat(txtConduc.getText().toString()),
-                            Float.parseFloat(txtIncrustac.getText().toString())};
-                    datos[6] = tanque;
+            datos[5] = agitador;
+            float tanque[] = {Float.parseFloat(txtAltProd.getText().toString()), Float.parseFloat(txtEspesor.getText().toString()),
+                    Float.parseFloat(txtDiamInter.getText().toString()), Float.parseFloat(txtDiameExt.getText().toString()),
+                    0, Float.parseFloat(txtTempChaqueta.getText().toString()), Float.parseFloat(txtConduc.getText().toString()),
+                    Float.parseFloat(txtIncrustac.getText().toString())};
+            datos[6] = tanque;
 
-                    datos[8] = Float.parseFloat(txtTempInicialAlimen.getText().toString());
-                    datos[9] = Float.parseFloat(txtVolumen.getText().toString());
-                    datos[10] = Float.parseFloat(txtEntradaFlui.getText().toString());
-                    datos[11] = Float.parseFloat(txtSalidaFlui.getText().toString());
-                    datos[12] = Float.parseFloat(txtFlujoMas.getText().toString());
+            datos[8] = Float.parseFloat(txtTempInicialAlimen.getText().toString());
+            datos[9] = Float.parseFloat(txtVolumen.getText().toString());
+            datos[10] = Float.parseFloat(txtEntradaFlui.getText().toString());
+            datos[11] = Float.parseFloat(txtSalidaFlui.getText().toString());
+            datos[12] = Float.parseFloat(txtFlujoMas.getText().toString());
 
-                }catch (Exception e){
-                    mensaje("Faltan campos por llenar.");
-                    control = true;
-                }
-                if(!control){
-                    datosB.add(datos);
-                    Intent intencion = new Intent(contexto,GraficaTanqueActivity.class);
-                    intencion.putExtra("datos", datosB);
-                    startActivity(intencion);
-                }
+        } catch (Exception e) {
+            mensaje("Faltan campos por llenar.");
+            control = true;
+        }
+        if (!control) {
+            datosB.add(datos);
+            Intent intencion = new Intent(contexto, GraficaTanqueActivity.class);
+            intencion.putExtra("datos", datosB);
+            startActivity(intencion);
+        }
     }
 
-    private void mensaje(String mensaje){
-        Toast.makeText(this,mensaje,Toast.LENGTH_LONG).show();
+    private void mensaje(String mensaje) {
+        Toast.makeText(this, mensaje, Toast.LENGTH_LONG).show();
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -341,6 +339,7 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
         }
         return (true);
     }
+}
 /*
     //Temperaturas de calentamient
     final EditText txtTempcal1 = (EditText)findViewById(R.id.tempCal1);
@@ -367,7 +366,6 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
     final EditText txtTempEnfri10 = (EditText)findViewById(R.id.tempEnfri10);
 */
     //Tiempos temperaturas Calentamiento
-
         /*
         final TextView txtTempCalenta1 = (TextView)findViewById(R.id.tempCalentam1);
         final TextView txtTempCalenta2 = (TextView)findViewById(R.id.tempCalentam2);
@@ -379,11 +377,8 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
         final TextView txtTempCalenta8 = (TextView)findViewById(R.id.tempCalentam8);
         final TextView txtTempCalenta9 = (TextView)findViewById(R.id.tempCalentam9);
         final TextView txtTempCalenta10 = (TextView)findViewById(R.id.tempCalentam10);
-
         */
-
         /*
-
         //Tiempos temperaturas enfriamiento
         final TextView txtTempEnfria1 = (TextView) findViewById(R.id.tempEnfria1);
         final TextView txtTempEnfria2 = (TextView)findViewById(R.id.tempEnfria2);
@@ -395,7 +390,6 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
         final TextView txtTempEnfria8 = (TextView)findViewById(R.id.tempEnfria8);
         final TextView txtTempEnfria9 = (TextView)findViewById(R.id.tempEnfria9);
         final TextView txtTempEnfria10 = (TextView)findViewById(R.id.tempEnfria10);
-
         */
 /*
         //Botón para calcular
@@ -405,9 +399,7 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
             public void onClick(View view) {
                 //Acciones al darle click
 
-
-
-                boolean control = false;
+               boolean control = false;
                 try{
                     if(temperaturasEnfriamiento.size()==0){
                         mensaje("Ingrese algunas temperaturas de calentamiento.");
@@ -460,14 +452,11 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
                 }
             }
         });
-
-
         //Botón temperaturas calentamieno
         tempCalentamientoButton = (Button)findViewById(R.id.btnTempsCal);
         tempCalentamientoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 String [] temperaturas = new String[10];
                 temperaturas[0] = txtTempcal1.getText().toString();
                 temperaturas[1] = txtTempcal2.getText().toString();
@@ -515,7 +504,6 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
                 txtTempCalenta8.setText(""+(tiempoTempCalenta+7)*60+"s");
                 txtTempCalenta9.setText(""+(tiempoTempCalenta+8)*60+"s");
                 txtTempCalenta10.setText(""+(tiempoTempCalenta+9)*60+"s");
-
                 if(temperaturasDeCalentamiento.size()>40){
                     tempCalentamientoButton.setEnabled(false);
                 }
@@ -523,8 +511,6 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
 
             }
         });
-
-
 
         //Botón temperaturas enfriamiento
         tempEnfriamientoButton = (Button)findViewById(R.id.btnTempsEnfri);
@@ -546,7 +532,6 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
                 for (int i = 0; i <temperaturas.length ; i++) {
                     if(temperaturas[i].compareTo("")==0){
                         mensaje("Faltan campos en temperaturas por llenar.");
-
                         return;
                     }
                     else if(i>0){
@@ -559,7 +544,6 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
                 for (int i = 0; i <temperaturas.length ; i++) {
                     temperaturasEnfriamiento.add(Float.parseFloat(temperaturas[i]));
                     Toast.makeText(contexto,temperaturasEnfriamiento.get(i)+"",Toast.LENGTH_LONG);
-
                 }
                 mensaje("Ingrese las siguientes temperaturas de calentamiento");
                 txtTempEnfri1.setText("");
@@ -588,8 +572,6 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
                 tiempoTempEnfria+=10;
             }
         });
-
-
         agua = (CheckBox)findViewById(R.id.esAgua);
         agua.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -616,4 +598,3 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
         });
     }*/
 
-}

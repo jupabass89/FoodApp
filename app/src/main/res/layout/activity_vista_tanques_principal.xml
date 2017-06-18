@@ -77,8 +77,6 @@
             android:textStyle="normal|bold"
             android:textSize="18sp" />
 
-
-
         <TextView
             android:text="Temperaturas de calentamiento:"
             android:layout_width="match_parent"
@@ -774,6 +772,7 @@
             android:id="@+id/tempCal"
             style="@android:style/Widget.DeviceDefault.EditText"
             android:layout_width="89dp"
+            android:imeOptions="actionDone"
             android:layout_height="wrap_content"
             android:layout_column="1"
             android:layout_gravity="fill_vertical"
