@@ -747,6 +747,7 @@
             android:layout_width="83dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="-165dp"
+            android:imeOptions="actionDone"
             android:textColor="@color/white"
             android:inputType="number|numberDecimal"
             android:layout_row="44"

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,6 +23,7 @@ import android.widget.Toast;
 import com.example.juan.foodapp.R;
 import com.example.juan.foodapp.modelo.serviciosPractica.Guia;
 import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 public class ControlTanquesPrincipal extends AppCompatActivity {
     private Context contexto;
@@ -78,6 +80,8 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
     //Tiempos de calentamiento y de enfriamiento labels
     private TextView tiempoCalentamiento;
     private TextView tiempoEnfriamiento;
+
+    private InputMethodManager teclado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -143,13 +147,9 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
         datosB = new ArrayList<>();
 
         //configurando metodo de entrada del teclado
-
-        InputMethodManager teclado = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+        teclado = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
         teclado.hideSoftInputFromWindow(tempCalentamiento.getWindowToken(), 0);  //ocultando teclado al dar ok
         teclado.hideSoftInputFromWindow(tempEnfriamiento.getWindowToken(), 0);   //ocultando teclado al dar ok
-
-
-
 
         // configurando tipo de alimento
         agua = (CheckBox) findViewById(R.id.esAgua);
@@ -195,7 +195,6 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
                 int i = Integer.parseInt(s);
                 intervaloTiempo = i;
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
@@ -213,12 +212,14 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
         @Override
         public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
             if (actionId == EditorInfo.IME_ACTION_DONE) {
-                //int action = v.getId();
-                if (actionId == tempCalentamiento.getId()) {
+                int action = v.getId();
+                if (action == tempCalentamiento.getId()) {
                     ingresarTemperaturasCalentamiento(null);
-                } else {
-                    if (actionId == tempEnfriamiento.getId()) {
+
+               } else {
+                    if (action == tempEnfriamiento.getId()) {
                         ingresarTemperaturasEnfriamiento(null);
+
                     }
                 }
             }
@@ -227,34 +228,51 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
     }
 
     public void ingresarTemperaturasCalentamiento(View view) {
+
         String t = tempCalentamiento.getText().toString();
-        Float f = Float.parseFloat(t);
-        if (f > 78f) {
-            if (f > temperaturasDeCalentamiento.get(temperaturasDeCalentamiento.size())) {
+        float f = Float.parseFloat(t);
+        if (f < 78f) {
+            if (temperaturasDeCalentamiento.isEmpty()) {
                 temperaturasDeCalentamiento.add(f);
-                contadorTiemposCalentamiento++;
-                tiempoCalentamiento.setText((contadorTiemposCalentamiento * intervaloTiempo) + " s");
-                tempCalentamiento.setText("");
             } else {
-                mensaje("Debe ingresar una temperatura mayor a la anterior");
+                float last = temperaturasDeCalentamiento.get(temperaturasDeCalentamiento.size()-1);
+                if (f > last) {
+                    temperaturasDeCalentamiento.add(f);
+                    contadorTiemposCalentamiento++;
+                    tiempoCalentamiento.setText((contadorTiemposCalentamiento * intervaloTiempo) + " s");
+                    tempCalentamiento.setText("");
+                    mensaje("Ingrese la siguiente temperatura");
+                } else {
+                    mensaje("Debe ingresar una temperatura mayor a la anterior");
+                }
             }
-        } else{
-            mensaje("Ha superado la temperatura límite");
+        }else{
+                mensaje("Ha superado la temperatura de calentamiento límite");
+            }
         }
-    }
+
 
     public void ingresarTemperaturasEnfriamiento(View view) {
-        String t = tempEnfriamiento.getText().toString();
-        Float f = Float.parseFloat(t);
 
-        //if(f<0)
-        if (f < temperaturasDeCalentamiento.get(temperaturasDeCalentamiento.size())) {
-            temperaturasEnfriamiento.add(f);
-            contadorTiemposEnfriamiento++;
-            tiempoEnfriamiento.setText(contadorTiemposEnfriamiento * intervaloTiempo + " s");
-            tempEnfriamiento.setText("");
-        } else {
-            mensaje("Debe ingresar una temperatura menor a la anterior");
+        String t = tempEnfriamiento.getText().toString();
+        float f = Float.parseFloat(t);
+        if (f > 0f && f<78f) {
+            if (temperaturasEnfriamiento.isEmpty()) {
+                temperaturasEnfriamiento.add(f);
+            } else {
+                float last = temperaturasEnfriamiento.get(temperaturasEnfriamiento.size()-1);
+                if (f < last) {
+                    temperaturasEnfriamiento.add(f);
+                    contadorTiemposEnfriamiento++;
+                    tiempoEnfriamiento.setText((contadorTiemposEnfriamiento * intervaloTiempo) + " s");
+                    tempEnfriamiento.setText("");
+                    mensaje("Ingrese la siguiente temperatura");
+                } else {
+                    mensaje("Debe ingresar una temperatura menor a la anterior");
+                }
+            }
+        }else{
+            mensaje("Ha superado la temperatura de enfriamiento límite");
         }
     }
 
@@ -267,10 +285,6 @@ public class ControlTanquesPrincipal extends AppCompatActivity {
             }
             if (temperaturasEnfriamiento.size() == 0) {
                 mensaje("Ingrese algunas temperaturas de enfriamiento.");
-                return;
-            }
-            if (!spinnerIntervalos.isSelected()) {
-                mensaje("Elija un intervalo de tiempo.");
                 return;
             }
 
