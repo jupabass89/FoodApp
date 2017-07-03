@@ -25,13 +25,15 @@
         style="@android:style/Widget.DeviceDefault.EditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/userMail"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="63dp"
         android:ems="8"
         android:inputType="textPersonName"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:layout_above="@+id/userMail"
-        android:layout_centerHorizontal="true" />
+        android:textColorHighlight="@android:color/holo_orange_light"
+        android:textColorLink="@android:color/holo_orange_light" />
 
     <EditText
         android:id="@+id/profesor"

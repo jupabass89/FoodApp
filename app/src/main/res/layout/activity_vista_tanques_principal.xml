@@ -103,19 +103,8 @@
             android:paddingTop="9dp"
             android:textStyle="normal|bold"
             android:textSize="18sp" />
-        <TextView
-            android:text="Opciones:"
-            android:layout_width="match_parent"
-            android:background="@color/oscuro"
-            android:layout_height="45dp"
-            android:layout_row="54"
-            android:layout_column="0"
-            android:textColor="@color/white"
-            android:textAlignment="center"
-            android:paddingTop="9dp"
-            android:textStyle="normal|bold"
-            android:textSize="18sp" />
-        <TextView
+
+         <TextView
             android:text="Fluido de servicio:"
             android:layout_width="match_parent"
             android:background="@color/oscuro"
@@ -150,6 +139,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical"
             android:id="@+id/tehfgxtVi6"
+            android:textAlignment="center"
             android:layout_row="8"
             android:layout_column="2"
             android:textColor="@color/white" />
@@ -161,7 +151,7 @@
             android:layout_gravity="fill_vertical"
             android:layout_marginLeft="-95dp"
             android:layout_row="11"
-
+            android:textAlignment="center"
             android:paddingTop="11dp"
             android:text="°C"
             android:textColor="@color/white" />
@@ -173,6 +163,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical"
             android:layout_row="9"
+            android:textAlignment="center"
             android:layout_column="2"
             android:textColor="@color/white" />
 
@@ -180,6 +171,7 @@
             android:layout_width="162dp"
             android:layout_height="wrap_content"
             android:layout_column="2"
+            android:textAlignment="center"
             android:layout_gravity="fill_vertical"
             android:layout_marginLeft="-95dp"
             android:layout_row="10"
@@ -192,6 +184,7 @@
             android:layout_height="wrap_content"
             android:layout_column="2"
             android:layout_gravity="fill_vertical"
+            android:textAlignment="center"
             android:layout_marginLeft="-95dp"
             android:layout_row="14"
             android:paddingTop="11dp"
@@ -205,6 +198,7 @@
             android:layout_marginLeft="-95dp"
             android:layout_row="23"
             android:paddingTop="11dp"
+            android:textAlignment="center"
             android:text="°C"
             android:textColor="@color/white" />
 
@@ -216,6 +210,7 @@
             android:layout_marginLeft="-95dp"
             android:layout_row="13"
             android:paddingTop="11dp"
+            android:textAlignment="center"
             android:text="°C"
             android:textColor="@color/white" />
 
@@ -225,6 +220,7 @@
             android:layout_column="2"
             android:layout_gravity="fill_vertical"
             android:layout_marginLeft="-95dp"
+            android:textAlignment="center"
             android:layout_row="15"
             android:paddingTop="11dp"
             android:text="(kg/s)"
@@ -237,6 +233,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical"
             android:layout_row="18"
+            android:textAlignment="center"
             android:layout_column="2"
             android:textColor="@color/white" />
         <TextView
@@ -244,8 +241,10 @@
             android:layout_width="162dp"
             android:layout_marginLeft="-95dp"
             android:paddingTop="11dp"
+
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical"
+            android:textAlignment="center"
             android:layout_row="17"
             android:layout_column="2"
             android:textColor="@color/white" />
@@ -256,6 +255,7 @@
             android:paddingTop="11dp"
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical"
+            android:textAlignment="center"
             android:layout_row="20"
             android:layout_column="2"
             android:textColor="@color/white" />
@@ -268,6 +268,7 @@
             android:layout_gravity="fill_vertical"
             android:layout_row="19"
             android:layout_column="2"
+            android:textAlignment="center"
             android:textColor="@color/white" />
 
         <TextView
@@ -276,6 +277,7 @@
             android:layout_column="2"
             android:layout_gravity="fill_vertical"
             android:layout_marginLeft="-95dp"
+            android:textAlignment="center"
             android:layout_row="21"
             android:paddingTop="11dp"
             android:text="W/m°C"
@@ -287,6 +289,7 @@
             android:layout_column="2"
             android:layout_gravity="fill_vertical"
             android:layout_marginLeft="-95dp"
+            android:textAlignment="center"
             android:layout_row="22"
             android:paddingTop="11dp"
             android:text="(Constante)"
@@ -298,6 +301,7 @@
             android:paddingTop="11dp"
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical"
+            android:textAlignment="center"
             android:layout_row="27"
             android:layout_column="2"
             android:textColor="@color/white" />
@@ -306,6 +310,7 @@
             android:layout_width="162dp"
             android:layout_marginLeft="-95dp"
             android:paddingTop="11dp"
+            android:textAlignment="center"
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical"
             android:layout_row="28"
@@ -318,6 +323,7 @@
             android:paddingTop="11dp"
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical"
+            android:textAlignment="center"
             android:layout_row="29"
             android:layout_column="2"
             android:textColor="@color/white" />
@@ -331,18 +337,21 @@
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical"
             android:layout_row="32"
+            android:textAlignment="center"
             android:layout_column="2"
             android:textColor="@color/white" />
+
         <TextView
-            android:text="0s"
             android:id="@+id/tiempoCalentamiento"
-            android:layout_width="162dp"
-            android:layout_marginLeft="-115dp"
-            android:paddingTop="11dp"
+            android:layout_width="179dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="fill_vertical"
-            android:layout_row="33"
             android:layout_column="2"
+            android:layout_gravity="fill_vertical"
+            android:layout_marginLeft="-115dp"
+            android:textAlignment="center"
+            android:layout_row="33"
+            android:paddingTop="11dp"
+            android:text="0s"
             android:textColor="@color/white" />
 
         <TextView
@@ -352,6 +361,7 @@
             android:layout_column="2"
             android:layout_gravity="fill_vertical"
             android:layout_marginLeft="-115dp"
+            android:textAlignment="center"
             android:layout_row="44"
             android:paddingTop="11dp"
             android:text="0s"
@@ -362,8 +372,9 @@
         <TextView
             android:text="%"
             android:layout_width="162dp"
-            android:layout_marginLeft="-115dp"
+            android:layout_marginLeft="-95dp"
             android:paddingTop="11dp"
+            android:textAlignment="center"
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical"
             android:id="@+id/texsdftVi6"
@@ -373,7 +384,8 @@
         <TextView
             android:text="%"
             android:layout_width="162dp"
-            android:layout_marginLeft="-115dp"
+            android:layout_marginLeft="-95dp"
+            android:textAlignment="center"
             android:paddingTop="11dp"
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical"
@@ -384,8 +396,9 @@
         <TextView
             android:text="%"
             android:layout_width="162dp"
-            android:layout_marginLeft="-115dp"
+            android:layout_marginLeft="-95dp"
             android:paddingTop="11dp"
+            android:textAlignment="center"
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical"
             android:id="@+id/textVhdfi6"
@@ -395,7 +408,8 @@
         <TextView
             android:text="%"
             android:layout_width="162dp"
-            android:layout_marginLeft="-115dp"
+            android:layout_marginLeft="-95dp"
+            android:textAlignment="center"
             android:paddingTop="11dp"
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical"
@@ -410,18 +424,23 @@
             style="@android:style/Widget.DeviceDefault.EditText"
             android:layout_width="83dp"
             android:layout_height="wrap_content"
+            android:textAlignment="center"
             android:layout_column="1"
             android:layout_gravity="fill_vertical"
             android:layout_marginLeft="-165dp"
             android:layout_row="3"
             android:ems="10"
+            android:focusable="?attr/isLightTheme"
             android:textColor="@color/white"
-            android:textSize="14sp" />
+            android:textColorLink="@android:color/holo_orange_light"
+            android:textSize="14sp"
+            tools:textColorLink="@android:color/holo_orange_light" />
 
         <TextView
             android:text="Proteína:"
             android:layout_width="179dp"
             android:padding="10dp"
+
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical"
             android:id="@+id/textVhjiew61"
@@ -745,7 +764,7 @@
 
         <EditText
             android:layout_width="83dp"
-            android:layout_height="wrap_content"
+            android:layout_height="23dp"
             android:layout_marginLeft="-165dp"
             android:imeOptions="actionDone"
             android:textColor="@color/white"
@@ -933,14 +952,14 @@
             android:layout_row="26"
             android:layout_column="0"
             android:textColor="@color/white" />
+
         <Spinner
-            android:layout_width="129dp"
-            android:layout_marginLeft="-185dp"
-            android:layout_height="wrap_content"
             android:id="@+id/spinner_agitador"
-            android:layout_row="26"
+            android:layout_width="129dp"
+            android:layout_height="wrap_content"
             android:layout_column="1"
-            />
+            android:layout_marginLeft="-185dp"
+            android:layout_row="26" />
         <TextView
             android:text="Altura:"
             android:layout_width="179dp"
@@ -983,7 +1002,7 @@
 
         <TextView
             android:text="Temperatura: "
-            android:layout_width="179dp"
+            android:layout_width="150dp"
             android:padding="10dp"
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical"
@@ -991,25 +1010,9 @@
             android:layout_column="0"
             android:textColor="@color/white" />
 
-        <Button
-            android:text="Salvar datos"
-            android:layout_width="174dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnSalvarDatos"
-            android:layout_row="56"
-            android:layout_column="0"
-            style="@android:style/Widget.DeviceDefault.Button" />
 
-        <EditText
-            android:id="@+id/entradaSalvarTanque"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:layout_gravity="fill_vertical"
-            android:layout_marginLeft="-145dp"
-            android:layout_row="56"
-            android:ems="10"
-            android:textColor="@color/white" />
+
+
 
         <Button
             android:id="@+id/graficar"
